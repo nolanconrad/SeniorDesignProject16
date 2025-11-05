@@ -24,6 +24,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(greenledPin, OUTPUT);
   pinMode(redledPin, OUTPUT);
+  Serial.println("THIS IS A TEST.`");
 }
 
 void loop() {
