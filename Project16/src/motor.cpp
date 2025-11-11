@@ -8,9 +8,12 @@
 
 void setup() {
   pinMode(IN1, OUTPUT);
-  digitalWrite(IN1, HIGH);   // full ON
-  delay(10000);
-  digitalWrite(IN1, LOW);
 }
 
-void loop() { /* nothing */ }
+void loop() {
+  digitalWrite(IN1, HIGH);   // full ON
+  Serial.println("Motor ON for 5 seconds");
+  delay(5000);
+  digitalWrite(IN1, LOW);
+  Serial.println("Motor OFF for 5 seconds"); 
+}
