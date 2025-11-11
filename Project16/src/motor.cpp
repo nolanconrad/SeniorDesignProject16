@@ -1,19 +1,24 @@
-// DRV8871 one-direction sanity test
-// Wire ESP32 GPIO25 → DRV8871 IN1
-// Tie DRV8871 IN2 → GND
-// Make sure VM (battery +) is on DRV8871 VM, and grounds are common.
-#include <arduino.h>
-#include <math.h>
-#define IN1 18
+// DRV8871 ON/OFF (no PWM)
+// IN1 on GPIO18, IN2 tied to GND
+
+#include <Arduino.h>
+constexpr int IN1_PIN = 18;
 
 void setup() {
-  pinMode(IN1, OUTPUT);
+  Serial.begin(115200);
+  pinMode(IN1_PIN, OUTPUT);
+  digitalWrite(IN1_PIN, LOW);   // start OFF
+  Serial.println("Ready: motor OFF");
 }
 
 void loop() {
-  digitalWrite(IN1, HIGH);   // full ON
-  Serial.println("Motor ON for 5 seconds");
-  delay(5000);
-  digitalWrite(IN1, LOW);
-  Serial.println("Motor OFF for 5 seconds"); 
+  // Turn ON
+  digitalWrite(IN1_PIN, HIGH);
+  Serial.println("Motor ON");
+  delay(3000);                  // ON for 3 seconds
+
+  // Turn OFF
+  digitalWrite(IN1_PIN, LOW);
+  Serial.println("Motor OFF");
+  delay(3000);                  // OFF for 3 seconds
 }
