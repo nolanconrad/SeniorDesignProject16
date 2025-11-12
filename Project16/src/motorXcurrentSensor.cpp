@@ -6,6 +6,11 @@
 
 constexpr int IN1_PIN     = 23;     // <-- change to your IN1 GPIO if needed
 constexpr int CURRENT_PIN = 32;     // ACS712 OUT -> GPIO32 (ADC1)
+// Voltage divider input (OUT -> Rtop 100k -> DIV_PIN -> Rbot 68k -> GND)
+constexpr int DIV_PIN     = 18;     // D18 / GPIO18 (voltage divider)
+constexpr float R_TOP     = 100000.0f; // ohms
+constexpr float R_BOT     = 68000.0f;  // ohms
+constexpr float DIV_MULT  = (R_TOP + R_BOT) / R_BOT; // multiplier to recover Vin from Vout (~2.470588)
 constexpr float VREF      = 3.3;    // ESP32 ADC reference
 constexpr float ADC_MAX   = 4095.0; // 12-bit ADC
 constexpr float SENSITIVITY = 0.066; // V/A (0.185 for 5A, 0.100 for 20A, 0.066 for 30A)
@@ -15,6 +20,18 @@ float v_zero = 2.5f; // will be calibrated at startup
 float readVoltage() {
   int adc = analogRead(CURRENT_PIN);
   return (adc / ADC_MAX) * VREF;
+}
+
+// Read the voltage at the ADC pin after the divider (Vout)
+float readDividerVout() {
+  int adc = analogRead(DIV_PIN);
+  return (adc / ADC_MAX) * VREF;
+}
+
+// Recover the original Vin before the divider
+float readDividerVin() {
+  float vout = readDividerVout();
+  return vout * DIV_MULT;
 }
 
 float readCurrent() {
