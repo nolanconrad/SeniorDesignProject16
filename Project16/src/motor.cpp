@@ -2,7 +2,7 @@
 // IN1 on GPIO18, IN2 tied to GND
 
 #include <Arduino.h>
-constexpr int IN1_PIN = 18;
+constexpr int IN1_PIN = 23;
 
 void setup() {
   Serial.begin(115200);
