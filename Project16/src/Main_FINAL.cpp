@@ -42,6 +42,11 @@ const uint32_t currentCheck_MS = 3000;   // 3 s
 const uint32_t alarmCheck_MS = 4000;   // 4 s
 const uint32_t motorCheck_MS = 5000; // 5 s
 
+boolean motorState = false; // false = OFF, true = ON
+boolean alarmState = false; // false = OFF, true = ON
+
+float currentValue = 0.0; // to store current reading
+
 void setup() {
   Serial.begin(115200);  
   // Initialize LCD (16 columns, 2 rows)
@@ -66,10 +71,11 @@ void setup() {
 }
 
 void tempCheck_task() {
-  Serial.print("TEMPERATURE CHECK");
+  Serial.print("TEMPERATURE CHECK \n");
   sensors.requestTemperatures();               // start conversion
+  float c = 0;
   for (int i = 0; i < sensors.getDeviceCount(); i++) {
-    float c = sensors.getTempCByIndex(i);      // read each device
+    c = sensors.getTempCByIndex(i);      // read each device
     Serial.print("Sensor ");
     String line = "T" + String(i+1) + " = " + String(c, 2) + " C"; //might need to fix this line
     printLine(0, line);
@@ -78,10 +84,17 @@ void tempCheck_task() {
     Serial.print(c);
     Serial.println(" °C");
   }
+  
+  //this turns on the motor if temp is above threshold
+  if(c >= 99){
+    motorState = true;
+  } else {
+    motorState = false;
+  }
 } 
 
 void lcdPrintTask() {
-  Serial.print("LCD UPDATE");
+  Serial.print("LCD UPDATE START\n");
   /// LCD STATUS UPDATE ///
   static uint32_t last = 0;
   static bool toggle = false;
@@ -99,41 +112,61 @@ void lcdPrintTask() {
     printLine(0, "Pump: STANDBY   ");
     printLine(1, "System: IDLE    ");
   }
+  
+  Serial.print("LCD UPDATE STOP\n");
 }
 
 void currentCheck_task() {
-  Serial.print("CURRENT CHECK");
+  Serial.print("CURRENT CHECK START\n");
   int adcValue = analogRead(sensorPin);
   float voltage = (adcValue / adcMax) * vRef;
-  float current = (voltage - zeroOffset) / sensitivity;  // in Amps
+  float currentValue = (voltage - zeroOffset) / sensitivity;  // in Amps
 
   Serial.print("Current: ");
-  Serial.print(current, 3);   // 3 decimal places
+  Serial.print(currentValue, 3);   // 3 decimal places
   Serial.println(" A");
 }
+  //turns alarm on/off based on current
+
 
 void alarmCheck_task() {
-  Serial.print("ALARM CHECK");
-    // turn buzzer ON
-  digitalWrite(BUZZ_SW, HIGH);
-  delay(1000);
+  Serial.print("ALARM CHECK START\n");
+  if (currentValue >= 10.0) { //threshold current for alarm
+      alarmState = true;
+    } else {
+      alarmState = false;  
+  }
 
-  // turn buzzer OFF
-  digitalWrite(BUZZ_SW, LOW);
-  delay(1000);
+  if (alarmState) {
+    Serial.print("ALARM ON \n");
+    digitalWrite(BUZZ_SW, HIGH);
+    delay(1000);
+    digitalWrite(BUZZ_SW, LOW);
+    delay(500); //debounce
+  } else {
+    Serial.print("ALARM OFF \n");
+    // turn buzzer OFF
+    digitalWrite(BUZZ_SW, LOW);
+    delay(1000);
+  }
+  
+  Serial.print("ALARM CHECK STOP\n");
 }
 
+//
 void motorCheck_task(){
-  Serial.print("MOTOR CHECK");
-  // Turn ON
-  digitalWrite(IN1_PIN, HIGH);
-  Serial.println("Motor ON");
-  delay(3000);                  // ON for 3 seconds
+  Serial.print("MOTOR CHECK START\n"); //logging start to console
 
-  // Turn OFF
-  digitalWrite(IN1_PIN, LOW);
-  Serial.println("Motor OFF");
-  delay(3000);  
+  //control motor based on motorState boolean from tempCheck_task
+  if (motorState) {
+    digitalWrite(IN1_PIN, HIGH);
+    Serial.println("Motor ON");
+  } else {
+    digitalWrite(IN1_PIN, LOW);
+    Serial.println("Motor OFF");
+  }
+
+  Serial.print("MOTOR CHECK STOP\n"); //logging end to console
 }
 
 void loop() {
@@ -142,5 +175,4 @@ void loop() {
   if (currentCheck_timer >= currentCheck_MS) { currentCheck_timer = 0; currentCheck_task(); }
   if (alarmCheck_timer >= alarmCheck_MS) { alarmCheck_timer = 0; alarmCheck_task(); }
   if (motorCheck_timer >= motorCheck_MS) { motorCheck_timer = 0; motorCheck_task(); }
-
 }
