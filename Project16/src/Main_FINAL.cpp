@@ -24,7 +24,7 @@ const float vRef = 3.3;           // ESP32 ADC reference voltage
 const float zeroOffset = 2.5;     // No-current output voltage (V)
 
 //alarm buzzer setup
-const int BUZZ_SW = 25; // the transistor/MOSFET control pin
+const int BUZZ_SW = 18; // the transistor/MOSFET control pin
 
 
 // Print text to a specific row (no padding/trimming)
@@ -49,6 +49,10 @@ float currentValue = 0.0; // to store current reading
 
 void setup() {
   Serial.begin(115200);  
+  // 🔧 Initialize the DallasTemperature library
+  sensors.begin(); 
+  // If you're NOT using parasitic power, make sure this says false (normal mode)
+  sensors.setWaitForConversion(false); // non-blocking mode
   // Initialize LCD (16 columns, 2 rows)
   lcd.begin(16, 2);
   lcd.clear();
@@ -73,24 +77,38 @@ void setup() {
 void tempCheck_task() {
   Serial.print("TEMPERATURE CHECK \n");
   sensors.requestTemperatures();               // start conversion
-  float c = 0;
-  for (int i = 0; i < sensors.getDeviceCount(); i++) {
-    c = sensors.getTempCByIndex(i);      // read each device
+  float c1 = 0;
+  float c2 = 0;
+  Serial.print("Number of sensors: ");
+  Serial.println(sensors.getDeviceCount());
+  int i = sensors.getDeviceCount();
+  c2 = sensors.getTempCByIndex(i-1);      // read each device
+  c1 = sensors.getTempCByIndex(i-2);      // read each device
     Serial.print("Sensor ");
-    String line = "T" + String(i+1) + " = " + String(c, 2) + " C"; //might need to fix this line
-    printLine(0, line);
+    //String line = "T" + String(i+1) + " = " + String(c, 2) + " C"; //might need to fix this line
+    //printLine(0, line);
+    Serial.print(i-1);
+    Serial.print(": ");
+    Serial.print(c1);
+    Serial.println(" °C");
+    Serial.print("Sensor ");
     Serial.print(i);
     Serial.print(": ");
-    Serial.print(c);
+    Serial.print(c2);
     Serial.println(" °C");
-  }
   
   //this turns on the motor if temp is above threshold
-  if(c >= 99){
+  if(c1 >= 41){
     motorState = true;
   } else {
     motorState = false;
   }
+  if(c2 >= 41){
+    motorState = false;
+  }
+ /*if(c1 < 41 || c2 < 41){
+    digitalWrite(BUZZ_SW, LOW);
+  }  */
 } 
 
 void lcdPrintTask() {
