@@ -20,7 +20,10 @@ LiquidCrystal lcd(14, 27, 26, 25, 33, 17);
 int sensorPin = 32;     // ACS712 output connected to GPIO 32
 const float sensitivity = 0.066;  // 66 mV/A for ACS712-30A
 const float adcMax = 4095.0;      // 12-bit ADC
-const float vRef = 3.3;           // ESP32 ADC reference voltage
+// ADC voltage range depends on ESP32 attenuation. If using ADC_11db use ~3.9V.
+// We'll set attenuation in setup() and use `adcVoltageRange` when converting.
+const float vRef = 3.3;           // nominal ESP32 reference (kept for compatibility)
+const float adcVoltageRange = 3.9; // set to ~3.9 when using ADC_11db (adjust when calibrating)
 const float zeroOffset = 2.5;     // No-current output voltage (V)
 
 //alarm buzzer setup
@@ -71,6 +74,10 @@ void setup() {
 
   pinMode(BUZZ_SW, OUTPUT);
   digitalWrite(BUZZ_SW, LOW); // LOW = off for low-side switch
+
+  // Configure ADC attenuation for the sensor pin so the ADC can measure up to ~3.9V
+  // (ACS712 outputs ~2.5V at 0A when powered at 5V). Using ADC_11db avoids clipping.
+  analogSetPinAttenuation(sensorPin, ADC_11db);
 
 }
 
@@ -136,9 +143,20 @@ void lcdPrintTask() {
 
 void currentCheck_task() {
   Serial.print("CURRENT CHECK START\n");
-  int adcValue = analogRead(sensorPin);
-  float voltage = (adcValue / adcMax) * vRef;
-  float currentValue = (voltage - zeroOffset) / sensitivity;  // in Amps
+  // Take multiple samples and average to reduce ADC noise
+  const int SAMPLES = 10;
+  long sum = 0;
+  for (int i = 0; i < SAMPLES; ++i) {
+    sum += analogRead(sensorPin);
+    delay(2);
+  }
+  float adcAvg = (float)sum / SAMPLES;
+
+  // Convert ADC reading to voltage using the configured ADC voltage range
+  float voltage = (adcAvg / adcMax) * adcVoltageRange;
+
+  // Update the global currentValue (do NOT shadow with a local variable)
+  currentValue = (voltage - zeroOffset) / sensitivity;  // in Amps
 
   Serial.print("Current: ");
   Serial.print(currentValue, 3);   // 3 decimal places
