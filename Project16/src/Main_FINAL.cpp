@@ -103,6 +103,11 @@ void tempCheck_task() {
     Serial.print(": ");
     Serial.print(c2);
     Serial.println(" °C");
+    //print to LCD
+    printLine(0, "T1:" + String(c1, 1) + "C       ");
+    printLine(1, "T2:" + String(c2, 1) + "C       ");
+    delay(1000);
+    lcd.clear();
   
   //this turns on the motor if temp is above threshold
   if(c1 >= 41){
