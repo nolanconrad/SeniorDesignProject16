@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-const int BUZZ_SW = 25;        // Buzzer/MOSFET control pin
+const int BUZZ_SW = 18;        // Buzzer/MOSFET control pin
 
 // --- Alarm thresholds ---
 const float TEMP_THRESHOLD_F   = 85.0;  // °F

@@ -114,7 +114,7 @@ void tempCheck_task() {
     Serial.print(f2);
     Serial.println(" °F");
     printLine(0, "1:" + String(f1) + "F" + "2:" + String(f2) + "F");
-    printLine(1, "I:" + String(currentValue, 3) + " A");
+    printLine(1, "I:" + String(currentValue, 4) + " A");
 
   
   //this turns on the motor if temp is above threshold (105.8°F ≈ 41°C)
@@ -172,7 +172,7 @@ void currentCheck_task() {
   currentValue = (voltage - zeroOffset) / sensitivity;  // in Amps
 
   Serial.print("Current: ");
-  Serial.print(currentValue, 3);   // 3 decimal places
+  Serial.print(currentValue, 4);   // 4 decimal places
   Serial.println(" A");
 }
   //turns alarm on/off based on current
