@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-const int BUZZ_SW = 25;        // Buzzer/MOSFET control pin
+const int BUZZ_SW = 18;        // Buzzer/MOSFET control pin
 
 // --- Alarm thresholds ---
 const float TEMP_THRESHOLD_F   = 85.0;  // °F
@@ -16,7 +16,9 @@ unsigned long phaseStart = 0;
 
 // Decide if alarm should sound
 inline bool shouldAlarm(float tempF, float currentA) {
-  return (tempF > TEMP_THRESHOLD_F) && (currentA > CURRENT_THRESHOLD_A);
+  // return (tempF > TEMP_THRESHOLD_F) && (currentA > CURRENT_THRESHOLD_A);
+  // 🔇 Current-based alarm disabled — only temperature is used:
+  return (tempF > TEMP_THRESHOLD_F);
 }
 
 // Drive the buzzer without delay()
