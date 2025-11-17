@@ -113,7 +113,7 @@ void tempCheck_task()
   Serial.print(f2);
   Serial.println(" °F");
   printLine(0, "1:" + String(f1) + "F" + "2:" + String(f2) + "F");
-  printLine(1, "I:" + String(AcsValueF, 4) + " A");
+  printLine(1, "I:" + String(AcsValueF, 2) + " A");
 
   // this turns on the motor if temp is above threshold (105.8°F ≈ 41°C)
   if (f1 >= 82)
@@ -171,14 +171,17 @@ void currentCheck_task()
     delay(3);                         // let ADC settle before next sample 3ms
   }
   AvgAcs = Samples / 150.0; // Taking Average of Samples
+  Serial.print("AcsValue: ");
+  Serial.print(AcsValue, 4);
+  Serial.println(" V");
   //((AvgAcs * (5.0 / 1024.0)) is converting the read voltage in 0-5 volts
   // 2.5 is offset (assumed that Arduino is working on 5v so the Vout at no current comes
   // out to be 2.5 which is offset. If your Arduino is working on different voltage then
   // you must change the offset according to the input voltage)
   // 0.066v(66mV) is rise in output voltage when 1A current flows at input
-  AcsValueF = (2.555 - (AvgAcs * (5.11 / 1024.0))) / 0.066;
+  AcsValueF = (0.312 - (AvgAcs * (5.1 / 4095.0))) / 0.044;
   Serial.print("Current: ");
-  Serial.print(AcsValueF, 4); // 4 decimal places
+  Serial.print(AcsValueF, 2); // 2 decimal places
   Serial.println(" A");
   // Serial.println(AcsValueF);//Print the read current on Serial monitor
   delay(50);
