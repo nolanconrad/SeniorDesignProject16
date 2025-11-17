@@ -16,7 +16,9 @@ unsigned long phaseStart = 0;
 
 // Decide if alarm should sound
 inline bool shouldAlarm(float tempF, float currentA) {
-  return (tempF > TEMP_THRESHOLD_F) && (currentA > CURRENT_THRESHOLD_A);
+  // return (tempF > TEMP_THRESHOLD_F) && (currentA > CURRENT_THRESHOLD_A);
+  // 🔇 Current-based alarm disabled — only temperature is used:
+  return (tempF > TEMP_THRESHOLD_F);
 }
 
 // Drive the buzzer without delay()
