@@ -19,11 +19,12 @@ void loop() {
 
   for (int i = 0; i < sensors.getDeviceCount(); i++) {
     float c = sensors.getTempCByIndex(i);
+    float f = (c * 9.0 / 5.0) + 32.0;
     Serial.print("T");
     Serial.print(i);
     Serial.print(": ");
-    Serial.print(c);
-    Serial.println(" C");
+    Serial.print(f);
+    Serial.println(" F");
   }
   delay(2000);
 }

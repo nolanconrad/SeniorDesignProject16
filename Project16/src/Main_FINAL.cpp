@@ -91,29 +91,31 @@ void tempCheck_task() {
   int i = sensors.getDeviceCount();
   c2 = sensors.getTempCByIndex(i-1);      // read each device
   c1 = sensors.getTempCByIndex(i-2);      // read each device
+    float f1 = (c1 * 9.0 / 5.0) + 32.0;
+    float f2 = (c2 * 9.0 / 5.0) + 32.0;
     Serial.print("Sensor ");
-    //String line = "T" + String(i+1) + " = " + String(c, 2) + " C"; //might need to fix this line
+    //String line = "T" + String(i+1) + " = " + String(c, 2) + " F"; //might need to fix this line
     //printLine(0, line);
     Serial.print(i-1);
     Serial.print(": ");
-    Serial.print(c1);
-    Serial.println(" °C");
+    Serial.print(f1);
+    Serial.println(" °F");
     Serial.print("Sensor ");
     Serial.print(i);
     Serial.print(": ");
-    Serial.print(c2);
-    Serial.println(" °C");
+    Serial.print(f2);
+    Serial.println(" °F");
   
-  //this turns on the motor if temp is above threshold
-  if(c1 >= 41){
+  //this turns on the motor if temp is above threshold (105.8°F ≈ 41°C)
+  if(f1 >= 82){
     motorState = true;
   } else {
     motorState = false;
   }
-  if(c2 >= 41){
+  if(f2 >= 82){
     motorState = false;
   }
- /*if(c1 < 41 || c2 < 41){
+ /*if(f1 < 105.8 || f2 < 105.8){
     digitalWrite(BUZZ_SW, LOW);
   }  */
 } 
