@@ -105,15 +105,15 @@ void tempCheck_task() {
     Serial.print(i-1);
     Serial.print(": ");
     Serial.print(c1);
-    Serial.println(" °C");
+    Serial.println(" °F");
     Serial.print("Sensor ");
     Serial.print(i);
     Serial.print(": ");
     Serial.print(c2);
-    Serial.println(" °C");
+    Serial.println(" °F");
     //print to LCD
-    printLine(0, "T1:" + String(c1, 1) + "C       ");
-    printLine(1, "T2:" + String(c2, 1) + "C       ");
+    printLine(0, "T1:" + String(c1, 1) + "F       ");
+    printLine(1, "T2:" + String(c2, 1) + "F       ");
     delay(1000);
     lcd.clear();
   
