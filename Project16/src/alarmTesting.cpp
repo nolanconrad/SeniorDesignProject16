@@ -4,7 +4,7 @@ const int BUZZ_SW = 25;        // Buzzer/MOSFET control pin
 
 // --- Alarm thresholds ---
 const float TEMP_THRESHOLD_F   = 85.0;  // °F
-const float CURRENT_THRESHOLD_A = 0.4;  // A (400 mA)
+const unsigned long TEMP_ALARM_DELAY_MS = 3000; // must stay above threshold for 3s
 
 // --- Non-blocking beep pattern (200 ms ON, 400 ms OFF) ---
 const unsigned long BEEP_ON_MS  = 200;
@@ -14,11 +14,29 @@ bool alarmActive = false;
 bool buzzerState = false;
 unsigned long phaseStart = 0;
 
-// Decide if alarm should sound
-inline bool shouldAlarm(float tempF, float currentA) {
-  // return (tempF > TEMP_THRESHOLD_F) && (currentA > CURRENT_THRESHOLD_A);
-  // 🔇 Current-based alarm disabled — only temperature is used:
-  return (tempF > TEMP_THRESHOLD_F);
+// timer to track how long temp has been above threshold
+unsigned long tempHighStart = 0;
+bool tempHigh = false;
+
+// Decide if alarm should sound (with delay logic)
+bool shouldAlarm(float tempF) {
+  unsigned long now = millis();
+
+  if (tempF > TEMP_THRESHOLD_F) {
+    if (!tempHigh) {
+      tempHigh = true;
+      tempHighStart = now;  // start timing
+    }
+    // if high long enough, activate alarm
+    if (now - tempHighStart >= TEMP_ALARM_DELAY_MS) {
+      return true;
+    }
+  } else {
+    // reset timer if temp drops below threshold
+    tempHigh = false;
+    tempHighStart = 0;
+  }
+  return false;
 }
 
 // Drive the buzzer without delay()
@@ -47,20 +65,13 @@ void setup() {
 
 // --- Demo inputs (replace with your real readings) ---
 float fakeTempF = 80.0;
-float fakeCurrentA = 0.0;
 
 void loop() {
-  // TODO: replace with your real sensor values:
-  // float tempF = <your DallasTemperature in °F>;
-  // float currentA = <your ACS712 reading in Amps>;
-  // For demo, we slowly increase until thresholds are crossed:
-  fakeTempF += 0.2;       // simulate warming
-  fakeCurrentA += 0.02;   // simulate current rising
-
+  // Simulate rising temperature
+  fakeTempF += 0.2;  // for demo
   float tempF = fakeTempF;
-  float currentA = fakeCurrentA;
 
-  alarmActive = shouldAlarm(tempF, currentA);
+  alarmActive = shouldAlarm(tempF);
   updateAlarmBuzzer(alarmActive);
 
   // Optional serial debug
@@ -68,9 +79,8 @@ void loop() {
   if (millis() - lastPrint > 500) {
     lastPrint = millis();
     Serial.print("Temp: "); Serial.print(tempF, 1); Serial.print(" F,  ");
-    Serial.print("Current: "); Serial.print(currentA, 3); Serial.print(" A,  ");
     Serial.print("Alarm: "); Serial.println(alarmActive ? "ON" : "OFF");
   }
 
-  // No delay() needed — stays responsive
+  // No delay() needed — remains responsive
 }
