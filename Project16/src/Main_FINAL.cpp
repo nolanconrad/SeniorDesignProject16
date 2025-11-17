@@ -113,6 +113,9 @@ void tempCheck_task() {
     Serial.print(": ");
     Serial.print(f2);
     Serial.println(" °F");
+    printLine(0, "1:" + String(f1) + "F" + "2:" + String(f2) + "F");
+    printLine(1, "I:" + String(currentValue, 3) + " A");
+
   
   //this turns on the motor if temp is above threshold (105.8°F ≈ 41°C)
   if(f1 >= 82){
@@ -140,13 +143,13 @@ void lcdPrintTask() {
     toggle = !toggle;
   }
 
-  if (toggle) {
+  /*if (toggle) {
     printLine(0, "Pump: ON        ");
     printLine(1, "System: READY   ");
   } else {
     printLine(0, "Pump: STANDBY   ");
     printLine(1, "System: IDLE    ");
-  }
+  }*/
   
   Serial.print("LCD UPDATE STOP\n");
 }
