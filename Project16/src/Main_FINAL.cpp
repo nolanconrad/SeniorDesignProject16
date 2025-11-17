@@ -72,6 +72,14 @@ void setup() {
   delay(3000);
   lcd.clear();
 
+  Serial.print("ALARM Check \n");
+  digitalWrite(BUZZ_SW, HIGH);
+  delay(100);
+  digitalWrite(BUZZ_SW, LOW);
+  delay(500); //debounce
+
+
+
   pinMode(BUZZ_SW, OUTPUT);
   digitalWrite(BUZZ_SW, LOW); // LOW = off for low-side switch
 
