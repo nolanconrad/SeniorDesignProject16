@@ -54,6 +54,25 @@ void printLine(int row, const String &text) {
   lcd.print(text);
 }
 
+/* --> alarmCheck_task commented out; replaced by isAlarmBuzzing() below <-
+void alarmCheck_task()
+{
+  bool wantAlarm = shouldTempAlarm(latestTempF);
+  alarmState = wantAlarm;
+  updateAlarmBuzzer(wantAlarm);
+
+  static unsigned long lastPrint = 0;
+  if (millis() - lastPrint >= 500) {
+    lastPrint = millis();
+    Serial.print("Temp: ");
+    Serial.print(latestTempF, 1);
+    Serial.print(" F | Alarm: ");
+    Serial.println(wantAlarm ? "ON" : "OFF");
+  }
+}
+*/
+/*-> Commented out; boolTempAlarm used in this version <-
+
 bool shouldTempAlarm(float tempF) {
   unsigned long now = millis();
 
@@ -73,23 +92,42 @@ bool shouldTempAlarm(float tempF) {
   }
   return false;
 }
+*/
 
-void updateAlarmBuzzer(bool active) {
+void isAlarmBuzzing(bool active, unsigned long durationMs, unsigned long amountofChirps) {
+  static unsigned long chirpCount = 0;
+
   if (!active) {
     buzzerState = false;
     digitalWrite(BUZZ_SW, LOW);
+    chirpCount = 0; // Reset chirp count when inactive
     return;
   }
+
   unsigned long now = millis();
-  unsigned long phaseLen = buzzerState ? BEEP_ON_MS : BEEP_OFF_MS;
-  if (now - phaseStart >= phaseLen) {
-    buzzerState = !buzzerState;
-    phaseStart = now;
-    digitalWrite(BUZZ_SW, buzzerState ? HIGH : LOW);
+  unsigned long phaseLen = durationMs;
+
+  if (chirpCount < amountofChirps) {
+    if (now - phaseStart >= phaseLen) {
+      buzzerState = !buzzerState;
+      phaseStart = now;
+
+      if (!buzzerState) {
+        chirpCount++; // Increment chirp count after each OFF phase
+      }
+
+      digitalWrite(BUZZ_SW, buzzerState ? HIGH : LOW);
+    }
+  } else {
+    buzzerState = false;
+    digitalWrite(BUZZ_SW, LOW); // Ensure buzzer is off after chirps are done
   }
 }
 
 // ====== KEEP ONE COPY OF EACH TASK BELOW ======
+void lcdPrintTask() {
+  // optional; temp/current tasks already update the LCD
+}
 
 void tempCheck_task()
 {
@@ -108,13 +146,10 @@ void tempCheck_task()
   printLine(0, "1:" + String(f1) + "F" + " 2:" + String(f2) + "F");
   printLine(1, "I:" + String(AcsValueF, 2) + " A");
 
-  // motor rule as you had
+  //alarm fires if temp reaches 85*
+  if (f1 > 85) isAlarmBuzzing(true, 500, 5);
   if (f1 >= 82) motorState = true; else motorState = false;
   if (f2 >= 82) motorState = false;
-}
-
-void lcdPrintTask() {
-  // optional; temp/current tasks already update the LCD
 }
 
 void currentCheck_task()
@@ -143,23 +178,15 @@ void currentCheck_task()
   Serial.print(" V | Current: ");
   Serial.print(AcsValueF, 2);
   Serial.println(" A");
-  delay(50);
-}
 
-void alarmCheck_task()
-{
-  bool wantAlarm = shouldTempAlarm(latestTempF);
-  alarmState = wantAlarm;
-  updateAlarmBuzzer(wantAlarm);
-
-  static unsigned long lastPrint = 0;
-  if (millis() - lastPrint >= 500) {
-    lastPrint = millis();
-    Serial.print("Temp: ");
-    Serial.print(latestTempF, 1);
-    Serial.print(" F | Alarm: ");
-    Serial.println(wantAlarm ? "ON" : "OFF");
+  //alarm sounds if the current is over or under X amps
+  if (currentValue > 1 || currentValue < -1) {
+    Serial.println("** ALERT: Overcurrent condition! **");
+    isAlarmBuzzing(true, 200, 10);
+    lcd.print("** OVERCURRENT! **");
   }
+
+  delay(50);
 }
 
 void motorCheck_task()
@@ -173,7 +200,9 @@ void motorCheck_task()
   }
 }
 
-// --- Setup/Loop ---
+
+
+// --- Setup/Loop --- //
 void setup() {
   Serial.begin(115200);
 
