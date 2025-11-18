@@ -27,7 +27,7 @@ elapsedMillis tempCheck_timer, lcdPrint_timer, currentCheck_timer, alarmCheck_ti
 const uint32_t tempCheck_MS    = 1000;
 const uint32_t lcdPrint_MS     = 2000;
 const uint32_t currentCheck_MS = 3000;
-const uint32_t alarmCheck_MS   = 100;   // fast for buzzer cadence
+// const uint32_t alarmCheck_MS   = 100;   // not needed currently
 const uint32_t motorCheck_MS   = 5000;
 
 boolean motorState = false;
@@ -124,7 +124,6 @@ void isAlarmBuzzing(bool active, unsigned long durationMs, unsigned long amounto
   }
 }
 
-// ====== KEEP ONE COPY OF EACH TASK BELOW ======
 void lcdPrintTask() {
   // optional; temp/current tasks already update the LCD
 }
@@ -149,7 +148,6 @@ void tempCheck_task()
   //alarm fires if temp reaches 85*
   if (f1 > 85) isAlarmBuzzing(true, 500, 5);
   if (f1 >= 82) motorState = true; else motorState = false;
-  if (f2 >= 82) motorState = false;
 }
 
 void currentCheck_task()
@@ -199,8 +197,6 @@ void motorCheck_task()
     Serial.println("Motor OFF");
   }
 }
-
-
 
 // --- Setup/Loop --- //
 void setup() {
@@ -252,6 +248,6 @@ void loop()
   if (tempCheck_timer >= tempCheck_MS)   { tempCheck_timer = 0;   tempCheck_task(); }
   if (lcdPrint_timer >= lcdPrint_MS)     { lcdPrint_timer = 0;    lcdPrintTask(); }
   if (currentCheck_timer >= currentCheck_MS){ currentCheck_timer = 0; currentCheck_task(); }
-  if (alarmCheck_timer >= alarmCheck_MS) { alarmCheck_timer = 0;  alarmCheck_task(); }
+  // if (alarmCheck_timer >= alarmCheck_MS) { alarmCheck_timer = 0; isAlarmBuzzing(alarmState, BEEP_ON_MS, 3); } // replaced by isAlarmBuzzing calls in tempCheck_task()
   if (motorCheck_timer >= motorCheck_MS) { motorCheck_timer = 0;  motorCheck_task(); }
 }
