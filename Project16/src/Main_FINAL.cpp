@@ -143,7 +143,7 @@ void tempCheck_task()
   latestTempF = max(f1, f2);
 
   printLine(0, "1:" + String(f1) + "F" + " 2:" + String(f2) + "F");
-  printLine(1, "I:" + String(AcsValueF, 2) + " A");
+  printLine(1, "I:" + String(AcsValueF, 4) + " A");
 
   //alarm fires if temp reaches 85*
   if (f1 > 85) isAlarmBuzzing(true, 500, 5);
@@ -174,7 +174,7 @@ void currentCheck_task()
   Serial.print(" V | Measured: ");
   Serial.print(measuredV, 3);
   Serial.print(" V | Current: ");
-  Serial.print(AcsValueF, 2);
+  Serial.print(AcsValueF, 4);
   Serial.println(" A");
 
   //alarm sounds if the current is over or under X amps
