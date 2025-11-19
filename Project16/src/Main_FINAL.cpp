@@ -166,6 +166,29 @@ void tempCheck_task()
   if (f1 >= 82 && f1 < 85) motorState = true; else motorState = false;
 }
 
+void cooldown_task() 
+{
+  int restoreMotor = 1;
+  if (isCooldown) {
+    printLine(0, "Cooldown for 5secs.");
+    if(motorState) {
+      motorState = false;
+      restoreMotor = 0;
+      Serial.println("Motor OFF due to overcurrent");
+    } else if (motorState == false) {
+      Serial.println("Motor already OFF");
+    } else {
+      Serial.println("Motor state unknown");
+    }
+    delay(5000); // Cooldown period of 5 seconds
+    if(restoreMotor == 0) motorState = true; //restore motor state
+    printLine(1, "Resuming ops...");
+    isCooldown = false;
+  }
+  return;
+}
+
+
 void currentCheck_task()
 {
   Serial.print("CURRENT CHECK START\n");
@@ -195,35 +218,15 @@ void currentCheck_task()
 
   //alarm sounds if the current is over or under X amps
   if (currentValue > 1 || currentValue < -1) {
-    Serial.println("** ALERT: Overcurrent condition! **");
+    Serial.println("** ALERT: Overcurrent condition! **"); 
     isAlarmBuzzing(true, 100, 5);
     printLine(1, "** OVERCURRENT! **");
     printLine(0, "Current: " + String(AcsValueF, 4) + " A");
     isCooldown = true; //turns motor off if it is on
+    cooldown_task();
   }
 
   delay(50);
-}
-
-void cooldown_task() 
-{
-  int restoreMotor = 1;
-  if (isCooldown) {
-    printLine(0, "Cooldown for 5secs.");
-    if(motorState) {
-      motorState = false;
-      restoreMotor = 0;
-      Serial.println("Motor OFF due to overcurrent");
-    } else if (motorState == false) {
-      Serial.println("Motor already OFF");
-    } else {
-      Serial.println("Motor state unknown");
-    }
-    delay(5000); // Cooldown period of 5 seconds
-    if(restoreMotor == 0) motorState = true; //restore motor state
-    printLine(1, "Resuming ops...");
-    isCooldown = false;
-  }
 }
 
 void motorCheck_task()
