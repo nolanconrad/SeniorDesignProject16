@@ -26,7 +26,7 @@ int sensorPin = 32;
 elapsedMillis tempCheck_timer, lcdPrint_timer, currentCheck_timer, alarmCheck_timer, motorCheck_timer, cooldown_timer;
 const uint32_t tempCheck_MS    = 1000;
 const uint32_t lcdPrint_MS     = 2000;
-const uint32_t currentCheck_MS = 3000;
+const uint32_t currentCheck_MS = 1000;
 const uint32_t cooldownCheck_MS   = 500;  
 // const uint32_t alarmCheck_MS   = 100;   // not needed currently
 const uint32_t motorCheck_MS   = 5000;
@@ -156,13 +156,14 @@ void tempCheck_task()
       alarmStartTime = millis(); // Start the timer
     } else if (millis() - alarmStartTime >= 5000) { // Check if 5 seconds have passed
       isAlarmBuzzing(true, 500, 5);
+      isCooldown = true; //turns motor off if it is on
       lcd.print("** OVERTEMP! **");
     }
   } else {
     alarmStartTime = 0; // Reset the timer if condition is not met
   }
 
-  if (f1 >= 82) motorState = true; else motorState = false;
+  if (f1 >= 82 && f1 < 85) motorState = true; else motorState = false;
 }
 
 void currentCheck_task()
