@@ -8,7 +8,7 @@
 #define ONE_WIRE_BUS 4            // D4 = GPIO4 on your board
 constexpr int IN1_PIN = 23;       // motor driver IN1
 const int BUZZ_SW = 18;           // buzzer switch pin
-float zeroOffsetV = 0.0;   // auto-calibrated offset voltage (in volts)
+float zeroOffsetV = 2.5;   // auto-calibrated offset voltage (in volts)
 
 // --- OneWire / DS18B20 ---
 OneWire oneWire(ONE_WIRE_BUS);
@@ -162,10 +162,10 @@ void currentCheck_task()
   float AvgAcs = (float)sum / samples;
 
   // Convert averaged ADC to volts
-  float measuredV = (AvgAcs / 4095.0) * 3.3;
+  float measuredV = (AvgAcs / 1024.0) * 5.12;  // ESP32 ADC ref voltage with attenuation
 
   // Use calibrated offset and divider-adjusted sensitivity
-  const float sensitivity_eff = 0.044;   // V/A after 1k/2k divider
+  const float sensitivity_eff = 0.066;   // V/A after 1k/2k divider
   AcsValueF = (zeroOffsetV - measuredV) / sensitivity_eff;
   currentValue = AcsValueF;
 
