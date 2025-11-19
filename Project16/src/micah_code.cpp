@@ -27,7 +27,6 @@ const uint32_t tempCheck_MS    = 1000;
 const uint32_t lcdPrint_MS     = 2000;
 const uint32_t currentCheck_MS = 1000;
 const uint32_t cooldownCheck_MS   = 500;  
-// const uint32_t alarmCheck_MS   = 100;   // not needed currently
 const uint32_t motorCheck_MS   = 5000;
 
 boolean motorState = false;
@@ -36,7 +35,13 @@ boolean isCooldown = false;
 float currentValue = 0.0;   // amps (for alarm)
 float AcsValueF    = 0.0;   // shown on LCD (mirrors currentValue)
 
-// === Temperature alarm helpers (unchanged) ===
+// === Temperature alarm config (WITH HYSTERESIS) ===
+const float TEMP_ALARM_ON_F   = 85.0;      // trip temp
+const float TEMP_ALARM_OFF_F  = 82.0;      // clear temp
+const unsigned long TEMP_ALARM_ON_DELAY_MS  = 5000; // must be hot this long
+const unsigned long TEMP_ALARM_OFF_DELAY_MS = 3000; // must be cool this long
+
+// (old constants kept if you use elsewhere)
 const float TEMP_THRESHOLD_F            = 85.0;
 const unsigned long TEMP_ALARM_DELAY_MS = 3000;
 const unsigned long TEMP_ALARM_COOLDOWN_MS = 1000;
@@ -50,6 +55,11 @@ unsigned long tempLowStart = 0;
 bool tempHigh = false;
 float latestTempF = 0.0;
 
+// Hysteresis state/timers
+bool tempAlarm = false;
+unsigned long hotStartMs = 0;
+unsigned long coolStartMs = 0;
+
 //printing functon for lcd
 void printLine(int row, const String &text) {
   lcd.setCursor(0, row);
@@ -58,9 +68,6 @@ void printLine(int row, const String &text) {
 void lcdPrintTask() {
   // optional; temp/current tasks already update the LCD
 }
-
-/* --> alarmCheck_task commented out; replaced by isAlarmBuzzing() below <- */
-/* void alarmCheck_task() { ... } */
 
 void isAlarmBuzzing(bool active, unsigned long durationMs, unsigned long amountofChirps) {
   static unsigned long chirpCount = 0;
@@ -92,39 +99,60 @@ void isAlarmBuzzing(bool active, unsigned long durationMs, unsigned long amounto
   }
 }
 
+// ================== TEMP TASK (fixed with hysteresis) ==================
 void tempCheck_task()
 {
-  Serial.print("TEMPERATURE CHECK \n");
-  sensors.requestTemperatures(); // start conversion
+  Serial.println("TEMPERATURE CHECK");
+  sensors.requestTemperatures(); // non-blocking mode set in setup()
   int count = sensors.getDeviceCount();
 
   float c1 = 0, c2 = 0;
   if (count >= 1) c2 = sensors.getTempCByIndex(count - 1);
   if (count >= 2) c1 = sensors.getTempCByIndex(count - 2);
 
-  float f1 = (c1 * 9.0 / 5.0) + 32.0;
-  float f2 = (c2 * 9.0 / 5.0) + 32.0;
+  float f1 = (c1 * 9.0f / 5.0f) + 32.0f;
+  float f2 = (c2 * 9.0f / 5.0f) + 32.0f;
   latestTempF = max(f1, f2);
 
-  printLine(0, "1:" + String(f1) + "F" + " 2:" + String(f2) + "F");
+  printLine(0, "1:" + String(f1) + "F 2:" + String(f2) + "F");
   printLine(1, "I:" + String(AcsValueF, 4) + " A");
 
-  //alarm fires if temp reaches 85*
-  static unsigned long alarmStartTime = 0;
+  unsigned long now = millis();
+  bool prevAlarm = tempAlarm;
 
-  //if temperature is above threshold for 5 seconds, sound alarm
-  if (f1 > 85) {
-    if (alarmStartTime == 0) {
-      alarmStartTime = millis(); // Start the timer
-    } else if (millis() - alarmStartTime >= 5000) { // Check if 5 seconds have passed
-      isAlarmBuzzing(true, 500, 5);
-      isCooldown = true; //turns motor off if it is on
-      lcd.print("** OVERTEMP! **");
-    }
-  } else {
-    alarmStartTime = 0; // Reset the timer if condition is not met
+  // ON path (>=85F for 5s)
+  if (latestTempF >= TEMP_ALARM_ON_F) {
+    coolStartMs = 0;
+    if (hotStartMs == 0) hotStartMs = now;
+    if (now - hotStartMs >= TEMP_ALARM_ON_DELAY_MS) tempAlarm = true;
+  }
+  // OFF path (<=82F for 3s)
+  else if (latestTempF <= TEMP_ALARM_OFF_F) {
+    hotStartMs = 0;
+    if (coolStartMs == 0) coolStartMs = now;
+    if (now - coolStartMs >= TEMP_ALARM_OFF_DELAY_MS) tempAlarm = false;
+  }
+  // Deadband: keep state, reset timers
+  else {
+    hotStartMs = 0;
+    coolStartMs = 0;
   }
 
+  // Edge: alarm just turned on
+  if (tempAlarm && !prevAlarm) {
+    isCooldown = true;                 // shut motor via cooldown
+    printLine(0, "** OVERTEMP! **");
+  }
+  // Edge: alarm just turned off
+  if (!tempAlarm && prevAlarm) {
+    isAlarmBuzzing(false, 0, 0);       // stop buzzer immediately
+    lcd.setCursor(0,0); lcd.print("                "); // clear banner
+  }
+
+  // Drive buzzer non-blocking each call
+  isAlarmBuzzing(tempAlarm, 500, 5);
+
+  // Your motor hysteresis (kept as-is)
   if (f1 >= 82 && f1 < 85) motorState = true; else motorState = false;
 }
 
