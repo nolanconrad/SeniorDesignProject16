@@ -8,7 +8,7 @@
 #define ONE_WIRE_BUS 4            // D4 = GPIO4 on your board
 constexpr int IN1_PIN = 23;       // motor driver IN1
 const int BUZZ_SW = 18;           // buzzer switch pin
-float zeroOffsetV = 2.5;   // auto-calibrated offset voltage (in volts)
+float zeroOffsetV = 0.0;   // auto-calibrated offset voltage (in volts)
 
 // --- OneWire / DS18B20 ---
 OneWire oneWire(ONE_WIRE_BUS);
@@ -23,15 +23,17 @@ int sensorPin = 32;
 // We'll keep your math inside currentCheck_task()
 
 // --- Timers ---
-elapsedMillis tempCheck_timer, lcdPrint_timer, currentCheck_timer, alarmCheck_timer, motorCheck_timer;
+elapsedMillis tempCheck_timer, lcdPrint_timer, currentCheck_timer, alarmCheck_timer, motorCheck_timer, cooldown_timer;
 const uint32_t tempCheck_MS    = 1000;
 const uint32_t lcdPrint_MS     = 2000;
 const uint32_t currentCheck_MS = 3000;
+const uint32_t cooldownCheck_MS   = 500;  
 // const uint32_t alarmCheck_MS   = 100;   // not needed currently
 const uint32_t motorCheck_MS   = 5000;
 
 boolean motorState = false;
 boolean alarmState = false;
+boolean isCooldown = false;
 float currentValue = 0.0;   // amps (for alarm)
 float AcsValueF    = 0.0;   // shown on LCD (mirrors currentValue)
 
@@ -49,9 +51,13 @@ unsigned long tempLowStart = 0;
 bool tempHigh = false;
 float latestTempF = 0.0;
 
+//printing functon for lcd
 void printLine(int row, const String &text) {
   lcd.setCursor(0, row);
   lcd.print(text);
+}
+void lcdPrintTask() {
+  // optional; temp/current tasks already update the LCD
 }
 
 /* --> alarmCheck_task commented out; replaced by isAlarmBuzzing() below <-
@@ -124,10 +130,6 @@ void isAlarmBuzzing(bool active, unsigned long durationMs, unsigned long amounto
   }
 }
 
-void lcdPrintTask() {
-  // optional; temp/current tasks already update the LCD
-}
-
 void tempCheck_task()
 {
   Serial.print("TEMPERATURE CHECK \n");
@@ -146,7 +148,20 @@ void tempCheck_task()
   printLine(1, "I:" + String(AcsValueF, 4) + " A");
 
   //alarm fires if temp reaches 85*
-  if (f1 > 85) isAlarmBuzzing(true, 500, 5);
+  static unsigned long alarmStartTime = 0;
+
+  //if temperature is above threshold for 5 seconds, sound alarm
+  if (f1 > 85) {
+    if (alarmStartTime == 0) {
+      alarmStartTime = millis(); // Start the timer
+    } else if (millis() - alarmStartTime >= 5000) { // Check if 5 seconds have passed
+      isAlarmBuzzing(true, 500, 5);
+      lcd.print("** OVERTEMP! **");
+    }
+  } else {
+    alarmStartTime = 0; // Reset the timer if condition is not met
+  }
+
   if (f1 >= 82) motorState = true; else motorState = false;
 }
 
@@ -162,7 +177,7 @@ void currentCheck_task()
   float AvgAcs = (float)sum / samples;
 
   // Convert averaged ADC to volts
-  float measuredV = (AvgAcs / 1024.0) * 5.12;  // ESP32 ADC ref voltage with attenuation
+  float measuredV = (AvgAcs / 4095.0) * 3.3;  // ESP32 ADC ref voltage with attenuation
 
   // Use calibrated offset and divider-adjusted sensitivity
   const float sensitivity_eff = 0.066;   // V/A after 1k/2k divider
@@ -180,11 +195,34 @@ void currentCheck_task()
   //alarm sounds if the current is over or under X amps
   if (currentValue > 1 || currentValue < -1) {
     Serial.println("** ALERT: Overcurrent condition! **");
-    isAlarmBuzzing(true, 200, 10);
-    lcd.print("** OVERCURRENT! **");
+    isAlarmBuzzing(true, 100, 5);
+    printLine(1, "** OVERCURRENT! **");
+    printLine(0, "Current: " + String(AcsValueF, 4) + " A");
+    isCooldown = true; //turns motor off if it is on
   }
 
   delay(50);
+}
+
+void cooldown_task() 
+{
+  int restoreMotor = 1;
+  if (isCooldown) {
+    printLine(0, "Cooldown for 5secs.");
+    if(motorState) {
+      motorState = false;
+      restoreMotor = 0;
+      Serial.println("Motor OFF due to overcurrent");
+    } else if (motorState == false) {
+      Serial.println("Motor already OFF");
+    } else {
+      Serial.println("Motor state unknown");
+    }
+    delay(5000); // Cooldown period of 5 seconds
+    if(restoreMotor == 0) motorState = true; //restore motor state
+    printLine(1, "Resuming ops...");
+    isCooldown = false;
+  }
 }
 
 void motorCheck_task()
@@ -198,15 +236,15 @@ void motorCheck_task()
   }
 }
 
-// --- Setup/Loop --- //
+// --- Setup --- //
 void setup() {
   Serial.begin(115200);
 
-  // Temperature sensors
+  // Temperature sensors startup
   sensors.begin();
   sensors.setWaitForConversion(false);
 
-  // LCD
+  // LCD startup
   lcd.begin(16, 2);
   lcd.clear();
   printLine(0, "System Init...");
@@ -214,12 +252,8 @@ void setup() {
   digitalWrite(IN1_PIN, LOW);
   delay(1500);
   lcd.clear();
-  printLine(0, "System Ready!");
-  printLine(1, "Pump: OFF");
-  delay(1500);
-  lcd.clear();
 
-  // Buzzer
+  // Buzzer setup
   pinMode(BUZZ_SW, OUTPUT);
   digitalWrite(BUZZ_SW, LOW);
 
@@ -229,18 +263,26 @@ void setup() {
 
   // === AUTO-CALIBRATE CURRENT SENSOR OFFSET ===
   Serial.println("Calibrating ACS712 zero offset... make sure motor is OFF.");
+  printLine(0, "Calibrating ACS712");
+  printLine(1, "Ensure motor OFF");
   const int zeroSamples = 300;
   long zeroSum = 0;
   for (int i = 0; i < zeroSamples; i++) {
     zeroSum += analogRead(sensorPin);
     delay(2);
   }
+  
   float zeroADC = (float)zeroSum / zeroSamples;
   zeroOffsetV = (zeroADC / 4095.0) * 3.3;    // convert to volts
   Serial.print("Measured zero offset = ");
   Serial.print(zeroOffsetV, 3);
   Serial.println(" V");
   delay(500);
+
+  //system is ready
+  printLine(0, "System Ready!");
+  delay(1500);
+  lcd.clear();
 }
 
 void loop()
@@ -248,6 +290,10 @@ void loop()
   if (tempCheck_timer >= tempCheck_MS)   { tempCheck_timer = 0;   tempCheck_task(); }
   if (lcdPrint_timer >= lcdPrint_MS)     { lcdPrint_timer = 0;    lcdPrintTask(); }
   if (currentCheck_timer >= currentCheck_MS){ currentCheck_timer = 0; currentCheck_task(); }
-  // if (alarmCheck_timer >= alarmCheck_MS) { alarmCheck_timer = 0; isAlarmBuzzing(alarmState, BEEP_ON_MS, 3); } // replaced by isAlarmBuzzing calls in tempCheck_task()
   if (motorCheck_timer >= motorCheck_MS) { motorCheck_timer = 0;  motorCheck_task(); }
+  if (cooldown_timer >= cooldownCheck_MS) { cooldown_timer = 0;  cooldown_task(); }
+  /* 
+    if (alarmCheck_timer >= alarmCheck_MS) { alarmCheck_timer = 0; isAlarmBuzzing(alarmState, BEEP_ON_MS, 3); } 
+    replaced by isAlarmBuzzing calls in tempCheck_task()
+  */
 }
