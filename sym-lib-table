@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 0)
+  (lib (name "coolerpcb-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/coolerpcb-eagle-import.kicad_sym")(options "")(descr ""))
+)
