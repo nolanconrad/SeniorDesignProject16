@@ -1,4 +1,4 @@
-26649794168959221
+26651564458764323
 61300621021
 61300621021
 
@@ -97117,6 +97117,13 @@ rotary encoder illuminated switch vertical
 0
 9
 8
+S4B_PH_SM4_TB
+JST_S4B-PH-SM4-TB
+
+
+0
+6
+6
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/AM2302.pdf
