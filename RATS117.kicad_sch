@@ -1883,7 +1883,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "e43e77b1-1579-42ad-9211-66e4ac3b5905")
 		(property "Reference" "#PWR01"
 			(at 156.21 116.84 0)
@@ -1895,7 +1894,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 163.83 116.8399 90)
+			(at 163.068 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)
