@@ -34,6 +34,45 @@
 		(45 "User.4" user)
 	)
 	(setup
+		(stackup
+			(layer "F.SilkS"
+				(type "Top Silk Screen")
+			)
+			(layer "F.Paste"
+				(type "Top Solder Paste")
+			)
+			(layer "F.Mask"
+				(type "Top Solder Mask")
+				(thickness 0.01)
+			)
+			(layer "F.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "dielectric 1"
+				(type "core")
+				(thickness 1.51)
+				(material "FR4")
+				(epsilon_r 4.5)
+				(loss_tangent 0.02)
+			)
+			(layer "B.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "B.Mask"
+				(type "Bottom Solder Mask")
+				(thickness 0.01)
+			)
+			(layer "B.Paste"
+				(type "Bottom Solder Paste")
+			)
+			(layer "B.SilkS"
+				(type "Bottom Silk Screen")
+			)
+			(copper_finish "None")
+			(dielectric_constraints no)
+		)
 		(pad_to_mask_clearance 0)
 		(allow_soldermask_bridges_in_footprints no)
 		(tenting front back)
@@ -138,7 +177,7 @@
 		(property ki_fp_filters "WSON*1EP?2x2mm?P0.65mm?EP1x1.6mm*")
 		(path "/ce8c974e-45d6-4535-9de7-b34abe43c055")
 		(sheetname "/")
-		(sheetfile "coolerpcb.kicad_sch")
+		(sheetfile "RATS117.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -1 -1.11)
@@ -1222,7 +1261,7 @@
 		)
 		(path "/6e5e1ab0-5bc9-413b-bb1a-9aab73ed0ddf")
 		(sheetname "/")
-		(sheetfile "coolerpcb.kicad_sch")
+		(sheetfile "RATS117.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 5.95 3.3)
@@ -1526,6 +1565,158 @@
 				(thickness 0.1)
 			)
 			(justify left bottom)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "F.SilkS")
+		(uuid "2a7dc86f-627e-4b57-838c-3069edd033e2")
+		(pts
+			(xy 148.54 104.5625) (xy 150.76 104.5625)
+		)
+		(height 7.4375)
+		(orientation 0)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "2.22"
+			(at 149.65 110.9 0)
+			(layer "F.SilkS")
+			(uuid "2a7dc86f-627e-4b57-838c-3069edd033e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "F.SilkS")
+		(uuid "50d2a7da-5cd7-47ae-a02d-97e41c20ca9b")
+		(pts
+			(xy 155.65 106.45) (xy 155.65 92.95)
+		)
+		(height 5.85)
+		(orientation 1)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "13.5"
+			(at 160.4 99.7 90)
+			(layer "F.SilkS")
+			(uuid "50d2a7da-5cd7-47ae-a02d-97e41c20ca9b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "F.SilkS")
+		(uuid "e55e3aef-ecc1-4064-a2bb-6aba4fd42c92")
+		(pts
+			(xy 142.15 104.95) (xy 157.15 104.95)
+		)
+		(height 4.55)
+		(orientation 0)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "15"
+			(at 149.65 108.4 0)
+			(layer "F.SilkS")
+			(uuid "e55e3aef-ecc1-4064-a2bb-6aba4fd42c92")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "F.SilkS")
+		(uuid "f2938a9f-df22-45fc-99e3-232ceb2c3de2")
+		(pts
+			(xy 150.76 102.5625) (xy 150.76 104.5625)
+		)
+		(height 13.24)
+		(orientation 1)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "2"
+			(at 162.9 103.5625 90)
+			(layer "F.SilkS")
+			(uuid "f2938a9f-df22-45fc-99e3-232ceb2c3de2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
 		)
 	)
 	(segment
