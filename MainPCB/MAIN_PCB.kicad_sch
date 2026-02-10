@@ -2992,12 +2992,6 @@
 		)
 	)
 	(junction
-		(at 80.01 135.89)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0f5fde1e-7844-44be-bc59-d14ca69e7431")
-	)
-	(junction
 		(at 157.48 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3040,12 +3034,6 @@
 		(uuid "9497f24c-5ddf-411d-bb6e-5e96caabd770")
 	)
 	(junction
-		(at 59.69 135.89)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "94a0e3ec-61c8-407f-ac0a-e3d670d9bfa2")
-	)
-	(junction
 		(at 120.65 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3068,6 +3056,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c82f2720-6c30-4d96-9043-e584b94b8497")
+	)
+	(junction
+		(at 229.87 135.89)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e6aa20b3-1f54-432f-8935-9c37420ffc90")
 	)
 	(no_connect
 		(at 214.63 88.9)
@@ -3121,46 +3115,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 86.36) (xy 74.93 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "080b3312-9d4f-441a-b481-e209602ba6e8")
-	)
-	(wire
-		(pts
-			(xy 36.83 81.28) (xy 36.83 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "30760504-4e8f-4ef2-9971-470f93922a94")
-	)
-	(wire
-		(pts
-			(xy 59.69 86.36) (xy 59.69 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a738648-7c76-4e06-b51b-1b2540d28544")
-	)
-	(wire
-		(pts
-			(xy 179.07 88.9) (xy 96.52 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3afd919a-f984-4776-a959-41f63f6c648d")
-	)
-	(wire
-		(pts
 			(xy 179.07 93.98) (xy 97.79 93.98)
 		)
 		(stroke
@@ -3168,6 +3122,16 @@
 			(type default)
 		)
 		(uuid "40709b06-bb22-4a23-b374-241c7dec67d4")
+	)
+	(wire
+		(pts
+			(xy 246.38 106.68) (xy 246.38 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4135065f-6993-4b93-8f8d-9ff05c8abdcb")
 	)
 	(wire
 		(pts
@@ -3191,6 +3155,16 @@
 	)
 	(wire
 		(pts
+			(xy 246.38 135.89) (xy 229.87 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "495563c1-36f9-4ee5-af0e-c585990e286c")
+	)
+	(wire
+		(pts
 			(xy 97.79 93.98) (xy 97.79 115.57)
 		)
 		(stroke
@@ -3201,13 +3175,13 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 81.28) (xy 100.33 81.28)
+			(xy 229.87 109.22) (xy 229.87 135.89)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4b831f4f-caa9-4570-bff7-078226b97ce3")
+		(uuid "4ca6c0d4-3e0f-4169-a90a-01c26e974fe1")
 	)
 	(wire
 		(pts
@@ -3238,16 +3212,6 @@
 			(type default)
 		)
 		(uuid "573b6cf0-47c5-432b-b5a9-eb336d4fafe5")
-	)
-	(wire
-		(pts
-			(xy 59.69 135.89) (xy 80.01 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b3f14ba-7068-4925-a31c-076577edfcca")
 	)
 	(wire
 		(pts
@@ -3301,6 +3265,16 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 135.89) (xy 196.85 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6591b658-1ab4-44ad-a3d8-5e2cd66896f9")
+	)
+	(wire
+		(pts
 			(xy 80.01 91.44) (xy 80.01 135.89)
 		)
 		(stroke
@@ -3308,16 +3282,6 @@
 			(type default)
 		)
 		(uuid "73b83cea-a680-4815-a218-8de226feea73")
-	)
-	(wire
-		(pts
-			(xy 100.33 86.36) (xy 179.07 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7570f783-6991-47d9-ba4d-66a5f22e41d7")
 	)
 	(wire
 		(pts
@@ -3461,16 +3425,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 88.9) (xy 96.52 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "af72995c-92d6-4438-afdd-6eee36929f79")
-	)
-	(wire
-		(pts
 			(xy 223.52 81.28) (xy 214.63 81.28)
 		)
 		(stroke
@@ -3551,13 +3505,13 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 135.89) (xy 59.69 135.89)
+			(xy 214.63 106.68) (xy 231.14 106.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f226a88c-0e9c-4f16-a030-47f4e410c5ae")
+		(uuid "e6dcb513-5203-4932-a33d-2be99aec3b11")
 	)
 	(wire
 		(pts
@@ -3568,16 +3522,6 @@
 			(type default)
 		)
 		(uuid "f4f33167-1f75-4b4e-bbdb-610bb86fba3d")
-	)
-	(wire
-		(pts
-			(xy 100.33 81.28) (xy 100.33 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fba873e1-5891-4987-a18a-880cbb82706a")
 	)
 	(global_label "SDA"
 		(shape bidirectional)
@@ -4154,7 +4098,7 @@
 	)
 	(symbol
 		(lib_id "SG06280N:SG06280N")
-		(at 67.31 86.36 0)
+		(at 222.25 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4163,7 +4107,7 @@
 		(fields_autoplaced yes)
 		(uuid "0f2cf12a-ee6d-4342-8264-ee34a1282aea")
 		(property "Reference" "S2"
-			(at 67.31 77.47 0)
+			(at 222.25 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4171,7 +4115,7 @@
 			)
 		)
 		(property "Value" "SG06280N"
-			(at 67.31 80.01 0)
+			(at 222.25 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4179,7 +4123,7 @@
 			)
 		)
 		(property "Footprint" "SG06280N:SW_SG06280N"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4189,7 +4133,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4198,7 +4142,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4207,7 +4151,7 @@
 			)
 		)
 		(property "MF" "Snaptron"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4217,7 +4161,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "0.33mm"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4227,7 +4171,7 @@
 			)
 		)
 		(property "CREATOR" "DIZAR"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4237,7 +4181,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4247,7 +4191,7 @@
 			)
 		)
 		(property "Package" "Package"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4257,7 +4201,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/SG06280N/Snaptron/view-part/?ref=eda"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4267,7 +4211,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4277,7 +4221,7 @@
 			)
 		)
 		(property "VERIFIER" ""
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4287,7 +4231,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/SG06280N/Snaptron/view-part/?ref=snap"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4297,7 +4241,7 @@
 			)
 		)
 		(property "MP" "SG06280N"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4307,7 +4251,7 @@
 			)
 		)
 		(property "Description_1" "SMT TACTILE DOME SWITCH SPST-NO"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4317,7 +4261,7 @@
 			)
 		)
 		(property "Availability" "Not in stock"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4327,7 +4271,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Snaptron"
-			(at 67.31 86.36 0)
+			(at 222.25 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4432,7 +4376,7 @@
 	)
 	(symbol
 		(lib_id "SG06280N:SG06280N")
-		(at 44.45 81.28 0)
+		(at 238.76 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4441,7 +4385,7 @@
 		(fields_autoplaced yes)
 		(uuid "12eeaad5-b038-4971-91b1-2a3ed91412a8")
 		(property "Reference" "S3"
-			(at 44.45 72.39 0)
+			(at 238.76 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4449,7 +4393,7 @@
 			)
 		)
 		(property "Value" "SG06280N"
-			(at 44.45 74.93 0)
+			(at 238.76 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4457,7 +4401,7 @@
 			)
 		)
 		(property "Footprint" "SG06280N:SW_SG06280N"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4467,7 +4411,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4476,7 +4420,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4485,7 +4429,7 @@
 			)
 		)
 		(property "MF" "Snaptron"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4495,7 +4439,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "0.33mm"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4505,7 +4449,7 @@
 			)
 		)
 		(property "CREATOR" "DIZAR"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4515,7 +4459,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4525,7 +4469,7 @@
 			)
 		)
 		(property "Package" "Package"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4535,7 +4479,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/SG06280N/Snaptron/view-part/?ref=eda"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4545,7 +4489,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4555,7 +4499,7 @@
 			)
 		)
 		(property "VERIFIER" ""
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4565,7 +4509,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/SG06280N/Snaptron/view-part/?ref=snap"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4575,7 +4519,7 @@
 			)
 		)
 		(property "MP" "SG06280N"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4585,7 +4529,7 @@
 			)
 		)
 		(property "Description_1" "SMT TACTILE DOME SWITCH SPST-NO"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4595,7 +4539,7 @@
 			)
 		)
 		(property "Availability" "Not in stock"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4605,7 +4549,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Snaptron"
-			(at 44.45 81.28 0)
+			(at 238.76 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
