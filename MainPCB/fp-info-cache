@@ -1,4 +1,4 @@
-26655105305311001
+26665731302592878
 61300621021
 61300621021
 
@@ -97138,6 +97138,34 @@ JST_S4B-PH-SM4-TB
 0
 6
 6
+SG06280N
+SW_SG06280N
+
+
+0
+2
+2
+SS_12800_009
+853-002-213R00Y
+
+
+0
+4
+4
+SS_12800_009
+STEWART_SS-12800-009
+
+
+0
+6
+6
+SS_12800_009
+Untitled
+
+
+0
+4
+4
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/AM2302.pdf
@@ -99238,6 +99266,13 @@ Logo WEEE
 0
 0
 0
+TL3315NF250Q
+SW_TL3315NF250Q
+
+
+0
+4
+4
 TerminalBlock
 TerminalBlock_Altech_AK300-2_P5.00mm
 Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
@@ -106287,3 +106322,10 @@ Varistor VF
 0
 2
 2
+footprints
+VAL0015A-MFG
+
+XTPS55285VALR 
+0
+15
+15
