@@ -567,3 +567,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/main/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/cmake_install.cmake")
+endif()
+

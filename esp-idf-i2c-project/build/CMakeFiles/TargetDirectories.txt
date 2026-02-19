@@ -862,3 +862,10 @@ C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/main/CM
 C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/main/CMakeFiles/install.dir
 C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/main/CMakeFiles/install/local.dir
 C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/main/CMakeFiles/install/strip.dir
+C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/CMakeFiles/__idf_i2c_with_tmp117.dir
+C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/CMakeFiles/edit_cache.dir
+C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/CMakeFiles/rebuild_cache.dir
+C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/CMakeFiles/list_install_components.dir
+C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/CMakeFiles/install.dir
+C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/CMakeFiles/install/local.dir
+C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/i2c_with_tmp117/CMakeFiles/install/strip.dir
