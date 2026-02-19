@@ -12,6 +12,20 @@ static i2c_master_bus_handle_t bus_handle = NULL;
 static i2c_master_dev_handle_t dev_handle = NULL;
 static i2c_master_dev_handle_t dev_handle2 = NULL;
 
+// Error detection
+#define VALID_TEMP_MIN -40.0f
+#define VALID_TEMP_MAX 125.0f
+#define CONSECUTIVE_ERROR_THRESHOLD 3
+
+static int consecutive_errors_dev1 = 0;
+static int consecutive_errors_dev2 = 0;
+static void (*error_callback)(int device) = NULL;
+
+void tmp117_register_error_callback(void (*callback)(int device))
+{
+    error_callback = callback;
+}
+
 void tmp117_init(void)
 {
     ESP_LOGI(TAG, "I2C Master initialization");
@@ -61,9 +75,39 @@ float tmp117_read_temperature(void)
     ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle, data_to_send, 2, read_buffer1, 2, pdMS_TO_TICKS(1000)));
     ESP_LOGI(TAG, "Data transmitted to device 1, received: 0x%02X 0x%02X", read_buffer1[0], read_buffer1[1]);
     
-    // TODO: Convert raw bytes to temperature value
-    int16_t raw_temp = (read_buffer1[0] << 8) | read_buffer1[1]; //combine the two bytes into a single 16-bit value
-    float temperature = raw_temp * 0.0078125f; //convert raw value to temperature in Celsius (TMP117 resolution is 0.0078125°C per LSB)
+    int16_t raw_temp = (read_buffer1[0] << 8) | read_buffer1[1];
+    float temperature = raw_temp * 0.0078125f;
+    
+    // Check if temperature is within valid range
+    if (temperature < VALID_TEMP_MIN || temperature > VALID_TEMP_MAX) {
+        consecutive_errors_dev1++;
+        ESP_LOGW(TAG, "Device 1: Invalid temperature reading %.2f°C (error count: %d)", temperature, consecutive_errors_dev1);
+        
+        // Trigger error callback if threshold reached
+        if (consecutive_errors_dev1 >= CONSECUTIVE_ERROR_THRESHOLD && error_callback) {
+            ESP_LOGE(TAG, "Device 1: Too many consecutive errors! Triggering error interrupt");
+            error_callback(1);
+        }
+    } else {
+    int16_t raw_temp = (read_buffer2[0] << 8) | read_buffer2[1];
+    float temperature = raw_temp * 0.0078125f;
+    
+    // Check if temperature is within valid range
+    if (temperature < VALID_TEMP_MIN || temperature > VALID_TEMP_MAX) {
+        consecutive_errors_dev2++;
+        ESP_LOGW(TAG, "Device 2: Invalid temperature reading %.2f°C (error count: %d)", temperature, consecutive_errors_dev2);
+        
+        // Trigger error callback if threshold reached
+        if (consecutive_errors_dev2 >= CONSECUTIVE_ERROR_THRESHOLD && error_callback) {
+            ESP_LOGE(TAG, "Device 2: Too many consecutive errors! Triggering error interrupt");
+            error_callback(2);
+        }
+    } else {
+        // Valid reading, reset error counter
+        consecutive_errors_dev2 = 0;
+    }
+    
+    
     return temperature;
 }
 
