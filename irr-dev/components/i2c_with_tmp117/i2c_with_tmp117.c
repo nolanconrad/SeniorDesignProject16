@@ -7,7 +7,12 @@
 
 static const char *TAG = "I2C_EXAMPLE";
 
-void app_main(void)
+// Static handles for I2C communication
+static i2c_master_bus_handle_t bus_handle = NULL;
+static i2c_master_dev_handle_t dev_handle = NULL;
+static i2c_master_dev_handle_t dev_handle2 = NULL;
+
+void tmp117_init(void)
 {
     ESP_LOGI(TAG, "I2C Master initialization");
 
@@ -37,27 +42,42 @@ void app_main(void)
     };
 
     //initializing the master bus
-    i2c_master_bus_handle_t bus_handle;
     ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_master_bus_config, &bus_handle));
 
     //add device to the bus
-    i2c_master_dev_handle_t dev_handle;
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config, &dev_handle));
 
     // Add second device
-    i2c_master_dev_handle_t dev_handle2;
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config2, &dev_handle2));
+    
+    ESP_LOGI(TAG, "I2C initialization complete");
+}
 
+float tmp117_read_temperature(void)
+{
     uint8_t data_to_send[2] = {0x00, 0x01}; //example data to send
     uint8_t read_buffer1[2] = {0}; //buffer to store received data from device 1
-    uint8_t read_buffer2[2] = {0}; //buffer to store received data from device 2
+    
+    ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle, data_to_send, 2, read_buffer1, 2, pdMS_TO_TICKS(1000)));
+    ESP_LOGI(TAG, "Data transmitted to device 1, received: 0x%02X 0x%02X", read_buffer1[0], read_buffer1[1]);
+    
+    // TODO: Convert raw bytes to temperature value
+    int16_t raw_temp = (read_buffer1[0] << 8) | read_buffer1[1]; //combine the two bytes into a single 16-bit value
+    float temperature = raw_temp * 0.0078125f; //convert raw value to temperature in Celsius (TMP117 resolution is 0.0078125°C per LSB)
+    return temperature;
+}
 
-    while (1) {
-        ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle, data_to_send, 2, read_buffer1, 2, pdMS_TO_TICKS(1000)));
-        ESP_LOGI(TAG, "Data transmitted to device 1, received: 0x%02X 0x%02X", read_buffer1[0], read_buffer1[1]);
-        ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle2, data_to_send, 2, read_buffer2, 2, pdMS_TO_TICKS(1000)));
-        ESP_LOGI(TAG, "Data transmitted to device 2, received: 0x%02X 0x%02X", read_buffer2[0], read_buffer2[1]);
-        vTaskDelay(pdMS_TO_TICKS(1000)); //delay for a while before next transmission
-    }
+float tmp117_read_temperature_device2(void)
+{
+    uint8_t data_to_send[2] = {0x00, 0x01}; //example data to send
+    uint8_t read_buffer2[2] = {0}; //buffer to store received data from device 2
+    
+    ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle2, data_to_send, 2, read_buffer2, 2, pdMS_TO_TICKS(1000)));
+    ESP_LOGI(TAG, "Data transmitted to device 2, received: 0x%02X 0x%02X", read_buffer2[0], read_buffer2[1]);
+    
+    // TODO: Convert raw bytes to temperature value
+    int16_t raw_temp = (read_buffer2[0] << 8) | read_buffer2[1]; //combine the two bytes into a single 16-bit value
+    float temperature = raw_temp * 0.0078125f; //convert raw value to temperature in Celsius (TMP117 resolution is 0.0078125°C per LSB)
+    return temperature;
 }
 
