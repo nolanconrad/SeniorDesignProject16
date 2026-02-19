@@ -12,9 +12,9 @@ void app_main(void)
 
     while(1) {
         // auto start-up when power is applied
+        system_startUp();
         //do a system check to confirm there are no faults 
-            //quickly run pump & confirm no faults 
-            //cycle through all LED's and confirm no faults
+            system_startUp();
             //activate bluetooth module if needed and confirm no faults
 
         //automatic mode
