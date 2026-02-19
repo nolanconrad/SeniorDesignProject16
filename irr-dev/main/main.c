@@ -9,6 +9,7 @@ void app_main(void)
 {
     // Initialize I2C and temperature sensors
     tmp117_init();
+    pump_Operation_init();
 
     while(1) {
         // auto start-up when power is applied
