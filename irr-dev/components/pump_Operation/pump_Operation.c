@@ -40,11 +40,32 @@ void pump_Set_Mode(int mode) {
     }
 */
 
+void man_Pump_On(int intensity) {
+    gpio_set_level(PUMP_PIN, 1); //change this
+    // Set PWM duty cycle based on intensity (0-255)
+}
+
+void automatic_Pump_On(void) {
+    gpio_set_level(PUMP_PIN, 1); //change this
+    // Implement logic to determine intensity based on sensor data
+    if (temp1 > threshold1 + 10) {
+        // Set high intensity
+    } else if (temp1 > threshold1) {
+        // Set medium intensity
+    } else {
+        // Set low intensity
+    }
+}
+
+void pump_off(void) {
+    gpio_set_level(PUMP_PIN, 0); //this needs to just turn off the pump for good
+}
+
+
 void pump_Operation(void) {
     switch(pump_mode) {
         case 1:
             //automatic mode
-
             break; 
         case 2:
             //manual mode low
