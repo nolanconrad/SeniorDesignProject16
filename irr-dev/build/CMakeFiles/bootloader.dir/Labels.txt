@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/CMakeFiles/bootloader
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/CMakeFiles/bootloader.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/CMakeFiles/bootloader-complete.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/CMakeFiles/bootloader
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/CMakeFiles/bootloader.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/CMakeFiles/bootloader-complete.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

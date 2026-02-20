@@ -17,4 +17,4 @@ set confirm off
 set confirm on
 
 # Load application symbols
-file C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader/bootloader.elf
+file C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader/bootloader.elf

@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
+  include("C:/Senior Design/SeniorDesignProject16/irr-dev/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
 endif()
 

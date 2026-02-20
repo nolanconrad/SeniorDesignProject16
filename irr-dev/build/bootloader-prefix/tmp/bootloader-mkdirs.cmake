@@ -10,18 +10,18 @@ if(NOT EXISTS "C:/Users/nolan/esp/v5.5.1/esp-idf/components/bootloader/subprojec
   file(MAKE_DIRECTORY "C:/Users/nolan/esp/v5.5.1/esp-idf/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader"
-  "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix"
-  "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/tmp"
-  "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp"
-  "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src"
-  "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader"
+  "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix"
+  "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/tmp"
+  "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src"
+  "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

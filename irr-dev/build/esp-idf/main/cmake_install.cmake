@@ -1,4 +1,4 @@
-# Install script for directory: C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/main
+# Install script for directory: C:/Senior Design/SeniorDesignProject16/irr-dev/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

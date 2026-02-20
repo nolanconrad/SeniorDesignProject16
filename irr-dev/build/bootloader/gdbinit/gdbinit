@@ -1,2 +1,2 @@
-source C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader/gdbinit/symbols
-source C:/Senior Design/SeniorDesignProject16/esp-idf-i2c-project/build/bootloader/gdbinit/connect
+source C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader/gdbinit/symbols
+source C:/Senior Design/SeniorDesignProject16/irr-dev/build/bootloader/gdbinit/connect
