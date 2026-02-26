@@ -1,0 +1,140 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "0ae043f1-f7b5-4fb3-89e1-2686961ef754")
+	(paper "A4")
+	(lib_symbols)
+	(rectangle
+		(start 127 63.5)
+		(end 189.865 127)
+		(stroke
+			(width 2.54)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 02a7cd47-693f-4048-8388-da36299a86b3)
+	)
+	(rectangle
+		(start 19.685 19.685)
+		(end 82.55 83.185)
+		(stroke
+			(width 2.54)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 100d5432-963e-4c34-be75-242e9a8a2197)
+	)
+	(rectangle
+		(start 221.0045 19.9744)
+		(end 279.4 59.055)
+		(stroke
+			(width 2.54)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 6bc7fc95-cf1c-4aba-8b5f-61bb49f882a9)
+	)
+	(rectangle
+		(start 37.465 150.1494)
+		(end 95.8605 189.23)
+		(stroke
+			(width 2.54)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 896a38be-cb4f-4775-8024-5ac86c7827f2)
+	)
+	(rectangle
+		(start 220.98 109.22)
+		(end 279.3755 148.3006)
+		(stroke
+			(width 2.54)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 90adc7f9-f067-4b08-a259-5ed5156ae51a)
+	)
+	(rectangle
+		(start 220.98 64.135)
+		(end 279.3755 103.2156)
+		(stroke
+			(width 2.54)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid d4cfbf8d-a92f-40e9-a685-2ad74496fe58)
+	)
+	(text "TMP117"
+		(exclude_from_sim no)
+		(at 248.412 28.702 0)
+		(effects
+			(font
+				(size 6.35 6.35)
+			)
+		)
+		(uuid "10a90deb-1101-47df-af8d-4710fcea41a9")
+	)
+	(text "TMP117"
+		(exclude_from_sim no)
+		(at 248.158 75.438 0)
+		(effects
+			(font
+				(size 6.35 6.35)
+			)
+		)
+		(uuid "42b19e90-62f2-4ea0-8695-c14193c87be2")
+	)
+	(text "Pump"
+		(exclude_from_sim no)
+		(at 65.024 182.88 0)
+		(effects
+			(font
+				(size 6.35 6.35)
+			)
+		)
+		(uuid "4a00f134-391e-4266-bb54-61b1195acdd4")
+	)
+	(text "Main PCB"
+		(exclude_from_sim no)
+		(at 159.004 88.9 0)
+		(effects
+			(font
+				(size 6.35 6.35)
+			)
+		)
+		(uuid "4f8d975d-fed1-4142-a5e3-a86f0394bd73")
+	)
+	(text "TMP117"
+		(exclude_from_sim no)
+		(at 248.412 117.348 0)
+		(effects
+			(font
+				(size 6.35 6.35)
+			)
+		)
+		(uuid "57665f1f-c7cc-4738-b327-8196a551f79b")
+	)
+	(text "Battery"
+		(exclude_from_sim no)
+		(at 48.514 28.448 0)
+		(effects
+			(font
+				(size 6.35 6.35)
+			)
+		)
+		(uuid "76c158d3-d22d-4059-8520-a3a256e16b51")
+	)
+)
