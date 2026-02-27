@@ -5564,13 +5564,12 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 146.05 106.68 0)
+		(property "Description" "47nF"
+			(at 143.002 102.362 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -8412,13 +8411,12 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 130.81 106.68 0)
+		(property "Description" "47nF"
+			(at 134.112 102.616 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -8481,13 +8479,12 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 130.81 110.49 0)
+		(property "Description" "22uH"
+			(at 138.176 106.172 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
