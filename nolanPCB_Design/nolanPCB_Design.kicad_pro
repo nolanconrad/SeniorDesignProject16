@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.33,
-          "height": 0.63,
-          "width": 0.63
+          "drill": 3.0,
+          "height": 2.0,
+          "width": 4.0
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -451,14 +451,14 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "copyOfMainPCB.kicad_pro",
+    "filename": "nolanPCB_Design.kicad_pro",
     "version": 3
   },
   "net_settings": {
     "classes": [
       {
-        "bus_width": 12,
-        "clearance": 0.2,
+        "bus_width": 1,
+        "clearance": 0.3,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -469,10 +469,20 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "via_diameter": 0.6,
-        "via_drill": 0.3,
-        "wire_width": 10
+        "track_width": 0.5,
+        "via_diameter": 1.0,
+        "via_drill": 0.6,
+        "wire_width": 20
+      },
+      {
+        "clearance": 0.3,
+        "name": "power",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 1.0,
+        "via_diameter": 1.0,
+        "via_drill": 0.6
       }
     ],
     "meta": {
@@ -480,7 +490,12 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "power",
+        "pattern": "/12V"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -489,7 +504,7 @@
       "netlist": "",
       "plot": "",
       "pos_files": "",
-      "specctra_dsn": "",
+      "specctra_dsn": "nolanPCB_Design_Freerouting_T1.dsn",
       "step": "",
       "svg": "",
       "vrml": ""
@@ -611,12 +626,8 @@
   },
   "sheets": [
     [
-      "3fbae0b3-3e6a-4fc3-bce7-3e63a917950e",
+      "6d6f2b53-2a8a-42a8-82e8-63a2d94442af",
       "Root"
-    ],
-    [
-      "cfa25243-5524-4734-90ae-5f1b49ca3aaf",
-      "mainBlockDiagram"
     ]
   ],
   "text_variables": {}
