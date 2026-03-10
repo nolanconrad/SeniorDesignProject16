@@ -1,6 +1,13 @@
-26674589625422534
-61300621021
-61300621021
+26676387355808342
+80SQ045NRLG
+DIOAD2860W130L840D505
+AXIAL-LEAD-CASE 267-05
+Diode
+0
+2
+2
+861.preety
+861-004-213R00Y
 
 
 0
@@ -59338,6 +59345,13 @@ ceramic
 0
 3
 3
+DO-204AC_SA
+DO-204AC_SA
+
+SA15CA 
+0
+2
+2
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator
@@ -62446,13 +62460,6 @@ GDT 3R-6
 0
 3
 3
-GRPB032VWVN-RC
-GRPB032VWVN-RC
-<a href = https://s3.amazonaws.com/catalogspreads-pdf/PAGE94-95%20.050%20MALE%20HDR%20ST%20RA%20SMT.pdf>Datasheet</a>
-
-0
-6
-6
 Heatsink
 Heatsink_35x26mm_1xFixation3mm_Fischer-SK486-35
 Heatsink, 35mm x 26mm, 1x Fixation 3mm, Fischer SK486-35
