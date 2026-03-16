@@ -4583,12 +4583,6 @@
 		(uuid "66b8964a-82f8-4412-9559-0fa174fb7f7e")
 	)
 	(junction
-		(at 119.38 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6f4f2c7c-bbca-4ae3-9218-bf99df9b0f0a")
-	)
-	(junction
 		(at 52.07 72.39)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4629,12 +4623,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9497f24c-5ddf-411d-bb6e-5e96caabd770")
-	)
-	(junction
-		(at 125.73 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9645fa39-2883-4156-8de7-6e7f1f4b4303")
 	)
 	(junction
 		(at 182.88 110.49)
@@ -4761,6 +4749,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f1eaeb2d-cb82-480c-9e90-747427b266a5")
+	)
+	(junction
+		(at 125.73 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f4a4916a-64fd-4a9f-a5c5-a59a2f6b33b3")
 	)
 	(junction
 		(at 100.33 177.8)
@@ -4945,16 +4939,6 @@
 			(type default)
 		)
 		(uuid "14555020-5bbd-4280-8dd1-26f9a2ac4b72")
-	)
-	(wire
-		(pts
-			(xy 119.38 44.45) (xy 125.73 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "163634c3-e5b7-42e3-a8e6-db6863933c4f")
 	)
 	(wire
 		(pts
@@ -8814,6 +8798,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDPWR")
+		(at 116.84 44.45 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "412c6cb2-4a6f-4038-9ff2-257ebcb357ae")
+		(property "Reference" "#PWR015"
+			(at 116.84 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDPWR"
+			(at 116.967 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 116.84 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDPWR\" , global ground"
+			(at 116.84 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "605a7664-d491-40ee-bc0d-99a930d3f803")
+		)
+		(instances
+			(project "MAIN_PCB"
+				(path "/3fbae0b3-3e6a-4fc3-bce7-3e63a917950e"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 86.36 182.88 0)
 		(unit 1)
@@ -9111,7 +9162,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDPWR")
-		(at 119.38 44.45 0)
+		(at 125.73 44.45 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9121,7 +9172,7 @@
 		(fields_autoplaced yes)
 		(uuid "4b8ff2e0-b521-48de-9509-ac16c072f53c")
 		(property "Reference" "#PWR01"
-			(at 119.38 49.53 0)
+			(at 125.73 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9130,7 +9181,7 @@
 			)
 		)
 		(property "Value" "GNDPWR"
-			(at 119.507 48.26 0)
+			(at 125.857 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9138,7 +9189,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 119.38 45.72 0)
+			(at 125.73 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9147,7 +9198,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 45.72 0)
+			(at 125.73 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9156,7 +9207,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDPWR\" , global ground"
-			(at 119.38 44.45 0)
+			(at 125.73 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9168,7 +9219,7 @@
 			(uuid "083aaf5e-4792-4265-9fe8-ecb6e1d6623e")
 		)
 		(instances
-			(project ""
+			(project "MAIN_PCB"
 				(path "/3fbae0b3-3e6a-4fc3-bce7-3e63a917950e"
 					(reference "#PWR01")
 					(unit 1)
@@ -9929,6 +9980,73 @@
 			(project ""
 				(path "/3fbae0b3-3e6a-4fc3-bce7-3e63a917950e"
 					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 119.38 44.45 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6b563b41-e97c-4cc3-a3e2-041aeae497ea")
+		(property "Reference" "#PWR047"
+			(at 119.38 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 119.38 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 119.38 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 119.38 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "293d937d-b9d2-49c6-a14c-673366cf37af")
+		)
+		(instances
+			(project "MAIN_PCB"
+				(path "/3fbae0b3-3e6a-4fc3-bce7-3e63a917950e"
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -14634,74 +14752,6 @@
 			(project "MAIN_PCB"
 				(path "/3fbae0b3-3e6a-4fc3-bce7-3e63a917950e"
 					(reference "#PWR041")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 116.84 44.45 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "edfefbd3-0a3e-4cb6-a20b-2545a08addc5")
-		(property "Reference" "#PWR015"
-			(at 116.84 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 116.8399 48.26 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 116.84 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 116.84 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "55a3834f-25b7-4e33-87f3-becb21a54d67")
-		)
-		(instances
-			(project "MAIN_PCB"
-				(path "/3fbae0b3-3e6a-4fc3-bce7-3e63a917950e"
-					(reference "#PWR015")
 					(unit 1)
 				)
 			)
