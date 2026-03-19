@@ -1,9 +1,18 @@
 {
-    "idf.currentSetup": "C:\\Users\\nolan\\esp\\v5.5.1\\esp-idf",
+    "idf.currentSetup": "C:\\esp\\v5.5.1\\esp-idf",
     "editor.inlineSuggest.enabled": false,
     "editor.quickSuggestions": {
         "comments": "off",
         "strings": "on",
         "other": "on"
+    },
+    "idf.flashType": "UART",
+    "idf.portWin": "COM15",
+    "idf.monitorPort": "COM15",
+    "idf.openOcdConfigs": [
+        "board/esp32s3-builtin.cfg"
+    ],
+    "idf.customExtraVars": {
+        "IDF_TARGET": "esp32s3"
     }
 }

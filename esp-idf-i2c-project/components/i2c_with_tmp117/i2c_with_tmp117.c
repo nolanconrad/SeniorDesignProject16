@@ -1,14 +1,44 @@
-#include <stdio.h>
 #include "i2c_with_tmp117.h"
 #include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include "driver/i2c_master.h"
 #include "esp_log.h"
+#include <math.h>
+#include <stdint.h>
 
 static const char *TAG = "I2C_EXAMPLE";
 
-void app_main(void)
+static i2c_master_bus_handle_t bus_handle = NULL;
+static i2c_master_dev_handle_t dev_handle = NULL;
+static i2c_master_dev_handle_t dev_handle2 = NULL;
+
+static float tmp117_read_temperature_from_device(i2c_master_dev_handle_t handle)
 {
+    static const uint8_t temp_reg = 0x00;
+    uint8_t temp_raw[2] = {0};
+
+    esp_err_t err = i2c_master_transmit_receive(
+        handle,
+        &temp_reg,
+        1,
+        temp_raw,
+        2,
+        pdMS_TO_TICKS(100));
+
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "TMP117 read failed: %s", esp_err_to_name(err));
+        return NAN;
+    }
+
+    int16_t raw_temp = (int16_t)((temp_raw[0] << 8) | temp_raw[1]);
+    return raw_temp * 0.0078125f;
+}
+
+void tmp117_init(void)
+{
+    if (bus_handle != NULL) {
+        return;
+    }
+
     ESP_LOGI(TAG, "I2C Master initialization");
 
     //setting up the master bus
@@ -37,27 +67,32 @@ void app_main(void)
     };
 
     //initializing the master bus
-    i2c_master_bus_handle_t bus_handle;
     ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_master_bus_config, &bus_handle));
 
     //add device to the bus
-    i2c_master_dev_handle_t dev_handle;
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config, &dev_handle));
 
     // Add second device
-    i2c_master_dev_handle_t dev_handle2;
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config2, &dev_handle2));
+}
 
-    uint8_t data_to_send[2] = {0x00, 0x01}; //example data to send
-    uint8_t read_buffer1[2] = {0}; //buffer to store received data from device 1
-    uint8_t read_buffer2[2] = {0}; //buffer to store received data from device 2
-
-    while (1) {
-        ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle, data_to_send, 2, read_buffer1, 2, pdMS_TO_TICKS(1000)));
-        ESP_LOGI(TAG, "Data transmitted to device 1, received: 0x%02X 0x%02X", read_buffer1[0], read_buffer1[1]);
-        ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle2, data_to_send, 2, read_buffer2, 2, pdMS_TO_TICKS(1000)));
-        ESP_LOGI(TAG, "Data transmitted to device 2, received: 0x%02X 0x%02X", read_buffer2[0], read_buffer2[1]);
-        vTaskDelay(pdMS_TO_TICKS(1000)); //delay for a while before next transmission
+float tmp117_read_temperature(void)
+{
+    if (dev_handle == NULL) {
+        ESP_LOGE(TAG, "TMP117 device 1 not initialized");
+        return NAN;
     }
+
+    return tmp117_read_temperature_from_device(dev_handle);
+}
+
+float tmp117_read_temperature_device2(void)
+{
+    if (dev_handle2 == NULL) {
+        ESP_LOGE(TAG, "TMP117 device 2 not initialized");
+        return NAN;
+    }
+
+    return tmp117_read_temperature_from_device(dev_handle2);
 }
 
