@@ -1,0 +1,18 @@
+{
+    "idf.currentSetup": "C:\\esp\\v5.5.1\\esp-idf",
+    "idf.flashType": "UART",
+    "idf.portWin": "COM3",
+    "idf.port": "COM3",
+    "idf.projectPath": "${workspaceFolder}",
+    "terminal.integrated.profiles.windows": {
+        "ESP-IDF PowerShell": {
+            "source": "PowerShell",
+            "args": [
+                "-NoExit",
+                "-Command",
+                ". C:\\esp\\v5.5.1\\esp-idf\\export.ps1"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "ESP-IDF PowerShell"
+}

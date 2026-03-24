@@ -1,0 +1,2214 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048d08
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Mar 24 2026 13:41:34[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0bbbch ( 48060) map[0m
+[0;32mI (95) esp_image: segment 1: paddr=0001bbe4 vaddr=3fc93a00 size=02b38h ( 11064) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001e724 vaddr=40374000 size=018f4h (  6388) load[0m
+[0;32mI (102) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1ae88h (110216) map[0m
+[0;32mI (128) esp_image: segment 4: paddr=0003aeb0 vaddr=403758f4 size=0e0a4h ( 57508) load[0m
+[0;32mI (141) esp_image: segment 5: paddr=00048f5c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (147) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (147) boot: Disabling RNG early entropy source...[0m
+[0;32mI (159) cpu_start: Multicore app[0m
+[0;32mI (169) cpu_start: Pro cpu start user code[0m
+[0;32mI (169) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (169) app_init: Application information:[0m
+[0;32mI (169) app_init: Project name:     springMain_v2[0m
+[0;32mI (173) app_init: App version:      46b8c08-dirty[0m
+[0;32mI (178) app_init: Compile time:     Mar 24 2026 13:40:57[0m
+[0;32mI (183) app_init: ELF file SHA256:  6463441d0...[0m
+[0;32mI (187) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (191) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (195) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (199) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (203) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (209) heap_init: At 3FC96E40 len 000528D0 (330 KiB): RAM[0m
+[0;32mI (214) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (219) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (224) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (230) spi_flash: detected chip: gd[0m
+[0;32mI (233) spi_flash: flash io: dio[0m
+[0;33mW (236) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (248) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (258) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (264) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (271) main_task: Started on CPU0[0m
+[0;32mI (281) main_task: Calling app_main()[0m
+[0;32mI (281) i2c_bus: I2C master ready on port 0 (SDA=12, SCL=11, 100000 Hz)[0m
+[0;32mI (281) main: Button GPIO configured for polling on D2 (GPIO5), A2 (GPIO3), A3 (GPIO4)[0m
+[0;32mI (291) main: D2 (GPIO5): LOW[0m
+[0;32mI (291) main: A2 (GPIO3): LOW[0m
+[0;32mI (301) main: A3 (GPIO4): LOW[0m
+[0;32mI (301) main: I2C bus initialized. Scanning bus for connected devices...[0m
+[0;32mI (321) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (321) i2c_bus: I2C device found at 0x49[0m
+[0;32mI (331) main: Temperature monitor task started for two TMP117 sensors.[0m
+[0;32mI (331) main_task: Returned from app_main()[0m
+[0;32mI (331) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (331) main: tmp117_1 initialized at 0x48[0m
+[0;32mI (341) main: tmp117_1 (0x48): 26.141 C[0m
+[0;32mI (341) tmp117: TMP117 detected at 0x49 (device id 0x0117)[0m
+[0;32mI (341) main: tmp117_2 initialized at 0x49[0m
+[0;32mI (351) main: tmp117_2 (0x49): 26.211 C[0m
+[0;32mI (801) main: D2 (GPIO5): LOW[0m
+[0;32mI (801) main: A2 (GPIO3): LOW[0m
+[0;32mI (801) main: A3 (GPIO4): LOW[0m
+[0;32mI (1301) main: D2 (GPIO5): LOW[0m
+[0;32mI (1301) main: A2 (GPIO3): LOW[0m
+[0;32mI (1301) main: A3 (GPIO4): LOW[0m
+[0;32mI (1331) main: tmp117_1 (0x48): 26.148 C[0m
+[0;32mI (1331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (1801) main: D2 (GPIO5): LOW[0m
+[0;32mI (1801) main: A2 (GPIO3): LOW[0m
+[0;32mI (1801) main: A3 (GPIO4): LOW[0m
+[0;32mI (2301) main: D2 (GPIO5): LOW[0m
+[0;32mI (2301) main: A2 (GPIO3): LOW[0m
+[0;32mI (2301) main: A3 (GPIO4): LOW[0m
+[0;32mI (2331) main: tmp117_1 (0x48): 26.148 C[0m
+[0;32mI (2331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (2801) main: D2 (GPIO5): LOW[0m
+[0;32mI (2801) main: A2 (GPIO3): LOW[0m
+[0;32mI (2801) main: A3 (GPIO4): LOW[0m
+[0;32mI (3301) main: D2 (GPIO5): LOW[0m
+[0;32mI (3301) main: A2 (GPIO3): LOW[0m
+[0;32mI (3301) main: A3 (GPIO4): LOW[0m
+[0;32mI (3331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (3331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (3801) main: D2 (GPIO5): LOW[0m
+[0;32mI (3801) main: A2 (GPIO3): LOW[0m
+[0;32mI (3801) main: A3 (GPIO4): LOW[0m
+[0;32mI (4301) main: D2 (GPIO5): LOW[0m
+[0;32mI (4301) main: A2 (GPIO3): LOW[0m
+[0;32mI (4301) main: A3 (GPIO4): LOW[0m
+[0;32mI (4331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (4331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (4801) main: D2 (GPIO5): LOW[0m
+[0;32mI (4801) main: A2 (GPIO3): LOW[0m
+[0;32mI (4801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (5301) main: D2 (GPIO5): LOW[0m
+[0;32mI (5301) main: A2 (GPIO3): LOW[0m
+[0;32mI (5301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (5331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (5331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (5801) main: D2 (GPIO5): LOW[0m
+[0;32mI (5801) main: A2 (GPIO3): LOW[0m
+[0;32mI (5801) main: A3 (GPIO4): LOW[0m
+[0;32mI (6301) main: D2 (GPIO5): LOW[0m
+[0;32mI (6301) main: A2 (GPIO3): LOW[0m
+[0;32mI (6301) main: A3 (GPIO4): LOW[0m
+[0;32mI (6331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (6331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (6801) main: D2 (GPIO5): LOW[0m
+[0;32mI (6801) main: A2 (GPIO3): LOW[0m
+[0;32mI (6801) main: A3 (GPIO4): LOW[0m
+[0;32mI (7301) main: D2 (GPIO5): LOW[0m
+[0;32mI (7301) main: A2 (GPIO3): LOW[0m
+[0;32mI (7301) main: A3 (GPIO4): LOW[0m
+[0;32mI (7331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (7331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (7801) main: D2 (GPIO5): LOW[0m
+[0;32mI (7801) main: A2 (GPIO3): LOW[0m
+[0;32mI (7801) main: A3 (GPIO4): LOW[0m
+[0;32mI (8301) main: D2 (GPIO5): LOW[0m
+[0;32mI (8301) main: A2 (GPIO3): LOW[0m
+[0;32mI (8301) main: A3 (GPIO4): LOW[0m
+[0;32mI (8331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (8331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (8801) main: D2 (GPIO5): LOW[0m
+[0;32mI (8801) main: A2 (GPIO3): LOW[0m
+[0;32mI (8801) main: A3 (GPIO4): LOW[0m
+[0;32mI (9301) main: D2 (GPIO5): LOW[0m
+[0;32mI (9301) main: A2 (GPIO3): LOW[0m
+[0;32mI (9301) main: A3 (GPIO4): LOW[0m
+[0;32mI (9331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (9331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (9801) main: D2 (GPIO5): LOW[0m
+[0;32mI (9801) main: A2 (GPIO3): LOW[0m
+[0;32mI (9801) main: A3 (GPIO4): LOW[0m
+[0;32mI (10301) main: D2 (GPIO5): LOW[0m
+[0;32mI (10301) main: A2 (GPIO3): LOW[0m
+[0;32mI (10301) main: A3 (GPIO4): LOW[0m
+[0;32mI (10331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (10331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (10801) main: D2 (GPIO5): LOW[0m
+[0;32mI (10801) main: A2 (GPIO3): LOW[0m
+[0;32mI (10801) main: A3 (GPIO4): LOW[0m
+[0;32mI (11301) main: D2 (GPIO5): LOW[0m
+[0;32mI (11301) main: A2 (GPIO3): LOW[0m
+[0;32mI (11301) main: A3 (GPIO4): LOW[0m
+[0;32mI (11331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (11331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (11801) main: D2 (GPIO5): LOW[0m
+[0;32mI (11801) main: A2 (GPIO3): LOW[0m
+[0;32mI (11801) main: A3 (GPIO4): LOW[0m
+[0;32mI (12301) main: D2 (GPIO5): LOW[0m
+[0;32mI (12301) main: A2 (GPIO3): LOW[0m
+[0;32mI (12301) main: A3 (GPIO4): LOW[0m
+[0;32mI (12331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (12331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (12801) main: D2 (GPIO5): LOW[0m
+[0;32mI (12801) main: A2 (GPIO3): LOW[0m
+[0;32mI (12801) main: A3 (GPIO4): LOW[0m
+[0;32mI (13301) main: D2 (GPIO5): LOW[0m
+[0;32mI (13301) main: A2 (GPIO3): LOW[0m
+[0;32mI (13301) main: A3 (GPIO4): LOW[0m
+[0;32mI (13331) main: tmp117_1 (0x48): 26.148 C[0m
+[0;32mI (13331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (13801) main: D2 (GPIO5): LOW[0m
+[0;32mI (13801) main: A2 (GPIO3): LOW[0m
+[0;32mI (13801) main: A3 (GPIO4): LOW[0m
+[0;32mI (14301) main: D2 (GPIO5): LOW[0m
+[0;32mI (14301) main: A2 (GPIO3): LOW[0m
+[0;32mI (14301) main: A3 (GPIO4): LOW[0m
+[0;32mI (14331) main: tmp117_1 (0x48): 26.148 C[0m
+[0;32mI (14331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (14801) main: D2 (GPIO5): LOW[0m
+[0;32mI (14801) main: A2 (GPIO3): LOW[0m
+[0;32mI (14801) main: A3 (GPIO4): LOW[0m
+[0;32mI (15301) main: D2 (GPIO5): LOW[0m
+[0;32mI (15301) main: A2 (GPIO3): LOW[0m
+[0;32mI (15301) main: A3 (GPIO4): LOW[0m
+[0;32mI (15331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (15331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (15801) main: D2 (GPIO5): LOW[0m
+[0;32mI (15801) main: A2 (GPIO3): LOW[0m
+[0;32mI (15801) main: A3 (GPIO4): LOW[0m
+[0;32mI (16301) main: D2 (GPIO5): LOW[0m
+[0;32mI (16301) main: A2 (GPIO3): LOW[0m
+[0;32mI (16301) main: A3 (GPIO4): LOW[0m
+[0;32mI (16331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (16331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (16801) main: D2 (GPIO5): LOW[0m
+[0;32mI (16801) main: A2 (GPIO3): LOW[0m
+[0;32mI (16801) main: A3 (GPIO4): LOW[0m
+[0;32mI (17301) main: D2 (GPIO5): LOW[0m
+[0;32mI (17301) main: A2 (GPIO3): LOW[0m
+[0;32mI (17301) main: A3 (GPIO4): LOW[0m
+[0;32mI (17331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (17331) main: tmp117_2 (0x49): 26.211 C[0m
+[0;32mI (17801) main: D2 (GPIO5): LOW[0m
+[0;32mI (17801) main: A2 (GPIO3): LOW[0m
+[0;32mI (17801) main: A3 (GPIO4): LOW[0m
+[0;32mI (18301) main: D2 (GPIO5): LOW[0m
+[0;32mI (18301) main: A2 (GPIO3): LOW[0m
+[0;32mI (18301) main: A3 (GPIO4): LOW[0m
+[0;32mI (18331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (18331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (18801) main: D2 (GPIO5): LOW[0m
+[0;32mI (18801) main: A2 (GPIO3): LOW[0m
+[0;32mI (18801) main: A3 (GPIO4): LOW[0m
+[0;32mI (19301) main: D2 (GPIO5): LOW[0m
+[0;32mI (19301) main: A2 (GPIO3): LOW[0m
+[0;32mI (19301) main: A3 (GPIO4): LOW[0m
+[0;32mI (19331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (19331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (19801) main: D2 (GPIO5): LOW[0m
+[0;32mI (19801) main: A2 (GPIO3): LOW[0m
+[0;32mI (19801) main: A3 (GPIO4): LOW[0m
+[0;32mI (20301) main: D2 (GPIO5): LOW[0m
+[0;32mI (20301) main: A2 (GPIO3): LOW[0m
+[0;32mI (20301) main: A3 (GPIO4): LOW[0m
+[0;32mI (20331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (20331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (20801) main: D2 (GPIO5): LOW[0m
+[0;32mI (20801) main: A2 (GPIO3): LOW[0m
+[0;32mI (20801) main: A3 (GPIO4): LOW[0m
+[0;32mI (21301) main: D2 (GPIO5): LOW[0m
+[0;32mI (21301) main: A2 (GPIO3): LOW[0m
+[0;32mI (21301) main: A3 (GPIO4): LOW[0m
+[0;32mI (21331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (21331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (21801) main: D2 (GPIO5): LOW[0m
+[0;32mI (21801) main: A2 (GPIO3): LOW[0m
+[0;32mI (21801) main: A3 (GPIO4): LOW[0m
+[0;32mI (22301) main: D2 (GPIO5): LOW[0m
+[0;32mI (22301) main: A2 (GPIO3): LOW[0m
+[0;32mI (22301) main: A3 (GPIO4): LOW[0m
+[0;32mI (22331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (22331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (22801) main: D2 (GPIO5): LOW[0m
+[0;32mI (22801) main: A2 (GPIO3): LOW[0m
+[0;32mI (22801) main: A3 (GPIO4): LOW[0m
+[0;32mI (23301) main: D2 (GPIO5): LOW[0m
+[0;32mI (23301) main: A2 (GPIO3): LOW[0m
+[0;32mI (23301) main: A3 (GPIO4): LOW[0m
+[0;32mI (23331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (23331) main: tmp117_2 (0x49): 26.219 C[0m
+[0;32mI (23801) main: D2 (GPIO5): LOW[0m
+[0;32mI (23801) main: A2 (GPIO3): LOW[0m
+[0;32mI (23801) main: A3 (GPIO4): LOW[0m
+[0;32mI (24301) main: D2 (GPIO5): LOW[0m
+[0;32mI (24301) main: A2 (GPIO3): LOW[0m
+[0;32mI (24301) main: A3 (GPIO4): LOW[0m
+[0;32mI (24331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (24331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (24801) main: D2 (GPIO5): LOW[0m
+[0;32mI (24801) main: A2 (GPIO3): LOW[0m
+[0;32mI (24801) main: A3 (GPIO4): LOW[0m
+[0;32mI (25301) main: D2 (GPIO5): LOW[0m
+[0;32mI (25301) main: A2 (GPIO3): LOW[0m
+[0;32mI (25301) main: A3 (GPIO4): LOW[0m
+[0;32mI (25331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (25331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (25801) main: D2 (GPIO5): LOW[0m
+[0;32mI (25801) main: A2 (GPIO3): LOW[0m
+[0;32mI (25801) main: A3 (GPIO4): LOW[0m
+[0;32mI (26301) main: D2 (GPIO5): LOW[0m
+[0;32mI (26301) main: A2 (GPIO3): LOW[0m
+[0;32mI (26301) main: A3 (GPIO4): LOW[0m
+[0;32mI (26331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (26331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (26801) main: D2 (GPIO5): LOW[0m
+[0;32mI (26801) main: A2 (GPIO3): LOW[0m
+[0;32mI (26801) main: A3 (GPIO4): LOW[0m
+[0;32mI (27301) main: D2 (GPIO5): LOW[0m
+[0;32mI (27301) main: A2 (GPIO3): LOW[0m
+[0;32mI (27301) main: A3 (GPIO4): LOW[0m
+[0;32mI (27331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (27331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (27801) main: D2 (GPIO5): LOW[0m
+[0;32mI (27801) main: A2 (GPIO3): LOW[0m
+[0;32mI (27801) main: A3 (GPIO4): LOW[0m
+[0;32mI (28301) main: D2 (GPIO5): LOW[0m
+[0;32mI (28301) main: A2 (GPIO3): LOW[0m
+[0;32mI (28301) main: A3 (GPIO4): LOW[0m
+[0;32mI (28331) main: tmp117_1 (0x48): 26.156 C[0m
+[0;32mI (28331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (28801) main: D2 (GPIO5): LOW[0m
+[0;32mI (28801) main: A2 (GPIO3): LOW[0m
+[0;32mI (28801) main: A3 (GPIO4): LOW[0m
+[0;32mI (29301) main: D2 (GPIO5): LOW[0m
+[0;32mI (29301) main: A2 (GPIO3): LOW[0m
+[0;32mI (29301) main: A3 (GPIO4): LOW[0m
+[0;32mI (29331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (29331) main: tmp117_2 (0x49): 26.227 C[0m
+[0;32mI (29801) main: D2 (GPIO5): LOW[0m
+[0;32mI (29801) main: A2 (GPIO3): LOW[0m
+[0;32mI (29801) main: A3 (GPIO4): LOW[0m
+[0;32mI (30301) main: D2 (GPIO5): LOW[0m
+[0;32mI (30301) main: A2 (GPIO3): LOW[0m
+[0;32mI (30301) main: A3 (GPIO4): LOW[0m
+[0;32mI (30331) main: tmp117_1 (0x48): 26.164 C[0m
+[0;32mI (30331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (30801) main: D2 (GPIO5): LOW[0m
+[0;32mI (30801) main: A2 (GPIO3): LOW[0m
+[0;32mI (30801) main: A3 (GPIO4): LOW[0m
+[0;32mI (31301) main: D2 (GPIO5): LOW[0m
+[0;32mI (31301) main: A2 (GPIO3): LOW[0m
+[0;32mI (31301) main: A3 (GPIO4): LOW[0m
+[0;32mI (31331) main: tmp117_1 (0x48): 26.172 C[0m
+[0;32mI (31331) main: tmp117_2 (0x49): 26.234 C[0m
+[0;32mI (31801) main: D2 (GPIO5): LOW[0m
+[0;32mI (31801) main: A2 (GPIO3): LOW[0m
+[0;32mI (31801) main: A3 (GPIO4): LOW[0m
+[0;32mI (32301) main: D2 (GPIO5): LOW[0m
+[0;32mI (32301) main: A2 (GPIO3): LOW[0m
+[0;32mI (32301) main: A3 (GPIO4): LOW[0m
+[0;32mI (32331) main: tmp117_1 (0x48): 26.172 C[0m
+[0;32mI (32331) main: tmp117_2 (0x49): 26.234 C[0m
+[0;32mI (32801) main: D2 (GPIO5): LOW[0m
+[0;32mI (32801) main: A2 (GPIO3): LOW[0m
+[0;32mI (32801) main: A3 (GPIO4): LOW[0m
+[0;32mI (33301) main: D2 (GPIO5): LOW[0m
+[0;32mI (33301) main: A2 (GPIO3): LOW[0m
+[0;32mI (33301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (33331) main: tmp117_1 (0x48): 26.172 C[0m
+[0;32mI (33331) main: tmp117_2 (0x49): 26.234 C[0m
+[0;32mI (33801) main: D2 (GPIO5): LOW[0m
+[0;32mI (33801) main: A2 (GPIO3): LOW[0m
+[0;32mI (33801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (34301) main: D2 (GPIO5): LOW[0m
+[0;32mI (34301) main: A2 (GPIO3): LOW[0m
+[0;32mI (34301) main: A3 (GPIO4): LOW[0m
+[0;32mI (34331) main: tmp117_1 (0x48): 26.180 C[0m
+[0;32mI (34331) main: tmp117_2 (0x49): 26.234 C[0m
+[0;32mI (34801) main: D2 (GPIO5): LOW[0m
+[0;32mI (34801) main: A2 (GPIO3): LOW[0m
+[0;32mI (34801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (35301) main: D2 (GPIO5): LOW[0m
+[0;32mI (35301) main: A2 (GPIO3): LOW[0m
+[0;32mI (35301) main: A3 (GPIO4): LOW[0m
+[0;32mI (35331) main: tmp117_1 (0x48): 26.172 C[0m
+[0;32mI (35331) main: tmp117_2 (0x49): 26.234 C[0m
+[0;32mI (35801) main: D2 (GPIO5): LOW[0m
+[0;32mI (35801) main: A2 (GPIO3): LOW[0m
+[0;32mI (35801) main: A3 (GPIO4): LOW[0m
+[0;32mI (36301) main: D2 (GPIO5): LOW[0m
+[0;32mI (36301) main: A2 (GPIO3): LOW[0m
+[0;32mI (36301) main: A3 (GPIO4): LOW[0m
+[0;32mI (36331) main: tmp117_1 (0x48): 26.180 C[0m
+[0;32mI (36331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (36801) main: D2 (GPIO5): LOW[0m
+[0;32mI (36801) main: A2 (GPIO3): LOW[0m
+[0;32mI (36801) main: A3 (GPIO4): LOW[0m
+[0;32mI (37301) main: D2 (GPIO5): LOW[0m
+[0;32mI (37301) main: A2 (GPIO3): LOW[0m
+[0;32mI (37301) main: A3 (GPIO4): LOW[0m
+[0;32mI (37331) main: tmp117_1 (0x48): 26.180 C[0m
+[0;32mI (37331) main: tmp117_2 (0x49): 26.234 C[0m
+[0;32mI (37801) main: D2 (GPIO5): LOW[0m
+[0;32mI (37801) main: A2 (GPIO3): LOW[0m
+[0;32mI (37801) main: A3 (GPIO4): LOW[0m
+[0;32mI (38301) main: D2 (GPIO5): LOW[0m
+[0;32mI (38301) main: A2 (GPIO3): LOW[0m
+[0;32mI (38301) main: A3 (GPIO4): LOW[0m
+[0;32mI (38331) main: tmp117_1 (0x48): 26.180 C[0m
+[0;32mI (38331) main: tmp117_2 (0x49): 26.234 C[0m
+[0;32mI (38801) main: D2 (GPIO5): LOW[0m
+[0;32mI (38801) main: A2 (GPIO3): LOW[0m
+[0;32mI (38801) main: A3 (GPIO4): LOW[0m
+[0;32mI (39301) main: D2 (GPIO5): LOW[0m
+[0;32mI (39301) main: A2 (GPIO3): LOW[0m
+[0;32mI (39301) main: A3 (GPIO4): LOW[0m
+[0;32mI (39331) main: tmp117_1 (0x48): 26.188 C[0m
+[0;32mI (39331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (39801) main: D2 (GPIO5): LOW[0m
+[0;32mI (39801) main: A2 (GPIO3): LOW[0m
+[0;32mI (39801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (40301) main: D2 (GPIO5): LOW[0m
+[0;32mI (40301) main: A2 (GPIO3): LOW[0m
+[0;32mI (40301) main: A3 (GPIO4): LOW[0m
+[0;32mI (40331) main: tmp117_1 (0x48): 26.188 C[0m
+[0;32mI (40331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (40801) main: D2 (GPIO5): LOW[0m
+[0;32mI (40801) main: A2 (GPIO3): LOW[0m
+[0;32mI (40801) main: A3 (GPIO4): LOW[0m
+[0;32mI (41301) main: D2 (GPIO5): LOW[0m
+[0;32mI (41301) main: A2 (GPIO3): LOW[0m
+[0;32mI (41301) main: A3 (GPIO4): LOW[0m
+[0;32mI (41331) main: tmp117_1 (0x48): 26.188 C[0m
+[0;32mI (41331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (41801) main: D2 (GPIO5): LOW[0m
+[0;32mI (41801) main: A2 (GPIO3): LOW[0m
+[0;32mI (41801) main: A3 (GPIO4): LOW[0m
+[0;32mI (42301) main: D2 (GPIO5): LOW[0m
+[0;32mI (42301) main: A2 (GPIO3): LOW[0m
+[0;32mI (42301) main: A3 (GPIO4): LOW[0m
+[0;32mI (42331) main: tmp117_1 (0x48): 26.188 C[0m
+[0;32mI (42331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (42801) main: D2 (GPIO5): LOW[0m
+[0;32mI (42801) main: A2 (GPIO3): LOW[0m
+[0;32mI (42801) main: A3 (GPIO4): LOW[0m
+[0;32mI (43301) main: D2 (GPIO5): LOW[0m
+[0;32mI (43301) main: A2 (GPIO3): LOW[0m
+[0;32mI (43301) main: A3 (GPIO4): LOW[0m
+[0;32mI (43331) main: tmp117_1 (0x48): 26.188 C[0m
+[0;32mI (43331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (43801) main: D2 (GPIO5): LOW[0m
+[0;32mI (43801) main: A2 (GPIO3): LOW[0m
+[0;32mI (43801) main: A3 (GPIO4): LOW[0m
+[0;32mI (44301) main: D2 (GPIO5): LOW[0m
+[0;32mI (44301) main: A2 (GPIO3): LOW[0m
+[0;32mI (44301) main: A3 (GPIO4): LOW[0m
+[0;32mI (44331) main: tmp117_1 (0x48): 26.188 C[0m
+[0;32mI (44331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (44801) main: D2 (GPIO5): LOW[0m
+[0;32mI (44801) main: A2 (GPIO3): LOW[0m
+[0;32mI (44801) main: A3 (GPIO4): LOW[0m
+[0;32mI (45301) main: D2 (GPIO5): LOW[0m
+[0;32mI (45301) main: A2 (GPIO3): LOW[0m
+[0;32mI (45301) main: A3 (GPIO4): LOW[0m
+[0;32mI (45331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (45331) main: tmp117_2 (0x49): 26.250 C[0m
+[0;32mI (45801) main: D2 (GPIO5): LOW[0m
+[0;32mI (45801) main: A2 (GPIO3): LOW[0m
+[0;32mI (45801) main: A3 (GPIO4): LOW[0m
+[0;32mI (46301) main: D2 (GPIO5): LOW[0m
+[0;32mI (46301) main: A2 (GPIO3): LOW[0m
+[0;32mI (46301) main: A3 (GPIO4): LOW[0m
+[0;32mI (46331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (46331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (46801) main: D2 (GPIO5): LOW[0m
+[0;32mI (46801) main: A2 (GPIO3): LOW[0m
+[0;32mI (46801) main: A3 (GPIO4): LOW[0m
+[0;32mI (47301) main: D2 (GPIO5): LOW[0m
+[0;32mI (47301) main: A2 (GPIO3): LOW[0m
+[0;32mI (47301) main: A3 (GPIO4): LOW[0m
+[0;32mI (47331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (47331) main: tmp117_2 (0x49): 26.242 C[0m
+[0;32mI (47801) main: D2 (GPIO5): LOW[0m
+[0;32mI (47801) main: A2 (GPIO3): LOW[0m
+[0;32mI (47801) main: A3 (GPIO4): LOW[0m
+[0;32mI (48301) main: D2 (GPIO5): LOW[0m
+[0;32mI (48301) main: A2 (GPIO3): LOW[0m
+[0;32mI (48301) main: A3 (GPIO4): LOW[0m
+[0;32mI (48331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (48331) main: tmp117_2 (0x49): 26.258 C[0m
+[0;32mI (48801) main: D2 (GPIO5): LOW[0m
+[0;32mI (48801) main: A2 (GPIO3): LOW[0m
+[0;32mI (48801) main: A3 (GPIO4): LOW[0m
+[0;32mI (49301) main: D2 (GPIO5): LOW[0m
+[0;32mI (49301) main: A2 (GPIO3): LOW[0m
+[0;32mI (49301) main: A3 (GPIO4): LOW[0m
+[0;32mI (49331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (49331) main: tmp117_2 (0x49): 26.250 C[0m
+[0;32mI (49801) main: D2 (GPIO5): LOW[0m
+[0;32mI (49801) main: A2 (GPIO3): LOW[0m
+[0;32mI (49801) main: A3 (GPIO4): LOW[0m
+[0;32mI (50301) main: D2 (GPIO5): LOW[0m
+[0;32mI (50301) main: A2 (GPIO3): LOW[0m
+[0;32mI (50301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (50331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (50331) main: tmp117_2 (0x49): 26.250 C[0m
+[0;32mI (50801) main: D2 (GPIO5): LOW[0m
+[0;32mI (50801) main: A2 (GPIO3): LOW[0m
+[0;32mI (50801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (51301) main: D2 (GPIO5): LOW[0m
+[0;32mI (51301) main: A2 (GPIO3): LOW[0m
+[0;32mI (51301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (51331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (51331) main: tmp117_2 (0x49): 26.258 C[0m
+[0;32mI (51801) main: D2 (GPIO5): LOW[0m
+[0;32mI (51801) main: A2 (GPIO3): LOW[0m
+[0;32mI (51801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (52301) main: D2 (GPIO5): LOW[0m
+[0;32mI (52301) main: A2 (GPIO3): LOW[0m
+[0;32mI (52301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (52331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (52331) main: tmp117_2 (0x49): 26.258 C[0m
+[0;32mI (52801) main: D2 (GPIO5): LOW[0m
+[0;32mI (52801) main: A2 (GPIO3): LOW[0m
+[0;32mI (52801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (53301) main: D2 (GPIO5): LOW[0m
+[0;32mI (53301) main: A2 (GPIO3): LOW[0m
+[0;32mI (53301) main: A3 (GPIO4): LOW[0m
+[0;32mI (53331) main: tmp117_1 (0x48): 26.195 C[0m
+[0;32mI (53331) main: tmp117_2 (0x49): 26.250 C[0m
+[0;32mI (53801) main: D2 (GPIO5): LOW[0m
+[0;32mI (53801) main: A2 (GPIO3): LOW[0m
+[0;32mI (53801) main: A3 (GPIO4): LOW[0m
+[0;32mI (54301) main: D2 (GPIO5): LOW[0m
+[0;32mI (54301) main: A2 (GPIO3): LOW[0m
+[0;32mI (54301) main: A3 (GPIO4): LOW[0m
+[0;32mI (54331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (54331) main: tmp117_2 (0x49): 26.258 C[0m
+[0;32mI (54801) main: D2 (GPIO5): LOW[0m
+[0;32mI (54801) main: A2 (GPIO3): LOW[0m
+[0;32mI (54801) main: A3 (GPIO4): LOW[0m
+[0;32mI (55301) main: D2 (GPIO5): LOW[0m
+[0;32mI (55301) main: A2 (GPIO3): LOW[0m
+[0;32mI (55301) main: A3 (GPIO4): LOW[0m
+[0;32mI (55331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (55331) main: tmp117_2 (0x49): 26.258 C[0m
+[0;32mI (55801) main: D2 (GPIO5): LOW[0m
+[0;32mI (55801) main: A2 (GPIO3): LOW[0m
+[0;32mI (55801) main: A3 (GPIO4): LOW[0m
+[0;32mI (56301) main: D2 (GPIO5): LOW[0m
+[0;32mI (56301) main: A2 (GPIO3): LOW[0m
+[0;32mI (56301) main: A3 (GPIO4): LOW[0m
+[0;32mI (56331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (56331) main: tmp117_2 (0x49): 26.258 C[0m
+[0;32mI (56801) main: D2 (GPIO5): LOW[0m
+[0;32mI (56801) main: A2 (GPIO3): LOW[0m
+[0;32mI (56801) main: A3 (GPIO4): LOW[0m
+[0;32mI (57301) main: D2 (GPIO5): LOW[0m
+[0;32mI (57301) main: A2 (GPIO3): LOW[0m
+[0;32mI (57301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (57331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (57331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (57801) main: D2 (GPIO5): LOW[0m
+[0;32mI (57801) main: A2 (GPIO3): LOW[0m
+[0;32mI (57801) main: A3 (GPIO4): LOW[0m
+[0;32mI (58301) main: D2 (GPIO5): LOW[0m
+[0;32mI (58301) main: A2 (GPIO3): LOW[0m
+[0;32mI (58301) main: A3 (GPIO4): LOW[0m
+[0;32mI (58331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (58331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (58801) main: D2 (GPIO5): LOW[0m
+[0;32mI (58801) main: A2 (GPIO3): LOW[0m
+[0;32mI (58801) main: A3 (GPIO4): LOW[0m
+[0;32mI (59301) main: D2 (GPIO5): LOW[0m
+[0;32mI (59301) main: A2 (GPIO3): LOW[0m
+[0;32mI (59301) main: A3 (GPIO4): LOW[0m
+[0;32mI (59331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (59331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (59801) main: D2 (GPIO5): LOW[0m
+[0;32mI (59801) main: A2 (GPIO3): LOW[0m
+[0;32mI (59801) main: A3 (GPIO4): LOW[0m
+[0;32mI (60301) main: D2 (GPIO5): LOW[0m
+[0;32mI (60301) main: A2 (GPIO3): LOW[0m
+[0;32mI (60301) main: A3 (GPIO4): LOW[0m
+[0;32mI (60331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (60331) main: tmp117_2 (0x49): 26.258 C[0m
+[0;32mI (60801) main: D2 (GPIO5): LOW[0m
+[0;32mI (60801) main: A2 (GPIO3): LOW[0m
+[0;32mI (60801) main: A3 (GPIO4): LOW[0m
+[0;32mI (61301) main: D2 (GPIO5): LOW[0m
+[0;32mI (61301) main: A2 (GPIO3): LOW[0m
+[0;32mI (61301) main: A3 (GPIO4): LOW[0m
+[0;32mI (61331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (61331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (61801) main: D2 (GPIO5): LOW[0m
+[0;32mI (61801) main: A2 (GPIO3): LOW[0m
+[0;32mI (61801) main: A3 (GPIO4): LOW[0m
+[0;32mI (62301) main: D2 (GPIO5): LOW[0m
+[0;32mI (62301) main: A2 (GPIO3): LOW[0m
+[0;32mI (62301) main: A3 (GPIO4): LOW[0m
+[0;32mI (62331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (62331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (62801) main: D2 (GPIO5): LOW[0m
+[0;32mI (62801) main: A2 (GPIO3): LOW[0m
+[0;32mI (62801) main: A3 (GPIO4): LOW[0m
+[0;32mI (63301) main: D2 (GPIO5): LOW[0m
+[0;32mI (63301) main: A2 (GPIO3): LOW[0m
+[0;32mI (63301) main: A3 (GPIO4): LOW[0m
+[0;32mI (63331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (63331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (63801) main: D2 (GPIO5): LOW[0m
+[0;32mI (63801) main: A2 (GPIO3): LOW[0m
+[0;32mI (63801) main: A3 (GPIO4): LOW[0m
+[0;32mI (64301) main: D2 (GPIO5): LOW[0m
+[0;32mI (64301) main: A2 (GPIO3): LOW[0m
+[0;32mI (64301) main: A3 (GPIO4): LOW[0m
+[0;32mI (64331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (64331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (64801) main: D2 (GPIO5): LOW[0m
+[0;32mI (64801) main: A2 (GPIO3): LOW[0m
+[0;32mI (64801) main: A3 (GPIO4): LOW[0m
+[0;32mI (65301) main: D2 (GPIO5): LOW[0m
+[0;32mI (65301) main: A2 (GPIO3): LOW[0m
+[0;32mI (65301) main: A3 (GPIO4): LOW[0m
+[0;32mI (65331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (65331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (65801) main: D2 (GPIO5): LOW[0m
+[0;32mI (65801) main: A2 (GPIO3): LOW[0m
+[0;32mI (65801) main: A3 (GPIO4): LOW[0m
+[0;32mI (66301) main: D2 (GPIO5): LOW[0m
+[0;32mI (66301) main: A2 (GPIO3): LOW[0m
+[0;32mI (66301) main: A3 (GPIO4): LOW[0m
+[0;32mI (66331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (66331) main: tmp117_2 (0x49): 26.266 C[0m
+[0;32mI (66801) main: D2 (GPIO5): LOW[0m
+[0;32mI (66801) main: A2 (GPIO3): LOW[0m
+[0;32mI (66801) main: A3 (GPIO4): LOW[0m
+[0;32mI (67301) main: D2 (GPIO5): LOW[0m
+[0;32mI (67301) main: A2 (GPIO3): LOW[0m
+[0;32mI (67301) main: A3 (GPIO4): LOW[0m
+[0;32mI (67331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (67331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (67801) main: D2 (GPIO5): LOW[0m
+[0;32mI (67801) main: A2 (GPIO3): LOW[0m
+[0;32mI (67801) main: A3 (GPIO4): LOW[0m
+[0;32mI (68301) main: D2 (GPIO5): LOW[0m
+[0;32mI (68301) main: A2 (GPIO3): LOW[0m
+[0;32mI (68301) main: A3 (GPIO4): LOW[0m
+[0;32mI (68331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (68331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (68801) main: D2 (GPIO5): LOW[0m
+[0;32mI (68801) main: A2 (GPIO3): LOW[0m
+[0;32mI (68801) main: A3 (GPIO4): LOW[0m
+[0;32mI (69301) main: D2 (GPIO5): LOW[0m
+[0;32mI (69301) main: A2 (GPIO3): LOW[0m
+[0;32mI (69301) main: A3 (GPIO4): LOW[0m
+[0;32mI (69331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (69331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (69801) main: D2 (GPIO5): LOW[0m
+[0;32mI (69801) main: A2 (GPIO3): LOW[0m
+[0;32mI (69801) main: A3 (GPIO4): LOW[0m
+[0;32mI (70301) main: D2 (GPIO5): LOW[0m
+[0;32mI (70301) main: A2 (GPIO3): LOW[0m
+[0;32mI (70301) main: A3 (GPIO4): LOW[0m
+[0;32mI (70331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (70331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (70801) main: D2 (GPIO5): LOW[0m
+[0;32mI (70801) main: A2 (GPIO3): LOW[0m
+[0;32mI (70801) main: A3 (GPIO4): LOW[0m
+[0;32mI (71301) main: D2 (GPIO5): LOW[0m
+[0;32mI (71301) main: A2 (GPIO3): LOW[0m
+[0;32mI (71301) main: A3 (GPIO4): LOW[0m
+[0;32mI (71331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (71331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (71801) main: D2 (GPIO5): LOW[0m
+[0;32mI (71801) main: A2 (GPIO3): LOW[0m
+[0;32mI (71801) main: A3 (GPIO4): LOW[0m
+[0;32mI (72301) main: D2 (GPIO5): LOW[0m
+[0;32mI (72301) main: A2 (GPIO3): LOW[0m
+[0;32mI (72301) main: A3 (GPIO4): LOW[0m
+[0;32mI (72331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (72331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (72801) main: D2 (GPIO5): LOW[0m
+[0;32mI (72801) main: A2 (GPIO3): LOW[0m
+[0;32mI (72801) main: A3 (GPIO4): LOW[0m
+[0;32mI (73301) main: D2 (GPIO5): LOW[0m
+[0;32mI (73301) main: A2 (GPIO3): LOW[0m
+[0;32mI (73301) main: A3 (GPIO4): LOW[0m
+[0;32mI (73331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (73331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (73801) main: D2 (GPIO5): LOW[0m
+[0;32mI (73801) main: A2 (GPIO3): LOW[0m
+[0;32mI (73801) main: A3 (GPIO4): LOW[0m
+[0;32mI (74301) main: D2 (GPIO5): LOW[0m
+[0;32mI (74301) main: A2 (GPIO3): LOW[0m
+[0;32mI (74301) main: A3 (GPIO4): LOW[0m
+[0;32mI (74331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (74331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (74801) main: D2 (GPIO5): LOW[0m
+[0;32mI (74801) main: A2 (GPIO3): LOW[0m
+[0;32mI (74801) main: A3 (GPIO4): LOW[0m
+[0;32mI (75301) main: D2 (GPIO5): LOW[0m
+[0;32mI (75301) main: A2 (GPIO3): LOW[0m
+[0;32mI (75301) main: A3 (GPIO4): LOW[0m
+[0;32mI (75331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (75331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (75801) main: D2 (GPIO5): LOW[0m
+[0;32mI (75801) main: A2 (GPIO3): LOW[0m
+[0;32mI (75801) main: A3 (GPIO4): LOW[0m
+[0;32mI (76301) main: D2 (GPIO5): LOW[0m
+[0;32mI (76301) main: A2 (GPIO3): LOW[0m
+[0;32mI (76301) main: A3 (GPIO4): LOW[0m
+[0;32mI (76331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (76331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (76801) main: D2 (GPIO5): LOW[0m
+[0;32mI (76801) main: A2 (GPIO3): LOW[0m
+[0;32mI (76801) main: A3 (GPIO4): LOW[0m
+[0;32mI (77301) main: D2 (GPIO5): LOW[0m
+[0;32mI (77301) main: A2 (GPIO3): LOW[0m
+[0;32mI (77301) main: A3 (GPIO4): LOW[0m
+[0;32mI (77331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (77331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (77801) main: D2 (GPIO5): LOW[0m
+[0;32mI (77801) main: A2 (GPIO3): LOW[0m
+[0;32mI (77801) main: A3 (GPIO4): LOW[0m
+[0;32mI (78301) main: D2 (GPIO5): LOW[0m
+[0;32mI (78301) main: A2 (GPIO3): LOW[0m
+[0;32mI (78301) main: A3 (GPIO4): LOW[0m
+[0;32mI (78331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (78331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (78801) main: D2 (GPIO5): LOW[0m
+[0;32mI (78801) main: A2 (GPIO3): LOW[0m
+[0;32mI (78801) main: A3 (GPIO4): LOW[0m
+[0;32mI (79301) main: D2 (GPIO5): LOW[0m
+[0;32mI (79301) main: A2 (GPIO3): LOW[0m
+[0;32mI (79301) main: A3 (GPIO4): LOW[0m
+[0;32mI (79331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (79331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (79801) main: D2 (GPIO5): LOW[0m
+[0;32mI (79801) main: A2 (GPIO3): LOW[0m
+[0;32mI (79801) main: A3 (GPIO4): LOW[0m
+[0;32mI (80301) main: D2 (GPIO5): LOW[0m
+[0;32mI (80301) main: A2 (GPIO3): LOW[0m
+[0;32mI (80301) main: A3 (GPIO4): LOW[0m
+[0;32mI (80331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (80331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (80801) main: D2 (GPIO5): LOW[0m
+[0;32mI (80801) main: A2 (GPIO3): LOW[0m
+[0;32mI (80801) main: A3 (GPIO4): LOW[0m
+[0;32mI (81301) main: D2 (GPIO5): LOW[0m
+[0;32mI (81301) main: A2 (GPIO3): LOW[0m
+[0;32mI (81301) main: A3 (GPIO4): LOW[0m
+[0;32mI (81331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (81331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (81801) main: D2 (GPIO5): LOW[0m
+[0;32mI (81801) main: A2 (GPIO3): LOW[0m
+[0;32mI (81801) main: A3 (GPIO4): LOW[0m
+[0;32mI (82301) main: D2 (GPIO5): LOW[0m
+[0;32mI (82301) main: A2 (GPIO3): LOW[0m
+[0;32mI (82301) main: A3 (GPIO4): LOW[0m
+[0;32mI (82331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (82331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (82801) main: D2 (GPIO5): LOW[0m
+[0;32mI (82801) main: A2 (GPIO3): LOW[0m
+[0;32mI (82801) main: A3 (GPIO4): LOW[0m
+[0;32mI (83301) main: D2 (GPIO5): LOW[0m
+[0;32mI (83301) main: A2 (GPIO3): LOW[0m
+[0;32mI (83301) main: A3 (GPIO4): LOW[0m
+[0;32mI (83331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (83331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (83801) main: D2 (GPIO5): LOW[0m
+[0;32mI (83801) main: A2 (GPIO3): LOW[0m
+[0;32mI (83801) main: A3 (GPIO4): LOW[0m
+[0;32mI (84301) main: D2 (GPIO5): LOW[0m
+[0;32mI (84301) main: A2 (GPIO3): LOW[0m
+[0;32mI (84301) main: A3 (GPIO4): LOW[0m
+[0;32mI (84331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (84331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (84801) main: D2 (GPIO5): LOW[0m
+[0;32mI (84801) main: A2 (GPIO3): LOW[0m
+[0;32mI (84801) main: A3 (GPIO4): LOW[0m
+[0;32mI (85301) main: D2 (GPIO5): LOW[0m
+[0;32mI (85301) main: A2 (GPIO3): LOW[0m
+[0;32mI (85301) main: A3 (GPIO4): LOW[0m
+[0;32mI (85331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (85331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (85801) main: D2 (GPIO5): LOW[0m
+[0;32mI (85801) main: A2 (GPIO3): LOW[0m
+[0;32mI (85801) main: A3 (GPIO4): LOW[0m
+[0;32mI (86301) main: D2 (GPIO5): LOW[0m
+[0;32mI (86301) main: A2 (GPIO3): LOW[0m
+[0;32mI (86301) main: A3 (GPIO4): LOW[0m
+[0;32mI (86331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (86331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (86801) main: D2 (GPIO5): LOW[0m
+[0;32mI (86801) main: A2 (GPIO3): LOW[0m
+[0;32mI (86801) main: A3 (GPIO4): LOW[0m
+[0;32mI (87301) main: D2 (GPIO5): LOW[0m
+[0;32mI (87301) main: A2 (GPIO3): LOW[0m
+[0;32mI (87301) main: A3 (GPIO4): LOW[0m
+[0;32mI (87331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (87331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (87801) main: D2 (GPIO5): LOW[0m
+[0;32mI (87801) main: A2 (GPIO3): LOW[0m
+[0;32mI (87801) main: A3 (GPIO4): LOW[0m
+[0;32mI (88301) main: D2 (GPIO5): LOW[0m
+[0;32mI (88301) main: A2 (GPIO3): LOW[0m
+[0;32mI (88301) main: A3 (GPIO4): LOW[0m
+[0;32mI (88331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (88331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (88801) main: D2 (GPIO5): LOW[0m
+[0;32mI (88801) main: A2 (GPIO3): LOW[0m
+[0;32mI (88801) main: A3 (GPIO4): LOW[0m
+[0;32mI (89301) main: D2 (GPIO5): LOW[0m
+[0;32mI (89301) main: A2 (GPIO3): LOW[0m
+[0;32mI (89301) main: A3 (GPIO4): LOW[0m
+[0;32mI (89331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (89331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (89801) main: D2 (GPIO5): LOW[0m
+[0;32mI (89801) main: A2 (GPIO3): LOW[0m
+[0;32mI (89801) main: A3 (GPIO4): LOW[0m
+[0;32mI (90301) main: D2 (GPIO5): LOW[0m
+[0;32mI (90301) main: A2 (GPIO3): LOW[0m
+[0;32mI (90301) main: A3 (GPIO4): LOW[0m
+[0;32mI (90331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (90331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (90801) main: D2 (GPIO5): LOW[0m
+[0;32mI (90801) main: A2 (GPIO3): LOW[0m
+[0;32mI (90801) main: A3 (GPIO4): LOW[0m
+[0;32mI (91301) main: D2 (GPIO5): LOW[0m
+[0;32mI (91301) main: A2 (GPIO3): LOW[0m
+[0;32mI (91301) main: A3 (GPIO4): LOW[0m
+[0;32mI (91331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (91331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (91801) main: D2 (GPIO5): LOW[0m
+[0;32mI (91801) main: A2 (GPIO3): LOW[0m
+[0;32mI (91801) main: A3 (GPIO4): LOW[0m
+[0;32mI (92301) main: D2 (GPIO5): LOW[0m
+[0;32mI (92301) main: A2 (GPIO3): LOW[0m
+[0;32mI (92301) main: A3 (GPIO4): LOW[0m
+[0;32mI (92331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (92331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (92801) main: D2 (GPIO5): LOW[0m
+[0;32mI (92801) main: A2 (GPIO3): LOW[0m
+[0;32mI (92801) main: A3 (GPIO4): LOW[0m
+[0;32mI (93301) main: D2 (GPIO5): LOW[0m
+[0;32mI (93301) main: A2 (GPIO3): LOW[0m
+[0;32mI (93301) main: A3 (GPIO4): LOW[0m
+[0;32mI (93331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (93331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (93801) main: D2 (GPIO5): LOW[0m
+[0;32mI (93801) main: A2 (GPIO3): LOW[0m
+[0;32mI (93801) main: A3 (GPIO4): LOW[0m
+[0;32mI (94301) main: D2 (GPIO5): LOW[0m
+[0;32mI (94301) main: A2 (GPIO3): LOW[0m
+[0;32mI (94301) main: A3 (GPIO4): LOW[0m
+[0;32mI (94331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (94331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (94801) main: D2 (GPIO5): LOW[0m
+[0;32mI (94801) main: A2 (GPIO3): LOW[0m
+[0;32mI (94801) main: A3 (GPIO4): LOW[0m
+[0;32mI (95301) main: D2 (GPIO5): LOW[0m
+[0;32mI (95301) main: A2 (GPIO3): LOW[0m
+[0;32mI (95301) main: A3 (GPIO4): LOW[0m
+[0;32mI (95331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (95331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (95801) main: D2 (GPIO5): LOW[0m
+[0;32mI (95801) main: A2 (GPIO3): LOW[0m
+[0;32mI (95801) main: A3 (GPIO4): LOW[0m
+[0;32mI (96301) main: D2 (GPIO5): LOW[0m
+[0;32mI (96301) main: A2 (GPIO3): LOW[0m
+[0;32mI (96301) main: A3 (GPIO4): LOW[0m
+[0;32mI (96331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (96331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (96801) main: D2 (GPIO5): LOW[0m
+[0;32mI (96801) main: A2 (GPIO3): LOW[0m
+[0;32mI (96801) main: A3 (GPIO4): LOW[0m
+[0;32mI (97301) main: D2 (GPIO5): LOW[0m
+[0;32mI (97301) main: A2 (GPIO3): LOW[0m
+[0;32mI (97301) main: A3 (GPIO4): LOW[0m
+[0;32mI (97331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (97331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (97801) main: D2 (GPIO5): LOW[0m
+[0;32mI (97801) main: A2 (GPIO3): LOW[0m
+[0;32mI (97801) main: A3 (GPIO4): LOW[0m
+[0;32mI (98301) main: D2 (GPIO5): LOW[0m
+[0;32mI (98301) main: A2 (GPIO3): LOW[0m
+[0;32mI (98301) main: A3 (GPIO4): LOW[0m
+[0;32mI (98331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (98331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (98801) main: D2 (GPIO5): LOW[0m
+[0;32mI (98801) main: A2 (GPIO3): LOW[0m
+[0;32mI (98801) main: A3 (GPIO4): LOW[0m
+[0;32mI (99301) main: D2 (GPIO5): LOW[0m
+[0;32mI (99301) main: A2 (GPIO3): LOW[0m
+[0;32mI (99301) main: A3 (GPIO4): LOW[0m
+[0;32mI (99331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (99331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (99801) main: D2 (GPIO5): LOW[0m
+[0;32mI (99801) main: A2 (GPIO3): LOW[0m
+[0;32mI (99801) main: A3 (GPIO4): LOW[0m
+[0;32mI (100301) main: D2 (GPIO5): LOW[0m
+[0;32mI (100301) main: A2 (GPIO3): LOW[0m
+[0;32mI (100301) main: A3 (GPIO4): LOW[0m
+[0;32mI (100331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (100331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (100801) main: D2 (GPIO5): LOW[0m
+[0;32mI (100801) main: A2 (GPIO3): LOW[0m
+[0;32mI (100801) main: A3 (GPIO4): LOW[0m
+[0;32mI (101301) main: D2 (GPIO5): LOW[0m
+[0;32mI (101301) main: A2 (GPIO3): LOW[0m
+[0;32mI (101301) main: A3 (GPIO4): LOW[0m
+[0;32mI (101331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (101331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (101801) main: D2 (GPIO5): LOW[0m
+[0;32mI (101801) main: A2 (GPIO3): LOW[0m
+[0;32mI (101801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (102301) main: D2 (GPIO5): LOW[0m
+[0;32mI (102301) main: A2 (GPIO3): LOW[0m
+[0;32mI (102301) main: A3 (GPIO4): LOW[0m
+[0;32mI (102331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (102331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (102801) main: D2 (GPIO5): LOW[0m
+[0;32mI (102801) main: A2 (GPIO3): LOW[0m
+[0;32mI (102801) main: A3 (GPIO4): LOW[0m
+[0;32mI (103301) main: D2 (GPIO5): LOW[0m
+[0;32mI (103301) main: A2 (GPIO3): LOW[0m
+[0;32mI (103301) main: A3 (GPIO4): LOW[0m
+[0;32mI (103331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (103331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (103801) main: D2 (GPIO5): LOW[0m
+[0;32mI (103801) main: A2 (GPIO3): LOW[0m
+[0;32mI (103801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (104301) main: D2 (GPIO5): LOW[0m
+[0;32mI (104301) main: A2 (GPIO3): LOW[0m
+[0;32mI (104301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (104331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (104331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (104801) main: D2 (GPIO5): LOW[0m
+[0;32mI (104801) main: A2 (GPIO3): LOW[0m
+[0;32mI (104801) main: A3 (GPIO4): LOW[0m
+[0;32mI (105301) main: D2 (GPIO5): LOW[0m
+[0;32mI (105301) main: A2 (GPIO3): LOW[0m
+[0;32mI (105301) main: A3 (GPIO4): LOW[0m
+[0;32mI (105331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (105331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (105801) main: D2 (GPIO5): LOW[0m
+[0;32mI (105801) main: A2 (GPIO3): LOW[0m
+[0;32mI (105801) main: A3 (GPIO4): LOW[0m
+[0;32mI (106301) main: D2 (GPIO5): LOW[0m
+[0;32mI (106301) main: A2 (GPIO3): LOW[0m
+[0;32mI (106301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (106331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (106331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (106801) main: D2 (GPIO5): LOW[0m
+[0;32mI (106801) main: A2 (GPIO3): LOW[0m
+[0;32mI (106801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (107301) main: D2 (GPIO5): LOW[0m
+[0;32mI (107301) main: A2 (GPIO3): LOW[0m
+[0;32mI (107301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (107331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (107331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (107801) main: D2 (GPIO5): LOW[0m
+[0;32mI (107801) main: A2 (GPIO3): LOW[0m
+[0;32mI (107801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (108301) main: D2 (GPIO5): LOW[0m
+[0;32mI (108301) main: A2 (GPIO3): LOW[0m
+[0;32mI (108301) main: A3 (GPIO4): LOW[0m
+[0;32mI (108331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (108331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (108801) main: D2 (GPIO5): LOW[0m
+[0;32mI (108801) main: A2 (GPIO3): LOW[0m
+[0;32mI (108801) main: A3 (GPIO4): LOW[0m
+[0;32mI (109301) main: D2 (GPIO5): LOW[0m
+[0;32mI (109301) main: A2 (GPIO3): LOW[0m
+[0;32mI (109301) main: A3 (GPIO4): LOW[0m
+[0;32mI (109331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (109331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (109801) main: D2 (GPIO5): LOW[0m
+[0;32mI (109801) main: A2 (GPIO3): LOW[0m
+[0;32mI (109801) main: A3 (GPIO4): LOW[0m
+[0;32mI (110301) main: D2 (GPIO5): LOW[0m
+[0;32mI (110301) main: A2 (GPIO3): LOW[0m
+[0;32mI (110301) main: A3 (GPIO4): LOW[0m
+[0;32mI (110331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (110331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (110801) main: D2 (GPIO5): LOW[0m
+[0;32mI (110801) main: A2 (GPIO3): LOW[0m
+[0;32mI (110801) main: A3 (GPIO4): LOW[0m
+[0;32mI (111301) main: D2 (GPIO5): LOW[0m
+[0;32mI (111301) main: A2 (GPIO3): LOW[0m
+[0;32mI (111301) main: A3 (GPIO4): LOW[0m
+[0;32mI (111331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (111331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (111801) main: D2 (GPIO5): LOW[0m
+[0;32mI (111801) main: A2 (GPIO3): LOW[0m
+[0;32mI (111801) main: A3 (GPIO4): LOW[0m
+[0;32mI (112301) main: D2 (GPIO5): LOW[0m
+[0;32mI (112301) main: A2 (GPIO3): LOW[0m
+[0;32mI (112301) main: A3 (GPIO4): LOW[0m
+[0;32mI (112331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (112331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (112801) main: D2 (GPIO5): LOW[0m
+[0;32mI (112801) main: A2 (GPIO3): LOW[0m
+[0;32mI (112801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (113301) main: D2 (GPIO5): LOW[0m
+[0;32mI (113301) main: A2 (GPIO3): LOW[0m
+[0;32mI (113301) main: A3 (GPIO4): LOW[0m
+[0;32mI (113331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (113331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (113801) main: D2 (GPIO5): LOW[0m
+[0;32mI (113801) main: A2 (GPIO3): LOW[0m
+[0;32mI (113801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (114301) main: D2 (GPIO5): LOW[0m
+[0;32mI (114301) main: A2 (GPIO3): LOW[0m
+[0;32mI (114301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (114331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (114331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (114801) main: D2 (GPIO5): LOW[0m
+[0;32mI (114801) main: A2 (GPIO3): LOW[0m
+[0;32mI (114801) main: A3 (GPIO4): LOW[0m
+[0;32mI (115301) main: D2 (GPIO5): LOW[0m
+[0;32mI (115301) main: A2 (GPIO3): LOW[0m
+[0;32mI (115301) main: A3 (GPIO4): LOW[0m
+[0;32mI (115331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (115331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (115801) main: D2 (GPIO5): LOW[0m
+[0;32mI (115801) main: A2 (GPIO3): LOW[0m
+[0;32mI (115801) main: A3 (GPIO4): LOW[0m
+[0;32mI (116301) main: D2 (GPIO5): LOW[0m
+[0;32mI (116301) main: A2 (GPIO3): LOW[0m
+[0;32mI (116301) main: A3 (GPIO4): LOW[0m
+[0;32mI (116331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (116331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (116801) main: D2 (GPIO5): LOW[0m
+[0;32mI (116801) main: A2 (GPIO3): LOW[0m
+[0;32mI (116801) main: A3 (GPIO4): LOW[0m
+[0;32mI (117301) main: D2 (GPIO5): LOW[0m
+[0;32mI (117301) main: A2 (GPIO3): LOW[0m
+[0;32mI (117301) main: A3 (GPIO4): LOW[0m
+[0;32mI (117331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (117331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (117801) main: D2 (GPIO5): LOW[0m
+[0;32mI (117801) main: A2 (GPIO3): LOW[0m
+[0;32mI (117801) main: A3 (GPIO4): LOW[0m
+[0;32mI (118301) main: D2 (GPIO5): LOW[0m
+[0;32mI (118301) main: A2 (GPIO3): LOW[0m
+[0;32mI (118301) main: A3 (GPIO4): LOW[0m
+[0;32mI (118331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (118331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (118801) main: D2 (GPIO5): LOW[0m
+[0;32mI (118801) main: A2 (GPIO3): LOW[0m
+[0;32mI (118801) main: A3 (GPIO4): LOW[0m
+[0;32mI (119301) main: D2 (GPIO5): LOW[0m
+[0;32mI (119301) main: A2 (GPIO3): LOW[0m
+[0;32mI (119301) main: A3 (GPIO4): LOW[0m
+[0;32mI (119331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (119331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (119801) main: D2 (GPIO5): LOW[0m
+[0;32mI (119801) main: A2 (GPIO3): LOW[0m
+[0;32mI (119801) main: A3 (GPIO4): LOW[0m
+[0;32mI (120301) main: D2 (GPIO5): LOW[0m
+[0;32mI (120301) main: A2 (GPIO3): LOW[0m
+[0;32mI (120301) main: A3 (GPIO4): LOW[0m
+[0;32mI (120331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (120331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (120801) main: D2 (GPIO5): LOW[0m
+[0;32mI (120801) main: A2 (GPIO3): LOW[0m
+[0;32mI (120801) main: A3 (GPIO4): LOW[0m
+[0;32mI (121301) main: D2 (GPIO5): LOW[0m
+[0;32mI (121301) main: A2 (GPIO3): LOW[0m
+[0;32mI (121301) main: A3 (GPIO4): LOW[0m
+[0;32mI (121331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (121331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (121801) main: D2 (GPIO5): LOW[0m
+[0;32mI (121801) main: A2 (GPIO3): LOW[0m
+[0;32mI (121801) main: A3 (GPIO4): LOW[0m
+[0;32mI (122301) main: D2 (GPIO5): LOW[0m
+[0;32mI (122301) main: A2 (GPIO3): LOW[0m
+[0;32mI (122301) main: A3 (GPIO4): LOW[0m
+[0;32mI (122331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (122331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (122801) main: D2 (GPIO5): LOW[0m
+[0;32mI (122801) main: A2 (GPIO3): LOW[0m
+[0;32mI (122801) main: A3 (GPIO4): LOW[0m
+[0;32mI (123301) main: D2 (GPIO5): LOW[0m
+[0;32mI (123301) main: A2 (GPIO3): LOW[0m
+[0;32mI (123301) main: A3 (GPIO4): LOW[0m
+[0;32mI (123331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (123331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (123801) main: D2 (GPIO5): LOW[0m
+[0;32mI (123801) main: A2 (GPIO3): LOW[0m
+[0;32mI (123801) main: A3 (GPIO4): LOW[0m
+[0;32mI (124301) main: D2 (GPIO5): LOW[0m
+[0;32mI (124301) main: A2 (GPIO3): LOW[0m
+[0;32mI (124301) main: A3 (GPIO4): LOW[0m
+[0;32mI (124331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (124331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (124801) main: D2 (GPIO5): LOW[0m
+[0;32mI (124801) main: A2 (GPIO3): LOW[0m
+[0;32mI (124801) main: A3 (GPIO4): LOW[0m
+[0;32mI (125301) main: D2 (GPIO5): LOW[0m
+[0;32mI (125301) main: A2 (GPIO3): LOW[0m
+[0;32mI (125301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (125331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (125331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (125801) main: D2 (GPIO5): LOW[0m
+[0;32mI (125801) main: A2 (GPIO3): LOW[0m
+[0;32mI (125801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (126301) main: D2 (GPIO5): LOW[0m
+[0;32mI (126301) main: A2 (GPIO3): LOW[0m
+[0;32mI (126301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (126331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (126331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (126801) main: D2 (GPIO5): LOW[0m
+[0;32mI (126801) main: A2 (GPIO3): LOW[0m
+[0;32mI (126801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (127301) main: D2 (GPIO5): LOW[0m
+[0;32mI (127301) main: A2 (GPIO3): LOW[0m
+[0;32mI (127301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (127331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (127331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (127801) main: D2 (GPIO5): LOW[0m
+[0;32mI (127801) main: A2 (GPIO3): LOW[0m
+[0;32mI (127801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (128301) main: D2 (GPIO5): LOW[0m
+[0;32mI (128301) main: A2 (GPIO3): LOW[0m
+[0;32mI (128301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (128331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (128331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (128801) main: D2 (GPIO5): LOW[0m
+[0;32mI (128801) main: A2 (GPIO3): LOW[0m
+[0;32mI (128801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (129301) main: D2 (GPIO5): LOW[0m
+[0;32mI (129301) main: A2 (GPIO3): LOW[0m
+[0;32mI (129301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (129331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (129331) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (129801) main: D2 (GPIO5): LOW[0m
+[0;32mI (129801) main: A2 (GPIO3): LOW[0m
+[0;32mI (129801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (130301) main: D2 (GPIO5): LOW[0m
+[0;32mI (130301) main: A2 (GPIO3): LOW[0m
+[0;32mI (130301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (130331) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (130331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (130801) main: D2 (GPIO5): LOW[0m
+[0;32mI (130801) main: A2 (GPIO3): LOW[0m
+[0;32mI (130801) main: A3 (GPIO4): HIGH[0m
+[0;32mI (131301) main: D2 (GPIO5): LOW[0m
+[0;32mI (131301) main: A2 (GPIO3): LOW[0m
+[0;32mI (131301) main: A3 (GPIO4): HIGH[0m
+[0;32mI (131331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (131331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (131801) main: D2 (GPIO5): LOW[0m
+[0;32mI (131801) main: A2 (GPIO3): LOW[0m
+[0;32mI (131801) main: A3 (GPIO4): LOW[0m
+[0;32mI (132301) main: D2 (GPIO5): LOW[0m
+[0;32mI (132301) main: A2 (GPIO3): LOW[0m
+[0;32mI (132301) main: A3 (GPIO4): LOW[0m
+[0;32mI (132331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (132331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (132801) main: D2 (GPIO5): LOW[0m
+[0;32mI (132801) main: A2 (GPIO3): LOW[0m
+[0;32mI (132801) main: A3 (GPIO4): LOW[0m
+[0;32mI (133301) main: D2 (GPIO5): LOW[0m
+[0;32mI (133301) main: A2 (GPIO3): LOW[0m
+[0;32mI (133301) main: A3 (GPIO4): LOW[0m
+[0;32mI (133331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (133331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (133801) main: D2 (GPIO5): LOW[0m
+[0;32mI (133801) main: A2 (GPIO3): LOW[0m
+[0;32mI (133801) main: A3 (GPIO4): LOW[0m
+[0;32mI (134301) main: D2 (GPIO5): LOW[0m
+[0;32mI (134301) main: A2 (GPIO3): LOW[0m
+[0;32mI (134301) main: A3 (GPIO4): LOW[0m
+[0;32mI (134331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (134331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (134801) main: D2 (GPIO5): LOW[0m
+[0;32mI (134801) main: A2 (GPIO3): LOW[0m
+[0;32mI (134801) main: A3 (GPIO4): LOW[0m
+[0;32mI (135301) main: D2 (GPIO5): LOW[0m
+[0;32mI (135301) main: A2 (GPIO3): LOW[0m
+[0;32mI (135301) main: A3 (GPIO4): LOW[0m
+[0;32mI (135331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (135331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (135801) main: D2 (GPIO5): LOW[0m
+[0;32mI (135801) main: A2 (GPIO3): LOW[0m
+[0;32mI (135801) main: A3 (GPIO4): LOW[0m
+[0;32mI (136301) main: D2 (GPIO5): LOW[0m
+[0;32mI (136301) main: A2 (GPIO3): LOW[0m
+[0;32mI (136301) main: A3 (GPIO4): LOW[0m
+[0;32mI (136331) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (136331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (136801) main: D2 (GPIO5): LOW[0m
+[0;32mI (136801) main: A2 (GPIO3): LOW[0m
+[0;32mI (136801) main: A3 (GPIO4): LOW[0m
+[0;32mI (137301) main: D2 (GPIO5): LOW[0m
+[0;32mI (137301) main: A2 (GPIO3): LOW[0m
+[0;32mI (137301) main: A3 (GPIO4): LOW[0m
+[0;32mI (137331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (137331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (137801) main: D2 (GPIO5): LOW[0m
+[0;32mI (137801) main: A2 (GPIO3): LOW[0m
+[0;32mI (137801) main: A3 (GPIO4): LOW[0m
+[0;32mI (138301) main: D2 (GPIO5): LOW[0m
+[0;32mI (138301) main: A2 (GPIO3): LOW[0m
+[0;32mI (138301) main: A3 (GPIO4): LOW[0m
+[0;32mI (138331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (138331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (138801) main: D2 (GPIO5): LOW[0m
+[0;32mI (138801) main: A2 (GPIO3): LOW[0m
+[0;32mI (138801) main: A3 (GPIO4): LOW[0m
+[0;32mI (139301) main: D2 (GPIO5): LOW[0m
+[0;32mI (139301) main: A2 (GPIO3): LOW[0m
+[0;32mI (139301) main: A3 (GPIO4): LOW[0m
+[0;32mI (139331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (139331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (139801) main: D2 (GPIO5): LOW[0m
+[0;32mI (139801) main: A2 (GPIO3): LOW[0m
+[0;32mI (139801) main: A3 (GPIO4): LOW[0m
+[0;32mI (140301) main: D2 (GPIO5): LOW[0m
+[0;32mI (140301) main: A2 (GPIO3): LOW[0m
+[0;32mI (140301) main: A3 (GPIO4): LOW[0m
+[0;32mI (140331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (140331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (140801) main: D2 (GPIO5): LOW[0m
+[0;32mI (140801) main: A2 (GPIO3): LOW[0m
+[0;32mI (140801) main: A3 (GPIO4): LOW[0m
+[0;32mI (141301) main: D2 (GPIO5): LOW[0m
+[0;32mI (141301) main: A2 (GPIO3): LOW[0m
+[0;32mI (141301) main: A3 (GPIO4): LOW[0m
+[0;32mI (141331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (141331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (141801) main: D2 (GPIO5): LOW[0m
+[0;32mI (141801) main: A2 (GPIO3): LOW[0m
+[0;32mI (141801) main: A3 (GPIO4): LOW[0m
+[0;32mI (142301) main: D2 (GPIO5): LOW[0m
+[0;32mI (142301) main: A2 (GPIO3): LOW[0m
+[0;32mI (142301) main: A3 (GPIO4): LOW[0m
+[0;32mI (142331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (142331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (142801) main: D2 (GPIO5): LOW[0m
+[0;32mI (142801) main: A2 (GPIO3): LOW[0m
+[0;32mI (142801) main: A3 (GPIO4): LOW[0m
+[0;32mI (143301) main: D2 (GPIO5): LOW[0m
+[0;32mI (143301) main: A2 (GPIO3): LOW[0m
+[0;32mI (143301) main: A3 (GPIO4): LOW[0m
+[0;32mI (143331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (143331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (143801) main: D2 (GPIO5): LOW[0m
+[0;32mI (143801) main: A2 (GPIO3): LOW[0m
+[0;32mI (143801) main: A3 (GPIO4): LOW[0m
+[0;32mI (144301) main: D2 (GPIO5): LOW[0m
+[0;32mI (144301) main: A2 (GPIO3): LOW[0m
+[0;32mI (144301) main: A3 (GPIO4): LOW[0m
+[0;32mI (144331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (144331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (144801) main: D2 (GPIO5): LOW[0m
+[0;32mI (144801) main: A2 (GPIO3): LOW[0m
+[0;32mI (144801) main: A3 (GPIO4): LOW[0m
+[0;32mI (145301) main: D2 (GPIO5): LOW[0m
+[0;32mI (145301) main: A2 (GPIO3): LOW[0m
+[0;32mI (145301) main: A3 (GPIO4): LOW[0m
+[0;32mI (145331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (145331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (145801) main: D2 (GPIO5): LOW[0m
+[0;32mI (145801) main: A2 (GPIO3): LOW[0m
+[0;32mI (145801) main: A3 (GPIO4): LOW[0m
+[0;32mI (146301) main: D2 (GPIO5): LOW[0m
+[0;32mI (146301) main: A2 (GPIO3): LOW[0m
+[0;32mI (146301) main: A3 (GPIO4): LOW[0m
+[0;32mI (146331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (146331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (146801) main: D2 (GPIO5): LOW[0m
+[0;32mI (146801) main: A2 (GPIO3): LOW[0m
+[0;32mI (146801) main: A3 (GPIO4): LOW[0m
+[0;32mI (147301) main: D2 (GPIO5): LOW[0m
+[0;32mI (147301) main: A2 (GPIO3): LOW[0m
+[0;32mI (147301) main: A3 (GPIO4): LOW[0m
+[0;32mI (147331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (147331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (147801) main: D2 (GPIO5): LOW[0m
+[0;32mI (147801) main: A2 (GPIO3): LOW[0m
+[0;32mI (147801) main: A3 (GPIO4): LOW[0m
+[0;32mI (148301) main: D2 (GPIO5): LOW[0m
+[0;32mI (148301) main: A2 (GPIO3): LOW[0m
+[0;32mI (148301) main: A3 (GPIO4): LOW[0m
+[0;32mI (148331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (148331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (148801) main: D2 (GPIO5): LOW[0m
+[0;32mI (148801) main: A2 (GPIO3): LOW[0m
+[0;32mI (148801) main: A3 (GPIO4): LOW[0m
+[0;32mI (149301) main: D2 (GPIO5): LOW[0m
+[0;32mI (149301) main: A2 (GPIO3): LOW[0m
+[0;32mI (149301) main: A3 (GPIO4): LOW[0m
+[0;32mI (149331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (149331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (149801) main: D2 (GPIO5): LOW[0m
+[0;32mI (149801) main: A2 (GPIO3): LOW[0m
+[0;32mI (149801) main: A3 (GPIO4): LOW[0m
+[0;32mI (150301) main: D2 (GPIO5): LOW[0m
+[0;32mI (150301) main: A2 (GPIO3): LOW[0m
+[0;32mI (150301) main: A3 (GPIO4): LOW[0m
+[0;32mI (150331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (150331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (150801) main: D2 (GPIO5): LOW[0m
+[0;32mI (150801) main: A2 (GPIO3): LOW[0m
+[0;32mI (150801) main: A3 (GPIO4): LOW[0m
+[0;32mI (151301) main: D2 (GPIO5): LOW[0m
+[0;32mI (151301) main: A2 (GPIO3): LOW[0m
+[0;32mI (151301) main: A3 (GPIO4): LOW[0m
+[0;32mI (151331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (151331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (151801) main: D2 (GPIO5): LOW[0m
+[0;32mI (151801) main: A2 (GPIO3): LOW[0m
+[0;32mI (151801) main: A3 (GPIO4): LOW[0m
+[0;32mI (152301) main: D2 (GPIO5): LOW[0m
+[0;32mI (152301) main: A2 (GPIO3): LOW[0m
+[0;32mI (152301) main: A3 (GPIO4): LOW[0m
+[0;32mI (152331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (152331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (152801) main: D2 (GPIO5): LOW[0m
+[0;32mI (152801) main: A2 (GPIO3): LOW[0m
+[0;32mI (152801) main: A3 (GPIO4): LOW[0m
+[0;32mI (153301) main: D2 (GPIO5): LOW[0m
+[0;32mI (153301) main: A2 (GPIO3): LOW[0m
+[0;32mI (153301) main: A3 (GPIO4): LOW[0m
+[0;32mI (153331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (153331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (153801) main: D2 (GPIO5): LOW[0m
+[0;32mI (153801) main: A2 (GPIO3): LOW[0m
+[0;32mI (153801) main: A3 (GPIO4): LOW[0m
+[0;32mI (154301) main: D2 (GPIO5): LOW[0m
+[0;32mI (154301) main: A2 (GPIO3): LOW[0m
+[0;32mI (154301) main: A3 (GPIO4): LOW[0m
+[0;32mI (154331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (154331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (154801) main: D2 (GPIO5): LOW[0m
+[0;32mI (154801) main: A2 (GPIO3): LOW[0m
+[0;32mI (154801) main: A3 (GPIO4): LOW[0m
+[0;32mI (155301) main: D2 (GPIO5): LOW[0m
+[0;32mI (155301) main: A2 (GPIO3): LOW[0m
+[0;32mI (155301) main: A3 (GPIO4): LOW[0m
+[0;32mI (155331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (155331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (155801) main: D2 (GPIO5): LOW[0m
+[0;32mI (155801) main: A2 (GPIO3): LOW[0m
+[0;32mI (155801) main: A3 (GPIO4): LOW[0m
+[0;32mI (156301) main: D2 (GPIO5): LOW[0m
+[0;32mI (156301) main: A2 (GPIO3): LOW[0m
+[0;32mI (156301) main: A3 (GPIO4): LOW[0m
+[0;32mI (156331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (156331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (156801) main: D2 (GPIO5): LOW[0m
+[0;32mI (156801) main: A2 (GPIO3): LOW[0m
+[0;32mI (156801) main: A3 (GPIO4): LOW[0m
+[0;32mI (157301) main: D2 (GPIO5): LOW[0m
+[0;32mI (157301) main: A2 (GPIO3): LOW[0m
+[0;32mI (157301) main: A3 (GPIO4): LOW[0m
+[0;32mI (157331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (157331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (157801) main: D2 (GPIO5): LOW[0m
+[0;32mI (157801) main: A2 (GPIO3): LOW[0m
+[0;32mI (157801) main: A3 (GPIO4): LOW[0m
+[0;32mI (158301) main: D2 (GPIO5): LOW[0m
+[0;32mI (158301) main: A2 (GPIO3): LOW[0m
+[0;32mI (158301) main: A3 (GPIO4): LOW[0m
+[0;32mI (158331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (158331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (158801) main: D2 (GPIO5): LOW[0m
+[0;32mI (158801) main: A2 (GPIO3): LOW[0m
+[0;32mI (158801) main: A3 (GPIO4): LOW[0m
+[0;32mI (159301) main: D2 (GPIO5): LOW[0m
+[0;32mI (159301) main: A2 (GPIO3): LOW[0m
+[0;32mI (159301) main: A3 (GPIO4): LOW[0m
+[0;32mI (159331) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (159331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (159801) main: D2 (GPIO5): LOW[0m
+[0;32mI (159801) main: A2 (GPIO3): LOW[0m
+[0;32mI (159801) main: A3 (GPIO4): LOW[0m
+[0;32mI (160301) main: D2 (GPIO5): LOW[0m
+[0;32mI (160301) main: A2 (GPIO3): LOW[0m
+[0;32mI (160301) main: A3 (GPIO4): LOW[0m
+[0;32mI (160331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (160331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (160801) main: D2 (GPIO5): LOW[0m
+[0;32mI (160801) main: A2 (GPIO3): LOW[0m
+[0;32mI (160801) main: A3 (GPIO4): LOW[0m
+[0;32mI (161301) main: D2 (GPIO5): LOW[0m
+[0;32mI (161301) main: A2 (GPIO3): LOW[0m
+[0;32mI (161301) main: A3 (GPIO4): LOW[0m
+[0;32mI (161331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (161331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (161801) main: D2 (GPIO5): LOW[0m
+[0;32mI (161801) main: A2 (GPIO3): LOW[0m
+[0;32mI (161801) main: A3 (GPIO4): LOW[0m
+[0;32mI (162301) main: D2 (GPIO5): LOW[0m
+[0;32mI (162301) main: A2 (GPIO3): LOW[0m
+[0;32mI (162301) main: A3 (GPIO4): LOW[0m
+[0;32mI (162331) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (162331) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (162801) main: D2 (GPIO5): LOW[0m
+[0;32mI (162801) main: A2 (GPIO3): LOW[0m
+[0;32mI (162801) main: A3 (GPIO4): LOW[0m
+[0;32mI (163301) main: D2 (GPIO5): LOW[0m
+[0;32mI (163301) main: A2 (GPIO3): LOW[0m
+[0;32mI (163301) main: A3 (GPIO4): LOW[0m
+[0;32mI (163331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (163331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (163801) main: D2 (GPIO5): LOW[0m
+[0;32mI (163801) main: A2 (GPIO3): LOW[0m
+[0;32mI (163801) main: A3 (GPIO4): LOW[0m
+[0;32mI (164301) main: D2 (GPIO5): LOW[0m
+[0;32mI (164301) main: A2 (GPIO3): LOW[0m
+[0;32mI (164301) main: A3 (GPIO4): LOW[0m
+[0;32mI (164331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (164331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (164801) main: D2 (GPIO5): LOW[0m
+[0;32mI (164801) main: A2 (GPIO3): LOW[0m
+[0;32mI (164801) main: A3 (GPIO4): LOW[0m
+[0;32mI (165301) main: D2 (GPIO5): LOW[0m
+[0;32mI (165301) main: A2 (GPIO3): LOW[0m
+[0;32mI (165301) main: A3 (GPIO4): LOW[0m
+[0;32mI (165331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (165331) main: tmp117_2 (0x49): 26.305 C[0m
+[0;32mI (165801) main: D2 (GPIO5): LOW[0m
+[0;32mI (165801) main: A2 (GPIO3): LOW[0m
+[0;32mI (165801) main: A3 (GPIO4): LOW[0m
+[0;32mI (166301) main: D2 (GPIO5): LOW[0m
+[0;32mI (166301) main: A2 (GPIO3): LOW[0m
+[0;32mI (166301) main: A3 (GPIO4): LOW[0m
+[0;32mI (166331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (166331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (166801) main: D2 (GPIO5): LOW[0m
+[0;32mI (166801) main: A2 (GPIO3): LOW[0m
+[0;32mI (166801) main: A3 (GPIO4): LOW[0m
+[0;32mI (167301) main: D2 (GPIO5): LOW[0m
+[0;32mI (167301) main: A2 (GPIO3): LOW[0m
+[0;32mI (167301) main: A3 (GPIO4): LOW[0m
+[0;32mI (167331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (167331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (167801) main: D2 (GPIO5): LOW[0m
+[0;32mI (167801) main: A2 (GPIO3): LOW[0m
+[0;32mI (167801) main: A3 (GPIO4): LOW[0m
+[0;32mI (168301) main: D2 (GPIO5): LOW[0m
+[0;32mI (168301) main: A2 (GPIO3): LOW[0m
+[0;32mI (168301) main: A3 (GPIO4): LOW[0m
+[0;32mI (168331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (168331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (168801) main: D2 (GPIO5): LOW[0m
+[0;32mI (168801) main: A2 (GPIO3): LOW[0m
+[0;32mI (168801) main: A3 (GPIO4): LOW[0m
+[0;32mI (169301) main: D2 (GPIO5): LOW[0m
+[0;32mI (169301) main: A2 (GPIO3): LOW[0m
+[0;32mI (169301) main: A3 (GPIO4): LOW[0m
+[0;32mI (169331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (169331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (169801) main: D2 (GPIO5): LOW[0m
+[0;32mI (169801) main: A2 (GPIO3): LOW[0m
+[0;32mI (169801) main: A3 (GPIO4): LOW[0m
+[0;32mI (170301) main: D2 (GPIO5): LOW[0m
+[0;32mI (170301) main: A2 (GPIO3): LOW[0m
+[0;32mI (170301) main: A3 (GPIO4): LOW[0m
+[0;32mI (170331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (170331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (170801) main: D2 (GPIO5): LOW[0m
+[0;32mI (170801) main: A2 (GPIO3): LOW[0m
+[0;32mI (170801) main: A3 (GPIO4): LOW[0m
+[0;32mI (171301) main: D2 (GPIO5): LOW[0m
+[0;32mI (171301) main: A2 (GPIO3): LOW[0m
+[0;32mI (171301) main: A3 (GPIO4): LOW[0m
+[0;32mI (171331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (171331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (171801) main: D2 (GPIO5): LOW[0m
+[0;32mI (171801) main: A2 (GPIO3): LOW[0m
+[0;32mI (171801) main: A3 (GPIO4): LOW[0m
+[0;32mI (172301) main: D2 (GPIO5): LOW[0m
+[0;32mI (172301) main: A2 (GPIO3): LOW[0m
+[0;32mI (172301) main: A3 (GPIO4): LOW[0m
+[0;32mI (172331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (172331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (172801) main: D2 (GPIO5): LOW[0m
+[0;32mI (172801) main: A2 (GPIO3): LOW[0m
+[0;32mI (172801) main: A3 (GPIO4): LOW[0m
+[0;32mI (173301) main: D2 (GPIO5): LOW[0m
+[0;32mI (173301) main: A2 (GPIO3): LOW[0m
+[0;32mI (173301) main: A3 (GPIO4): LOW[0m
+[0;32mI (173331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (173331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (173801) main: D2 (GPIO5): LOW[0m
+[0;32mI (173801) main: A2 (GPIO3): LOW[0m
+[0;32mI (173801) main: A3 (GPIO4): LOW[0m
+[0;32mI (174301) main: D2 (GPIO5): LOW[0m
+[0;32mI (174301) main: A2 (GPIO3): LOW[0m
+[0;32mI (174301) main: A3 (GPIO4): LOW[0m
+[0;32mI (174331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (174331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (174801) main: D2 (GPIO5): LOW[0m
+[0;32mI (174801) main: A2 (GPIO3): LOW[0m
+[0;32mI (174801) main: A3 (GPIO4): LOW[0m
+[0;32mI (175301) main: D2 (GPIO5): LOW[0m
+[0;32mI (175301) main: A2 (GPIO3): LOW[0m
+[0;32mI (175301) main: A3 (GPIO4): LOW[0m
+[0;32mI (175331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (175331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (175801) main: D2 (GPIO5): LOW[0m
+[0;32mI (175801) main: A2 (GPIO3): LOW[0m
+[0;32mI (175801) main: A3 (GPIO4): LOW[0m
+[0;32mI (176301) main: D2 (GPIO5): LOW[0m
+[0;32mI (176301) main: A2 (GPIO3): LOW[0m
+[0;32mI (176301) main: A3 (GPIO4): LOW[0m
+[0;32mI (176331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (176331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (176801) main: D2 (GPIO5): LOW[0m
+[0;32mI (176801) main: A2 (GPIO3): LOW[0m
+[0;32mI (176801) main: A3 (GPIO4): LOW[0m
+[0;32mI (177301) main: D2 (GPIO5): LOW[0m
+[0;32mI (177301) main: A2 (GPIO3): LOW[0m
+[0;32mI (177301) main: A3 (GPIO4): LOW[0m
+[0;32mI (177331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (177331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (177801) main: D2 (GPIO5): LOW[0m
+[0;32mI (177801) main: A2 (GPIO3): LOW[0m
+[0;32mI (177801) main: A3 (GPIO4): LOW[0m
+[0;32mI (178301) main: D2 (GPIO5): LOW[0m
+[0;32mI (178301) main: A2 (GPIO3): LOW[0m
+[0;32mI (178301) main: A3 (GPIO4): LOW[0m
+[0;32mI (178331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (178331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (178801) main: D2 (GPIO5): LOW[0m
+[0;32mI (178801) main: A2 (GPIO3): LOW[0m
+[0;32mI (178801) main: A3 (GPIO4): LOW[0m
+[0;32mI (179301) main: D2 (GPIO5): LOW[0m
+[0;32mI (179301) main: A2 (GPIO3): LOW[0m
+[0;32mI (179301) main: A3 (GPIO4): LOW[0m
+[0;32mI (179331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (179331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (179801) main: D2 (GPIO5): LOW[0m
+[0;32mI (179801) main: A2 (GPIO3): LOW[0m
+[0;32mI (179801) main: A3 (GPIO4): LOW[0m
+[0;32mI (180301) main: D2 (GPIO5): LOW[0m
+[0;32mI (180301) main: A2 (GPIO3): LOW[0m
+[0;32mI (180301) main: A3 (GPIO4): LOW[0m
+[0;32mI (180331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (180331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (180801) main: D2 (GPIO5): LOW[0m
+[0;32mI (180801) main: A2 (GPIO3): LOW[0m
+[0;32mI (180801) main: A3 (GPIO4): LOW[0m
+[0;32mI (181301) main: D2 (GPIO5): LOW[0m
+[0;32mI (181301) main: A2 (GPIO3): LOW[0m
+[0;32mI (181301) main: A3 (GPIO4): LOW[0m
+[0;32mI (181331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (181331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (181801) main: D2 (GPIO5): LOW[0m
+[0;32mI (181801) main: A2 (GPIO3): LOW[0m
+[0;32mI (181801) main: A3 (GPIO4): LOW[0m
+[0;32mI (182301) main: D2 (GPIO5): LOW[0m
+[0;32mI (182301) main: A2 (GPIO3): LOW[0m
+[0;32mI (182301) main: A3 (GPIO4): LOW[0m
+[0;32mI (182331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (182331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (182801) main: D2 (GPIO5): LOW[0m
+[0;32mI (182801) main: A2 (GPIO3): LOW[0m
+[0;32mI (182801) main: A3 (GPIO4): LOW[0m
+[0;32mI (183301) main: D2 (GPIO5): LOW[0m
+[0;32mI (183301) main: A2 (GPIO3): LOW[0m
+[0;32mI (183301) main: A3 (GPIO4): LOW[0m
+[0;32mI (183331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (183331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (183801) main: D2 (GPIO5): LOW[0m
+[0;32mI (183801) main: A2 (GPIO3): LOW[0m
+[0;32mI (183801) main: A3 (GPIO4): LOW[0m
+[0;32mI (184301) main: D2 (GPIO5): LOW[0m
+[0;32mI (184301) main: A2 (GPIO3): LOW[0m
+[0;32mI (184301) main: A3 (GPIO4): LOW[0m
+[0;32mI (184331) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (184331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (184801) main: D2 (GPIO5): LOW[0m
+[0;32mI (184801) main: A2 (GPIO3): LOW[0m
+[0;32mI (184801) main: A3 (GPIO4): LOW[0m
+[0;32mI (185301) main: D2 (GPIO5): LOW[0m
+[0;32mI (185301) main: A2 (GPIO3): LOW[0m
+[0;32mI (185301) main: A3 (GPIO4): LOW[0m
+[0;32mI (185331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (185331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (185801) main: D2 (GPIO5): LOW[0m
+[0;32mI (185801) main: A2 (GPIO3): LOW[0m
+[0;32mI (185801) main: A3 (GPIO4): LOW[0m
+[0;32mI (186301) main: D2 (GPIO5): LOW[0m
+[0;32mI (186301) main: A2 (GPIO3): LOW[0m
+[0;32mI (186301) main: A3 (GPIO4): LOW[0m
+[0;32mI (186331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (186331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (186801) main: D2 (GPIO5): LOW[0m
+[0;32mI (186801) main: A2 (GPIO3): LOW[0m
+[0;32mI (186801) main: A3 (GPIO4): LOW[0m
+[0;32mI (187301) main: D2 (GPIO5): LOW[0m
+[0;32mI (187301) main: A2 (GPIO3): LOW[0m
+[0;32mI (187301) main: A3 (GPIO4): LOW[0m
+[0;32mI (187331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (187331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (187801) main: D2 (GPIO5): LOW[0m
+[0;32mI (187801) main: A2 (GPIO3): LOW[0m
+[0;32mI (187801) main: A3 (GPIO4): LOW[0m
+[0;32mI (188301) main: D2 (GPIO5): LOW[0m
+[0;32mI (188301) main: A2 (GPIO3): LOW[0m
+[0;32mI (188301) main: A3 (GPIO4): LOW[0m
+[0;32mI (188331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (188331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (188801) main: D2 (GPIO5): LOW[0m
+[0;32mI (188801) main: A2 (GPIO3): LOW[0m
+[0;32mI (188801) main: A3 (GPIO4): LOW[0m
+[0;32mI (189301) main: D2 (GPIO5): LOW[0m
+[0;32mI (189301) main: A2 (GPIO3): LOW[0m
+[0;32mI (189301) main: A3 (GPIO4): LOW[0m
+[0;32mI (189331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (189331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (189801) main: D2 (GPIO5): LOW[0m
+[0;32mI (189801) main: A2 (GPIO3): LOW[0m
+[0;32mI (189801) main: A3 (GPIO4): LOW[0m
+[0;32mI (190301) main: D2 (GPIO5): LOW[0m
+[0;32mI (190301) main: A2 (GPIO3): LOW[0m
+[0;32mI (190301) main: A3 (GPIO4): LOW[0m
+[0;32mI (190331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (190331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (190801) main: D2 (GPIO5): LOW[0m
+[0;32mI (190801) main: A2 (GPIO3): LOW[0m
+[0;32mI (190801) main: A3 (GPIO4): LOW[0m
+[0;32mI (191301) main: D2 (GPIO5): LOW[0m
+[0;32mI (191301) main: A2 (GPIO3): LOW[0m
+[0;32mI (191301) main: A3 (GPIO4): LOW[0m
+[0;32mI (191331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (191331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (191801) main: D2 (GPIO5): LOW[0m
+[0;32mI (191801) main: A2 (GPIO3): LOW[0m
+[0;32mI (191801) main: A3 (GPIO4): LOW[0m
+[0;32mI (192301) main: D2 (GPIO5): LOW[0m
+[0;32mI (192301) main: A2 (GPIO3): LOW[0m
+[0;32mI (192301) main: A3 (GPIO4): LOW[0m
+[0;32mI (192331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (192331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (192801) main: D2 (GPIO5): LOW[0m
+[0;32mI (192801) main: A2 (GPIO3): LOW[0m
+[0;32mI (192801) main: A3 (GPIO4): LOW[0m
+[0;32mI (193301) main: D2 (GPIO5): LOW[0m
+[0;32mI (193301) main: A2 (GPIO3): LOW[0m
+[0;32mI (193301) main: A3 (GPIO4): LOW[0m
+[0;32mI (193331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (193331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (193801) main: D2 (GPIO5): LOW[0m
+[0;32mI (193801) main: A2 (GPIO3): LOW[0m
+[0;32mI (193801) main: A3 (GPIO4): LOW[0m
+[0;32mI (194301) main: D2 (GPIO5): LOW[0m
+[0;32mI (194301) main: A2 (GPIO3): LOW[0m
+[0;32mI (194301) main: A3 (GPIO4): LOW[0m
+[0;32mI (194331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (194331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (194801) main: D2 (GPIO5): LOW[0m
+[0;32mI (194801) main: A2 (GPIO3): LOW[0m
+[0;32mI (194801) main: A3 (GPIO4): LOW[0m
+[0;32mI (195301) main: D2 (GPIO5): LOW[0m
+[0;32mI (195301) main: A2 (GPIO3): LOW[0m
+[0;32mI (195301) main: A3 (GPIO4): LOW[0m
+[0;32mI (195331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (195331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (195801) main: D2 (GPIO5): LOW[0m
+[0;32mI (195801) main: A2 (GPIO3): LOW[0m
+[0;32mI (195801) main: A3 (GPIO4): LOW[0m
+[0;32mI (196301) main: D2 (GPIO5): LOW[0m
+[0;32mI (196301) main: A2 (GPIO3): LOW[0m
+[0;32mI (196301) main: A3 (GPIO4): LOW[0m
+[0;32mI (196331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (196331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (196801) main: D2 (GPIO5): LOW[0m
+[0;32mI (196801) main: A2 (GPIO3): LOW[0m
+[0;32mI (196801) main: A3 (GPIO4): LOW[0m
+[0;32mI (197301) main: D2 (GPIO5): LOW[0m
+[0;32mI (197301) main: A2 (GPIO3): LOW[0m
+[0;32mI (197301) main: A3 (GPIO4): LOW[0m
+[0;32mI (197331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (197331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (197801) main: D2 (GPIO5): LOW[0m
+[0;32mI (197801) main: A2 (GPIO3): LOW[0m
+[0;32mI (197801) main: A3 (GPIO4): LOW[0m
+[0;32mI (198301) main: D2 (GPIO5): LOW[0m
+[0;32mI (198301) main: A2 (GPIO3): LOW[0m
+[0;32mI (198301) main: A3 (GPIO4): LOW[0m
+[0;32mI (198331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (198331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (198801) main: D2 (GPIO5): LOW[0m
+[0;32mI (198801) main: A2 (GPIO3): LOW[0m
+[0;32mI (198801) main: A3 (GPIO4): LOW[0m
+[0;32mI (199301) main: D2 (GPIO5): LOW[0m
+[0;32mI (199301) main: A2 (GPIO3): LOW[0m
+[0;32mI (199301) main: A3 (GPIO4): LOW[0m
+[0;32mI (199331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (199331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (199801) main: D2 (GPIO5): LOW[0m
+[0;32mI (199801) main: A2 (GPIO3): LOW[0m
+[0;32mI (199801) main: A3 (GPIO4): LOW[0m
+[0;32mI (200301) main: D2 (GPIO5): LOW[0m
+[0;32mI (200301) main: A2 (GPIO3): LOW[0m
+[0;32mI (200301) main: A3 (GPIO4): LOW[0m
+[0;32mI (200331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (200331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (200801) main: D2 (GPIO5): LOW[0m
+[0;32mI (200801) main: A2 (GPIO3): LOW[0m
+[0;32mI (200801) main: A3 (GPIO4): LOW[0m
+[0;32mI (201301) main: D2 (GPIO5): LOW[0m
+[0;32mI (201301) main: A2 (GPIO3): LOW[0m
+[0;32mI (201301) main: A3 (GPIO4): LOW[0m
+[0;32mI (201331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (201331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (201801) main: D2 (GPIO5): LOW[0m
+[0;32mI (201801) main: A2 (GPIO3): LOW[0m
+[0;32mI (201801) main: A3 (GPIO4): LOW[0m
+[0;32mI (202301) main: D2 (GPIO5): LOW[0m
+[0;32mI (202301) main: A2 (GPIO3): LOW[0m
+[0;32mI (202301) main: A3 (GPIO4): LOW[0m
+[0;32mI (202331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (202331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (202801) main: D2 (GPIO5): LOW[0m
+[0;32mI (202801) main: A2 (GPIO3): LOW[0m
+[0;32mI (202801) main: A3 (GPIO4): LOW[0m
+[0;32mI (203301) main: D2 (GPIO5): LOW[0m
+[0;32mI (203301) main: A2 (GPIO3): LOW[0m
+[0;32mI (203301) main: A3 (GPIO4): LOW[0m
+[0;32mI (203331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (203331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (203801) main: D2 (GPIO5): LOW[0m
+[0;32mI (203801) main: A2 (GPIO3): LOW[0m
+[0;32mI (203801) main: A3 (GPIO4): LOW[0m
+[0;32mI (204301) main: D2 (GPIO5): LOW[0m
+[0;32mI (204301) main: A2 (GPIO3): LOW[0m
+[0;32mI (204301) main: A3 (GPIO4): LOW[0m
+[0;32mI (204331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (204331) main: tmp117_2 (0x49): 26.297 C[0m
+[0;32mI (204801) main: D2 (GPIO5): LOW[0m
+[0;32mI (204801) main: A2 (GPIO3): LOW[0m
+[0;32mI (204801) main: A3 (GPIO4): LOW[0m
+[0;32mI (205301) main: D2 (GPIO5): LOW[0m
+[0;32mI (205301) main: A2 (GPIO3): LOW[0m
+[0;32mI (205301) main: A3 (GPIO4): LOW[0m
+[0;32mI (205331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (205331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (205801) main: D2 (GPIO5): LOW[0m
+[0;32mI (205801) main: A2 (GPIO3): LOW[0m
+[0;32mI (205801) main: A3 (GPIO4): LOW[0m
+[0;32mI (206301) main: D2 (GPIO5): LOW[0m
+[0;32mI (206301) main: A2 (GPIO3): LOW[0m
+[0;32mI (206301) main: A3 (GPIO4): LOW[0m
+[0;32mI (206331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (206331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (206801) main: D2 (GPIO5): LOW[0m
+[0;32mI (206801) main: A2 (GPIO3): LOW[0m
+[0;32mI (206801) main: A3 (GPIO4): LOW[0m
+[0;32mI (207301) main: D2 (GPIO5): LOW[0m
+[0;32mI (207301) main: A2 (GPIO3): LOW[0m
+[0;32mI (207301) main: A3 (GPIO4): LOW[0m
+[0;32mI (207331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (207331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (207801) main: D2 (GPIO5): LOW[0m
+[0;32mI (207801) main: A2 (GPIO3): LOW[0m
+[0;32mI (207801) main: A3 (GPIO4): LOW[0m
+[0;32mI (208301) main: D2 (GPIO5): LOW[0m
+[0;32mI (208301) main: A2 (GPIO3): LOW[0m
+[0;32mI (208301) main: A3 (GPIO4): LOW[0m
+[0;32mI (208331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (208331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (208801) main: D2 (GPIO5): LOW[0m
+[0;32mI (208801) main: A2 (GPIO3): LOW[0m
+[0;32mI (208801) main: A3 (GPIO4): LOW[0m
+[0;32mI (209301) main: D2 (GPIO5): LOW[0m
+[0;32mI (209301) main: A2 (GPIO3): LOW[0m
+[0;32mI (209301) main: A3 (GPIO4): LOW[0m
+[0;32mI (209331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (209331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (209801) main: D2 (GPIO5): LOW[0m
+[0;32mI (209801) main: A2 (GPIO3): LOW[0m
+[0;32mI (209801) main: A3 (GPIO4): LOW[0m
+[0;32mI (210301) main: D2 (GPIO5): LOW[0m
+[0;32mI (210301) main: A2 (GPIO3): LOW[0m
+[0;32mI (210301) main: A3 (GPIO4): LOW[0m
+[0;32mI (210331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (210331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (210801) main: D2 (GPIO5): LOW[0m
+[0;32mI (210801) main: A2 (GPIO3): LOW[0m
+[0;32mI (210801) main: A3 (GPIO4): LOW[0m
+[0;32mI (211301) main: D2 (GPIO5): LOW[0m
+[0;32mI (211301) main: A2 (GPIO3): LOW[0m
+[0;32mI (211301) main: A3 (GPIO4): LOW[0m
+[0;32mI (211331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (211331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (211801) main: D2 (GPIO5): LOW[0m
+[0;32mI (211801) main: A2 (GPIO3): LOW[0m
+[0;32mI (211801) main: A3 (GPIO4): LOW[0m
+[0;32mI (212301) main: D2 (GPIO5): LOW[0m
+[0;32mI (212301) main: A2 (GPIO3): LOW[0m
+[0;32mI (212301) main: A3 (GPIO4): LOW[0m
+[0;32mI (212331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (212331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (212801) main: D2 (GPIO5): LOW[0m
+[0;32mI (212801) main: A2 (GPIO3): LOW[0m
+[0;32mI (212801) main: A3 (GPIO4): LOW[0m
+[0;32mI (213301) main: D2 (GPIO5): LOW[0m
+[0;32mI (213301) main: A2 (GPIO3): LOW[0m
+[0;32mI (213301) main: A3 (GPIO4): LOW[0m
+[0;32mI (213331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (213331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (213801) main: D2 (GPIO5): LOW[0m
+[0;32mI (213801) main: A2 (GPIO3): LOW[0m
+[0;32mI (213801) main: A3 (GPIO4): LOW[0m
+[0;32mI (214301) main: D2 (GPIO5): LOW[0m
+[0;32mI (214301) main: A2 (GPIO3): LOW[0m
+[0;32mI (214301) main: A3 (GPIO4): LOW[0m
+[0;32mI (214331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (214331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (214801) main: D2 (GPIO5): LOW[0m
+[0;32mI (214801) main: A2 (GPIO3): LOW[0m
+[0;32mI (214801) main: A3 (GPIO4): LOW[0m
+[0;32mI (215301) main: D2 (GPIO5): LOW[0m
+[0;32mI (215301) main: A2 (GPIO3): LOW[0m
+[0;32mI (215301) main: A3 (GPIO4): LOW[0m
+[0;32mI (215331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (215331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (215801) main: D2 (GPIO5): LOW[0m
+[0;32mI (215801) main: A2 (GPIO3): LOW[0m
+[0;32mI (215801) main: A3 (GPIO4): LOW[0m
+[0;32mI (216301) main: D2 (GPIO5): LOW[0m
+[0;32mI (216301) main: A2 (GPIO3): LOW[0m
+[0;32mI (216301) main: A3 (GPIO4): LOW[0m
+[0;32mI (216331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (216331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (216801) main: D2 (GPIO5): LOW[0m
+[0;32mI (216801) main: A2 (GPIO3): LOW[0m
+[0;32mI (216801) main: A3 (GPIO4): LOW[0m
+[0;32mI (217301) main: D2 (GPIO5): LOW[0m
+[0;32mI (217301) main: A2 (GPIO3): LOW[0m
+[0;32mI (217301) main: A3 (GPIO4): LOW[0m
+[0;32mI (217331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (217331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (217801) main: D2 (GPIO5): LOW[0m
+[0;32mI (217801) main: A2 (GPIO3): LOW[0m
+[0;32mI (217801) main: A3 (GPIO4): LOW[0m
+[0;32mI (218301) main: D2 (GPIO5): LOW[0m
+[0;32mI (218301) main: A2 (GPIO3): LOW[0m
+[0;32mI (218301) main: A3 (GPIO4): LOW[0m
+[0;32mI (218331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (218331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (218801) main: D2 (GPIO5): LOW[0m
+[0;32mI (218801) main: A2 (GPIO3): LOW[0m
+[0;32mI (218801) main: A3 (GPIO4): LOW[0m
+[0;32mI (219301) main: D2 (GPIO5): LOW[0m
+[0;32mI (219301) main: A2 (GPIO3): LOW[0m
+[0;32mI (219301) main: A3 (GPIO4): LOW[0m
+[0;32mI (219331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (219331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (219801) main: D2 (GPIO5): LOW[0m
+[0;32mI (219801) main: A2 (GPIO3): LOW[0m
+[0;32mI (219801) main: A3 (GPIO4): LOW[0m
+[0;32mI (220301) main: D2 (GPIO5): LOW[0m
+[0;32mI (220301) main: A2 (GPIO3): LOW[0m
+[0;32mI (220301) main: A3 (GPIO4): LOW[0m
+[0;32mI (220331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (220331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (220801) main: D2 (GPIO5): LOW[0m
+[0;32mI (220801) main: A2 (GPIO3): LOW[0m
+[0;32mI (220801) main: A3 (GPIO4): LOW[0m
+[0;32mI (221301) main: D2 (GPIO5): LOW[0m
+[0;32mI (221301) main: A2 (GPIO3): LOW[0m
+[0;32mI (221301) main: A3 (GPIO4): LOW[0m
+[0;32mI (221331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (221331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (221801) main: D2 (GPIO5): LOW[0m
+[0;32mI (221801) main: A2 (GPIO3): LOW[0m
+[0;32mI (221801) main: A3 (GPIO4): LOW[0m
+[0;32mI (222301) main: D2 (GPIO5): LOW[0m
+[0;32mI (222301) main: A2 (GPIO3): LOW[0m
+[0;32mI (222301) main: A3 (GPIO4): LOW[0m
+[0;32mI (222331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (222331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (222801) main: D2 (GPIO5): LOW[0m
+[0;32mI (222801) main: A2 (GPIO3): LOW[0m
+[0;32mI (222801) main: A3 (GPIO4): LOW[0m
+[0;32mI (223301) main: D2 (GPIO5): LOW[0m
+[0;32mI (223301) main: A2 (GPIO3): LOW[0m
+[0;32mI (223301) main: A3 (GPIO4): LOW[0m
+[0;32mI (223331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (223331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (223801) main: D2 (GPIO5): LOW[0m
+[0;32mI (223801) main: A2 (GPIO3): LOW[0m
+[0;32mI (223801) main: A3 (GPIO4): LOW[0m
+[0;32mI (224301) main: D2 (GPIO5): LOW[0m
+[0;32mI (224301) main: A2 (GPIO3): LOW[0m
+[0;32mI (224301) main: A3 (GPIO4): LOW[0m
+[0;32mI (224331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (224331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (224801) main: D2 (GPIO5): LOW[0m
+[0;32mI (224801) main: A2 (GPIO3): LOW[0m
+[0;32mI (224801) main: A3 (GPIO4): LOW[0m
+[0;32mI (225301) main: D2 (GPIO5): LOW[0m
+[0;32mI (225301) main: A2 (GPIO3): LOW[0m
+[0;32mI (225301) main: A3 (GPIO4): LOW[0m
+[0;32mI (225331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (225331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (225801) main: D2 (GPIO5): LOW[0m
+[0;32mI (225801) main: A2 (GPIO3): LOW[0m
+[0;32mI (225801) main: A3 (GPIO4): LOW[0m
+[0;32mI (226301) main: D2 (GPIO5): LOW[0m
+[0;32mI (226301) main: A2 (GPIO3): LOW[0m
+[0;32mI (226301) main: A3 (GPIO4): LOW[0m
+[0;32mI (226331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (226331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (226801) main: D2 (GPIO5): LOW[0m
+[0;32mI (226801) main: A2 (GPIO3): LOW[0m
+[0;32mI (226801) main: A3 (GPIO4): LOW[0m
+[0;32mI (227301) main: D2 (GPIO5): LOW[0m
+[0;32mI (227301) main: A2 (GPIO3): LOW[0m
+[0;32mI (227301) main: A3 (GPIO4): LOW[0m
+[0;32mI (227331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (227331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (227801) main: D2 (GPIO5): LOW[0m
+[0;32mI (227801) main: A2 (GPIO3): LOW[0m
+[0;32mI (227801) main: A3 (GPIO4): LOW[0m
+[0;32mI (228301) main: D2 (GPIO5): LOW[0m
+[0;32mI (228301) main: A2 (GPIO3): LOW[0m
+[0;32mI (228301) main: A3 (GPIO4): LOW[0m
+[0;32mI (228331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (228331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (228801) main: D2 (GPIO5): LOW[0m
+[0;32mI (228801) main: A2 (GPIO3): LOW[0m
+[0;32mI (228801) main: A3 (GPIO4): LOW[0m
+[0;32mI (229301) main: D2 (GPIO5): LOW[0m
+[0;32mI (229301) main: A2 (GPIO3): LOW[0m
+[0;32mI (229301) main: A3 (GPIO4): LOW[0m
+[0;32mI (229331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (229331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (229801) main: D2 (GPIO5): LOW[0m
+[0;32mI (229801) main: A2 (GPIO3): LOW[0m
+[0;32mI (229801) main: A3 (GPIO4): LOW[0m
+[0;32mI (230301) main: D2 (GPIO5): LOW[0m
+[0;32mI (230301) main: A2 (GPIO3): LOW[0m
+[0;32mI (230301) main: A3 (GPIO4): LOW[0m
+[0;32mI (230331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (230331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (230801) main: D2 (GPIO5): LOW[0m
+[0;32mI (230801) main: A2 (GPIO3): LOW[0m
+[0;32mI (230801) main: A3 (GPIO4): LOW[0m
+[0;32mI (231301) main: D2 (GPIO5): LOW[0m
+[0;32mI (231301) main: A2 (GPIO3): LOW[0m
+[0;32mI (231301) main: A3 (GPIO4): LOW[0m
+[0;32mI (231331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (231331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (231801) main: D2 (GPIO5): LOW[0m
+[0;32mI (231801) main: A2 (GPIO3): LOW[0m
+[0;32mI (231801) main: A3 (GPIO4): LOW[0m
+[0;32mI (232301) main: D2 (GPIO5): LOW[0m
+[0;32mI (232301) main: A2 (GPIO3): LOW[0m
+[0;32mI (232301) main: A3 (GPIO4): LOW[0m
+[0;32mI (232331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (232331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (232801) main: D2 (GPIO5): LOW[0m
+[0;32mI (232801) main: A2 (GPIO3): LOW[0m
+[0;32mI (232801) main: A3 (GPIO4): LOW[0m
+[0;32mI (233301) main: D2 (GPIO5): LOW[0m
+[0;32mI (233301) main: A2 (GPIO3): LOW[0m
+[0;32mI (233301) main: A3 (GPIO4): LOW[0m
+[0;32mI (233331) main: tmp117_1 (0x48): 26.227 C[0m
+[0;32mI (233331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (233801) main: D2 (GPIO5): LOW[0m
+[0;32mI (233801) main: A2 (GPIO3): LOW[0m
+[0;32mI (233801) main: A3 (GPIO4): LOW[0m
+[0;32mI (234301) main: D2 (GPIO5): LOW[0m
+[0;32mI (234301) main: A2 (GPIO3): LOW[0m
+[0;32mI (234301) main: A3 (GPIO4): LOW[0m
+[0;32mI (234331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (234331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (234801) main: D2 (GPIO5): LOW[0m
+[0;32mI (234801) main: A2 (GPIO3): LOW[0m
+[0;32mI (234801) main: A3 (GPIO4): LOW[0m
+[0;32mI (235301) main: D2 (GPIO5): LOW[0m
+[0;32mI (235301) main: A2 (GPIO3): LOW[0m
+[0;32mI (235301) main: A3 (GPIO4): LOW[0m
+[0;32mI (235331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (235331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (235801) main: D2 (GPIO5): LOW[0m
+[0;32mI (235801) main: A2 (GPIO3): LOW[0m
+[0;32mI (235801) main: A3 (GPIO4): LOW[0m
+[0;32mI (236301) main: D2 (GPIO5): LOW[0m
+[0;32mI (236301) main: A2 (GPIO3): LOW[0m
+[0;32mI (236301) main: A3 (GPIO4): LOW[0m
+[0;32mI (236331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (236331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (236801) main: D2 (GPIO5): LOW[0m
+[0;32mI (236801) main: A2 (GPIO3): LOW[0m
+[0;32mI (236801) main: A3 (GPIO4): LOW[0m
+[0;32mI (237301) main: D2 (GPIO5): LOW[0m
+[0;32mI (237301) main: A2 (GPIO3): LOW[0m
+[0;32mI (237301) main: A3 (GPIO4): LOW[0m
+[0;32mI (237331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (237331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (237801) main: D2 (GPIO5): LOW[0m
+[0;32mI (237801) main: A2 (GPIO3): LOW[0m
+[0;32mI (237801) main: A3 (GPIO4): LOW[0m
+[0;32mI (238301) main: D2 (GPIO5): LOW[0m
+[0;32mI (238301) main: A2 (GPIO3): LOW[0m
+[0;32mI (238301) main: A3 (GPIO4): LOW[0m
+[0;32mI (238331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (238331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (238801) main: D2 (GPIO5): LOW[0m
+[0;32mI (238801) main: A2 (GPIO3): LOW[0m
+[0;32mI (238801) main: A3 (GPIO4): LOW[0m
+[0;32mI (239301) main: D2 (GPIO5): LOW[0m
+[0;32mI (239301) main: A2 (GPIO3): LOW[0m
+[0;32mI (239301) main: A3 (GPIO4): LOW[0m
+[0;32mI (239331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (239331) main: tmp117_2 (0x49): 26.289 C[0m
+[0;32mI (239801) main: D2 (GPIO5): LOW[0m
+[0;32mI (239801) main: A2 (GPIO3): LOW[0m
+[0;32mI (239801) main: A3 (GPIO4): LOW[0m
+[0;32mI (240301) main: D2 (GPIO5): LOW[0m
+[0;32mI (240301) main: A2 (GPIO3): LOW[0m
+[0;32mI (240301) main: A3 (GPIO4): LOW[0m
+[0;32mI (240331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (240331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (240801) main: D2 (GPIO5): LOW[0m
+[0;32mI (240801) main: A2 (GPIO3): LOW[0m
+[0;32mI (240801) main: A3 (GPIO4): LOW[0m
+[0;32mI (241301) main: D2 (GPIO5): LOW[0m
+[0;32mI (241301) main: A2 (GPIO3): LOW[0m
+[0;32mI (241301) main: A3 (GPIO4): LOW[0m
+[0;32mI (241331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (241331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (241801) main: D2 (GPIO5): LOW[0m
+[0;32mI (241801) main: A2 (GPIO3): LOW[0m
+[0;32mI (241801) main: A3 (GPIO4): LOW[0m
+[0;32mI (242301) main: D2 (GPIO5): LOW[0m
+[0;32mI (242301) main: A2 (GPIO3): LOW[0m
+[0;32mI (242301) main: A3 (GPIO4): LOW[0m
+[0;32mI (242331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (242331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (242801) main: D2 (GPIO5): LOW[0m
+[0;32mI (242801) main: A2 (GPIO3): LOW[0m
+[0;32mI (242801) main: A3 (GPIO4): LOW[0m
+[0;32mI (243301) main: D2 (GPIO5): LOW[0m
+[0;32mI (243301) main: A2 (GPIO3): LOW[0m
+[0;32mI (243301) main: A3 (GPIO4): LOW[0m
+[0;32mI (243331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (243331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (243801) main: D2 (GPIO5): LOW[0m
+[0;32mI (243801) main: A2 (GPIO3): LOW[0m
+[0;32mI (243801) main: A3 (GPIO4): LOW[0m
+[0;32mI (244301) main: D2 (GPIO5): LOW[0m
+[0;32mI (244301) main: A2 (GPIO3): LOW[0m
+[0;32mI (244301) main: A3 (GPIO4): LOW[0m
+[0;32mI (244331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (244331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (244801) main: D2 (GPIO5): LOW[0m
+[0;32mI (244801) main: A2 (GPIO3): LOW[0m
+[0;32mI (244801) main: A3 (GPIO4): LOW[0m
+[0;32mI (245301) main: D2 (GPIO5): LOW[0m
+[0;32mI (245301) main: A2 (GPIO3): LOW[0m
+[0;32mI (245301) main: A3 (GPIO4): LOW[0m
+[0;32mI (245331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (245331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (245801) main: D2 (GPIO5): LOW[0m
+[0;32mI (245801) main: A2 (GPIO3): LOW[0m
+[0;32mI (245801) main: A3 (GPIO4): LOW[0m
+[0;32mI (246301) main: D2 (GPIO5): LOW[0m
+[0;32mI (246301) main: A2 (GPIO3): LOW[0m
+[0;32mI (246301) main: A3 (GPIO4): LOW[0m
+[0;32mI (246331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (246331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (246801) main: D2 (GPIO5): LOW[0m
+[0;32mI (246801) main: A2 (GPIO3): LOW[0m
+[0;32mI (246801) main: A3 (GPIO4): LOW[0m
+[0;32mI (247301) main: D2 (GPIO5): LOW[0m
+[0;32mI (247301) main: A2 (GPIO3): LOW[0m
+[0;32mI (247301) main: A3 (GPIO4): LOW[0m
+[0;32mI (247331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (247331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (247801) main: D2 (GPIO5): LOW[0m
+[0;32mI (247801) main: A2 (GPIO3): LOW[0m
+[0;32mI (247801) main: A3 (GPIO4): LOW[0m
+[0;32mI (248301) main: D2 (GPIO5): LOW[0m
+[0;32mI (248301) main: A2 (GPIO3): LOW[0m
+[0;32mI (248301) main: A3 (GPIO4): LOW[0m
+[0;32mI (248331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (248331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (248801) main: D2 (GPIO5): LOW[0m
+[0;32mI (248801) main: A2 (GPIO3): LOW[0m
+[0;32mI (248801) main: A3 (GPIO4): LOW[0m
+[0;32mI (249301) main: D2 (GPIO5): LOW[0m
+[0;32mI (249301) main: A2 (GPIO3): LOW[0m
+[0;32mI (249301) main: A3 (GPIO4): LOW[0m
+[0;32mI (249331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (249331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (249801) main: D2 (GPIO5): LOW[0m
+[0;32mI (249801) main: A2 (GPIO3): LOW[0m
+[0;32mI (249801) main: A3 (GPIO4): LOW[0m
+[0;32mI (250301) main: D2 (GPIO5): LOW[0m
+[0;32mI (250301) main: A2 (GPIO3): LOW[0m
+[0;32mI (250301) main: A3 (GPIO4): LOW[0m
+[0;32mI (250331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (250331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (250801) main: D2 (GPIO5): LOW[0m
+[0;32mI (250801) main: A2 (GPIO3): LOW[0m
+[0;32mI (250801) main: A3 (GPIO4): LOW[0m
+[0;32mI (251301) main: D2 (GPIO5): LOW[0m
+[0;32mI (251301) main: A2 (GPIO3): LOW[0m
+[0;32mI (251301) main: A3 (GPIO4): LOW[0m
+[0;32mI (251331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (251331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (251801) main: D2 (GPIO5): LOW[0m
+[0;32mI (251801) main: A2 (GPIO3): LOW[0m
+[0;32mI (251801) main: A3 (GPIO4): LOW[0m
+[0;32mI (252301) main: D2 (GPIO5): LOW[0m
+[0;32mI (252301) main: A2 (GPIO3): LOW[0m
+[0;32mI (252301) main: A3 (GPIO4): LOW[0m
+[0;32mI (252331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (252331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (252801) main: D2 (GPIO5): LOW[0m
+[0;32mI (252801) main: A2 (GPIO3): LOW[0m
+[0;32mI (252801) main: A3 (GPIO4): LOW[0m
+[0;32mI (253301) main: D2 (GPIO5): LOW[0m
+[0;32mI (253301) main: A2 (GPIO3): LOW[0m
+[0;32mI (253301) main: A3 (GPIO4): LOW[0m
+[0;32mI (253331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (253331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (253801) main: D2 (GPIO5): LOW[0m
+[0;32mI (253801) main: A2 (GPIO3): LOW[0m
+[0;32mI (253801) main: A3 (GPIO4): LOW[0m
+[0;32mI (254301) main: D2 (GPIO5): LOW[0m
+[0;32mI (254301) main: A2 (GPIO3): LOW[0m
+[0;32mI (254301) main: A3 (GPIO4): LOW[0m
+[0;32mI (254331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (254331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (254801) main: D2 (GPIO5): LOW[0m
+[0;32mI (254801) main: A2 (GPIO3): LOW[0m
+[0;32mI (254801) main: A3 (GPIO4): LOW[0m
+[0;32mI (255301) main: D2 (GPIO5): LOW[0m
+[0;32mI (255301) main: A2 (GPIO3): LOW[0m
+[0;32mI (255301) main: A3 (GPIO4): LOW[0m
+[0;32mI (255331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (255331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (255801) main: D2 (GPIO5): LOW[0m
+[0;32mI (255801) main: A2 (GPIO3): LOW[0m
+[0;32mI (255801) main: A3 (GPIO4): LOW[0m
+[0;32mI (256301) main: D2 (GPIO5): LOW[0m
+[0;32mI (256301) main: A2 (GPIO3): LOW[0m
+[0;32mI (256301) main: A3 (GPIO4): LOW[0m
+[0;32mI (256331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (256331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (256801) main: D2 (GPIO5): LOW[0m
+[0;32mI (256801) main: A2 (GPIO3): LOW[0m
+[0;32mI (256801) main: A3 (GPIO4): LOW[0m
+[0;32mI (257301) main: D2 (GPIO5): LOW[0m
+[0;32mI (257301) main: A2 (GPIO3): LOW[0m
+[0;32mI (257301) main: A3 (GPIO4): LOW[0m
+[0;32mI (257331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (257331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (257801) main: D2 (GPIO5): LOW[0m
+[0;32mI (257801) main: A2 (GPIO3): LOW[0m
+[0;32mI (257801) main: A3 (GPIO4): LOW[0m
+[0;32mI (258301) main: D2 (GPIO5): LOW[0m
+[0;32mI (258301) main: A2 (GPIO3): LOW[0m
+[0;32mI (258301) main: A3 (GPIO4): LOW[0m
+[0;32mI (258331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (258331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (258801) main: D2 (GPIO5): LOW[0m
+[0;32mI (258801) main: A2 (GPIO3): LOW[0m
+[0;32mI (258801) main: A3 (GPIO4): LOW[0m
+[0;32mI (259301) main: D2 (GPIO5): LOW[0m
+[0;32mI (259301) main: A2 (GPIO3): LOW[0m
+[0;32mI (259301) main: A3 (GPIO4): LOW[0m
+[0;32mI (259331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (259331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (259801) main: D2 (GPIO5): LOW[0m
+[0;32mI (259801) main: A2 (GPIO3): LOW[0m
+[0;32mI (259801) main: A3 (GPIO4): LOW[0m
+[0;32mI (260301) main: D2 (GPIO5): LOW[0m
+[0;32mI (260301) main: A2 (GPIO3): LOW[0m
+[0;32mI (260301) main: A3 (GPIO4): LOW[0m
+[0;32mI (260331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (260331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (260801) main: D2 (GPIO5): LOW[0m
+[0;32mI (260801) main: A2 (GPIO3): LOW[0m
+[0;32mI (260801) main: A3 (GPIO4): LOW[0m
+[0;32mI (261301) main: D2 (GPIO5): LOW[0m
+[0;32mI (261301) main: A2 (GPIO3): LOW[0m
+[0;32mI (261301) main: A3 (GPIO4): LOW[0m
+[0;32mI (261331) main: tmp117_1 (0x48): 26.219 C[0m
+[0;32mI (261331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (261801) main: D2 (GPIO5): LOW[0m
+[0;32mI (261801) main: A2 (GPIO3): LOW[0m
+[0;32mI (261801) main: A3 (GPIO4): LOW[0m
+[0;32mI (262301) main: D2 (GPIO5): LOW[0m
+[0;32mI (262301) main: A2 (GPIO3): LOW[0m
+[0;32mI (262301) main: A3 (GPIO4): LOW[0m
+[0;32mI (262331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (262331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (262801) main: D2 (GPIO5): LOW[0m
+[0;32mI (262801) main: A2 (GPIO3): LOW[0m
+[0;32mI (262801) main: A3 (GPIO4): LOW[0m
+[0;32mI (263301) main: D2 (GPIO5): LOW[0m
+[0;32mI (263301) main: A2 (GPIO3): LOW[0m
+[0;32mI (263301) main: A3 (GPIO4): LOW[0m
+[0;32mI (263331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (263331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (263801) main: D2 (GPIO5): LOW[0m
+[0;32mI (263801) main: A2 (GPIO3): LOW[0m
+[0;32mI (263801) main: A3 (GPIO4): LOW[0m
+[0;32mI (264301) main: D2 (GPIO5): LOW[0m
+[0;32mI (264301) main: A2 (GPIO3): LOW[0m
+[0;32mI (264301) main: A3 (GPIO4): LOW[0m
+[0;32mI (264331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (264331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (264801) main: D2 (GPIO5): LOW[0m
+[0;32mI (264801) main: A2 (GPIO3): LOW[0m
+[0;32mI (264801) main: A3 (GPIO4): LOW[0m
+[0;32mI (265301) main: D2 (GPIO5): LOW[0m
+[0;32mI (265301) main: A2 (GPIO3): LOW[0m
+[0;32mI (265301) main: A3 (GPIO4): LOW[0m
+[0;32mI (265331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (265331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (265801) main: D2 (GPIO5): LOW[0m
+[0;32mI (265801) main: A2 (GPIO3): LOW[0m
+[0;32mI (265801) main: A3 (GPIO4): LOW[0m
+[0;32mI (266301) main: D2 (GPIO5): LOW[0m
+[0;32mI (266301) main: A2 (GPIO3): LOW[0m
+[0;32mI (266301) main: A3 (GPIO4): LOW[0m
+[0;32mI (266331) main: tmp117_1 (0x48): 26.203 C[0m
+[0;32mI (266331) main: tmp117_2 (0x49): 26.281 C[0m
+[0;32mI (266801) main: D2 (GPIO5): LOW[0m
+[0;32mI (266801) main: A2 (GPIO3): LOW[0m
+[0;32mI (266801) main: A3 (GPIO4): LOW[0m
+[0;32mI (267301) main: D2 (GPIO5): LOW[0m
+[0;32mI (267301) main: A2 (GPIO3): LOW[0m
+[0;32mI (267301) main: A3 (GPIO4): LOW[0m
+[0;32mI (267331) main: tmp117_1 (0x48): 26.211 C[0m
+[0;32mI (267331) main: tmp117_2 (0x49): 26.273 C[0m
+[0;32mI (267801) main: D2 (GPIO5): LOW[0m
+[0;32mI (267801) main: A2 (GPIO3): LOW[0m
+[0;32mI (267801) main: A3 (GPIO4): LOW[0m
