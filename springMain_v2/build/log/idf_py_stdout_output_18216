@@ -1,0 +1,282 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048e22
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Mar 24 2026 13:41:34[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0bcech ( 48364) map[0m
+[0;32mI (95) esp_image: segment 1: paddr=0001bd14 vaddr=3fc93a00 size=02b78h ( 11128) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001e894 vaddr=40374000 size=01784h (  6020) load[0m
+[0;32mI (102) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1b0ech (110828) map[0m
+[0;32mI (128) esp_image: segment 4: paddr=0003b114 vaddr=40375784 size=0e214h ( 57876) load[0m
+[0;32mI (141) esp_image: segment 5: paddr=00049330 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (148) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (148) boot: Disabling RNG early entropy source...[0m
+[0;32mI (159) cpu_start: Multicore app[0m
+[0;32mI (169) cpu_start: Pro cpu start user code[0m
+[0;32mI (169) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (169) app_init: Application information:[0m
+[0;32mI (169) app_init: Project name:     springMain_v2[0m
+[0;32mI (173) app_init: App version:      46b8c08-dirty[0m
+[0;32mI (178) app_init: Compile time:     Mar 24 2026 13:40:57[0m
+[0;32mI (183) app_init: ELF file SHA256:  3d590af5c...[0m
+[0;32mI (187) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (191) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (195) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (199) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (203) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (209) heap_init: At 3FC96E80 len 00052890 (330 KiB): RAM[0m
+[0;32mI (214) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (219) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (224) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (231) spi_flash: detected chip: gd[0m
+[0;32mI (233) spi_flash: flash io: dio[0m
+[0;33mW (236) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (248) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (258) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (264) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (271) main_task: Started on CPU0[0m
+[0;32mI (281) main_task: Calling app_main()[0m
+[0;32mI (281) i2c_bus: I2C master ready on port 0 (SDA=12, SCL=11, 100000 Hz)[0m
+[0;32mI (281) main: Button GPIO configured (active-low with pull-ups) on D2 (GPIO5), A2 (GPIO3), A3 (GPIO4)[0m
+[0;32mI (291) main: LED outputs initialized on D3..D9[0m
+[0;32mI (301) main: I2C bus initialized. Scanning bus for connected devices...[0m
+[0;32mI (311) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (321) i2c_bus: I2C device found at 0x49[0m
+[0;32mI (321) main: Temperature monitor task started for two TMP117 sensors.[0m
+[0;32mI (331) main_task: Returned from app_main()[0m
+[0;32mI (331) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (331) main: tmp117_1 initialized at 0x48[0m
+[0;32mI (331) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (341) tmp117: TMP117 detected at 0x49 (device id 0x0117)[0m
+[0;32mI (341) main: tmp117_2 initialized at 0x49[0m
+[0;32mI (351) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (1321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (1321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (2321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (2321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (3321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (3321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (4321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (4321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (5081) main: Button D2 pressed -> LED GPIO10 ON[0m
+[0;32mI (5321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (5321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (6061) main: Button D2 pressed -> LED GPIO10 OFF[0m
+[0;32mI (6321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (6321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (6581) main: Button A3 pressed -> LED GPIO18 ON[0m
+[0;32mI (7061) main: Button A3 pressed -> LED GPIO18 OFF[0m
+[0;32mI (7321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (7321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (7521) main: Button A2 pressed -> LED GPIO17 ON[0m
+[0;32mI (7961) main: Button A2 pressed -> LED GPIO17 OFF[0m
+[0;32mI (8321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (8321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (9321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (9321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (10321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (10321) main: tmp117_2 (0x49): 26.312 C[0m
+[0;32mI (11321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (11321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (12321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (12321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (13321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (13321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (14321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (14321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (15321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (15321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (16321) main: tmp117_1 (0x48): 26.234 C[0m
+[0;32mI (16321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (17321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (17321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (18321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (18321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (19321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (19321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (20321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (20321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (21321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (21321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (22321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (22321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (23321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (23321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (24321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (24321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (25321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (25321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (26321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (26321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (27321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (27321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (28321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (28321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (29321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (29321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (30321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (30321) main: tmp117_2 (0x49): 26.320 C[0m
+[0;32mI (31321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (31321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (32321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (32321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (33321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (33321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (34321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (34321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (35321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (35321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (36321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (36321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (37321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (37321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (38321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (38321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (39321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (39321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (40321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (40321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (41321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (41321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (42321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (42321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (43321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (43321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (44321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (44321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (45321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (45321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (46321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (46321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (47321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (47321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (48321) main: tmp117_1 (0x48): 26.242 C[0m
+[0;32mI (48321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (49321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (49321) main: tmp117_2 (0x49): 26.328 C[0m
+[0;32mI (50321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (50321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (51321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (51321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (52321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (52321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (53321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (53321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (54321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (54321) main: tmp117_2 (0x49): 26.336 C[0m
+[0;32mI (55321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (55321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (56321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (56321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (57321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (57321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (58321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (58321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (59321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (59321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (60321) main: tmp117_1 (0x48): 26.250 C[0m
+[0;32mI (60321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (61321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (61321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (62321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (62321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (63321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (63321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (64321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (64321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (65321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (65321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (66321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (66321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (67321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (67321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (68321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (68321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (69321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (69321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (70321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (70321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (71321) main: tmp117_1 (0x48): 26.258 C[0m
+[0;32mI (71321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (72321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (72321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (73321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (73321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (74321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (74321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (75321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (75321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (76321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (76321) main: tmp117_2 (0x49): 26.344 C[0m
+[0;32mI (77321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (77321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (78321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (78321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (79101) main: Button D2 pressed -> LED GPIO10 ON[0m
+[0;32mI (79321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (79321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (79661) main: Button D2 pressed -> LED GPIO10 OFF[0m
+[0;32mI (80101) main: Button A3 pressed -> LED GPIO18 ON[0m
+[0;32mI (80321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (80321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (80681) main: Button A3 pressed -> LED GPIO18 OFF[0m
+[0;32mI (81181) main: Button A2 pressed -> LED GPIO17 ON[0m
+[0;32mI (81321) main: tmp117_1 (0x48): 26.266 C[0m
+[0;32mI (81321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (81661) main: Button A2 pressed -> LED GPIO17 OFF[0m
+[0;32mI (82321) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (82321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (83321) main: tmp117_1 (0x48): 26.273 C[0m
+[0;32mI (83321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (84321) main: tmp117_1 (0x48): 27.188 C[0m
+[0;32mI (84321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (85321) main: tmp117_1 (0x48): 27.609 C[0m
+[0;32mI (85321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (86321) main: tmp117_1 (0x48): 27.773 C[0m
+[0;32mI (86321) main: tmp117_2 (0x49): 26.352 C[0m
+[0;32mI (87321) main: tmp117_1 (0x48): 27.227 C[0m
+[0;32mI (87321) main: tmp117_2 (0x49): 26.531 C[0m
+[0;32mI (88321) main: tmp117_1 (0x48): 27.031 C[0m
+[0;32mI (88321) main: tmp117_2 (0x49): 27.258 C[0m
+[0;32mI (89321) main: tmp117_1 (0x48): 26.930 C[0m
+[0;32mI (89321) main: tmp117_2 (0x49): 26.773 C[0m
+[0;32mI (90321) main: tmp117_1 (0x48): 26.867 C[0m
+[0;32mI (90321) main: tmp117_2 (0x49): 26.641 C[0m
+[0;32mI (91321) main: tmp117_1 (0x48): 26.828 C[0m
+[0;32mI (91321) main: tmp117_2 (0x49): 26.586 C[0m
+[0;32mI (92321) main: tmp117_1 (0x48): 26.797 C[0m
+[0;32mI (92321) main: tmp117_2 (0x49): 26.562 C[0m
+[0;32mI (93321) main: tmp117_1 (0x48): 26.766 C[0m
+[0;32mI (93321) main: tmp117_2 (0x49): 26.547 C[0m
+[0;32mI (94321) main: tmp117_1 (0x48): 26.734 C[0m
+[0;32mI (94321) main: tmp117_2 (0x49): 26.531 C[0m
+[0;32mI (95321) main: tmp117_1 (0x48): 26.719 C[0m
+[0;32mI (95321) main: tmp117_2 (0x49): 26.523 C[0m
+[0;32mI (96321) main: tmp117_1 (0x48): 26.703 C[0m
+[0;32mI (96321) main: tmp117_2 (0x49): 26.516 C[0m
+[0;32mI (97321) main: tmp117_1 (0x48): 26.688 C[0m
+[0;32mI (97321) main: tmp117_2 (0x49): 26.508 C[0m
+[0;32mI (98321) main: tmp117_1 (0x48): 26.672 C[0m
+[0;32mI (98321) main: tmp117_2 (0x49): 26.508 C[0m
+[0;32mI (99321) main
