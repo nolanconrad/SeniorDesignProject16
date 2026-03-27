@@ -162,5 +162,9 @@ $<TARGET_FILE:__idf_json>
 $<TARGET_FILE:idf::i2c>
 $<TARGET_FILE:idf::tmp117>
 $<TARGET_FILE:__idf_i2c>
+$<TARGET_FILE:idf::ina226>
+$<TARGET_FILE:idf::pumpOperation>
 $<TARGET_FILE:idf::main>
 $<TARGET_FILE:__idf_tmp117>
+$<TARGET_FILE:__idf_ina226>
+$<TARGET_FILE:__idf_pumpOperation>

@@ -1,0 +1,122 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM14 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40377dba
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Mar 24 2026 13:41:34[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0bf04h ( 48900) map[0m
+[0;32mI (95) esp_image: segment 1: paddr=0001bf2c vaddr=3fc93a00 size=02b88h ( 11144) load[0m
+[0;32mI (98) esp_image: segment 2: paddr=0001eabc vaddr=40374000 size=0155ch (  5468) load[0m
+[0;32mI (102) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1b570h (111984) map[0m
+[0;32mI (128) esp_image: segment 4: paddr=0003b598 vaddr=4037555c size=0e43ch ( 58428) load[0m
+[0;32mI (141) esp_image: segment 5: paddr=000499dc vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (148) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (148) boot: Disabling RNG early entropy source...[0m
+[0;32mI (159) cpu_start: Multicore app[0m
+[0;32mI (168) cpu_start: Pro cpu start user code[0m
+[0;32mI (168) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (168) app_init: Application information:[0m
+[0;32mI (169) app_init: Project name:     springMain_v2[0m
+[0;32mI (173) app_init: App version:      bcc241f-dirty[0m
+[0;32mI (177) app_init: Compile time:     Mar 26 2026 08:30:54[0m
+[0;32mI (182) app_init: ELF file SHA256:  f5bd5ed03...[0m
+[0;32mI (187) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (190) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (194) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (198) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (202) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (208) heap_init: At 3FC96E90 len 00052880 (330 KiB): RAM[0m
+[0;32mI (213) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (219) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (224) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (230) spi_flash: detected chip: gd[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (248) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (264) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (271) main_task: Started on CPU0[0m
+[0;32mI (281) main_task: Calling app_main()[0m
+[0;32mI (281) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 100000 Hz)[0m
+[0;32mI (281) main: Button GPIO configured (active-low with pull-ups) on D2 (GPIO5), A2 (GPIO3), A3 (GPIO4)[0m
+[0;32mI (291) main: LED outputs initialized on D3..D9[0m
+[0;32mI (301) main: I2C bus initialized. Scanning bus for connected devices...[0m
+[0;32mI (311) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (311) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (321) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (321) main: Temperature/current monitor task started for one TMP117 and two INA226 sensors.[0m
+[0;32mI (331) main_task: Returned from app_main()[0m
+[0;32mI (331) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (331) main: tmp117_1 initialized at 0x48[0m
+[0;32mI (341) main: tmp117_1 (0x48): 24.945 C[0m
+[0;32mI (341) ina226: INA226 detected at 0x40[0m
+[0;32mI (341) main: ina226_1 initialized at 0x40[0m
+[0;32mI (351) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (361) ina226: INA226 detected at 0x41[0m
+[0;32mI (361) main: ina226_2 initialized at 0x41[0m
+[0;32mI (361) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (1321) main: tmp117_1 (0x48): 24.953 C[0m
+[0;32mI (1321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (1321) main: ina226_2 (0x41): I=-0.0000 A, Vbus=0.000 V, Vshunt=-0.00000 V, P=-0.000 W[0m
+[0;32mI (2321) main: tmp117_1 (0x48): 24.953 C[0m
+[0;32mI (2321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (2321) main: ina226_2 (0x41): I=0.0002 A, Vbus=0.000 V, Vshunt=0.00002 V, P=0.000 W[0m
+[0;32mI (3321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (3321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (3321) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (4321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (4321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (4321) main: ina226_2 (0x41): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (5321) main: tmp117_1 (0x48): 24.953 C[0m
+[0;32mI (5321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (5321) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (6321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (6321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (6321) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (7321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (7321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (7321) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (8321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (8321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (8321) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (9321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (9321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (9321) main: ina226_2 (0x41): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (10321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (10321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (10321) main: ina226_2 (0x41): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (11321) main: tmp117_1 (0x48): 24.969 C[0m
+[0;32mI (11321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (11321) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (12321) main: tmp117_1 (0x48): 24.961 C[0m
+[0;32mI (12321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (12321) main: ina226_2 (0x41): I=0.0002 A, Vbus=0.000 V, Vshunt=0.00002 V, P=0.000 W[0m
+[0;32mI (13321) main: tmp117_1 (0x48): 24.969 C[0m
+[0;32mI (13321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (13321) main: ina226_2 (0x41): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (14321) main: tmp117_1 (0x48): 24.969 C[0m
+[0;32mI (14321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (14321) main: ina226_2 (0x41): I=0.0001 A, Vbus=0.000 V, Vshunt=0.00001 V, P=0.000 W[0m
+[0;32mI (15321) main: tmp117_1 (0x48): 24.969 C[0m
+[0;32mI (15321) main: ina226_1 (0x40): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m
+[0;32mI (15321) main: ina226_2 (0x41): I=0.0000 A, Vbus=0.000 V, Vshunt=0.00000 V, P=0.000 W[0m

@@ -1,0 +1,413 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM14 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048ee5
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF -128-NOTFOUND 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Mar 19 2026 13:40:03[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0ccd0h ( 52432) map[0m
+[0;32mI (96) esp_image: segment 1: paddr=0001ccf8 vaddr=3fc92e00 size=02b70h ( 11120) load[0m
+[0;32mI (99) esp_image: segment 2: paddr=0001f870 vaddr=40374000 size=007a8h (  1960) load[0m
+[0;32mI (102) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1e134h (123188) map[0m
+[0;32mI (131) esp_image: segment 4: paddr=0003e15c vaddr=403747a8 size=0e604h ( 58884) load[0m
+[0;32mI (144) esp_image: segment 5: paddr=0004c768 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (150) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (151) boot: Disabling RNG early entropy source...[0m
+[0;32mI (162) cpu_start: Multicore app[0m
+[0;32mI (171) cpu_start: Pro cpu start user code[0m
+[0;32mI (171) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (171) app_init: Project name:     springMain_V1[0m
+[0;32mI (175) app_init: App version:      0ccb316[0m
+[0;32mI (179) app_init: Compile time:     Mar 19 2026 13:38:10[0m
+[0;32mI (184) app_init: ELF file SHA256:  577b4b8fa...[0m
+[0;32mI (189) app_init: ESP-IDF:          -128-NOTFOUND[0m
+[0;32mI (193) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (197) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (201) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (205) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (211) heap_init: At 3FC962F8 len 00053418 (333 KiB): RAM[0m
+[0;32mI (216) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (221) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (233) spi_flash: detected chip: gd[0m
+[0;32mI (235) spi_flash: flash io: dio[0m
+[0;33mW (238) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (250) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (257) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (264) main_task: Started on CPU0[0m
+[0;32mI (274) main_task: Calling app_main()[0m
+[0;32mI (274) main: Motor PWM initialized on GPIO1 (20000 Hz)[0m
+[0;33mW (274) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (294) main: Battery INA226 initialized (CAL=0x0347)[0m
+[0;32mI (294) main: Motor INA226 initialized (CAL=0x022F)[0m
+[0;32mI (304) main: FreeRTOS tasks started, I2C mutex protection enabled[0m
+[0;32mI (304) main: Battery INA226: V=11.792V I=4.831A P=56.976W Level=77.6%[0m
+[0;32mI (304) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (514) main: Battery INA226: V=11.792V I=4.832A P=56.976W Level=77.6%[0m
+[0;32mI (514) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (914) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (1114) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (1114) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (1314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (1314) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (1514) main: Battery INA226: V=11.794V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (1514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (1714) main: Battery INA226: V=11.791V I=4.831A P=56.976W Level=77.5%[0m
+[0;32mI (1714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (1914) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (1914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (2114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (2114) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (2314) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (2314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (2514) main: Battery INA226: V=11.792V I=4.831A P=56.946W Level=77.6%[0m
+[0;32mI (2514) main: Motor INA226: V=11.705V I=-8.188A P=95.810W[0m
+[0;32mI (2714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (2714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (2914) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (2914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (3114) main: Battery INA226: V=11.791V I=4.828A P=56.931W Level=77.5%[0m
+[0;32mI (3114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (3314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (3314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (3514) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (3514) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (3714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (3714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (3914) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (3914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (4114) main: Battery INA226: V=11.794V I=4.831A P=56.976W Level=77.6%[0m
+[0;32mI (4114) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (4314) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (4314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (4514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (4514) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (4714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (4714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (4914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (4914) main: Motor INA226: V=11.702V I=-8.188A P=95.856W[0m
+[0;32mI (5114) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (5114) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (5314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (5314) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (5514) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (5514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (5714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (5714) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (5914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (5914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (6114) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (6114) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (6314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (6314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (6514) main: Battery INA226: V=11.792V I=4.831A P=56.976W Level=77.6%[0m
+[0;32mI (6514) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (6714) main: Battery INA226: V=11.789V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (6714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (6914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (6914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (7114) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (7114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (7314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (7314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (7514) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (7514) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (7714) main: Battery INA226: V=11.792V I=4.831A P=56.946W Level=77.6%[0m
+[0;32mI (7714) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (7914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (7914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (8114) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (8114) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (8314) main: Battery INA226: V=11.791V I=4.828A P=56.931W Level=77.5%[0m
+[0;32mI (8314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (8514) main: Battery INA226: V=11.794V I=4.828A P=56.946W Level=77.6%[0m
+[0;32mI (8514) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (8714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (8714) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (8914) main: Battery INA226: V=11.794V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (8914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (9114) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (9114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (9314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (9314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (9514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (9514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (9714) main: Battery INA226: V=11.792V I=4.831A P=56.976W Level=77.6%[0m
+[0;32mI (9714) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (9914) main: Battery INA226: V=11.790V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (9914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (10114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (10114) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (10314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (10314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (10514) main: Battery INA226: V=11.794V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (10514) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (10714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (10714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (10914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (10914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (11114) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (11114) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (11314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (11314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (11514) main: Battery INA226: V=11.789V I=4.828A P=56.931W Level=77.5%[0m
+[0;32mI (11514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (11714) main: Battery INA226: V=11.790V I=4.825A P=56.900W Level=77.5%[0m
+[0;32mI (11714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (11914) main: Battery INA226: V=11.791V I=4.827A P=56.931W Level=77.5%[0m
+[0;32mI (11914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (12114) main: Battery INA226: V=11.791V I=4.828A P=56.931W Level=77.5%[0m
+[0;32mI (12114) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (12314) main: Battery INA226: V=11.790V I=4.828A P=56.931W Level=77.5%[0m
+[0;32mI (12314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (12514) main: Battery INA226: V=11.792V I=4.829A P=56.946W Level=77.6%[0m
+[0;32mI (12514) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (12714) main: Battery INA226: V=11.791V I=4.830A P=56.931W Level=77.5%[0m
+[0;32mI (12714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (12914) main: Battery INA226: V=11.794V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (12914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (13114) main: Battery INA226: V=11.790V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (13114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (13314) main: Battery INA226: V=11.791V I=4.828A P=56.931W Level=77.5%[0m
+[0;32mI (13314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (13514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (13514) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (13714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (13714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (13914) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (13914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (14114) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (14114) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (14314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (14314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (14514) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (14514) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (14714) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (14714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (14914) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (14914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (15114) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (15114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (15314) main: Battery INA226: V=11.794V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (15314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (15514) main: Battery INA226: V=11.790V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (15514) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (15714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (15714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (15914) main: Battery INA226: V=11.789V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (15914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (16114) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (16114) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (16314) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (16314) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (16514) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (16514) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (16714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (16714) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (16914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (16914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (17114) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (17114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (17314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (17314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (17514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (17514) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (17714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (17714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (17914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (17914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (18114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (18114) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (18314) main: Battery INA226: V=11.794V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (18314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (18514) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (18514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (18714) main: Battery INA226: V=11.792V I=4.829A P=56.946W Level=77.6%[0m
+[0;32mI (18714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (18914) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (18914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (19114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (19114) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (19314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (19314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (19514) main: Battery INA226: V=11.790V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (19514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (19714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (19714) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (19914) main: Battery INA226: V=11.792V I=4.829A P=56.946W Level=77.6%[0m
+[0;32mI (19914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (20114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (20114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (20314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (20314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (20514) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (20514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (20714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (20714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (20914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (20914) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (21114) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (21114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (21314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (21314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (21514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (21514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (21714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (21714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (21914) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (21914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (22114) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (22114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (22314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (22314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (22514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (22514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (22714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (22714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (22914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (22914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (23114) main: Battery INA226: V=11.794V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (23114) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (23314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (23314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (23514) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (23514) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (23714) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (23714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (23914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (23914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (24114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (24114) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (24314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (24314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (24514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (24514) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (24714) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (24714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (24914) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (24914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (25114) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (25114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (25314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (25314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (25514) main: Battery INA226: V=11.794V I=4.829A P=56.946W Level=77.6%[0m
+[0;32mI (25514) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (25714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (25714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (25914) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (25914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (26114) main: Battery INA226: V=11.790V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (26114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (26314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (26314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (26514) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (26514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (26714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (26714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (26914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (26914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (27114) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (27114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (27314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (27314) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (27514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (27514) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (27714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (27714) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (27914) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (27914) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (28114) main: Battery INA226: V=11.790V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (28114) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (28314) main: Battery INA226: V=11.791V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (28314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (28514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (28514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (28714) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (28714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (28914) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (28914) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (29114) main: Battery INA226: V=11.790V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (29114) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (29314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (29314) main: Motor INA226: V=11.705V I=-8.188A P=95.856W[0m
+[0;32mI (29514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (29514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (29714) main: Battery INA226: V=11.790V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (29714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (29914) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (29914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (30114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (30114) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (30314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (30314) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (30514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (30514) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (30714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (30714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (30914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (30914) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (31114) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (31114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (31314) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (31314) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (31514) main: Battery INA226: V=11.791V I=4.829A P=56.946W Level=77.5%[0m
+[0;32mI (31514) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (31714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (31714) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (31914) main: Battery INA226: V=11.794V I=4.830A P=56.976W Level=77.6%[0m
+[0;32mI (31914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (32114) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (32114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (32314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (32314) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (32514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (32514) main: Motor INA226: V=11.704V I=-8.188A P=95.810W[0m
+[0;32mI (32714) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (32714) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (32914) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (32914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (33114) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (33114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (33314) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (33314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (33514) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (33514) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (33714) main: Battery INA226: V=11.790V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (33714) main: Motor INA226: V=11.700V I=-8.188A P=95.810W[0m
+[0;32mI (33914) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (33914) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (34114) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (34114) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (34314) main: Battery INA226: V=11.791V I=4.830A P=56.946W Level=77.5%[0m
+[0;32mI (34314) main: Motor INA226: V=11.704V I=-8.188A P=95.856W[0m
+[0;32mI (34514) main: Battery INA226: V=11.791V I=4.829A P=56.931W Level=77.5%[0m
+[0;32mI (34514) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (34714) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (34714) main: Motor INA226: V=11.701V I=-8.188A P=95.810W[0m
+[0;32mI (34914) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (34914) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m
+[0;32mI (35114) main: Battery INA226: V=11.792V I=4.830A P=56.946W Level=77.6%[0m
+[0;32mI (35114) main: Motor INA226: V=11.702V I=-8.188A P=95.810W[0m

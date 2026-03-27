@@ -6,6 +6,8 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 #include "i2c_bus.h"
+#include "ina226.h"
+#include "pumpOperation.h"
 #include "tmp117.h"
 
 static const char *TAG = "main";
@@ -26,9 +28,14 @@ static const char *TAG = "main";
 
 #define LED_D6_BLINK_PERIOD_MS 500
 #define LED_SEQUENCE_STEP_MS 400
+#define PUMP_CYCLE_ON_MS 2000
+#define PUMP_CYCLE_OFF_MS 2000
+#define PUMP_CYCLE_ON_DUTY_PERCENT 50
 
 #define TMP117_SENSOR_1_ADDR 0x48
-#define TMP117_SENSOR_2_ADDR 0x49
+#define INA226_SENSOR_1_ADDR 0x40
+#define INA226_SENSOR_2_ADDR 0x41
+#define INA226_SHUNT_RESISTANCE_OHM 0.1f
 #define TMP117_READ_PERIOD_MS 1000
 
 typedef struct {
@@ -36,6 +43,13 @@ typedef struct {
 	uint8_t i2c_address;
 	bool initialized;
 } tmp117_sensor_t;
+
+typedef struct {
+	const char *name;
+	uint8_t i2c_address;
+	float shunt_resistance_ohm;
+	bool initialized;
+} ina226_sensor_t;
 
 // Button state tracking - simple version
 typedef struct {
@@ -195,20 +209,47 @@ static void temp_monitor_task(void *arg)
 {
 	(void)arg;
 
-	static tmp117_sensor_t sensors[] = {
-		{.name = "tmp117_1", .i2c_address = TMP117_SENSOR_1_ADDR, .initialized = false},
-		{.name = "tmp117_2", .i2c_address = TMP117_SENSOR_2_ADDR, .initialized = false},
+	static tmp117_sensor_t tmp_sensor = {
+		.name = "tmp117_1",
+		.i2c_address = TMP117_SENSOR_1_ADDR,
+		.initialized = false,
 	};
 
-	const size_t sensor_count = sizeof(sensors) / sizeof(sensors[0]);
+	static ina226_sensor_t current_sensors[] = {
+		{.name = "ina226_1", .i2c_address = INA226_SENSOR_1_ADDR, .shunt_resistance_ohm = INA226_SHUNT_RESISTANCE_OHM, .initialized = false},
+		{.name = "ina226_2", .i2c_address = INA226_SENSOR_2_ADDR, .shunt_resistance_ohm = INA226_SHUNT_RESISTANCE_OHM, .initialized = false},
+	};
+
+	const size_t current_sensor_count = sizeof(current_sensors) / sizeof(current_sensors[0]);
 	TickType_t last_wake = xTaskGetTickCount();
 
 	while (1) {
-		for (size_t i = 0; i < sensor_count; ++i) {
-			tmp117_sensor_t *sensor = &sensors[i];
+		if (!tmp_sensor.initialized) {
+			esp_err_t init_err = tmp117_init(tmp_sensor.i2c_address);
+			if (init_err == ESP_OK) {
+				tmp_sensor.initialized = true;
+				ESP_LOGI(TAG, "%s initialized at 0x%02X", tmp_sensor.name, tmp_sensor.i2c_address);
+			} else {
+				ESP_LOGW(TAG, "%s init failed at 0x%02X: %s", tmp_sensor.name, tmp_sensor.i2c_address, esp_err_to_name(init_err));
+			}
+		}
+
+		if (tmp_sensor.initialized) {
+			float temperature_c = 0.0f;
+			esp_err_t read_err = tmp117_read_temperature_c(tmp_sensor.i2c_address, &temperature_c);
+			if (read_err == ESP_OK) {
+				ESP_LOGI(TAG, "%s (0x%02X): %.3f C", tmp_sensor.name, tmp_sensor.i2c_address, temperature_c);
+			} else {
+				ESP_LOGW(TAG, "%s read failed at 0x%02X: %s", tmp_sensor.name, tmp_sensor.i2c_address, esp_err_to_name(read_err));
+				tmp_sensor.initialized = false;
+			}
+		}
+
+		for (size_t i = 0; i < current_sensor_count; ++i) {
+			ina226_sensor_t *sensor = &current_sensors[i];
 
 			if (!sensor->initialized) {
-				esp_err_t init_err = tmp117_init(sensor->i2c_address);
+				esp_err_t init_err = ina226_init(sensor->i2c_address);
 				if (init_err == ESP_OK) {
 					sensor->initialized = true;
 					ESP_LOGI(TAG, "%s initialized at 0x%02X", sensor->name, sensor->i2c_address);
@@ -218,10 +259,21 @@ static void temp_monitor_task(void *arg)
 				}
 			}
 
-			float temperature_c = 0.0f;
-			esp_err_t read_err = tmp117_read_temperature_c(sensor->i2c_address, &temperature_c);
+			ina226_measurement_t measurement = {0};
+			esp_err_t read_err = ina226_read_measurement(
+				sensor->i2c_address,
+				sensor->shunt_resistance_ohm,
+				&measurement);
 			if (read_err == ESP_OK) {
-				ESP_LOGI(TAG, "%s (0x%02X): %.3f C", sensor->name, sensor->i2c_address, temperature_c);
+				ESP_LOGI(
+					TAG,
+					"%s (0x%02X): I=%.4f A, Vbus=%.3f V, Vshunt=%.5f V, P=%.3f W",
+					sensor->name,
+					sensor->i2c_address,
+					measurement.current_a,
+					measurement.bus_voltage_v,
+					measurement.shunt_voltage_v,
+					measurement.power_w);
 			} else {
 				ESP_LOGW(TAG, "%s read failed at 0x%02X: %s", sensor->name, sensor->i2c_address, esp_err_to_name(read_err));
 				sensor->initialized = false;
@@ -229,6 +281,25 @@ static void temp_monitor_task(void *arg)
 		}
 
 		vTaskDelayUntil(&last_wake, pdMS_TO_TICKS(TMP117_READ_PERIOD_MS));
+	}
+}
+
+static void pump_cycle_task(void *arg)
+{
+	(void)arg;
+
+	while (1) {
+		esp_err_t on_err = pump_operation_set_duty_percent(PUMP_CYCLE_ON_DUTY_PERCENT);
+		if (on_err != ESP_OK) {
+			ESP_LOGW(TAG, "Failed to set pump duty to %d%%: %s", PUMP_CYCLE_ON_DUTY_PERCENT, esp_err_to_name(on_err));
+		}
+		vTaskDelay(pdMS_TO_TICKS(PUMP_CYCLE_ON_MS));
+
+		esp_err_t off_err = pump_operation_stop();
+		if (off_err != ESP_OK) {
+			ESP_LOGW(TAG, "Failed to stop pump: %s", esp_err_to_name(off_err));
+		}
+		vTaskDelay(pdMS_TO_TICKS(PUMP_CYCLE_OFF_MS));
 	}
 }
 
@@ -250,6 +321,18 @@ void app_main(void)
 	err = leds_init();
 	if (err != ESP_OK) {
 		ESP_LOGE(TAG, "LED initialization failed: %s", esp_err_to_name(err));
+		return;
+	}
+
+	err = pump_operation_init();
+	if (err != ESP_OK) {
+		ESP_LOGE(TAG, "Pump driver initialization failed: %s", esp_err_to_name(err));
+		return;
+	}
+
+	err = pump_operation_stop();
+	if (err != ESP_OK) {
+		ESP_LOGE(TAG, "Failed to set pump output to 0%%: %s", esp_err_to_name(err));
 		return;
 	}
 
@@ -281,5 +364,15 @@ void app_main(void)
 		return;
 	}
 
-	ESP_LOGI(TAG, "Temperature monitor task started for two TMP117 sensors.");
+	BaseType_t pump_task_ok = xTaskCreate(pump_cycle_task, "pump_cycle_task", 2048, NULL, 4, NULL);
+	if (pump_task_ok != pdPASS) {
+		ESP_LOGE(TAG, "Failed to create pump cycle task");
+		return;
+	}
+
+	ESP_LOGI(TAG, "Temperature/current monitor task started for one TMP117 and two INA226 sensors.");
+	ESP_LOGI(TAG, "Pump cycle task started: %d%% for %d ms, then OFF for %d ms.",
+		PUMP_CYCLE_ON_DUTY_PERCENT,
+		PUMP_CYCLE_ON_MS,
+		PUMP_CYCLE_OFF_MS);
 }

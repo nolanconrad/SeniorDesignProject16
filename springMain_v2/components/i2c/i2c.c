@@ -7,9 +7,9 @@
 #include "esp_log.h"
 
 #define I2C_MASTER_NUM I2C_NUM_0
-// Arduino Nano ESP32 (ESP32-S3) wiring used here: A4=SCL, A5=SDA.
-#define I2C_MASTER_SDA_IO GPIO_NUM_12 // A5
-#define I2C_MASTER_SCL_IO GPIO_NUM_11 // A4
+// Arduino Nano ESP32 (ESP32-S3) wiring used here: A5=SCL, A4=SDA.
+#define I2C_MASTER_SDA_IO GPIO_NUM_11 // A4
+#define I2C_MASTER_SCL_IO GPIO_NUM_12 // A5
 #define I2C_MASTER_FREQ_HZ 100000
 
 static const char *TAG = "i2c_bus";

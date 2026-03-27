@@ -4,6 +4,7 @@
     "idf.portWin": "COM3",
     "idf.port": "COM3",
     "idf.projectPath": "${workspaceFolder}",
+    "python.terminal.activateEnvironment": false,
     "terminal.integrated.profiles.windows": {
         "ESP-IDF PowerShell": {
             "source": "PowerShell",
