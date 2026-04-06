@@ -1,0 +1,73 @@
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "C:/Users/primo/SeniorDesignProject16/Project16/include",
+                "C:/Users/primo/SeniorDesignProject16/Project16/src",
+                "C:/Users/primo/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "C:/Users/primo/.platformio/packages/framework-arduino-avr/variants/standard",
+                "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "C:/esp/esp-idf/components/**",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "C:/Users/primo/SeniorDesignProject16/Project16/include",
+                    "C:/Users/primo/SeniorDesignProject16/Project16/src",
+                    "C:/Users/primo/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "C:/Users/primo/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "C:/Users/primo/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "C:/esp/esp-idf/components/**",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60119",
+                "ARDUINO_AVR_UNO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "compilerPath": "C:/Users/primo/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        },
+        {
+            "name": "ESP-IDF",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/esp/esp-idf/components/**",
+                "${workspaceFolder}/irr-dev/main",
+                "${workspaceFolder}/irr-dev/components/**"
+            ],
+            "defines": [
+                "ESP_PLATFORM",
+                "IDF_VER=\"v5.1\"",
+                "CONFIG_IDF_TARGET_ESP32S3"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": [
+                "${workspaceFolder}/irr-dev/build/compile_commands.json"
+            ]
+        }
+    ],
+    "version": 4
+}
