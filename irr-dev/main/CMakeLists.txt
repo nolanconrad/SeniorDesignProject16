@@ -5,4 +5,5 @@ idf_component_register(SRCS "main.c"
                                      INA226
                                      system_monitor
                                      startup_diagnostic
-                                     error_handler)
+                                     error_handler
+                                     ble)
