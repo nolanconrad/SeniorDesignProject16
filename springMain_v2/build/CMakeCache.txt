@@ -353,7 +353,7 @@ Mbed TLS_IS_TOP_LEVEL:STATIC=OFF
 Mbed TLS_SOURCE_DIR:STATIC=C:/esp/v5.5.1/esp-idf/components/mbedtls/mbedtls
 
 //No help, variable specified on the command line.
-PYTHON:UNINITIALIZED=C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe
+PYTHON:UNINITIALIZED=C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe
 
 //No help, variable specified on the command line.
 PYTHON_DEPS_CHECKED:UNINITIALIZED=1
@@ -596,7 +596,7 @@ C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS:INTERNAL=1
 //Details about finding Git
 FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[C:/Program Files/Git/cmd/git.exe][v2.47.1.windows.2()]
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/nolan/.espressif/python_env/idf5.5_py3.12_env/Scripts/python.exe][cfound components: Interpreter ][v3.12.10()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/nolan/.espressif/python_env/idf5.5_py3.14_env/Scripts/python.exe][cfound components: Interpreter ][v3.14.3()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GIT_EXECUTABLE
@@ -607,10 +607,10 @@ _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/spring
 _Python3_Compiler_REASON_FAILURE:INTERNAL=
 //Development reason failure
 _Python3_Development_REASON_FAILURE:INTERNAL=
-_Python3_EXECUTABLE:INTERNAL=C:/Users/nolan/.espressif/python_env/idf5.5_py3.12_env/Scripts/python.exe
+_Python3_EXECUTABLE:INTERNAL=C:/Users/nolan/.espressif/python_env/idf5.5_py3.14_env/Scripts/python.exe
 //Python3 Properties
-_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;10;32;64;;;abi3;C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib;C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Lib;C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Lib\site-packages;C:\Users\nolan\.espressif\python_env\idf5.5_py3.12_env\Lib\site-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=194c33011157bb29bc27ad64a2fc923f
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;14;3;32;64;;;abi3;C:\Users\nolan\AppData\Local\Programs\Python\Python314\Lib;C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Lib;C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Lib\site-packages;C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Lib\site-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=d0441389eeab9603ab700666406adc01
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
 

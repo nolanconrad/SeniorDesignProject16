@@ -1,6 +1,9 @@
 {
     "idf.currentSetup": "C:\\esp\\v5.5.1\\esp-idf",
     "idf.flashType": "UART",
+    "idf.openOcdConfigs": [
+        "board/esp32c6-builtin.cfg"
+    ],
     "idf.portWin": "COM3",
     "idf.port": "COM3",
     "idf.projectPath": "${workspaceFolder}",
@@ -10,8 +13,10 @@
             "source": "PowerShell",
             "args": [
                 "-NoExit",
+                "-ExecutionPolicy",
+                "Bypass",
                 "-Command",
-                ". C:\\esp\\v5.5.1\\esp-idf\\export.ps1"
+                "& { . 'C:/esp/v5.5.1/esp-idf/export.ps1' }"
             ]
         }
     },

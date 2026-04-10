@@ -17,6 +17,8 @@
 #define INA226_CONFIG_DEFAULT 0x4127
 #define INA226_SHUNT_VOLTAGE_LSB_V 0.0000025f
 #define INA226_BUS_VOLTAGE_LSB_V 0.00125f
+#define INA226_MAX_EXPECTED_CURRENT_A 1.0f
+#define INA226_CURRENT_LSB_A (INA226_MAX_EXPECTED_CURRENT_A / 32768.0f)
 
 static const char *TAG = "ina226";
 
@@ -53,7 +55,7 @@ static esp_err_t ina226_write_u16(uint8_t i2c_address, uint8_t reg, uint16_t val
     return i2c_bus_write(i2c_address, tx, sizeof(tx), pdMS_TO_TICKS(50));
 }
 
-esp_err_t ina226_init(uint8_t i2c_address)
+esp_err_t ina226_init(uint8_t i2c_address, float shunt_resistance_ohm)
 {
     esp_err_t err = i2c_bus_probe(i2c_address, pdMS_TO_TICKS(50));
     if (err != ESP_OK) {
@@ -93,12 +95,18 @@ esp_err_t ina226_init(uint8_t i2c_address)
         return err;
     }
 
-    err = ina226_write_u16(i2c_address, INA226_REG_CALIBRATION, 0);
+    // Calculate calibration for 1.0A max current
+    // Calibration = 0.00512 / (Current_LSB × R_shunt)
+    // With 1.0A max: Current_LSB = 1.0 / 32768 ≈ 0.0000305A (30.5uA)
+    // Calibration = 0.00512 / (0.0000305 × shunt_resistance_ohm)
+    uint16_t calibration = (uint16_t)(0.00512f / (INA226_CURRENT_LSB_A * shunt_resistance_ohm));
+    err = ina226_write_u16(i2c_address, INA226_REG_CALIBRATION, calibration);
     if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to clear INA226 calibration at 0x%02X: %s", i2c_address, esp_err_to_name(err));
+        ESP_LOGE(TAG, "Failed to set INA226 calibration at 0x%02X: %s", i2c_address, esp_err_to_name(err));
         return err;
     }
 
+    ESP_LOGI(TAG, "INA226 calibration set to %u (max 1.0A, R_shunt=%.1fΩ)", calibration, shunt_resistance_ohm);
     return ESP_OK;
 }
 
@@ -128,6 +136,8 @@ esp_err_t ina226_read_measurement(uint8_t i2c_address, float shunt_resistance_oh
     measurement->bus_voltage_v = (float)bus_raw * INA226_BUS_VOLTAGE_LSB_V;
     measurement->current_a = measurement->shunt_voltage_v / shunt_resistance_ohm;
     measurement->power_w = measurement->bus_voltage_v * measurement->current_a;
+    measurement->raw_shunt_u16 = shunt_raw_u16;
+    measurement->raw_bus_u16 = bus_raw_u16;
 
     return ESP_OK;
 }

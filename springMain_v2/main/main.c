@@ -1,378 +1,561 @@
-#include <stdbool.h>
-
-#include "esp_err.h"
 #include "esp_log.h"
+#include "driver/ledc.h"
+#include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "driver/gpio.h"
-#include "i2c_bus.h"
 #include "ina226.h"
-#include "pumpOperation.h"
 #include "tmp117.h"
+#include "i2c_bus.h"
 
-static const char *TAG = "main";
+static const char *TAG = "SYSTEM";
 
-// Button pin definitions (active-low: button shorts pin to GND when pressed)
-#define BUTTON_D2_PIN GPIO_NUM_5
-#define BUTTON_A2_PIN GPIO_NUM_3
-#define BUTTON_A3_PIN GPIO_NUM_4
+// PWM Configuration
+#define PWM_LINE_GPIO GPIO_NUM_1   // Nano ESP32 A0 = GPIO1
+#define PWM_TIMER LEDC_TIMER_0
+#define PWM_MODE LEDC_LOW_SPEED_MODE
+#define PWM_CHANNEL LEDC_CHANNEL_0
+#define PWM_RESOLUTION LEDC_TIMER_10_BIT
+#define PWM_FREQ_HZ 500
 
-// LED pin definitions for D3..D9.
-#define LED_D3_PIN GPIO_NUM_6
-#define LED_D4_PIN GPIO_NUM_7
-#define LED_D5_PIN GPIO_NUM_8
-#define LED_D6_PIN GPIO_NUM_9
-#define LED_D7_PIN GPIO_NUM_10
-#define LED_D8_PIN GPIO_NUM_17
-#define LED_D9_PIN GPIO_NUM_18
+// Button and LED Configuration
+#define BUTTON_D2 GPIO_NUM_5        // Mode toggle: Manual/Automatic (pin D2)
+#define BUTTON_A2 GPIO_NUM_3        // Pump increase button (pin A2) - manual mode only
+#define BUTTON_A3 GPIO_NUM_4        // Pump decrease button (pin A3) - manual mode only
 
-#define LED_D6_BLINK_PERIOD_MS 500
-#define LED_SEQUENCE_STEP_MS 400
-#define PUMP_CYCLE_ON_MS 2000
-#define PUMP_CYCLE_OFF_MS 2000
-#define PUMP_CYCLE_ON_DUTY_PERCENT 50
+// Manual mode indicator LEDs (D9, D8, D7) - show pump level
+#define LED_INDICATOR_D2 GPIO_NUM_18  // Pump level indicator 1 (Arduino D9)
+#define LED_INDICATOR_D3 GPIO_NUM_17  // Pump level indicator 2 (Arduino D8)
+#define LED_INDICATOR_D4 GPIO_NUM_10  // Pump level indicator 3 (Arduino D7)
 
-#define TMP117_SENSOR_1_ADDR 0x48
-#define INA226_SENSOR_1_ADDR 0x40
-#define INA226_SENSOR_2_ADDR 0x41
-#define INA226_SHUNT_RESISTANCE_OHM 0.1f
-#define TMP117_READ_PERIOD_MS 1000
+// Auto mode status LEDs (D3, D4) - stay on during auto
+#define LED_AUTO_STATUS_1 GPIO_NUM_6   // Status LED 1 (Arduino D3) - stays on
+#define LED_AUTO_STATUS_2 GPIO_NUM_7   // Status LED 2 (Arduino D4) - stays on
 
+// Auto mode animation LEDs (D5-D9) - progressive animation
+#define LED_ANIM_D5 GPIO_NUM_8   // Animation LED 1 (Arduino D5)
+#define LED_ANIM_D6 GPIO_NUM_9   // Animation LED 2 (Arduino D6)
+#define LED_ANIM_D7 GPIO_NUM_10  // Animation LED 3 (Arduino D7)
+#define LED_ANIM_D8 GPIO_NUM_17  // Animation LED 4 (Arduino D8)
+#define LED_ANIM_D9 GPIO_NUM_18  // Animation LED 5 (Arduino D9)
+
+#define PUMP_INCREMENT 10           // 10% per button press
+#define PUMP_START_PERCENT 50       // Starting pump intensity
+
+// I2C Sensor Addresses
+#define INA226_1_ADDR 0x40    // INA1 current/power monitor
+#define INA226_2_ADDR 0x41    // INA2 current/power monitor
+#define TMP117_ADDR 0x48      // Temperature sensor
+
+// INA226 hardware configuration
+#define INA226_PUMP_SHUNT_RESISTANCE_OHM 0.1f    // 100 mOhm shunt (PUMP / INA1)
+#define INA226_LOGIC_SHUNT_RESISTANCE_OHM 0.1f   // 100 mOhm shunt (LOGIC / INA2)
+
+// Timing configuration
+#define BUTTON_POLL_INTERVAL_MS 50
+#define SENSOR_READ_INTERVAL_MS 2000
+
+// Control mode enum
+typedef enum {
+    CONTROL_MANUAL = 0,
+    CONTROL_AUTOMATIC = 1
+} control_mode_t;
+
+// Temperature thresholds for automatic control (Fahrenheit)
+#define TEMP_STEP_98F 98.0f
+#define TEMP_STEP_99F 99.0f
+#define TEMP_STEP_100F 100.0f
+#define TEMP_STEP_101F 101.0f
+#define TEMP_STEP_102F 102.0f
+
+#define PUMP_10_PERCENT 10
+#define PUMP_25_PERCENT 25
+#define PUMP_50_PERCENT 50
+#define PUMP_75_PERCENT 75
+#define PUMP_100_PERCENT 100
+
+// LED animation for auto mode
+#define LED_ANIM_INTERVAL_MS 1000   // 1 second per LED
+#define LED_FLASH_INTERVAL_MS 250   // 250ms flash for 100%
+
+// Button state tracking for debouncing
 typedef struct {
-	const char *name;
-	uint8_t i2c_address;
-	bool initialized;
-} tmp117_sensor_t;
-
-typedef struct {
-	const char *name;
-	uint8_t i2c_address;
-	float shunt_resistance_ohm;
-	bool initialized;
-} ina226_sensor_t;
-
-// Button state tracking - simple version
-typedef struct {
-	const char *button_name;
-	gpio_num_t gpio_num;
-	int last_level;
-	gpio_num_t controlled_led_pin;
-	int controlled_led_state;
+    gpio_num_t pin;
+    bool stable_state;      // Last confirmed state (true=released, false=pressed)
+    bool current_state;     // Current raw state
 } button_state_t;
 
-static button_state_t button_states[] = {
-	{.button_name = "D2", .gpio_num = BUTTON_D2_PIN, .last_level = 1, .controlled_led_pin = LED_D7_PIN, .controlled_led_state = 0},
-	{.button_name = "A2", .gpio_num = BUTTON_A2_PIN, .last_level = 1, .controlled_led_pin = LED_D8_PIN, .controlled_led_state = 0},
-	{.button_name = "A3", .gpio_num = BUTTON_A3_PIN, .last_level = 1, .controlled_led_pin = LED_D9_PIN, .controlled_led_state = 0},
-};
+static const uint32_t PWM_MAX_DUTY = (1U << PWM_RESOLUTION) - 1U;
 
-static const gpio_num_t led_pins[] = {
-	LED_D3_PIN,
-	LED_D4_PIN,
-	LED_D5_PIN,
-	LED_D6_PIN,
-	LED_D7_PIN,
-	LED_D8_PIN,
-	LED_D9_PIN,
-};
+// Forward declarations
+static void update_indicator_leds(uint32_t pump_percent);
+static void update_flash_leds(uint32_t current_ms);
+static void update_status_leds(uint32_t current_ms);
+static void update_animation_leds(uint32_t current_ms);
 
-static const gpio_num_t led_sequence_pins[] = {
-	LED_D3_PIN,
-	LED_D4_PIN,
-	LED_D5_PIN,
-};
+// Global state
+static uint32_t current_pump_percent = PUMP_START_PERCENT;
+static control_mode_t control_mode = CONTROL_MANUAL;  // Start in manual mode
+static uint32_t last_flash_toggle_ms = 0;
+static bool flash_state = false;  // For 100% flashing
+static uint32_t last_status_led_toggle_ms = 0;
+static bool status_led_state = false;  // For status LED (D3/D4) flashing
+static uint32_t last_anim_update_ms = 0;
+static uint8_t anim_led_index = 0;  // Which LED in the animation sequence (0-4 for 5 LEDs)
+static button_state_t button_d2 = {BUTTON_D2, true, true};
+static button_state_t button_a2 = {BUTTON_A2, true, true};
+static button_state_t button_a3 = {BUTTON_A3, true, true};
 
-// Initialize button GPIO pins
-static esp_err_t buttons_init(void)
+static void set_pump_percent(uint32_t pump_percent)
 {
-	// Use internal pull-ups for stable button-to-ground wiring.
-	gpio_config_t btn_gpio_cfg = {
-		.pin_bit_mask = (1ULL << BUTTON_D2_PIN) | (1ULL << BUTTON_A2_PIN) | (1ULL << BUTTON_A3_PIN),
-		.mode = GPIO_MODE_INPUT,
-		.pull_up_en = GPIO_PULLUP_ENABLE,
-		.pull_down_en = GPIO_PULLDOWN_DISABLE,
-		.intr_type = GPIO_INTR_DISABLE,  // No interrupts; we'll poll instead
-	};
+    if (pump_percent > 100U) {
+        pump_percent = 100U;
+    }
 
-	esp_err_t err = gpio_config(&btn_gpio_cfg);
-	if (err != ESP_OK) {
-		ESP_LOGE(TAG, "Failed to configure button GPIOs: %s", esp_err_to_name(err));
-		return err;
-	}
+    uint32_t duty = (pump_percent * PWM_MAX_DUTY + 50U) / 100U;
 
-	ESP_LOGI(TAG, "Button GPIO configured (active-low with pull-ups) on D2 (GPIO%d), A2 (GPIO%d), A3 (GPIO%d)", 
-		BUTTON_D2_PIN, BUTTON_A2_PIN, BUTTON_A3_PIN);
-
-	for (int i = 0; i < (int)(sizeof(button_states) / sizeof(button_states[0])); i++) {
-		button_states[i].last_level = gpio_get_level(button_states[i].gpio_num);
-	}
-	return ESP_OK;
+    ledc_set_duty(PWM_MODE, PWM_CHANNEL, duty);
+    ledc_update_duty(PWM_MODE, PWM_CHANNEL);
+    
+    current_pump_percent = pump_percent;
+    
+    // Update indicator LEDs (manual mode only)
+    if (control_mode == CONTROL_MANUAL) {
+        update_indicator_leds(pump_percent);
+    }
 }
 
-// Task to poll buttons - simple digital read with press edge detection
-static void button_poll_task(void *arg)
+static void toggle_led(void)
 {
-	(void)arg;
-	const int num_buttons = sizeof(button_states) / sizeof(button_states[0]);
-	
-	while (1) {
-		for (int i = 0; i < num_buttons; i++) {
-			button_state_t *btn = &button_states[i];
-			int level = gpio_get_level(btn->gpio_num);
-
-			// Active-low press: HIGH -> LOW transition means button pressed.
-			if (btn->last_level == 1 && level == 0) {
-				btn->controlled_led_state = !btn->controlled_led_state;
-				gpio_set_level(btn->controlled_led_pin, btn->controlled_led_state);
-				ESP_LOGI(TAG, "Button %s pressed -> LED GPIO%d %s",
-					btn->button_name,
-					btn->controlled_led_pin,
-					btn->controlled_led_state ? "ON" : "OFF");
-			}
-
-			btn->last_level = level;
-		}
-		
-		vTaskDelay(pdMS_TO_TICKS(20));
-	}
+    // D2 button toggles between manual and automatic control
+    control_mode = (control_mode == CONTROL_MANUAL) ? CONTROL_AUTOMATIC : CONTROL_MANUAL;
+    
+    if (control_mode == CONTROL_MANUAL) {
+        ESP_LOGI(TAG, "Control mode: MANUAL - Use A2/A3 buttons to adjust pump");
+    } else {
+        ESP_LOGI(TAG, "Control mode: AUTOMATIC - Pump controlled by temperature");
+    }
 }
 
-static esp_err_t leds_init(void)
+static void update_pump_auto(float temp_f)
 {
-	uint64_t pin_mask = 0;
-	for (int i = 0; i < (int)(sizeof(led_pins) / sizeof(led_pins[0])); i++) {
-		pin_mask |= (1ULL << led_pins[i]);
-	}
-
-	gpio_config_t led_gpio_cfg = {
-		.pin_bit_mask = pin_mask,
-		.mode = GPIO_MODE_OUTPUT,
-		.pull_up_en = GPIO_PULLUP_DISABLE,
-		.pull_down_en = GPIO_PULLDOWN_DISABLE,
-		.intr_type = GPIO_INTR_DISABLE,
-	};
-
-	esp_err_t err = gpio_config(&led_gpio_cfg);
-	if (err != ESP_OK) {
-		ESP_LOGE(TAG, "Failed to configure LED GPIOs: %s", esp_err_to_name(err));
-		return err;
-	}
-
-	for (int i = 0; i < (int)(sizeof(led_pins) / sizeof(led_pins[0])); i++) {
-		gpio_set_level(led_pins[i], 0);
-	}
-
-	ESP_LOGI(TAG, "LED outputs initialized on D3..D9");
-	return ESP_OK;
+    // Automatic pump control based on Fahrenheit step thresholds.
+    uint32_t new_pump_percent = current_pump_percent;
+    
+    if (temp_f <= TEMP_STEP_98F) {
+        new_pump_percent = PUMP_10_PERCENT;      // 98F and below
+    }
+    else if (temp_f < TEMP_STEP_99F) {
+        new_pump_percent = PUMP_10_PERCENT;      // >98F to <99F
+    }
+    else if (temp_f < TEMP_STEP_100F) {
+        new_pump_percent = PUMP_25_PERCENT;      // 99F to <100F
+    }
+    else if (temp_f < TEMP_STEP_101F) {
+        new_pump_percent = PUMP_50_PERCENT;      // 100F to <101F
+    }
+    else if (temp_f <= TEMP_STEP_102F) {
+        new_pump_percent = PUMP_75_PERCENT;      // 101F to 102F
+    }
+    else {
+        new_pump_percent = PUMP_100_PERCENT;     // >102F
+    }
+    
+    // Update pump if temperature-based setting changed
+    if (new_pump_percent != current_pump_percent) {
+        set_pump_percent(new_pump_percent);
+        ESP_LOGI(TAG, "Auto mode: Temp %.2f°F -> Pump %d%%", temp_f, new_pump_percent);
+    }
 }
 
-static void d6_blink_task(void *arg)
+static void update_animation_leds(uint32_t current_ms)
 {
-	(void)arg;
-	int level = 0;
-
-	while (1) {
-		level = !level;
-		gpio_set_level(LED_D6_PIN, level);
-		vTaskDelay(pdMS_TO_TICKS(LED_D6_BLINK_PERIOD_MS));
-	}
+    // Keep D3 and D4 status LEDs on during auto mode
+    gpio_set_level(LED_AUTO_STATUS_1, 1);
+    gpio_set_level(LED_AUTO_STATUS_2, 1);
+    
+    // Animate D5-D9 LEDs progressively (1 second per frame)
+    if (current_ms - last_anim_update_ms >= LED_ANIM_INTERVAL_MS) {
+        last_anim_update_ms = current_ms;
+        anim_led_index = (anim_led_index + 1) % 5;  // Cycle through 5 animation LEDs
+        
+        // Set animation LEDs based on current index
+        // Index 0: D5 on
+        // Index 1: D5+D6 on
+        // Index 2: D5+D6+D7 on
+        // Index 3: D5+D6+D7+D8 on
+        // Index 4: D5+D6+D7+D8+D9 on
+        gpio_set_level(LED_ANIM_D5, anim_led_index >= 0 ? 1 : 0);
+        gpio_set_level(LED_ANIM_D6, anim_led_index >= 1 ? 1 : 0);
+        gpio_set_level(LED_ANIM_D7, anim_led_index >= 2 ? 1 : 0);
+        gpio_set_level(LED_ANIM_D8, anim_led_index >= 3 ? 1 : 0);
+        gpio_set_level(LED_ANIM_D9, anim_led_index >= 4 ? 1 : 0);
+        
+        ESP_LOGD(TAG, "Auto mode animation frame: %d", anim_led_index);
+    }
 }
 
-static void led_sequence_task(void *arg)
+static void update_indicator_leds(uint32_t pump_percent)
 {
-	(void)arg;
-
-	while (1) {
-		gpio_set_level(led_sequence_pins[0], 1);
-		gpio_set_level(led_sequence_pins[1], 0);
-		gpio_set_level(led_sequence_pins[2], 0);
-		vTaskDelay(pdMS_TO_TICKS(LED_SEQUENCE_STEP_MS));
-
-		gpio_set_level(led_sequence_pins[0], 1);
-		gpio_set_level(led_sequence_pins[1], 1);
-		gpio_set_level(led_sequence_pins[2], 0);
-		vTaskDelay(pdMS_TO_TICKS(LED_SEQUENCE_STEP_MS));
-
-		gpio_set_level(led_sequence_pins[0], 1);
-		gpio_set_level(led_sequence_pins[1], 1);
-		gpio_set_level(led_sequence_pins[2], 1);
-		vTaskDelay(pdMS_TO_TICKS(LED_SEQUENCE_STEP_MS));
-
-		gpio_set_level(led_sequence_pins[0], 0);
-		gpio_set_level(led_sequence_pins[1], 0);
-		gpio_set_level(led_sequence_pins[2], 0);
-		vTaskDelay(pdMS_TO_TICKS(LED_SEQUENCE_STEP_MS));
-	}
+    // Update LED indicators based on pump percentage
+    if (pump_percent == 0) {
+        // 0% = No LEDs on
+        gpio_set_level(LED_INDICATOR_D2, 0);
+        gpio_set_level(LED_INDICATOR_D3, 0);
+        gpio_set_level(LED_INDICATOR_D4, 0);
+        ESP_LOGI(TAG, "Indicator LEDs: OFF");
+    }
+    else if (pump_percent <= 30) {
+        // 10%-30% = D2 on
+        gpio_set_level(LED_INDICATOR_D2, 1);
+        gpio_set_level(LED_INDICATOR_D3, 0);
+        gpio_set_level(LED_INDICATOR_D4, 0);
+        ESP_LOGI(TAG, "Indicator LEDs: D2 ON");
+    }
+    else if (pump_percent <= 60) {
+        // 40%-60% = D2 and D3 on
+        gpio_set_level(LED_INDICATOR_D2, 1);
+        gpio_set_level(LED_INDICATOR_D3, 1);
+        gpio_set_level(LED_INDICATOR_D4, 0);
+        ESP_LOGI(TAG, "Indicator LEDs: D2 D3 ON");
+    }
+    else if (pump_percent < 100) {
+        // 70%-90% = D2, D3, D4 all on
+        gpio_set_level(LED_INDICATOR_D2, 1);
+        gpio_set_level(LED_INDICATOR_D3, 1);
+        gpio_set_level(LED_INDICATOR_D4, 1);
+        ESP_LOGI(TAG, "Indicator LEDs: D2 D3 D4 ON");
+    }
+    else {
+        // 100% = Setup for flashing (actual flashing done in main loop)
+        ESP_LOGI(TAG, "Indicator LEDs: FLASHING MODE");
+    }
 }
 
-static void temp_monitor_task(void *arg)
+static void update_flash_leds(uint32_t current_ms)
 {
-	(void)arg;
-
-	static tmp117_sensor_t tmp_sensor = {
-		.name = "tmp117_1",
-		.i2c_address = TMP117_SENSOR_1_ADDR,
-		.initialized = false,
-	};
-
-	static ina226_sensor_t current_sensors[] = {
-		{.name = "ina226_1", .i2c_address = INA226_SENSOR_1_ADDR, .shunt_resistance_ohm = INA226_SHUNT_RESISTANCE_OHM, .initialized = false},
-		{.name = "ina226_2", .i2c_address = INA226_SENSOR_2_ADDR, .shunt_resistance_ohm = INA226_SHUNT_RESISTANCE_OHM, .initialized = false},
-	};
-
-	const size_t current_sensor_count = sizeof(current_sensors) / sizeof(current_sensors[0]);
-	TickType_t last_wake = xTaskGetTickCount();
-
-	while (1) {
-		if (!tmp_sensor.initialized) {
-			esp_err_t init_err = tmp117_init(tmp_sensor.i2c_address);
-			if (init_err == ESP_OK) {
-				tmp_sensor.initialized = true;
-				ESP_LOGI(TAG, "%s initialized at 0x%02X", tmp_sensor.name, tmp_sensor.i2c_address);
-			} else {
-				ESP_LOGW(TAG, "%s init failed at 0x%02X: %s", tmp_sensor.name, tmp_sensor.i2c_address, esp_err_to_name(init_err));
-			}
-		}
-
-		if (tmp_sensor.initialized) {
-			float temperature_c = 0.0f;
-			esp_err_t read_err = tmp117_read_temperature_c(tmp_sensor.i2c_address, &temperature_c);
-			if (read_err == ESP_OK) {
-				ESP_LOGI(TAG, "%s (0x%02X): %.3f C", tmp_sensor.name, tmp_sensor.i2c_address, temperature_c);
-			} else {
-				ESP_LOGW(TAG, "%s read failed at 0x%02X: %s", tmp_sensor.name, tmp_sensor.i2c_address, esp_err_to_name(read_err));
-				tmp_sensor.initialized = false;
-			}
-		}
-
-		for (size_t i = 0; i < current_sensor_count; ++i) {
-			ina226_sensor_t *sensor = &current_sensors[i];
-
-			if (!sensor->initialized) {
-				esp_err_t init_err = ina226_init(sensor->i2c_address);
-				if (init_err == ESP_OK) {
-					sensor->initialized = true;
-					ESP_LOGI(TAG, "%s initialized at 0x%02X", sensor->name, sensor->i2c_address);
-				} else {
-					ESP_LOGW(TAG, "%s init failed at 0x%02X: %s", sensor->name, sensor->i2c_address, esp_err_to_name(init_err));
-					continue;
-				}
-			}
-
-			ina226_measurement_t measurement = {0};
-			esp_err_t read_err = ina226_read_measurement(
-				sensor->i2c_address,
-				sensor->shunt_resistance_ohm,
-				&measurement);
-			if (read_err == ESP_OK) {
-				ESP_LOGI(
-					TAG,
-					"%s (0x%02X): I=%.4f A, Vbus=%.3f V, Vshunt=%.5f V, P=%.3f W",
-					sensor->name,
-					sensor->i2c_address,
-					measurement.current_a,
-					measurement.bus_voltage_v,
-					measurement.shunt_voltage_v,
-					measurement.power_w);
-			} else {
-				ESP_LOGW(TAG, "%s read failed at 0x%02X: %s", sensor->name, sensor->i2c_address, esp_err_to_name(read_err));
-				sensor->initialized = false;
-			}
-		}
-
-		vTaskDelayUntil(&last_wake, pdMS_TO_TICKS(TMP117_READ_PERIOD_MS));
-	}
+    // Flash all LEDs every 250ms when at 100%
+    if (current_pump_percent == 100) {
+        if (current_ms - last_flash_toggle_ms >= LED_FLASH_INTERVAL_MS) {
+            flash_state = !flash_state;
+            last_flash_toggle_ms = current_ms;
+            
+            gpio_set_level(LED_INDICATOR_D2, flash_state ? 1 : 0);
+            gpio_set_level(LED_INDICATOR_D3, flash_state ? 1 : 0);
+            gpio_set_level(LED_INDICATOR_D4, flash_state ? 1 : 0);
+        }
+    }
 }
 
-static void pump_cycle_task(void *arg)
+static void update_status_leds(uint32_t current_ms)
 {
-	(void)arg;
+    // In MANUAL mode: flash D3/D4 status LEDs as mode indicator
+    // In AUTOMATIC mode: keep D3/D4 on (handled in update_animation_leds)
+    if (control_mode == CONTROL_MANUAL) {
+        if (current_ms - last_status_led_toggle_ms >= LED_FLASH_INTERVAL_MS) {
+            status_led_state = !status_led_state;
+            last_status_led_toggle_ms = current_ms;
+            
+            gpio_set_level(LED_AUTO_STATUS_1, status_led_state ? 1 : 0);
+            gpio_set_level(LED_AUTO_STATUS_2, status_led_state ? 1 : 0);
+        }
+    }
+}
 
-	while (1) {
-		esp_err_t on_err = pump_operation_set_duty_percent(PUMP_CYCLE_ON_DUTY_PERCENT);
-		if (on_err != ESP_OK) {
-			ESP_LOGW(TAG, "Failed to set pump duty to %d%%: %s", PUMP_CYCLE_ON_DUTY_PERCENT, esp_err_to_name(on_err));
-		}
-		vTaskDelay(pdMS_TO_TICKS(PUMP_CYCLE_ON_MS));
+static void init_pump(void)
+{
+    ledc_timer_config_t ledc_timer = {
+        .speed_mode = PWM_MODE,
+        .timer_num = PWM_TIMER,
+        .duty_resolution = PWM_RESOLUTION,
+        .freq_hz = PWM_FREQ_HZ,
+        .clk_cfg = LEDC_AUTO_CLK,
+    };
+    ledc_timer_config(&ledc_timer);
 
-		esp_err_t off_err = pump_operation_stop();
-		if (off_err != ESP_OK) {
-			ESP_LOGW(TAG, "Failed to stop pump: %s", esp_err_to_name(off_err));
-		}
-		vTaskDelay(pdMS_TO_TICKS(PUMP_CYCLE_OFF_MS));
-	}
+    ledc_channel_config_t ledc_channel = {
+        .speed_mode = PWM_MODE,
+        .channel = PWM_CHANNEL,
+        .timer_sel = PWM_TIMER,
+        .intr_type = LEDC_INTR_DISABLE,
+        .gpio_num = PWM_LINE_GPIO,
+        .duty = 0,
+        .hpoint = 0,
+        .sleep_mode = LEDC_SLEEP_MODE_NO_ALIVE_NO_PD,
+    };
+    ledc_channel_config(&ledc_channel);
+
+    ESP_LOGI(TAG, "Pump PWM initialized at %d Hz", PWM_FREQ_HZ);
+}
+
+static void init_buttons_and_led(void)
+{
+    // Configure indicator LED outputs (D9, D8, D7)
+    gpio_config_t indicator_config = {
+        .pin_bit_mask = (1ULL << LED_INDICATOR_D2) | (1ULL << LED_INDICATOR_D3) | (1ULL << LED_INDICATOR_D4),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    gpio_config(&indicator_config);
+    gpio_set_level(LED_INDICATOR_D2, 0);
+    gpio_set_level(LED_INDICATOR_D3, 0);
+    gpio_set_level(LED_INDICATOR_D4, 0);
+    
+    // Configure status LED outputs (D3, D4)
+    gpio_config_t status_led_config = {
+        .pin_bit_mask = (1ULL << LED_AUTO_STATUS_1) | (1ULL << LED_AUTO_STATUS_2),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    gpio_config(&status_led_config);
+    gpio_set_level(LED_AUTO_STATUS_1, 0);
+    gpio_set_level(LED_AUTO_STATUS_2, 0);
+    
+    // Configure animation LED outputs (D5-D9)
+    gpio_config_t anim_led_config = {
+        .pin_bit_mask = (1ULL << LED_ANIM_D5) | (1ULL << LED_ANIM_D6) | (1ULL << LED_ANIM_D7) | (1ULL << LED_ANIM_D8) | (1ULL << LED_ANIM_D9),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    gpio_config(&anim_led_config);
+    gpio_set_level(LED_ANIM_D5, 0);
+    gpio_set_level(LED_ANIM_D6, 0);
+    gpio_set_level(LED_ANIM_D7, 0);
+    gpio_set_level(LED_ANIM_D8, 0);
+    gpio_set_level(LED_ANIM_D9, 0);
+    
+    // Configure button inputs with pull-up
+    gpio_config_t button_config = {
+        .pin_bit_mask = (1ULL << BUTTON_D2) | (1ULL << BUTTON_A2) | (1ULL << BUTTON_A3),
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    gpio_config(&button_config);
+    
+    ESP_LOGI(TAG, "All LEDs and buttons initialized");
+}
+
+static bool button_pressed(button_state_t *btn)
+{
+    bool new_state = gpio_get_level(btn->pin) == 0;  // 0 = pressed, 1 = released
+    
+    // Detect falling edge: transition from released (true) to pressed (false)
+    if (new_state == false && btn->stable_state == true) {
+        btn->stable_state = false;  // Mark as pressed/locked
+        return true;  // Button press detected
+    }
+    
+    // Detect rising edge: transition from pressed (false) to released (true)
+    if (new_state == true && btn->stable_state == false) {
+        btn->stable_state = true;  // Mark as released/unlocked
+    }
+    
+    return false;
 }
 
 void app_main(void)
 {
-	esp_err_t err = i2c_bus_init();
-	if (err != ESP_OK) {
-		ESP_LOGE(TAG, "I2C init failed: %s", esp_err_to_name(err));
-		return;
-	}
+    // Initialize I2C bus
+    esp_err_t err = i2c_bus_init();
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize I2C bus: %s", esp_err_to_name(err));
+        return;
+    }
+    ESP_LOGI(TAG, "I2C bus initialized");
 
-	// Initialize buttons
-	err = buttons_init();
-	if (err != ESP_OK) {
-		ESP_LOGE(TAG, "Button initialization failed: %s", esp_err_to_name(err));
-		return;
-	}
+    // Scan I2C bus for devices
+    ESP_LOGI(TAG, "Scanning I2C bus...");
+    i2c_bus_scan(pdMS_TO_TICKS(50));
 
-	err = leds_init();
-	if (err != ESP_OK) {
-		ESP_LOGE(TAG, "LED initialization failed: %s", esp_err_to_name(err));
-		return;
-	}
+    // Initialize pump
+    init_pump();
+    
+    // Initialize buttons and LED
+    init_buttons_and_led();
 
-	err = pump_operation_init();
-	if (err != ESP_OK) {
-		ESP_LOGE(TAG, "Pump driver initialization failed: %s", esp_err_to_name(err));
-		return;
-	}
+    err = tmp117_init(TMP117_ADDR);
+    if (err != ESP_OK) {
+        ESP_LOGW(TAG, "TMP117 at 0x%02X not found: %s", TMP117_ADDR, esp_err_to_name(err));
+    } else {
+        ESP_LOGI(TAG, "TMP117 (0x%02X) initialized", TMP117_ADDR);
+    }
 
-	err = pump_operation_stop();
-	if (err != ESP_OK) {
-		ESP_LOGE(TAG, "Failed to set pump output to 0%%: %s", esp_err_to_name(err));
-		return;
-	}
+    err = ina226_init(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);
+    if (err != ESP_OK) {
+        ESP_LOGW(TAG, "PUMP (INA1, 0x%02X) not found: %s", INA226_1_ADDR, esp_err_to_name(err));
+    } else {
+        ESP_LOGI(TAG, "PUMP (INA1, 0x%02X) initialized", INA226_1_ADDR);
+    }
 
-	// Start button polling task
-	BaseType_t btn_task_ok = xTaskCreate(button_poll_task, "button_poll_task", 2048, NULL, 4, NULL);
-	if (btn_task_ok != pdPASS) {
-		ESP_LOGE(TAG, "Failed to create button poll task");
-		return;
-	}
+    err = ina226_init(INA226_2_ADDR, INA226_LOGIC_SHUNT_RESISTANCE_OHM);
+    if (err != ESP_OK) {
+        ESP_LOGW(TAG, "LOGIC (INA2, 0x%02X) not found: %s", INA226_2_ADDR, esp_err_to_name(err));
+    } else {
+        ESP_LOGI(TAG, "LOGIC (INA2, 0x%02X) initialized", INA226_2_ADDR);
+    }
 
-	BaseType_t d6_task_ok = xTaskCreate(d6_blink_task, "d6_blink_task", 2048, NULL, 4, NULL);
-	if (d6_task_ok != pdPASS) {
-		ESP_LOGE(TAG, "Failed to create D6 blink task");
-		return;
-	}
+    // Set initial pump speed
+    set_pump_percent(PUMP_START_PERCENT);
+    ESP_LOGI(TAG, "Pump initialized to %d%%", PUMP_START_PERCENT);
 
-	BaseType_t seq_task_ok = xTaskCreate(led_sequence_task, "led_sequence_task", 2048, NULL, 4, NULL);
-	if (seq_task_ok != pdPASS) {
-		ESP_LOGE(TAG, "Failed to create LED sequence task");
-		return;
-	}
+    ESP_LOGI(TAG, "System ready. Control via buttons:");
+    ESP_LOGI(TAG, "  D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes");
+    ESP_LOGI(TAG, "  A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%%)");
+    ESP_LOGI(TAG, "  MANUAL mode: Pump level shown on D9/D8/D7 LEDs");
+    ESP_LOGI(TAG, "  AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9");
 
-	ESP_LOGI(TAG, "I2C bus initialized. Scanning bus for connected devices...");
-	i2c_bus_scan(pdMS_TO_TICKS(500));
+    // Main loop - poll buttons frequently, read sensors every 3 seconds
+    while (1) {
+        // Poll buttons frequently between sensor reads for responsive controls.
+        const int poll_loops = SENSOR_READ_INTERVAL_MS / BUTTON_POLL_INTERVAL_MS;
+        for (int i = 0; i < poll_loops; i++) {
+            uint32_t now_ms = esp_log_timestamp();
+            
+            // Update status LEDs based on mode (flash in manual, on in auto)
+            update_status_leds(now_ms);
+            
+            // Update flashing LEDs if at 100%
+            update_flash_leds(now_ms);
+            
+            // Check buttons with simple debounce
+            if (button_pressed(&button_d2)) {
+                toggle_led();
+                // Reset animation index when switching modes
+                anim_led_index = 0;
+                last_anim_update_ms = now_ms;
+                // Reset status LED toggle timing
+                status_led_state = false;
+                last_status_led_toggle_ms = now_ms;
+                // Turn off animation LEDs when entering MANUAL mode
+                if (control_mode == CONTROL_MANUAL) {
+                    gpio_set_level(LED_ANIM_D5, 0);
+                    gpio_set_level(LED_ANIM_D6, 0);
+                    gpio_set_level(LED_ANIM_D7, 0);
+                    gpio_set_level(LED_ANIM_D8, 0);
+                    gpio_set_level(LED_ANIM_D9, 0);
+                }
+            }
 
-	BaseType_t task_ok = xTaskCreate(temp_monitor_task, "temp_monitor_task", 4096, NULL, 5, NULL);
-	if (task_ok != pdPASS) {
-		ESP_LOGE(TAG, "Failed to create temperature monitor task");
-		return;
-	}
+            // A2/A3 buttons only work in MANUAL mode
+            if (control_mode == CONTROL_MANUAL) {
+                if (button_pressed(&button_a2)) {
+                    uint32_t new_percent = current_pump_percent + PUMP_INCREMENT;
+                    if (new_percent > 100) new_percent = 100;
+                    set_pump_percent(new_percent);
+                    ESP_LOGI(TAG, "Pump increased to %d%%", new_percent);
+                }
 
-	BaseType_t pump_task_ok = xTaskCreate(pump_cycle_task, "pump_cycle_task", 2048, NULL, 4, NULL);
-	if (pump_task_ok != pdPASS) {
-		ESP_LOGE(TAG, "Failed to create pump cycle task");
-		return;
-	}
+                if (button_pressed(&button_a3)) {
+                    int32_t new_percent = (int32_t)current_pump_percent - PUMP_INCREMENT;
+                    if (new_percent < 0) new_percent = 0;
+                    set_pump_percent((uint32_t)new_percent);
+                    ESP_LOGI(TAG, "Pump decreased to %d%%", (uint32_t)new_percent);
+                }
+            } else {
+                // In AUTOMATIC mode, update animation LEDs
+                update_animation_leds(now_ms);
+            }
 
-	ESP_LOGI(TAG, "Temperature/current monitor task started for one TMP117 and two INA226 sensors.");
-	ESP_LOGI(TAG, "Pump cycle task started: %d%% for %d ms, then OFF for %d ms.",
-		PUMP_CYCLE_ON_DUTY_PERCENT,
-		PUMP_CYCLE_ON_MS,
-		PUMP_CYCLE_OFF_MS);
+            vTaskDelay(pdMS_TO_TICKS(BUTTON_POLL_INTERVAL_MS));
+        }
+
+        float temp_c = 0.0f;
+        ina226_measurement_t ina1_measurement = {0};
+        ina226_measurement_t ina2_measurement = {0};
+        esp_err_t ina1_err = ina226_read_measurement(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM, &ina1_measurement);
+        esp_err_t ina2_err = ina226_read_measurement(INA226_2_ADDR, INA226_LOGIC_SHUNT_RESISTANCE_OHM, &ina2_measurement);
+        err = tmp117_read_temperature_c(TMP117_ADDR, &temp_c);
+        if (err == ESP_OK) {
+            float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
+
+            if (ina1_err == ESP_OK && ina2_err == ESP_OK) {
+                ESP_LOGI(
+                    TAG,
+                    "Pump PWM: %u%% | TMP117: %.2f°F\n"
+                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW\n"
+                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    current_pump_percent,
+                    temp_f,
+                    ina1_measurement.bus_voltage_v,
+                    ina1_measurement.shunt_voltage_v * 1000.0f,
+                    ina1_measurement.current_a * 1000.0f,
+                    ina1_measurement.power_w * 1000.0f,
+                    ina2_measurement.bus_voltage_v,
+                    ina2_measurement.shunt_voltage_v * 1000.0f,
+                    ina2_measurement.current_a * 1000.0f,
+                    ina2_measurement.power_w * 1000.0f);
+                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
+                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
+            } else if (ina1_err == ESP_OK) {
+                ESP_LOGI(
+                    TAG,
+                    "Pump PWM: %u%% | TMP117: %.2f°F\n"
+                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    current_pump_percent,
+                    temp_f,
+                    ina1_measurement.bus_voltage_v,
+                    ina1_measurement.shunt_voltage_v * 1000.0f,
+                    ina1_measurement.current_a * 1000.0f,
+                    ina1_measurement.power_w * 1000.0f);
+                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
+                ESP_LOGW(TAG, "INA2 read failed: %s", esp_err_to_name(ina2_err));
+            } else if (ina2_err == ESP_OK) {
+                ESP_LOGI(
+                    TAG,
+                    "Pump PWM: %u%% | TMP117: %.2f°F\n"
+                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    current_pump_percent,
+                    temp_f,
+                    ina2_measurement.bus_voltage_v,
+                    ina2_measurement.shunt_voltage_v * 1000.0f,
+                    ina2_measurement.current_a * 1000.0f,
+                    ina2_measurement.power_w * 1000.0f);
+                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
+                ESP_LOGW(TAG, "INA1 read failed: %s", esp_err_to_name(ina1_err));
+            } else {
+                ESP_LOGI(TAG, "Pump PWM: %u%% | TMP117: %.2f°F", current_pump_percent, temp_f);
+                ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
+                ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
+            }
+            
+            // In AUTOMATIC mode, adjust pump based on temperature
+            if (control_mode == CONTROL_AUTOMATIC) {
+                update_pump_auto(temp_f);
+            }
+        } else {
+            ESP_LOGW(TAG, "TMP117 read failed: %s", esp_err_to_name(err));
+            if (ina1_err == ESP_OK) {
+                ESP_LOGI(
+                    TAG,
+                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    ina1_measurement.bus_voltage_v,
+                    ina1_measurement.shunt_voltage_v * 1000.0f,
+                    ina1_measurement.current_a * 1000.0f,
+                    ina1_measurement.power_w * 1000.0f);
+                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
+            } else {
+                ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
+            }
+
+            if (ina2_err == ESP_OK) {
+                ESP_LOGI(
+                    TAG,
+                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    ina2_measurement.bus_voltage_v,
+                    ina2_measurement.shunt_voltage_v * 1000.0f,
+                    ina2_measurement.current_a * 1000.0f,
+                    ina2_measurement.power_w * 1000.0f);
+                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
+            } else {
+                ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
+            }
+        }
+    }
 }

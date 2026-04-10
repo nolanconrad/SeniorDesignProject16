@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "springMain_v2",
-    "project_version":    "bcc241f-dirty",
+    "project_version":    "b6cee86-dirty",
     "project_path":       "C:/Senior Design/SeniorDesignProject16/springMain_v2",
     "idf_path":           "C:/esp/v5.5.1/esp-idf",
     "build_dir":          "C:/Senior Design/SeniorDesignProject16/springMain_v2/build",
