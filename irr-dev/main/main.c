@@ -13,6 +13,7 @@
 #include "system_monitor.h"
 #include "startup_diagnostic.h"
 #include "mode_manager.h"
+#include "ble_handler.h"
 
 static const char *TAG = "MAIN";
 
@@ -55,6 +56,7 @@ void initialize_system(void)
     tmp117_init();
     ina226_init();
     pump_Operation_init();
+    ble_init();
     
     // Register callbacks
     tmp117_register_error_callback(on_sensor_error);

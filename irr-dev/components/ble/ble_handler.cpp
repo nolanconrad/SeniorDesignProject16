@@ -13,8 +13,8 @@
 #define TAG "BLE"
 
 // ── Swap these when you have real UUIDs ──────────────────────────
-#define SERVICE_UUID        0xABCD       // 16-bit short UUID for now
-#define CHARACTERISTIC_UUID 0x1234
+#define SERVICE_UUID        0xFF01       // 16-bit short UUID for now
+#define CHARACTERISTIC_UUID 0xFF02
 
 #define PROFILE_NUM         1
 #define PROFILE_APP_ID      0
