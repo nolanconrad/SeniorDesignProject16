@@ -131,3 +131,22 @@
 55	290	7978170124994056	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
 36	213	7978170261549217	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
 36	213	7978170261549217	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+47	285	7978177152816081	esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/esp_bootloader_desc.c.obj	d841f0c1cb31cf4f
+286	529	7978177155294449	esp-idf/esp_bootloader_format/libesp_bootloader_format.a	a5cff009eb2de8e4
+529	1311	7978177157712698	bootloader.elf	eb3a990e73418fd4
+1312	1870	7978177171055712	.bin_timestamp	19ac3de9c313b0ea
+1312	1870	7978177171055712	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/.bin_timestamp	19ac3de9c313b0ea
+1871	2083	7978177171111411	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+1871	2083	7978177171111411	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+42	220	7978177288639568	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+42	220	7978177288639568	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+36	310	7978193107427907	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+36	310	7978193107427907	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+31	200	7978193246508702	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+31	200	7978193246508702	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+34	214	7978198008532633	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+34	214	7978198008532633	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+34	205	7978198283746656	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+34	205	7978198283746656	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+44	254	7978198418112680	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907
+44	254	7978198418112680	C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	60fc4015b9eba907

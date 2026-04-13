@@ -1,3 +1,13 @@
+// For bool, true, false
+#include <stdbool.h>
+// --- Smoothing filter initialization flags ---
+static bool filter_ina1_initialized = false;
+static bool filter_ina2_initialized = false;
+// --- Smoothing filter globals ---
+static float filtered_ina1_current_ma = 0.0f;
+static float filtered_ina2_current_ma = 0.0f;
+static float filtered_ina1_power_mw = 0.0f;
+static float filtered_ina2_power_mw = 0.0f;
 #include "esp_log.h"
 #include "driver/ledc.h"
 #include "driver/gpio.h"
@@ -593,59 +603,88 @@ void app_main(void)
         esp_err_t ina1_err = synchronized_ina1_error;
         esp_err_t ina2_err = synchronized_ina2_error;
         err = tmp117_read_temperature_c(TMP117_ADDR, &temp_c);
-        if (err == ESP_OK) {
-            float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
+        float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
 
+        // --- Exponential moving average smoothing for INA readings with initialization ---
+        const float alpha = 0.2f; // Smoothing factor (0.1-0.3 typical)
+        if (ina1_err == ESP_OK) {
+            float curr_ma = ina1_measurement.current_a * 1000.0f;
+            float pow_mw = ina1_measurement.power_w * 1000.0f;
+            if (!filter_ina1_initialized) {
+                filtered_ina1_current_ma = curr_ma;
+                filtered_ina1_power_mw = pow_mw;
+                filter_ina1_initialized = true;
+            } else {
+                filtered_ina1_current_ma = alpha * curr_ma + (1.0f - alpha) * filtered_ina1_current_ma;
+                filtered_ina1_power_mw = alpha * pow_mw + (1.0f - alpha) * filtered_ina1_power_mw;
+            }
+        }
+        if (ina2_err == ESP_OK) {
+            float curr_ma = ina2_measurement.current_a * 1000.0f;
+            float pow_mw = ina2_measurement.power_w * 1000.0f;
+            if (!filter_ina2_initialized) {
+                filtered_ina2_current_ma = curr_ma;
+                filtered_ina2_power_mw = pow_mw;
+                filter_ina2_initialized = true;
+            } else {
+                filtered_ina2_current_ma = alpha * curr_ma + (1.0f - alpha) * filtered_ina2_current_ma;
+                filtered_ina2_power_mw = alpha * pow_mw + (1.0f - alpha) * filtered_ina2_power_mw;
+            }
+        }
+
+        if (err == ESP_OK) {
             if (ina1_err == ESP_OK && ina2_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: %.2f°F\n"
-                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW\n"
-                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F\n"
+                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)\n"
+                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
                     current_pump_percent,
+                    temp_c,
                     temp_f,
                     ina1_measurement.bus_voltage_v,
                     ina1_measurement.shunt_voltage_v * 1000.0f,
-                    ina1_measurement.current_a * 1000.0f,
-                    ina1_measurement.power_w * 1000.0f,
+                    filtered_ina1_current_ma,
+                    filtered_ina1_power_mw,
                     ina2_measurement.bus_voltage_v,
                     ina2_measurement.shunt_voltage_v * 1000.0f,
-                    ina2_measurement.current_a * 1000.0f,
-                    ina2_measurement.power_w * 1000.0f);
+                    filtered_ina2_current_ma,
+                    filtered_ina2_power_mw);
                 ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
                 ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
             } else if (ina1_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: %.2f°F\n"
-                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F\n"
+                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
                     current_pump_percent,
+                    temp_c,
                     temp_f,
                     ina1_measurement.bus_voltage_v,
                     ina1_measurement.shunt_voltage_v * 1000.0f,
-                    ina1_measurement.current_a * 1000.0f,
-                    ina1_measurement.power_w * 1000.0f);
+                    filtered_ina1_current_ma,
+                    filtered_ina1_power_mw);
                 ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
                 ESP_LOGW(TAG, "INA2 read failed: %s", esp_err_to_name(ina2_err));
             } else if (ina2_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: %.2f°F\n"
-                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F\n"
+                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
                     current_pump_percent,
+                    temp_c,
                     temp_f,
                     ina2_measurement.bus_voltage_v,
                     ina2_measurement.shunt_voltage_v * 1000.0f,
-                    ina2_measurement.current_a * 1000.0f,
-                    ina2_measurement.power_w * 1000.0f);
+                    filtered_ina2_current_ma,
+                    filtered_ina2_power_mw);
                 ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
                 ESP_LOGW(TAG, "INA1 read failed: %s", esp_err_to_name(ina1_err));
             } else {
-                ESP_LOGI(TAG, "Pump PWM: %u%% | TMP117: %.2f°F", current_pump_percent, temp_f);
+                ESP_LOGI(TAG, "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F", current_pump_percent, temp_c, temp_f);
                 ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
                 ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
             }
-            
             // In AUTOMATIC mode, adjust pump based on temperature
             if (control_mode == CONTROL_AUTOMATIC) {
                 update_pump_auto(temp_f);
@@ -655,11 +694,13 @@ void app_main(void)
             if (ina1_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    "Pump PWM: %u%% | TMP117: (read failed)\n"
+                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
+                    current_pump_percent,
                     ina1_measurement.bus_voltage_v,
                     ina1_measurement.shunt_voltage_v * 1000.0f,
-                    ina1_measurement.current_a * 1000.0f,
-                    ina1_measurement.power_w * 1000.0f);
+                    filtered_ina1_current_ma,
+                    filtered_ina1_power_mw);
                 ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
             } else {
                 ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
@@ -668,11 +709,13 @@ void app_main(void)
             if (ina2_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW",
+                    "Pump PWM: %u%% | TMP117: (read failed)\n"
+                    "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
+                    current_pump_percent,
                     ina2_measurement.bus_voltage_v,
                     ina2_measurement.shunt_voltage_v * 1000.0f,
-                    ina2_measurement.current_a * 1000.0f,
-                    ina2_measurement.power_w * 1000.0f);
+                    filtered_ina2_current_ma,
+                    filtered_ina2_power_mw);
                 ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
             } else {
                 ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
