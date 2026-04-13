@@ -4,8 +4,24 @@
 #include "esp_log.h"
 #include "esp_intr_types.h" 
 #include "i2c_with_tmp117.h"
+#include "pump_Operation.h"
 
 #include "driver/gpio.h" //header file for GPIO control
+
+#define LED1 GPIO_NUM_21
+#define LED2 GPIO_NUM_18
+#define LED3 GPIO_NUM_17
+
+static void led_on(gpio_num_t pin)
+{
+    gpio_set_direction(pin, GPIO_MODE_OUTPUT);
+    gpio_set_level(pin, 1);
+}
+
+static void led_off(gpio_num_t pin)
+{
+    gpio_set_level(pin, 0);
+}
 
 
 void system_startUp(void) {

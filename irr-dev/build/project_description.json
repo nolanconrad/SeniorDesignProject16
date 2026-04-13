@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "irr-dev",
-    "project_version":    "bf3e909-dirty",
+    "project_version":    "feaed18-dirty",
     "project_path":       "C:/Senior Design/SeniorDesignProject16/irr-dev",
     "idf_path":           "C:/esp/v5.5.1/esp-idf",
     "build_dir":          "C:/Senior Design/SeniorDesignProject16/irr-dev/build",

@@ -2,7 +2,7 @@
 #include "driver/ledc.h"
 #include "freertos/FreeRTOS.h"
 
-#define PUMP_PIN GPIO_NUM_XX  // Replace XX with your pin number
+#define PUMP_PIN GPIO_NUM_8
 
 static int pump_mode = 0; //this makes it never change and is stored in global memory 
 
@@ -41,20 +41,18 @@ void pump_Set_Mode(int mode) {
 */
 
 void man_Pump_On(int intensity) {
+    (void)intensity;
     gpio_set_level(PUMP_PIN, 1); //change this
     // Set PWM duty cycle based on intensity (0-255)
 }
 
 void automatic_Pump_On(void) {
     gpio_set_level(PUMP_PIN, 1); //change this
-    // Implement logic to determine intensity based on sensor data
-    if (temp1 > threshold1 + 10) {
-        // Set high intensity
-    } else if (temp1 > threshold1) {
-        // Set medium intensity
-    } else {
-        // Set low intensity
-    }
+    // TODO: implement sensor-driven pump intensity logic.
+}
+
+void pump_on(void) {
+    man_Pump_On(255);
 }
 
 void pump_off(void) {
@@ -66,18 +64,26 @@ void pump_Operation(void) {
     switch(pump_mode) {
         case 1:
             //automatic mode
+            automatic_Pump_On();
             break; 
         case 2:
             //manual mode low
+            man_Pump_On(85);
             break;
         case 3:
             //manual mode medium
+            man_Pump_On(170);
             break;
         case 4:
-            //manual mode high    
-        break;  
+            //manual mode high
+            man_Pump_On(255);
+            break;
         case 5:
             //stop pump
-        break;
+            pump_off();
+            break;
+        default:
+            pump_off();
+            break;
     }
 }
