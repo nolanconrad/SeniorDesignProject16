@@ -69,16 +69,11 @@ static void gatts_event_handler(esp_gatts_cb_event_t event,
         esp_ble_gap_set_device_name("ESP32-Nano");
         esp_ble_gap_config_adv_data(&adv_data);
 
-        esp_gatt_srvc_id_t service_id = {
-            .is_primary = true,
-            .id = {
-                .inst_id = 0,
-                .uuid = {
-                    .len = ESP_UUID_LEN_16,
-                    .uuid = { .uuid16 = SERVICE_UUID }
-                }
-            }
-        };
+        esp_gatt_srvc_id_t service_id = {};
+        service_id.is_primary = true;
+        service_id.id.inst_id = 0;
+        service_id.id.uuid.len = ESP_UUID_LEN_16;
+        service_id.id.uuid.uuid.uuid16 = SERVICE_UUID;
         esp_ble_gatts_create_service(gatts_if, &service_id, GATTS_NUM_HANDLE);
         break;
     }

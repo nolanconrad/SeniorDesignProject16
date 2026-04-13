@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/nolan/esp/v5.5.1/esp-idf/components/esp_http_client
+# Install script for directory: C:/esp/v5.5.1/esp-idf/components/esp_http_client
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/esp-idf-i2c-project")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/irr-dev")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/nolan/esp/v5.5.1/esp-idf
+# Install script for directory: C:/esp/v5.5.1/esp-idf
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/esp-idf-i2c-project")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/irr-dev")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -569,6 +569,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Senior Design/SeniorDesignProject16/irr-dev/build/esp-idf/pump_Operation/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Senior Design/SeniorDesignProject16/irr-dev/build/esp-idf/system_startUp/cmake_install.cmake")
 endif()
 
@@ -594,11 +599,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Senior Design/SeniorDesignProject16/irr-dev/build/esp-idf/main/cmake_install.cmake")
+  include("C:/Senior Design/SeniorDesignProject16/irr-dev/build/esp-idf/ble/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Senior Design/SeniorDesignProject16/irr-dev/build/esp-idf/pump_Operation/cmake_install.cmake")
+  include("C:/Senior Design/SeniorDesignProject16/irr-dev/build/esp-idf/main/cmake_install.cmake")
 endif()
 

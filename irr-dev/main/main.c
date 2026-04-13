@@ -133,7 +133,7 @@ void app_main(void)
             
             case MODE_AUTOMATIC:
                 // Automatic mode - system controls based on sensors
-                static xTaskHandle auto_task = NULL;
+                static TaskHandle_t auto_task = NULL;
                 if (auto_task == NULL) {
                     xTaskCreate(automatic_mode_task, "auto_mode", 2048, NULL, 5, &auto_task);
                 }
