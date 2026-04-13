@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "springMain_v2",
-    "project_version":    "b6cee86-dirty",
+    "project_version":    "887ec8e-dirty",
     "project_path":       "C:/Senior Design/SeniorDesignProject16/springMain_v2",
     "idf_path":           "C:/esp/v5.5.1/esp-idf",
     "build_dir":          "C:/Senior Design/SeniorDesignProject16/springMain_v2/build",
@@ -1251,7 +1251,7 @@
             "type": "LIBRARY",
             "lib": "__idf_main",
             "reqs": [ "i2c", "tmp117", "ina226", "pumpOperation" ],
-            "priv_reqs": [],
+            "priv_reqs": [ "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Senior Design/SeniorDesignProject16/springMain_v2/build/esp-idf/main/libmain.a",
@@ -2983,7 +2983,7 @@
             "dir": "C:/Senior Design/SeniorDesignProject16/springMain_v2/main",
             "lib": "__idf_main",
             "reqs": [ "i2c", "tmp117", "ina226", "pumpOperation" ],
-            "priv_reqs": [],
+            "priv_reqs": [ "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "include_dirs": [ "." ]

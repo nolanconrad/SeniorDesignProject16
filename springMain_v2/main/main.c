@@ -3,6 +3,8 @@
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/semphr.h"
+#include "esp_timer.h"
 #include "ina226.h"
 #include "tmp117.h"
 #include "i2c_bus.h"
@@ -54,6 +56,12 @@ static const char *TAG = "SYSTEM";
 #define BUTTON_POLL_INTERVAL_MS 50
 #define SENSOR_READ_INTERVAL_MS 2000
 
+// PWM-synchronized INA reading configuration
+#define PWM_PERIOD_MS (1000 / PWM_FREQ_HZ)     // 2ms at 500Hz
+#define INA_READ_OFFSET_MS 3                    // Read 3ms after PWM start
+#define INA_READING_TASK_PRIORITY (tskIDLE_PRIORITY + 2)
+#define INA_READING_TASK_STACK_SIZE 4096
+
 // Control mode enum
 typedef enum {
     CONTROL_MANUAL = 0,
@@ -92,6 +100,45 @@ static void update_flash_leds(uint32_t current_ms);
 static void update_status_leds(uint32_t current_ms);
 static void update_animation_leds(uint32_t current_ms);
 
+// PWM-synchronized INA reading callback - fires at 500Hz (every 2ms)
+static void pwm_sync_timer_callback(void *arg)
+{
+    // Signal the INA reading task to perform synchronized read
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    xSemaphoreGiveFromISR(ina_read_semaphore, &xHigherPriorityTaskWoken);
+    if (xHigherPriorityTaskWoken == pdTRUE) {
+        portYIELD_FROM_ISR();
+    }
+}
+
+// Dedicated task for synchronized INA readings
+static void ina_reading_task(void *arg)
+{
+    while (1) {
+        // Wait for semaphore signal from PWM sync timer
+        if (xSemaphoreTake(ina_read_semaphore, portMAX_DELAY) == pdTRUE) {
+            // Delay 3ms after PWM start to allow current to stabilize
+            vTaskDelay(pdMS_TO_TICKS(INA_READ_OFFSET_MS));
+            
+            // Read both INA sensors synchronously
+            synchronized_ina1_error = ina226_read_measurement(
+                INA226_1_ADDR,
+                INA226_PUMP_SHUNT_RESISTANCE_OHM,
+                &synchronized_ina1_measurement);
+            
+            synchronized_ina2_error = ina226_read_measurement(
+                INA226_2_ADDR,
+                INA226_LOGIC_SHUNT_RESISTANCE_OHM,
+                &synchronized_ina2_measurement);
+            
+            // Log synchronization event (debug)
+            ESP_LOGD(TAG, "INA readings synchronized at PWM cycle + 3ms");
+        }
+    }
+}
+
+
+
 // Global state
 static uint32_t current_pump_percent = PUMP_START_PERCENT;
 static control_mode_t control_mode = CONTROL_MANUAL;  // Start in manual mode
@@ -104,6 +151,14 @@ static uint8_t anim_led_index = 0;  // Which LED in the animation sequence (0-4 
 static button_state_t button_d2 = {BUTTON_D2, true, true};
 static button_state_t button_a2 = {BUTTON_A2, true, true};
 static button_state_t button_a3 = {BUTTON_A3, true, true};
+
+// PWM-synchronized INA reading
+static SemaphoreHandle_t ina_read_semaphore = NULL;
+static esp_timer_handle_t pwm_sync_timer = NULL;
+static ina226_measurement_t synchronized_ina1_measurement = {0};
+static ina226_measurement_t synchronized_ina2_measurement = {0};
+static esp_err_t synchronized_ina1_error = ESP_OK;
+static esp_err_t synchronized_ina2_error = ESP_OK;
 
 static void set_pump_percent(uint32_t pump_percent)
 {
@@ -287,6 +342,61 @@ static void init_pump(void)
     ESP_LOGI(TAG, "Pump PWM initialized at %d Hz", PWM_FREQ_HZ);
 }
 
+// Initialize PWM-synchronized INA reading system
+static void init_ina_sync_reading(void)
+{
+    // Create binary semaphore for INA reading synchronization
+    ina_read_semaphore = xSemaphoreCreateBinary();
+    if (ina_read_semaphore == NULL) {
+        ESP_LOGE(TAG, "Failed to create INA read semaphore");
+        return;
+    }
+    ESP_LOGD(TAG, "INA read semaphore created");
+
+    // Create high-resolution timer for PWM synchronization
+    const esp_timer_create_args_t timer_args = {
+        .callback = pwm_sync_timer_callback,
+        .name = "pwm_sync_timer",
+        .arg = NULL,
+        .dispatch_method = ESP_TIMER_TASK,
+    };
+
+    esp_err_t err = esp_timer_create(&timer_args, &pwm_sync_timer);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to create PWM sync timer: %s", esp_err_to_name(err));
+        return;
+    }
+
+    // Start timer with period matching PWM frequency (2ms at 500Hz)
+    uint64_t timer_period_us = (PWM_PERIOD_MS * 1000);
+    err = esp_timer_start_periodic(pwm_sync_timer, timer_period_us);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to start PWM sync timer: %s", esp_err_to_name(err));
+        return;
+    }
+
+    ESP_LOGI(TAG, "PWM sync timer started: %llu us period (%.1f Hz)", timer_period_us, 1000000.0f / timer_period_us);
+
+    // Create dedicated high-priority task for synchronized INA readings
+    TaskHandle_t task_handle;
+    BaseType_t task_result = xTaskCreate(
+        ina_reading_task,
+        "ina_reading_task",
+        INA_READING_TASK_STACK_SIZE,
+        NULL,
+        INA_READING_TASK_PRIORITY,
+        &task_handle);
+
+    if (task_result != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create INA reading task");
+        return;
+    }
+
+    ESP_LOGI(TAG, "INA synchronized reading system initialized");
+}
+
+
+
 static void init_buttons_and_led(void)
 {
     // Configure indicator LED outputs (D9, D8, D7)
@@ -376,6 +486,9 @@ void app_main(void)
 
     // Initialize pump
     init_pump();
+    
+    // Initialize PWM-synchronized INA reading system
+    init_ina_sync_reading();
     
     // Initialize buttons and LED
     init_buttons_and_led();
@@ -467,10 +580,11 @@ void app_main(void)
         }
 
         float temp_c = 0.0f;
-        ina226_measurement_t ina1_measurement = {0};
-        ina226_measurement_t ina2_measurement = {0};
-        esp_err_t ina1_err = ina226_read_measurement(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM, &ina1_measurement);
-        esp_err_t ina2_err = ina226_read_measurement(INA226_2_ADDR, INA226_LOGIC_SHUNT_RESISTANCE_OHM, &ina2_measurement);
+        // Use the most recent synchronized INA readings (updated continuously at PWM frequency)
+        ina226_measurement_t ina1_measurement = synchronized_ina1_measurement;
+        ina226_measurement_t ina2_measurement = synchronized_ina2_measurement;
+        esp_err_t ina1_err = synchronized_ina1_error;
+        esp_err_t ina2_err = synchronized_ina2_error;
         err = tmp117_read_temperature_c(TMP117_ADDR, &temp_c);
         if (err == ESP_OK) {
             float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
