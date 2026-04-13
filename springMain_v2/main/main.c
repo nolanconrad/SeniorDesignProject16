@@ -9,6 +9,14 @@
 #include "tmp117.h"
 #include "i2c_bus.h"
 
+// --- Synchronized INA reading globals ---
+static SemaphoreHandle_t ina_read_semaphore = NULL;
+static ina226_measurement_t synchronized_ina1_measurement = {0};
+static ina226_measurement_t synchronized_ina2_measurement = {0};
+static esp_err_t synchronized_ina1_error = ESP_OK;
+static esp_err_t synchronized_ina2_error = ESP_OK;
+
+
 static const char *TAG = "SYSTEM";
 
 // PWM Configuration
@@ -151,14 +159,7 @@ static uint8_t anim_led_index = 0;  // Which LED in the animation sequence (0-4 
 static button_state_t button_d2 = {BUTTON_D2, true, true};
 static button_state_t button_a2 = {BUTTON_A2, true, true};
 static button_state_t button_a3 = {BUTTON_A3, true, true};
-
-// PWM-synchronized INA reading
-static SemaphoreHandle_t ina_read_semaphore = NULL;
 static esp_timer_handle_t pwm_sync_timer = NULL;
-static ina226_measurement_t synchronized_ina1_measurement = {0};
-static ina226_measurement_t synchronized_ina2_measurement = {0};
-static esp_err_t synchronized_ina1_error = ESP_OK;
-static esp_err_t synchronized_ina2_error = ESP_OK;
 
 static void set_pump_percent(uint32_t pump_percent)
 {
@@ -232,19 +233,19 @@ static void update_animation_leds(uint32_t current_ms)
     if (current_ms - last_anim_update_ms >= LED_ANIM_INTERVAL_MS) {
         last_anim_update_ms = current_ms;
         anim_led_index = (anim_led_index + 1) % 5;  // Cycle through 5 animation LEDs
-        
+
         // Set animation LEDs based on current index
         // Index 0: D5 on
         // Index 1: D5+D6 on
         // Index 2: D5+D6+D7 on
         // Index 3: D5+D6+D7+D8 on
         // Index 4: D5+D6+D7+D8+D9 on
-        gpio_set_level(LED_ANIM_D5, anim_led_index >= 0 ? 1 : 0);
+        gpio_set_level(LED_ANIM_D5, anim_led_index >= 0 && anim_led_index < 5 ? 1 : 0); // Always on in animation
         gpio_set_level(LED_ANIM_D6, anim_led_index >= 1 ? 1 : 0);
         gpio_set_level(LED_ANIM_D7, anim_led_index >= 2 ? 1 : 0);
         gpio_set_level(LED_ANIM_D8, anim_led_index >= 3 ? 1 : 0);
         gpio_set_level(LED_ANIM_D9, anim_led_index >= 4 ? 1 : 0);
-        
+
         ESP_LOGD(TAG, "Auto mode animation frame: %d", anim_led_index);
     }
 }
@@ -488,6 +489,12 @@ void app_main(void)
     init_pump();
     
     // Initialize PWM-synchronized INA reading system
+    // Create binary semaphore for INA reading synchronization (if not already created)
+    ina_read_semaphore = xSemaphoreCreateBinary();
+    if (ina_read_semaphore == NULL) {
+        ESP_LOGE(TAG, "Failed to create INA read semaphore");
+        return;
+    }
     init_ina_sync_reading();
     
     // Initialize buttons and LED
