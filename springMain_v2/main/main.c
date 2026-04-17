@@ -1,13 +1,5 @@
-// For bool, true, false
 #include <stdbool.h>
-// --- Smoothing filter initialization flags ---
-static bool filter_ina1_initialized = false;
-static bool filter_ina2_initialized = false;
-// --- Smoothing filter globals ---
-static float filtered_ina1_current_ma = 0.0f;
-static float filtered_ina2_current_ma = 0.0f;
-static float filtered_ina1_power_mw = 0.0f;
-static float filtered_ina2_power_mw = 0.0f;
+
 #include "esp_log.h"
 #include "driver/ledc.h"
 #include "driver/gpio.h"
@@ -18,6 +10,17 @@ static float filtered_ina2_power_mw = 0.0f;
 #include "ina226.h"
 #include "tmp117.h"
 #include "i2c_bus.h"
+#include "ble_handler.h"
+
+// --- Smoothing filter initialization flags ---
+static bool filter_ina1_initialized = false;
+static bool filter_ina2_initialized = false;
+
+// --- Smoothing filter globals ---
+static float filtered_ina1_current_ma = 0.0f;
+static float filtered_ina2_current_ma = 0.0f;
+static float filtered_ina1_power_mw = 0.0f;
+static float filtered_ina2_power_mw = 0.0f;
 
 // --- Synchronized INA reading globals ---
 static SemaphoreHandle_t ina_read_semaphore = NULL;
@@ -25,7 +28,6 @@ static ina226_measurement_t synchronized_ina1_measurement = {0};
 static ina226_measurement_t synchronized_ina2_measurement = {0};
 static esp_err_t synchronized_ina1_error = ESP_OK;
 static esp_err_t synchronized_ina2_error = ESP_OK;
-
 
 static const char *TAG = "SYSTEM";
 
@@ -250,7 +252,7 @@ static void update_animation_leds(uint32_t current_ms)
         // Index 2: D5+D6+D7 on
         // Index 3: D5+D6+D7+D8 on
         // Index 4: D5+D6+D7+D8+D9 on
-        gpio_set_level(LED_ANIM_D5, anim_led_index >= 0 && anim_led_index < 5 ? 1 : 0); // Always on in animation
+        gpio_set_level(LED_ANIM_D5, anim_led_index < 5 ? 1 : 0); // Always on in animation
         gpio_set_level(LED_ANIM_D6, anim_led_index >= 1 ? 1 : 0);
         gpio_set_level(LED_ANIM_D7, anim_led_index >= 2 ? 1 : 0);
         gpio_set_level(LED_ANIM_D8, anim_led_index >= 3 ? 1 : 0);
@@ -497,21 +499,14 @@ void app_main(void)
 
     // Initialize pump
     init_pump();
-    
+
     // Initialize PWM-synchronized INA reading system
-    // Create binary semaphore for INA reading synchronization (if not already created)
-    ina_read_semaphore = xSemaphoreCreateBinary();
-    if (ina_read_semaphore == NULL) {
-        ESP_LOGE(TAG, "Failed to create INA read semaphore");
-        return;
-    }
     init_ina_sync_reading();
-    
-    // Initialize buttons and LED
+
+    // Initialize buttons and LEDs
     init_buttons_and_led();
 
-
-    // Check TMP117 only at 7-bit I2C address 0x48 (8-bit form: 1001000x)
+    // Initialize TMP117
     esp_err_t terr = tmp117_init(TMP117_ADDR);
     if (terr == ESP_OK) {
         ESP_LOGI(TAG, "TMP117 found and initialized at 0x%02X", TMP117_ADDR);
@@ -519,6 +514,7 @@ void app_main(void)
         ESP_LOGE(TAG, "TMP117 not found at 0x%02X: %s", TMP117_ADDR, esp_err_to_name(terr));
     }
 
+    // Initialize INA226 #1
     err = ina226_init(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);
     if (err != ESP_OK) {
         ESP_LOGW(TAG, "PUMP (INA1, 0x%02X) not found: %s", INA226_1_ADDR, esp_err_to_name(err));
@@ -526,12 +522,17 @@ void app_main(void)
         ESP_LOGI(TAG, "PUMP (INA1, 0x%02X) initialized", INA226_1_ADDR);
     }
 
+    // Initialize INA226 #2
     err = ina226_init(INA226_2_ADDR, INA226_LOGIC_SHUNT_RESISTANCE_OHM);
     if (err != ESP_OK) {
         ESP_LOGW(TAG, "LOGIC (INA2, 0x%02X) not found: %s", INA226_2_ADDR, esp_err_to_name(err));
     } else {
         ESP_LOGI(TAG, "LOGIC (INA2, 0x%02X) initialized", INA226_2_ADDR);
     }
+
+    // Initialize BLE
+    ble_init();
+    ESP_LOGI(TAG, "BLE initialized");
 
     // Set initial pump speed
     set_pump_percent(PUMP_START_PERCENT);
@@ -543,29 +544,22 @@ void app_main(void)
     ESP_LOGI(TAG, "  MANUAL mode: Pump level shown on D9/D8/D7 LEDs");
     ESP_LOGI(TAG, "  AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9");
 
-    // Main loop - poll buttons frequently, read sensors every 3 seconds
     while (1) {
-        // Poll buttons frequently between sensor reads for responsive controls.
         const int poll_loops = SENSOR_READ_INTERVAL_MS / BUTTON_POLL_INTERVAL_MS;
+
         for (int i = 0; i < poll_loops; i++) {
             uint32_t now_ms = esp_log_timestamp();
-            
-            // Update status LEDs based on mode (flash in manual, on in auto)
+
             update_status_leds(now_ms);
-            
-            // Update flashing LEDs if at 100%
             update_flash_leds(now_ms);
-            
-            // Check buttons with simple debounce
+
             if (button_pressed(&button_d2)) {
                 toggle_led();
-                // Reset animation index when switching modes
                 anim_led_index = 0;
                 last_anim_update_ms = now_ms;
-                // Reset status LED toggle timing
                 status_led_state = false;
                 last_status_led_toggle_ms = now_ms;
-                // Turn off animation LEDs when entering MANUAL mode
+
                 if (control_mode == CONTROL_MANUAL) {
                     gpio_set_level(LED_ANIM_D5, 0);
                     gpio_set_level(LED_ANIM_D6, 0);
@@ -575,23 +569,25 @@ void app_main(void)
                 }
             }
 
-            // A2/A3 buttons only work in MANUAL mode
             if (control_mode == CONTROL_MANUAL) {
                 if (button_pressed(&button_a2)) {
                     uint32_t new_percent = current_pump_percent + PUMP_INCREMENT;
-                    if (new_percent > 100) new_percent = 100;
+                    if (new_percent > 100) {
+                        new_percent = 100;
+                    }
                     set_pump_percent(new_percent);
                     ESP_LOGI(TAG, "Pump increased to %d%%", new_percent);
                 }
 
                 if (button_pressed(&button_a3)) {
                     int32_t new_percent = (int32_t)current_pump_percent - PUMP_INCREMENT;
-                    if (new_percent < 0) new_percent = 0;
+                    if (new_percent < 0) {
+                        new_percent = 0;
+                    }
                     set_pump_percent((uint32_t)new_percent);
                     ESP_LOGI(TAG, "Pump decreased to %d%%", (uint32_t)new_percent);
                 }
             } else {
-                // In AUTOMATIC mode, update animation LEDs
                 update_animation_leds(now_ms);
             }
 
@@ -599,16 +595,16 @@ void app_main(void)
         }
 
         float temp_c = 0.0f;
-        // Use the most recent synchronized INA readings (updated continuously at PWM frequency)
         ina226_measurement_t ina1_measurement = synchronized_ina1_measurement;
         ina226_measurement_t ina2_measurement = synchronized_ina2_measurement;
         esp_err_t ina1_err = synchronized_ina1_error;
         esp_err_t ina2_err = synchronized_ina2_error;
+
         err = tmp117_read_temperature_c(TMP117_ADDR, &temp_c);
         float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
 
-        // --- Exponential moving average smoothing for INA readings with initialization ---
-        const float alpha = 0.2f; // Smoothing factor (0.1-0.3 typical)
+        const float alpha = 0.2f;
+
         if (ina1_err == ESP_OK) {
             float curr_ma = ina1_measurement.current_a * 1000.0f;
             float pow_mw = ina1_measurement.power_w * 1000.0f;
@@ -621,6 +617,7 @@ void app_main(void)
                 filtered_ina1_power_mw = alpha * pow_mw + (1.0f - alpha) * filtered_ina1_power_mw;
             }
         }
+
         if (ina2_err == ESP_OK) {
             float curr_ma = ina2_measurement.current_a * 1000.0f;
             float pow_mw = ina2_measurement.power_w * 1000.0f;
@@ -652,8 +649,25 @@ void app_main(void)
                     ina2_measurement.shunt_voltage_v * 1000.0f,
                     filtered_ina2_current_ma,
                     filtered_ina2_power_mw);
-                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
-                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
+
+                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X",
+                         INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
+                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X",
+                         INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
+
+                if (ble_is_connected()) {
+                    char msg[160];
+                    snprintf(
+                        msg,
+                        sizeof(msg),
+                        "TempF=%.2f,Pump=%lu,INA1=%.2fmA,INA2=%.2fmA",
+                        temp_f,
+                        current_pump_percent,
+                        filtered_ina1_current_ma,
+                        filtered_ina2_current_ma);
+                    ble_notify(msg);
+                }
+
             } else if (ina1_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
@@ -666,8 +680,11 @@ void app_main(void)
                     ina1_measurement.shunt_voltage_v * 1000.0f,
                     filtered_ina1_current_ma,
                     filtered_ina1_power_mw);
-                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
+
+                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X",
+                         INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
                 ESP_LOGW(TAG, "INA2 read failed: %s", esp_err_to_name(ina2_err));
+
             } else if (ina2_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
@@ -680,19 +697,25 @@ void app_main(void)
                     ina2_measurement.shunt_voltage_v * 1000.0f,
                     filtered_ina2_current_ma,
                     filtered_ina2_power_mw);
-                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
+
+                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X",
+                         INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
                 ESP_LOGW(TAG, "INA1 read failed: %s", esp_err_to_name(ina1_err));
+
             } else {
-                ESP_LOGI(TAG, "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F", current_pump_percent, temp_c, temp_f);
+                ESP_LOGI(TAG, "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F",
+                         current_pump_percent, temp_c, temp_f);
                 ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
                 ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
             }
-            // In AUTOMATIC mode, adjust pump based on temperature
+
             if (control_mode == CONTROL_AUTOMATIC) {
                 update_pump_auto(temp_f);
             }
+
         } else {
             ESP_LOGW(TAG, "TMP117 read failed: %s", esp_err_to_name(err));
+
             if (ina1_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
@@ -703,7 +726,8 @@ void app_main(void)
                     ina1_measurement.shunt_voltage_v * 1000.0f,
                     filtered_ina1_current_ma,
                     filtered_ina1_power_mw);
-                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
+                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X",
+                         INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
             } else {
                 ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
             }
@@ -718,7 +742,8 @@ void app_main(void)
                     ina2_measurement.shunt_voltage_v * 1000.0f,
                     filtered_ina2_current_ma,
                     filtered_ina2_power_mw);
-                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X", INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
+                ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X",
+                         INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
             } else {
                 ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
             }
