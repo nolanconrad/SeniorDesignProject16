@@ -197,27 +197,14 @@ int ina226_init(void)
 
     i2c_master_bus_handle_t bus_handle = get_i2c_bus_handle();
 
-    if (bus_handle == NULL) 
-    {
-        ESP_LOGE(TAG, "I2C bus not initialized before INA226 init");
-        return -1;
+    if (ina226_bus_handle == NULL) {
+        ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_bus_config, &ina226_bus_handle));
     }
 
-    // Add INA226 device to bus
-    i2c_device_config_t ina226_config = {
-        .dev_addr_length = I2C_ADDR_BIT_LEN_7,
-        .device_address = INA226_I2C_ADDR,
-        .scl_speed_hz = 100000,
-    };
-
-    esp_err_t ret = ESP_OK;
-    if (ina226_handle == NULL) {
-        ret = i2c_master_bus_add_device(bus_handle, &ina226_config, &ina226_handle);
-    }
-    
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to add INA226 to I2C bus: %s", esp_err_to_name(ret));
-        return -1;
+    for (uint8_t i = 0; i < INA226_DEVICE_COUNT; i++) {
+        if (ina226_init_device(i) != 0) {
+            return -1;
+        }
     }
 
     ESP_LOGI(TAG, "INA226 dual-device initialization complete");
