@@ -6,6 +6,7 @@
 #include "freertos/task.h"
 #include "driver/i2c_master.h"
 #include "esp_log.h"
+#include "i2c_with_tmp117.h"
 
 static const char *TAG = "INA226";
 
@@ -194,25 +195,29 @@ int ina226_init(void)
 {
     ESP_LOGI(TAG, "Initializing INA226 power monitors (0x40, 0x41)");
 
-    // Configure I2C bus if not already done
-    i2c_master_bus_config_t i2c_bus_config = {
-        .i2c_port = I2C_NUM_0,
-        .scl_io_num = 6,
-        .sda_io_num = 5,
-        .clk_source = I2C_CLK_SRC_DEFAULT,
-        .glitch_ignore_cnt = 7,
-        .intr_priority = 0,
-        .flags.enable_internal_pullup = true,
-    };
+    i2c_master_bus_handle_t bus_handle = get_i2c_bus_handle();
 
-    if (ina226_bus_handle == NULL) {
-        ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_bus_config, &ina226_bus_handle));
+    if (bus_handle == NULL) 
+    {
+        ESP_LOGE(TAG, "I2C bus not initialized before INA226 init");
+        return -1;
     }
 
-    for (uint8_t i = 0; i < INA226_DEVICE_COUNT; i++) {
-        if (ina226_init_device(i) != 0) {
-            return -1;
-        }
+    // Add INA226 device to bus
+    i2c_device_config_t ina226_config = {
+        .dev_addr_length = I2C_ADDR_BIT_LEN_7,
+        .device_address = INA226_I2C_ADDR,
+        .scl_speed_hz = 100000,
+    };
+
+    esp_err_t ret = ESP_OK;
+    if (ina226_handle == NULL) {
+        ret = i2c_master_bus_add_device(bus_handle, &ina226_config, &ina226_handle);
+    }
+    
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to add INA226 to I2C bus: %s", esp_err_to_name(ret));
+        return -1;
     }
 
     ESP_LOGI(TAG, "INA226 dual-device initialization complete");

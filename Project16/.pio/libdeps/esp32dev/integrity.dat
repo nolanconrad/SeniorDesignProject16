@@ -1,0 +1,4 @@
+pfeerick/elapsedMillis @ ^1.0.6
+arduino-libraries/LiquidCrystal@^1.0.7
+milesburton/DallasTemperature @ ^3.11.0
+paulstoffregen/OneWire @ ^2.3.8
