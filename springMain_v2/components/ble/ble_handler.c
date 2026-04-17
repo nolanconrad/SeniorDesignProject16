@@ -127,10 +127,13 @@ static void gatts_event_handler(esp_gatts_cb_event_t event,
         memcpy(buf, param->write.value, param->write.len);
         ESP_LOGI(TAG, "Received: %s", buf);
 
-        if (strcmp(buf, "ON") == 0) {
-            // do your ON logic here
-        } else if (strcmp(buf, "OFF") == 0) {
-            // do your OFF logic here
+        if (strcmp(buf, "ON") == 0) 
+        {
+            pump_operation_set_duty_percent(100);
+        } 
+        else if (strcmp(buf, "OFF") == 0) 
+        {
+            pump_operation_stop();
         }
         break;
     }

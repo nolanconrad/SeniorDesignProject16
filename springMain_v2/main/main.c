@@ -1,7 +1,7 @@
+#include <stdio.h>
 #include <stdbool.h>
 
 #include "esp_log.h"
-#include "driver/ledc.h"
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -10,6 +10,7 @@
 #include "ina226.h"
 #include "tmp117.h"
 #include "i2c_bus.h"
+#include "pumpOperation.h"
 #include "ble_handler.h"
 
 // --- Smoothing filter initialization flags ---
@@ -30,14 +31,6 @@ static esp_err_t synchronized_ina1_error = ESP_OK;
 static esp_err_t synchronized_ina2_error = ESP_OK;
 
 static const char *TAG = "SYSTEM";
-
-// PWM Configuration
-#define PWM_LINE_GPIO GPIO_NUM_1   // Nano ESP32 A0 = GPIO1
-#define PWM_TIMER LEDC_TIMER_0
-#define PWM_MODE LEDC_LOW_SPEED_MODE
-#define PWM_CHANNEL LEDC_CHANNEL_0
-#define PWM_RESOLUTION LEDC_TIMER_10_BIT
-#define PWM_FREQ_HZ 500
 
 // Button and LED Configuration
 #define BUTTON_D2 GPIO_NUM_5        // Mode toggle: Manual/Automatic (pin D2)
@@ -64,25 +57,25 @@ static const char *TAG = "SYSTEM";
 #define PUMP_START_PERCENT 50       // Starting pump intensity
 
 // I2C Sensor Addresses
-#define INA226_1_ADDR 0x40    // INA1 current/power monitor
-#define INA226_2_ADDR 0x41    // INA2 current/power monitor
-#define TMP117_ADDR TMP117_I2C_ADDR_DEFAULT // TMP117 at GND address 1001000x (0x48)
+#define INA226_1_ADDR 0x40
+#define INA226_2_ADDR 0x41
+#define TMP117_ADDR TMP117_I2C_ADDR_DEFAULT
 
 // INA226 hardware configuration
-#define INA226_PUMP_SHUNT_RESISTANCE_OHM 0.1f    // 100 mOhm shunt (PUMP / INA1)
-#define INA226_LOGIC_SHUNT_RESISTANCE_OHM 0.1f   // 100 mOhm shunt (LOGIC / INA2)
+#define INA226_PUMP_SHUNT_RESISTANCE_OHM 0.1f
+#define INA226_LOGIC_SHUNT_RESISTANCE_OHM 0.1f
 
 // Timing configuration
 #define BUTTON_POLL_INTERVAL_MS 50
 #define SENSOR_READ_INTERVAL_MS 2000
 
 // PWM-synchronized INA reading configuration
-#define PWM_PERIOD_MS (1000 / PWM_FREQ_HZ)     // 2ms at 500Hz
-#define INA_READ_OFFSET_MS 3                    // Read 3ms after PWM start
+#define PUMP_PWM_FREQ_HZ 500
+#define PWM_PERIOD_MS (1000 / PUMP_PWM_FREQ_HZ)
+#define INA_READ_OFFSET_MS 3
 #define INA_READING_TASK_PRIORITY (tskIDLE_PRIORITY + 2)
 #define INA_READING_TASK_STACK_SIZE 4096
 
-// Control mode enum
 typedef enum {
     CONTROL_MANUAL = 0,
     CONTROL_AUTOMATIC = 1
@@ -102,28 +95,25 @@ typedef enum {
 #define PUMP_100_PERCENT 100
 
 // LED animation for auto mode
-#define LED_ANIM_INTERVAL_MS 1000   // 1 second per LED
-#define LED_FLASH_INTERVAL_MS 250   // 250ms flash for 100%
+#define LED_ANIM_INTERVAL_MS 1000
+#define LED_FLASH_INTERVAL_MS 250
 
-// Button state tracking for debouncing
 typedef struct {
     gpio_num_t pin;
-    bool stable_state;      // Last confirmed state (true=released, false=pressed)
-    bool current_state;     // Current raw state
+    bool stable_state;      // true=released, false=pressed
+    bool current_state;
 } button_state_t;
-
-static const uint32_t PWM_MAX_DUTY = (1U << PWM_RESOLUTION) - 1U;
 
 // Forward declarations
 static void update_indicator_leds(uint32_t pump_percent);
 static void update_flash_leds(uint32_t current_ms);
 static void update_status_leds(uint32_t current_ms);
 static void update_animation_leds(uint32_t current_ms);
+static void refresh_pump_output_state(void);
 
-// PWM-synchronized INA reading callback - fires at 500Hz (every 2ms)
+// PWM-synchronized INA reading callback
 static void pwm_sync_timer_callback(void *arg)
 {
-    // Signal the INA reading task to perform synchronized read
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
     xSemaphoreGiveFromISR(ina_read_semaphore, &xHigherPriorityTaskWoken);
     if (xHigherPriorityTaskWoken == pdTRUE) {
@@ -135,69 +125,46 @@ static void pwm_sync_timer_callback(void *arg)
 static void ina_reading_task(void *arg)
 {
     while (1) {
-        // Wait for semaphore signal from PWM sync timer
         if (xSemaphoreTake(ina_read_semaphore, portMAX_DELAY) == pdTRUE) {
-            // Delay 3ms after PWM start to allow current to stabilize
             vTaskDelay(pdMS_TO_TICKS(INA_READ_OFFSET_MS));
-            
-            // Read both INA sensors synchronously
+
             synchronized_ina1_error = ina226_read_measurement(
                 INA226_1_ADDR,
                 INA226_PUMP_SHUNT_RESISTANCE_OHM,
                 &synchronized_ina1_measurement);
-            
+
             synchronized_ina2_error = ina226_read_measurement(
                 INA226_2_ADDR,
                 INA226_LOGIC_SHUNT_RESISTANCE_OHM,
                 &synchronized_ina2_measurement);
-            
-            // Log synchronization event (debug)
+
             ESP_LOGD(TAG, "INA readings synchronized at PWM cycle + 3ms");
         }
     }
 }
 
-
-
 // Global state
 static uint32_t current_pump_percent = PUMP_START_PERCENT;
-static control_mode_t control_mode = CONTROL_MANUAL;  // Start in manual mode
+static control_mode_t control_mode = CONTROL_MANUAL;
 static uint32_t last_flash_toggle_ms = 0;
-static bool flash_state = false;  // For 100% flashing
+static bool flash_state = false;
 static uint32_t last_status_led_toggle_ms = 0;
-static bool status_led_state = false;  // For status LED (D3/D4) flashing
+static bool status_led_state = false;
 static uint32_t last_anim_update_ms = 0;
-static uint8_t anim_led_index = 0;  // Which LED in the animation sequence (0-4 for 5 LEDs)
+static uint8_t anim_led_index = 0;
 static button_state_t button_d2 = {BUTTON_D2, true, true};
 static button_state_t button_a2 = {BUTTON_A2, true, true};
 static button_state_t button_a3 = {BUTTON_A3, true, true};
 static esp_timer_handle_t pwm_sync_timer = NULL;
 
-static void set_pump_percent(uint32_t pump_percent)
-{
-    if (pump_percent > 100U) {
-        pump_percent = 100U;
-    }
-
-    uint32_t duty = (pump_percent * PWM_MAX_DUTY + 50U) / 100U;
-
-    ledc_set_duty(PWM_MODE, PWM_CHANNEL, duty);
-    ledc_update_duty(PWM_MODE, PWM_CHANNEL);
-    
-    current_pump_percent = pump_percent;
-    
-    // Update indicator LEDs (manual mode only)
-    if (control_mode == CONTROL_MANUAL) {
-        update_indicator_leds(pump_percent);
-    }
-}
-
 static void toggle_led(void)
 {
-    // D2 button toggles between manual and automatic control
     control_mode = (control_mode == CONTROL_MANUAL) ? CONTROL_AUTOMATIC : CONTROL_MANUAL;
-    
+
+    refresh_pump_output_state();
+
     if (control_mode == CONTROL_MANUAL) {
+        update_indicator_leds(current_pump_percent);
         ESP_LOGI(TAG, "Control mode: MANUAL - Use A2/A3 buttons to adjust pump");
     } else {
         ESP_LOGI(TAG, "Control mode: AUTOMATIC - Pump controlled by temperature");
@@ -206,53 +173,45 @@ static void toggle_led(void)
 
 static void update_pump_auto(float temp_f)
 {
-    // Automatic pump control based on Fahrenheit step thresholds.
     uint32_t new_pump_percent = current_pump_percent;
-    
+
     if (temp_f <= TEMP_STEP_98F) {
-        new_pump_percent = PUMP_10_PERCENT;      // 98F and below
+        new_pump_percent = PUMP_10_PERCENT;
     }
     else if (temp_f < TEMP_STEP_99F) {
-        new_pump_percent = PUMP_10_PERCENT;      // >98F to <99F
+        new_pump_percent = PUMP_10_PERCENT;
     }
     else if (temp_f < TEMP_STEP_100F) {
-        new_pump_percent = PUMP_25_PERCENT;      // 99F to <100F
+        new_pump_percent = PUMP_25_PERCENT;
     }
     else if (temp_f < TEMP_STEP_101F) {
-        new_pump_percent = PUMP_50_PERCENT;      // 100F to <101F
+        new_pump_percent = PUMP_50_PERCENT;
     }
     else if (temp_f <= TEMP_STEP_102F) {
-        new_pump_percent = PUMP_75_PERCENT;      // 101F to 102F
+        new_pump_percent = PUMP_75_PERCENT;
     }
     else {
-        new_pump_percent = PUMP_100_PERCENT;     // >102F
+        new_pump_percent = PUMP_100_PERCENT;
     }
-    
-    // Update pump if temperature-based setting changed
+
     if (new_pump_percent != current_pump_percent) {
-        set_pump_percent(new_pump_percent);
-        ESP_LOGI(TAG, "Auto mode: Temp %.2f°F -> Pump %d%%", temp_f, new_pump_percent);
+        current_pump_percent = new_pump_percent;
+        refresh_pump_output_state();
+        ESP_LOGI(TAG, "Auto mode: Temp %.2f°F -> Pump %lu%%",
+                 temp_f, (unsigned long)new_pump_percent);
     }
 }
 
 static void update_animation_leds(uint32_t current_ms)
 {
-    // Keep D3 and D4 status LEDs on during auto mode
     gpio_set_level(LED_AUTO_STATUS_1, 1);
     gpio_set_level(LED_AUTO_STATUS_2, 1);
-    
-    // Animate D5-D9 LEDs progressively (1 second per frame)
+
     if (current_ms - last_anim_update_ms >= LED_ANIM_INTERVAL_MS) {
         last_anim_update_ms = current_ms;
-        anim_led_index = (anim_led_index + 1) % 5;  // Cycle through 5 animation LEDs
+        anim_led_index = (anim_led_index + 1) % 5;
 
-        // Set animation LEDs based on current index
-        // Index 0: D5 on
-        // Index 1: D5+D6 on
-        // Index 2: D5+D6+D7 on
-        // Index 3: D5+D6+D7+D8 on
-        // Index 4: D5+D6+D7+D8+D9 on
-        gpio_set_level(LED_ANIM_D5, anim_led_index < 5 ? 1 : 0); // Always on in animation
+        gpio_set_level(LED_ANIM_D5, 1);
         gpio_set_level(LED_ANIM_D6, anim_led_index >= 1 ? 1 : 0);
         gpio_set_level(LED_ANIM_D7, anim_led_index >= 2 ? 1 : 0);
         gpio_set_level(LED_ANIM_D8, anim_led_index >= 3 ? 1 : 0);
@@ -264,49 +223,42 @@ static void update_animation_leds(uint32_t current_ms)
 
 static void update_indicator_leds(uint32_t pump_percent)
 {
-    // Update LED indicators based on pump percentage
     if (pump_percent == 0) {
-        // 0% = No LEDs on
         gpio_set_level(LED_INDICATOR_D2, 0);
         gpio_set_level(LED_INDICATOR_D3, 0);
         gpio_set_level(LED_INDICATOR_D4, 0);
         ESP_LOGI(TAG, "Indicator LEDs: OFF");
     }
     else if (pump_percent <= 30) {
-        // 10%-30% = D2 on
         gpio_set_level(LED_INDICATOR_D2, 1);
         gpio_set_level(LED_INDICATOR_D3, 0);
         gpio_set_level(LED_INDICATOR_D4, 0);
         ESP_LOGI(TAG, "Indicator LEDs: D2 ON");
     }
     else if (pump_percent <= 60) {
-        // 40%-60% = D2 and D3 on
         gpio_set_level(LED_INDICATOR_D2, 1);
         gpio_set_level(LED_INDICATOR_D3, 1);
         gpio_set_level(LED_INDICATOR_D4, 0);
         ESP_LOGI(TAG, "Indicator LEDs: D2 D3 ON");
     }
     else if (pump_percent < 100) {
-        // 70%-90% = D2, D3, D4 all on
         gpio_set_level(LED_INDICATOR_D2, 1);
         gpio_set_level(LED_INDICATOR_D3, 1);
         gpio_set_level(LED_INDICATOR_D4, 1);
         ESP_LOGI(TAG, "Indicator LEDs: D2 D3 D4 ON");
     }
     else {
-        // 100% = Setup for flashing (actual flashing done in main loop)
         ESP_LOGI(TAG, "Indicator LEDs: FLASHING MODE");
     }
 }
 
 static void update_flash_leds(uint32_t current_ms)
 {
-    // Flash all LEDs every 250ms when at 100%
     if (current_pump_percent == 100) {
         if (current_ms - last_flash_toggle_ms >= LED_FLASH_INTERVAL_MS) {
             flash_state = !flash_state;
             last_flash_toggle_ms = current_ms;
-            
+
             gpio_set_level(LED_INDICATOR_D2, flash_state ? 1 : 0);
             gpio_set_level(LED_INDICATOR_D3, flash_state ? 1 : 0);
             gpio_set_level(LED_INDICATOR_D4, flash_state ? 1 : 0);
@@ -316,49 +268,19 @@ static void update_flash_leds(uint32_t current_ms)
 
 static void update_status_leds(uint32_t current_ms)
 {
-    // In MANUAL mode: flash D3/D4 status LEDs as mode indicator
-    // In AUTOMATIC mode: keep D3/D4 on (handled in update_animation_leds)
     if (control_mode == CONTROL_MANUAL) {
         if (current_ms - last_status_led_toggle_ms >= LED_FLASH_INTERVAL_MS) {
             status_led_state = !status_led_state;
             last_status_led_toggle_ms = current_ms;
-            
+
             gpio_set_level(LED_AUTO_STATUS_1, status_led_state ? 1 : 0);
             gpio_set_level(LED_AUTO_STATUS_2, status_led_state ? 1 : 0);
         }
     }
 }
 
-static void init_pump(void)
-{
-    ledc_timer_config_t ledc_timer = {
-        .speed_mode = PWM_MODE,
-        .timer_num = PWM_TIMER,
-        .duty_resolution = PWM_RESOLUTION,
-        .freq_hz = PWM_FREQ_HZ,
-        .clk_cfg = LEDC_AUTO_CLK,
-    };
-    ledc_timer_config(&ledc_timer);
-
-    ledc_channel_config_t ledc_channel = {
-        .speed_mode = PWM_MODE,
-        .channel = PWM_CHANNEL,
-        .timer_sel = PWM_TIMER,
-        .intr_type = LEDC_INTR_DISABLE,
-        .gpio_num = PWM_LINE_GPIO,
-        .duty = 0,
-        .hpoint = 0,
-        .sleep_mode = LEDC_SLEEP_MODE_NO_ALIVE_NO_PD,
-    };
-    ledc_channel_config(&ledc_channel);
-
-    ESP_LOGI(TAG, "Pump PWM initialized at %d Hz", PWM_FREQ_HZ);
-}
-
-// Initialize PWM-synchronized INA reading system
 static void init_ina_sync_reading(void)
 {
-    // Create binary semaphore for INA reading synchronization
     ina_read_semaphore = xSemaphoreCreateBinary();
     if (ina_read_semaphore == NULL) {
         ESP_LOGE(TAG, "Failed to create INA read semaphore");
@@ -366,7 +288,6 @@ static void init_ina_sync_reading(void)
     }
     ESP_LOGD(TAG, "INA read semaphore created");
 
-    // Create high-resolution timer for PWM synchronization
     const esp_timer_create_args_t timer_args = {
         .callback = pwm_sync_timer_callback,
         .name = "pwm_sync_timer",
@@ -380,7 +301,6 @@ static void init_ina_sync_reading(void)
         return;
     }
 
-    // Start timer with period matching PWM frequency (2ms at 500Hz)
     uint64_t timer_period_us = (PWM_PERIOD_MS * 1000);
     err = esp_timer_start_periodic(pwm_sync_timer, timer_period_us);
     if (err != ESP_OK) {
@@ -388,9 +308,9 @@ static void init_ina_sync_reading(void)
         return;
     }
 
-    ESP_LOGI(TAG, "PWM sync timer started: %llu us period (%.1f Hz)", timer_period_us, 1000000.0f / timer_period_us);
+    ESP_LOGI(TAG, "PWM sync timer started: %llu us period (%.1f Hz)",
+             timer_period_us, 1000000.0f / timer_period_us);
 
-    // Create dedicated high-priority task for synchronized INA readings
     TaskHandle_t task_handle;
     BaseType_t task_result = xTaskCreate(
         ina_reading_task,
@@ -408,11 +328,8 @@ static void init_ina_sync_reading(void)
     ESP_LOGI(TAG, "INA synchronized reading system initialized");
 }
 
-
-
 static void init_buttons_and_led(void)
 {
-    // Configure indicator LED outputs (D9, D8, D7)
     gpio_config_t indicator_config = {
         .pin_bit_mask = (1ULL << LED_INDICATOR_D2) | (1ULL << LED_INDICATOR_D3) | (1ULL << LED_INDICATOR_D4),
         .mode = GPIO_MODE_OUTPUT,
@@ -424,8 +341,7 @@ static void init_buttons_and_led(void)
     gpio_set_level(LED_INDICATOR_D2, 0);
     gpio_set_level(LED_INDICATOR_D3, 0);
     gpio_set_level(LED_INDICATOR_D4, 0);
-    
-    // Configure status LED outputs (D3, D4)
+
     gpio_config_t status_led_config = {
         .pin_bit_mask = (1ULL << LED_AUTO_STATUS_1) | (1ULL << LED_AUTO_STATUS_2),
         .mode = GPIO_MODE_OUTPUT,
@@ -436,8 +352,7 @@ static void init_buttons_and_led(void)
     gpio_config(&status_led_config);
     gpio_set_level(LED_AUTO_STATUS_1, 0);
     gpio_set_level(LED_AUTO_STATUS_2, 0);
-    
-    // Configure animation LED outputs (D5-D9)
+
     gpio_config_t anim_led_config = {
         .pin_bit_mask = (1ULL << LED_ANIM_D5) | (1ULL << LED_ANIM_D6) | (1ULL << LED_ANIM_D7) | (1ULL << LED_ANIM_D8) | (1ULL << LED_ANIM_D9),
         .mode = GPIO_MODE_OUTPUT,
@@ -451,8 +366,7 @@ static void init_buttons_and_led(void)
     gpio_set_level(LED_ANIM_D7, 0);
     gpio_set_level(LED_ANIM_D8, 0);
     gpio_set_level(LED_ANIM_D9, 0);
-    
-    // Configure button inputs with pull-up
+
     gpio_config_t button_config = {
         .pin_bit_mask = (1ULL << BUTTON_D2) | (1ULL << BUTTON_A2) | (1ULL << BUTTON_A3),
         .mode = GPIO_MODE_INPUT,
@@ -461,31 +375,40 @@ static void init_buttons_and_led(void)
         .intr_type = GPIO_INTR_DISABLE,
     };
     gpio_config(&button_config);
-    
+
     ESP_LOGI(TAG, "All LEDs and buttons initialized");
 }
 
 static bool button_pressed(button_state_t *btn)
 {
-    bool new_state = gpio_get_level(btn->pin) == 0;  // 0 = pressed, 1 = released
-    
-    // Detect falling edge: transition from released (true) to pressed (false)
+    bool new_state = gpio_get_level(btn->pin) == 0;
+
     if (new_state == false && btn->stable_state == true) {
-        btn->stable_state = false;  // Mark as pressed/locked
-        return true;  // Button press detected
+        btn->stable_state = false;
+        return true;
     }
-    
-    // Detect rising edge: transition from pressed (false) to released (true)
+
     if (new_state == true && btn->stable_state == false) {
-        btn->stable_state = true;  // Mark as released/unlocked
+        btn->stable_state = true;
     }
-    
+
     return false;
+}
+
+static void refresh_pump_output_state(void)
+{
+    if (pump_operation_set_duty_percent((uint8_t)current_pump_percent) != ESP_OK) {
+        ESP_LOGW(TAG, "Failed to apply pump output state");
+        return;
+    }
+
+    if (control_mode == CONTROL_MANUAL) {
+        update_indicator_leds(current_pump_percent);
+    }
 }
 
 void app_main(void)
 {
-    // Initialize I2C bus
     esp_err_t err = i2c_bus_init();
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize I2C bus: %s", esp_err_to_name(err));
@@ -493,20 +416,18 @@ void app_main(void)
     }
     ESP_LOGI(TAG, "I2C bus initialized");
 
-    // Scan I2C bus for devices
     ESP_LOGI(TAG, "Scanning I2C bus...");
     i2c_bus_scan(pdMS_TO_TICKS(50));
 
-    // Initialize pump
-    init_pump();
+    err = pump_operation_init();
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize pump output: %s", esp_err_to_name(err));
+        return;
+    }
 
-    // Initialize PWM-synchronized INA reading system
     init_ina_sync_reading();
-
-    // Initialize buttons and LEDs
     init_buttons_and_led();
 
-    // Initialize TMP117
     esp_err_t terr = tmp117_init(TMP117_ADDR);
     if (terr == ESP_OK) {
         ESP_LOGI(TAG, "TMP117 found and initialized at 0x%02X", TMP117_ADDR);
@@ -514,7 +435,6 @@ void app_main(void)
         ESP_LOGE(TAG, "TMP117 not found at 0x%02X: %s", TMP117_ADDR, esp_err_to_name(terr));
     }
 
-    // Initialize INA226 #1
     err = ina226_init(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);
     if (err != ESP_OK) {
         ESP_LOGW(TAG, "PUMP (INA1, 0x%02X) not found: %s", INA226_1_ADDR, esp_err_to_name(err));
@@ -522,7 +442,6 @@ void app_main(void)
         ESP_LOGI(TAG, "PUMP (INA1, 0x%02X) initialized", INA226_1_ADDR);
     }
 
-    // Initialize INA226 #2
     err = ina226_init(INA226_2_ADDR, INA226_LOGIC_SHUNT_RESISTANCE_OHM);
     if (err != ESP_OK) {
         ESP_LOGW(TAG, "LOGIC (INA2, 0x%02X) not found: %s", INA226_2_ADDR, esp_err_to_name(err));
@@ -530,14 +449,18 @@ void app_main(void)
         ESP_LOGI(TAG, "LOGIC (INA2, 0x%02X) initialized", INA226_2_ADDR);
     }
 
-    // Initialize BLE
     ble_init();
     ESP_LOGI(TAG, "BLE initialized");
 
-    // Set initial pump speed
-    set_pump_percent(PUMP_START_PERCENT);
-    ESP_LOGI(TAG, "Pump initialized to %d%%", PUMP_START_PERCENT);
+    err = pump_operation_set_duty_percent((uint8_t)PUMP_START_PERCENT);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to set initial pump speed: %s", esp_err_to_name(err));
+        return;
+    }
+    current_pump_percent = PUMP_START_PERCENT;
+    update_indicator_leds(current_pump_percent);
 
+    ESP_LOGI(TAG, "Pump initialized to %lu%%", (unsigned long)PUMP_START_PERCENT);
     ESP_LOGI(TAG, "System ready. Control via buttons:");
     ESP_LOGI(TAG, "  D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes");
     ESP_LOGI(TAG, "  A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%%)");
@@ -575,8 +498,9 @@ void app_main(void)
                     if (new_percent > 100) {
                         new_percent = 100;
                     }
-                    set_pump_percent(new_percent);
-                    ESP_LOGI(TAG, "Pump increased to %d%%", new_percent);
+                    current_pump_percent = new_percent;
+                    refresh_pump_output_state();
+                    ESP_LOGI(TAG, "Pump increased to %lu%%", (unsigned long)new_percent);
                 }
 
                 if (button_pressed(&button_a3)) {
@@ -584,8 +508,9 @@ void app_main(void)
                     if (new_percent < 0) {
                         new_percent = 0;
                     }
-                    set_pump_percent((uint32_t)new_percent);
-                    ESP_LOGI(TAG, "Pump decreased to %d%%", (uint32_t)new_percent);
+                    current_pump_percent = (uint32_t)new_percent;
+                    refresh_pump_output_state();
+                    ESP_LOGI(TAG, "Pump decreased to %lu%%", (unsigned long)new_percent);
                 }
             } else {
                 update_animation_leds(now_ms);
@@ -635,10 +560,10 @@ void app_main(void)
             if (ina1_err == ESP_OK && ina2_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F\n"
+                    "Pump PWM: %lu%% | TMP117: %.2f°C / %.2f°F\n"
                     "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)\n"
                     "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                    current_pump_percent,
+                    (unsigned long)current_pump_percent,
                     temp_c,
                     temp_f,
                     ina1_measurement.bus_voltage_v,
@@ -662,7 +587,7 @@ void app_main(void)
                         sizeof(msg),
                         "TempF=%.2f,Pump=%lu,INA1=%.2fmA,INA2=%.2fmA",
                         temp_f,
-                        current_pump_percent,
+                        (unsigned long)current_pump_percent,
                         filtered_ina1_current_ma,
                         filtered_ina2_current_ma);
                     ble_notify(msg);
@@ -671,9 +596,9 @@ void app_main(void)
             } else if (ina1_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F\n"
+                    "Pump PWM: %lu%% | TMP117: %.2f°C / %.2f°F\n"
                     "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                    current_pump_percent,
+                    (unsigned long)current_pump_percent,
                     temp_c,
                     temp_f,
                     ina1_measurement.bus_voltage_v,
@@ -688,9 +613,9 @@ void app_main(void)
             } else if (ina2_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F\n"
+                    "Pump PWM: %lu%% | TMP117: %.2f°C / %.2f°F\n"
                     "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                    current_pump_percent,
+                    (unsigned long)current_pump_percent,
                     temp_c,
                     temp_f,
                     ina2_measurement.bus_voltage_v,
@@ -703,8 +628,8 @@ void app_main(void)
                 ESP_LOGW(TAG, "INA1 read failed: %s", esp_err_to_name(ina1_err));
 
             } else {
-                ESP_LOGI(TAG, "Pump PWM: %u%% | TMP117: %.2f°C / %.2f°F",
-                         current_pump_percent, temp_c, temp_f);
+                ESP_LOGI(TAG, "Pump PWM: %lu%% | TMP117: %.2f°C / %.2f°F",
+                         (unsigned long)current_pump_percent, temp_c, temp_f);
                 ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
                 ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
             }
@@ -719,9 +644,9 @@ void app_main(void)
             if (ina1_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: (read failed)\n"
+                    "Pump PWM: %lu%% | TMP117: (read failed)\n"
                     "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                    current_pump_percent,
+                    (unsigned long)current_pump_percent,
                     ina1_measurement.bus_voltage_v,
                     ina1_measurement.shunt_voltage_v * 1000.0f,
                     filtered_ina1_current_ma,
@@ -735,9 +660,9 @@ void app_main(void)
             if (ina2_err == ESP_OK) {
                 ESP_LOGI(
                     TAG,
-                    "Pump PWM: %u%% | TMP117: (read failed)\n"
+                    "Pump PWM: %lu%% | TMP117: (read failed)\n"
                     "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                    current_pump_percent,
+                    (unsigned long)current_pump_percent,
                     ina2_measurement.bus_voltage_v,
                     ina2_measurement.shunt_voltage_v * 1000.0f,
                     filtered_ina2_current_ma,
