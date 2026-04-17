@@ -1,0 +1,1312 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037814e
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 13 2026 14:08:35[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0cf24h ( 53028) map[0m
+[0;32mI (96) esp_image: segment 1: paddr=0001cf4c vaddr=3fc93f00 size=02bb0h ( 11184) load[0m
+[0;32mI (98) esp_image: segment 2: paddr=0001fb04 vaddr=40374000 size=00514h (  1300) load[0m
+[0;32mI (101) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1d6b4h (120500) map[0m
+[0;32mI (130) esp_image: segment 4: paddr=0003d6dc vaddr=40374514 size=0f95ch ( 63836) load[0m
+[0;32mI (144) esp_image: segment 5: paddr=0004d040 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (151) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (151) boot: Disabling RNG early entropy source...[0m
+[0;32mI (162) cpu_start: Multicore app[0m
+[0;32mI (171) cpu_start: Pro cpu start user code[0m
+[0;32mI (171) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (171) app_init: Project name:     springMain_v2[0m
+[0;32mI (175) app_init: App version:      0c290fb-dirty[0m
+[0;32mI (180) app_init: Compile time:     Apr 13 2026 14:55:55[0m
+[0;32mI (185) app_init: ELF file SHA256:  d9e0ea858...[0m
+[0;32mI (189) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (193) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (197) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (201) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (205) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (211) heap_init: At 3FC97458 len 000522B8 (328 KiB): RAM[0m
+[0;32mI (216) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (221) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (226) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (233) spi_flash: detected chip: gd[0m
+[0;32mI (235) spi_flash: flash io: dio[0m
+[0;33mW (238) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (250) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (260) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (266) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (273) main_task: Started on CPU0[0m
+[0;32mI (283) main_task: Calling app_main()[0m
+[0;32mI (283) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 100000 Hz)[0m
+[0;32mI (283) SYSTEM: I2C bus initialized[0m
+[0;32mI (293) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (303) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (303) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (303) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (313) SYSTEM: Pump PWM initialized at 500 Hz[0m
+[0;32mI (313) SYSTEM: PWM sync timer started: 2000 us period (500.0 Hz)[0m
+[0;32mI (313) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (323) SYSTEM: All LEDs and buttons initialized[0m
+[1;31mE (323) tmp117: TMP117 not responding at 0x49: ESP_FAIL[0m
+[1;31mE (333) SYSTEM: TMP117 not found at 0x49: ESP_FAIL[0m
+[0;32mI (333) ina226: INA226 detected at 0x40[0m
+[0;32mI (343) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (343) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (353) ina226: INA226 detected at 0x41[0m
+[0;32mI (353) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (353) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (363) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (363) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (373) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (373) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (383) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (383) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (393) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (403) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;33mW (2403) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (2403) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.522mV  CURRENT=5.225mA  POWER=66.860mW (smoothed)
+[0;32mI (2403) SYSTEM: PUMP  0x40 raw shunt=0x00D1 raw bus=0x27FD[0m
+[0;32mI (2413) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.642mV  CURRENT=26.425mA  POWER=337.943mW (smoothed)
+[0;32mI (2423) SYSTEM: LOGIC 0x41 raw shunt=0x0421 raw bus=0x27F7[0m
+[0;33mW (4423) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (4423) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.510mV  CURRENT=5.200mA  POWER=66.538mW (smoothed)
+[0;32mI (4423) SYSTEM: PUMP  0x40 raw shunt=0x00CC raw bus=0x27FB[0m
+[0;32mI (4433) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.227mV  CURRENT=27.595mA  POWER=352.897mW (smoothed)
+[0;32mI (4443) SYSTEM: LOGIC 0x41 raw shunt=0x050B raw bus=0x27F6[0m
+[0;33mW (6443) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (6443) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.558mV  CURRENT=5.275mA  POWER=67.497mW (smoothed)
+[0;32mI (6443) SYSTEM: PUMP  0x40 raw shunt=0x00DF raw bus=0x27FC[0m
+[0;32mI (6453) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.500mV  CURRENT=27.076mA  POWER=346.262mW (smoothed)
+[0;32mI (6463) SYSTEM: LOGIC 0x41 raw shunt=0x03E8 raw bus=0x27F7[0m
+[0;33mW (8463) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (8463) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.500mV  CURRENT=5.220mA  POWER=66.792mW (smoothed)
+[0;32mI (8463) SYSTEM: PUMP  0x40 raw shunt=0x00C8 raw bus=0x27FC[0m
+[0;32mI (8473) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.842mV  CURRENT=27.346mA  POWER=349.713mW (smoothed)
+[0;32mI (8483) SYSTEM: LOGIC 0x41 raw shunt=0x0471 raw bus=0x27F7[0m
+[0;33mW (10483) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (10483) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.535mV  CURRENT=5.246mA  POWER=67.125mW (smoothed)
+[0;32mI (10483) SYSTEM: PUMP  0x40 raw shunt=0x00D6 raw bus=0x27FC[0m
+[0;32mI (10493) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.557mV  CURRENT=28.992mA  POWER=370.745mW (smoothed)
+[0;32mI (10503) SYSTEM: LOGIC 0x41 raw shunt=0x058F raw bus=0x27F5[0m
+[0;33mW (12503) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (12503) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.520mV  CURRENT=5.237mA  POWER=67.008mW (smoothed)
+[0;32mI (12503) SYSTEM: PUMP  0x40 raw shunt=0x00D0 raw bus=0x27FD[0m
+[0;32mI (12513) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.660mV  CURRENT=28.513mA  POWER=364.632mW (smoothed)
+[0;32mI (12523) SYSTEM: LOGIC 0x41 raw shunt=0x0428 raw bus=0x27F7[0m
+[0;33mW (14523) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (14523) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.502mV  CURRENT=5.194mA  POWER=66.465mW (smoothed)
+[0;32mI (14523) SYSTEM: PUMP  0x40 raw shunt=0x00C9 raw bus=0x27FC[0m
+[0;32mI (14533) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.197mV  CURRENT=29.206mA  POWER=373.474mW (smoothed)
+[0;32mI (14543) SYSTEM: LOGIC 0x41 raw shunt=0x04FF raw bus=0x27F5[0m
+[0;33mW (16543) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (16543) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.550mV  CURRENT=5.256mA  POWER=67.248mW (smoothed)
+[0;32mI (16543) SYSTEM: PUMP  0x40 raw shunt=0x00DC raw bus=0x27FD[0m
+[0;32mI (16553) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.493mV  CURRENT=28.350mA  POWER=362.525mW (smoothed)
+[0;32mI (16563) SYSTEM: LOGIC 0x41 raw shunt=0x03E5 raw bus=0x27F6[0m
+[0;33mW (18563) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (18563) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.487mV  CURRENT=5.179mA  POWER=66.274mW (smoothed)
+[0;32mI (18563) SYSTEM: PUMP  0x40 raw shunt=0x00C3 raw bus=0x27FC[0m
+[0;32mI (18573) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.842mV  CURRENT=28.365mA  POWER=362.717mW (smoothed)
+[0;32mI (18583) SYSTEM: LOGIC 0x41 raw shunt=0x0471 raw bus=0x27F6[0m
+[0;33mW (20583) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (20583) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.515mV  CURRENT=5.174mA  POWER=66.198mW (smoothed)
+[0;32mI (20583) SYSTEM: PUMP  0x40 raw shunt=0x00CE raw bus=0x27FC[0m
+[0;32mI (20593) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=3.557mV  CURRENT=29.807mA  POWER=381.165mW (smoothed)
+[0;32mI (20603) SYSTEM: LOGIC 0x41 raw shunt=0x058F raw bus=0x27F7[0m
+[0;33mW (22603) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (22603) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.537mV  CURRENT=5.214mA  POWER=66.714mW (smoothed)
+[0;32mI (22603) SYSTEM: PUMP  0x40 raw shunt=0x00D7 raw bus=0x27FD[0m
+[0;32mI (22613) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.635mV  CURRENT=29.115mA  POWER=372.329mW (smoothed)
+[0;32mI (22623) SYSTEM: LOGIC 0x41 raw shunt=0x041E raw bus=0x27F7[0m
+[0;33mW (24623) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (24623) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.490mV  CURRENT=5.151mA  POWER=65.909mW (smoothed)
+[0;32mI (24623) SYSTEM: PUMP  0x40 raw shunt=0x00C4 raw bus=0x27FB[0m
+[0;32mI (24633) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.217mV  CURRENT=29.727mA  POWER=380.151mW (smoothed)
+[0;32mI (24643) SYSTEM: LOGIC 0x41 raw shunt=0x0507 raw bus=0x27F6[0m
+[0;33mW (26643) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (26643) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.552mV  CURRENT=5.226mA  POWER=66.867mW (smoothed)
+[0;32mI (26643) SYSTEM: PUMP  0x40 raw shunt=0x00DD raw bus=0x27FD[0m
+[0;32mI (26653) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.455mV  CURRENT=28.692mA  POWER=366.913mW (smoothed)
+[0;32mI (26663) SYSTEM: LOGIC 0x41 raw shunt=0x03D6 raw bus=0x27F7[0m
+[0;33mW (28663) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (28663) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.515mV  CURRENT=5.211mA  POWER=66.674mW (smoothed)
+[0;32mI (28663) SYSTEM: PUMP  0x40 raw shunt=0x00CE raw bus=0x27FD[0m
+[0;32mI (28673) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.822mV  CURRENT=28.598mA  POWER=365.723mW (smoothed)
+[0;32mI (28683) SYSTEM: LOGIC 0x41 raw shunt=0x0469 raw bus=0x27F7[0m
+[0;33mW (30683) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (30683) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.517mV  CURRENT=5.204mA  POWER=66.583mW (smoothed)
+[0;32mI (30683) SYSTEM: PUMP  0x40 raw shunt=0x00CF raw bus=0x27FD[0m
+[0;32mI (30693) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.590mV  CURRENT=30.059mA  POWER=384.375mW (smoothed)
+[0;32mI (30703) SYSTEM: LOGIC 0x41 raw shunt=0x059C raw bus=0x27F4[0m
+[0;33mW (32703) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (32703) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.537mV  CURRENT=5.238mA  POWER=67.023mW (smoothed)
+[0;32mI (32703) SYSTEM: PUMP  0x40 raw shunt=0x00D7 raw bus=0x27FD[0m
+[0;32mI (32713) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.672mV  CURRENT=29.392mA  POWER=375.849mW (smoothed)
+[0;32mI (32723) SYSTEM: LOGIC 0x41 raw shunt=0x042D raw bus=0x27F6[0m
+[0;33mW (34723) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (34723) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.490mV  CURRENT=5.170mA  POWER=66.158mW (smoothed)
+[0;32mI (34723) SYSTEM: PUMP  0x40 raw shunt=0x00C4 raw bus=0x27FD[0m
+[0;32mI (34733) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.200mV  CURRENT=29.914mA  POWER=382.519mW (smoothed)
+[0;32mI (34743) SYSTEM: LOGIC 0x41 raw shunt=0x0500 raw bus=0x27F6[0m
+[0;33mW (36743) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (36743) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.522mV  CURRENT=5.181mA  POWER=66.300mW (smoothed)
+[0;32mI (36743) SYSTEM: PUMP  0x40 raw shunt=0x00D1 raw bus=0x27FE[0m
+[0;32mI (36753) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.460mV  CURRENT=28.851mA  POWER=368.936mW (smoothed)
+[0;32mI (36763) SYSTEM: LOGIC 0x41 raw shunt=0x03D8 raw bus=0x27F7[0m
+[0;33mW (38763) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (38763) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.527mV  CURRENT=5.200mA  POWER=66.540mW (smoothed)
+[0;32mI (38763) SYSTEM: PUMP  0x40 raw shunt=0x00D3 raw bus=0x27FD[0m
+[0;32mI (38773) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.815mV  CURRENT=28.711mA  POWER=367.150mW (smoothed)
+[0;32mI (38783) SYSTEM: LOGIC 0x41 raw shunt=0x0466 raw bus=0x27F7[0m
+[0;33mW (40783) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (40783) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.502mV  CURRENT=5.165mA  POWER=66.091mW (smoothed)
+[0;32mI (40783) SYSTEM: PUMP  0x40 raw shunt=0x00C9 raw bus=0x27FC[0m
+[0;32mI (40793) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.565mV  CURRENT=30.099mA  POWER=384.877mW (smoothed)
+[0;32mI (40803) SYSTEM: LOGIC 0x41 raw shunt=0x0592 raw bus=0x27F4[0m
+[0;33mW (42803) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (42803) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.552mV  CURRENT=5.237mA  POWER=67.013mW (smoothed)
+[0;32mI (42803) SYSTEM: PUMP  0x40 raw shunt=0x00DD raw bus=0x27FD[0m
+[0;32mI (42813) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.652mV  CURRENT=29.384mA  POWER=375.746mW (smoothed)
+[0;32mI (42823) SYSTEM: LOGIC 0x41 raw shunt=0x0425 raw bus=0x27F7[0m
+[0;33mW (44823) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (44823) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.502mV  CURRENT=5.195mA  POWER=66.469mW (smoothed)
+[0;32mI (44823) SYSTEM: PUMP  0x40 raw shunt=0x00C9 raw bus=0x27FC[0m
+[0;32mI (44833) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=3.182mV  CURRENT=29.872mA  POWER=381.997mW (smoothed)
+[0;32mI (44843) SYSTEM: LOGIC 0x41 raw shunt=0x04F9 raw bus=0x27F7[0m
+[0;33mW (46843) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (46843) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.525mV  CURRENT=5.206mA  POWER=66.611mW (smoothed)
+[0;32mI (46843) SYSTEM: PUMP  0x40 raw shunt=0x00D2 raw bus=0x27FD[0m
+[0;32mI (46853) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.477mV  CURRENT=28.853mA  POWER=368.966mW (smoothed)
+[0;32mI (46863) SYSTEM: LOGIC 0x41 raw shunt=0x03DF raw bus=0x27F7[0m
+[0;33mW (48863) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (48863) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.525mV  CURRENT=5.215mA  POWER=66.726mW (smoothed)
+[0;32mI (48863) SYSTEM: PUMP  0x40 raw shunt=0x00D2 raw bus=0x27FE[0m
+[0;32mI (48873) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.815mV  CURRENT=28.712mA  POWER=367.166mW (smoothed)
+[0;32mI (48883) SYSTEM: LOGIC 0x41 raw shunt=0x0466 raw bus=0x27F6[0m
+[0;33mW (50883) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (50883) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.490mV  CURRENT=5.152mA  POWER=65.920mW (smoothed)
+[0;32mI (50883) SYSTEM: PUMP  0x40 raw shunt=0x00C4 raw bus=0x27FC[0m
+[0;32mI (50893) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.560mV  CURRENT=30.090mA  POWER=384.771mW (smoothed)
+[0;32mI (50903) SYSTEM: LOGIC 0x41 raw shunt=0x0590 raw bus=0x27F5[0m
+[0;33mW (52903) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (52903) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.535mV  CURRENT=5.191mA  POWER=66.427mW (smoothed)
+[0;32mI (52903) SYSTEM: PUMP  0x40 raw shunt=0x00D6 raw bus=0x27FC[0m
+[0;32mI (52913) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.791V  SHUNT=2.670mV  CURRENT=29.412mA  POWER=376.122mW (smoothed)
+[0;32mI (52923) SYSTEM: LOGIC 0x41 raw shunt=0x042C raw bus=0x27F9[0m
+[0;33mW (54923) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (54923) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.512mV  CURRENT=5.178mA  POWER=66.256mW (smoothed)
+[0;32mI (54923) SYSTEM: PUMP  0x40 raw shunt=0x00CD raw bus=0x27FC[0m
+[0;32mI (54933) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.223mV  CURRENT=29.974mA  POWER=383.305mW (smoothed)
+[0;32mI (54943) SYSTEM: LOGIC 0x41 raw shunt=0x0509 raw bus=0x27F5[0m
+[0;33mW (56943) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (56943) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.517mV  CURRENT=5.177mA  POWER=66.251mW (smoothed)
+[0;32mI (56943) SYSTEM: PUMP  0x40 raw shunt=0x00CF raw bus=0x27FE[0m
+[0;32mI (56953) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.470mV  CURRENT=28.920mA  POWER=369.821mW (smoothed)
+[0;32mI (56963) SYSTEM: LOGIC 0x41 raw shunt=0x03DC raw bus=0x27F7[0m
+[0;33mW (58963) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (58963) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.552mV  CURRENT=5.247mA  POWER=67.140mW (smoothed)
+[0;32mI (58963) SYSTEM: PUMP  0x40 raw shunt=0x00DD raw bus=0x27FD[0m
+[0;32mI (58973) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.835mV  CURRENT=28.806mA  POWER=368.369mW (smoothed)
+[0;32mI (58983) SYSTEM: LOGIC 0x41 raw shunt=0x046E raw bus=0x27F7[0m
+[0;33mW (60983) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (60983) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.117V  SHUNT=-0.005mV  CURRENT=4.188mA  POWER=53.711mW (smoothed)
+[0;32mI (60983) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x005E[0m
+[0;32mI (60993) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.085V  SHUNT=0.117mV  CURRENT=23.280mA  POWER=294.715mW (smoothed)
+[0;32mI (61003) SYSTEM: LOGIC 0x41 raw shunt=0x002F raw bus=0x0044[0m
+[0;33mW (63003) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (63003) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.000V  SHUNT=0.000mV  CURRENT=3.350mA  POWER=42.969mW (smoothed)
+[0;32mI (63003) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (63013) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.000V  SHUNT=0.115mV  CURRENT=18.854mA  POWER=235.772mW (smoothed)
+[0;32mI (63023) SYSTEM: LOGIC 0x41 raw shunt=0x002E raw bus=0x0000[0m
+[0;33mW (65023) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (65023) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.000V  SHUNT=-0.002mV  CURRENT=2.675mA  POWER=34.375mW (smoothed)
+[0;32mI (65023) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (65033) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.049V  SHUNT=0.117mV  CURRENT=15.318mA  POWER=188.629mW (smoothed)
+[0;32mI (65043) SYSTEM: LOGIC 0x41 raw shunt=0x002F raw bus=0x0027[0m
+[0;33mW (67043) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (67043) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.000V  SHUNT=-0.002mV  CURRENT=2.135mA  POWER=27.500mW (smoothed)
+[0;32mI (67043) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (67053) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.074V  SHUNT=0.120mV  CURRENT=12.494mA  POWER=150.921mW (smoothed)
+[0;32mI (67063) SYSTEM: LOGIC 0x41 raw shunt=0x0030 raw bus=0x003B[0m
+[0;33mW (69063) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (69063) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.429V  SHUNT=0.002mV  CURRENT=1.713mA  POWER=22.002mW (smoothed)
+[0;32mI (69063) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x0157[0m
+[0;32mI (69073) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.087V  SHUNT=0.120mV  CURRENT=10.235mA  POWER=120.758mW (smoothed)
+[0;32mI (69083) SYSTEM: LOGIC 0x41 raw shunt=0x0030 raw bus=0x0046[0m
+[0;33mW (71083) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (71083) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.000V  SHUNT=-0.005mV  CURRENT=1.360mA  POWER=17.602mW (smoothed)
+[0;32mI (71083) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (71093) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.094V  SHUNT=0.115mV  CURRENT=8.418mA  POWER=96.628mW (smoothed)
+[0;32mI (71103) SYSTEM: LOGIC 0x41 raw shunt=0x002E raw bus=0x004B[0m
+[0;33mW (73103) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (73103) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.000V  SHUNT=-0.002mV  CURRENT=1.083mA  POWER=14.081mW (smoothed)
+[0;32mI (73103) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (73113) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.096V  SHUNT=0.117mV  CURRENT=6.970mA  POWER=77.325mW (smoothed)
+[0;32mI (73123) SYSTEM: LOGIC 0x41 raw shunt=0x002F raw bus=0x004D[0m
+[0;33mW (75123) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (75123) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.000V  SHUNT=-0.002mV  CURRENT=0.862mA  POWER=11.265mW (smoothed)
+[0;32mI (75123) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (75133) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=0.096V  SHUNT=0.117mV  CURRENT=5.811mA  POWER=61.882mW (smoothed)
+[0;32mI (75143) SYSTEM: LOGIC 0x41 raw shunt=0x002F raw bus=0x004D[0m
+[0;33mW (10523) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (10523) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.485mV  CURRENT=5.169mA  POWER=66.142mW (smoothed)
+[0;32mI (10523) SYSTEM: PUMP  0x40 raw shunt=0x00C2 raw bus=0x27FC[0m
+[0;32mI (10533) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.557mV  CURRENT=28.756mA  POWER=367.687mW (smoothed)
+[0;32mI (10543) SYSTEM: LOGIC 0x41 raw shunt=0x058F raw bus=0x27F5[0m
+[0;33mW (12543) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (12543) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.540mV  CURRENT=5.215mA  POWER=66.734mW (smoothed)
+[0;32mI (12543) SYSTEM: PUMP  0x40 raw shunt=0x00D8 raw bus=0x27FD[0m
+[0;32mI (12553) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.640mV  CURRENT=28.285mA  POWER=361.674mW (smoothed)
+[0;32mI (12563) SYSTEM: LOGIC 0x41 raw shunt=0x0420 raw bus=0x27F7[0m
+[0;33mW (14563) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (14563) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.527mV  CURRENT=5.227mA  POWER=66.887mW (smoothed)
+[0;32mI (14563) SYSTEM: PUMP  0x40 raw shunt=0x00D3 raw bus=0x27FD[0m
+[0;32mI (14573) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.205mV  CURRENT=29.038mA  POWER=371.299mW (smoothed)
+[0;32mI (14583) SYSTEM: LOGIC 0x41 raw shunt=0x0502 raw bus=0x27F5[0m
+[0;33mW (16583) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (16583) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.502mV  CURRENT=5.187mA  POWER=66.370mW (smoothed)
+[0;32mI (16583) SYSTEM: PUMP  0x40 raw shunt=0x00C9 raw bus=0x27FD[0m
+[0;32mI (16593) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.470mV  CURRENT=28.170mA  POWER=360.216mW (smoothed)
+[0;32mI (16603) SYSTEM: LOGIC 0x41 raw shunt=0x03DC raw bus=0x27F7[0m
+[0;33mW (18603) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (18603) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.555mV  CURRENT=5.259mA  POWER=67.300mW (smoothed)
+[0;32mI (18603) SYSTEM: PUMP  0x40 raw shunt=0x00DE raw bus=0x27FD[0m
+[0;32mI (18613) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.872mV  CURRENT=28.281mA  POWER=361.637mW (smoothed)
+[0;32mI (18623) SYSTEM: LOGIC 0x41 raw shunt=0x047D raw bus=0x27F6[0m
+[0;33mW (20623) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (20623) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.507mV  CURRENT=5.223mA  POWER=66.827mW (smoothed)
+[0;32mI (20623) SYSTEM: PUMP  0x40 raw shunt=0x00CB raw bus=0x27FC[0m
+[0;32mI (20633) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.555mV  CURRENT=29.735mA  POWER=380.220mW (smoothed)
+[0;32mI (20643) SYSTEM: LOGIC 0x41 raw shunt=0x058E raw bus=0x27F5[0m
+[0;33mW (22643) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (22643) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.522mV  CURRENT=5.223mA  POWER=66.834mW (smoothed)
+[0;32mI (22643) SYSTEM: PUMP  0x40 raw shunt=0x00D1 raw bus=0x27FD[0m
+[0;32mI (22653) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.675mV  CURRENT=29.138mA  POWER=372.602mW (smoothed)
+[0;32mI (22663) SYSTEM: LOGIC 0x41 raw shunt=0x042E raw bus=0x27F8[0m
+[0;33mW (24663) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (24663) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.532mV  CURRENT=5.243mA  POWER=67.093mW (smoothed)
+[0;32mI (24663) SYSTEM: PUMP  0x40 raw shunt=0x00D5 raw bus=0x27FC[0m
+[0;32mI (24673) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.185mV  CURRENT=29.680mA  POWER=379.530mW (smoothed)
+[0;32mI (24683) SYSTEM: LOGIC 0x41 raw shunt=0x04FA raw bus=0x27F5[0m
+[0;32mI (26683) SYSTEM: Pump PWM: 50% | TMP117: -0.01°C / 31.99°F[0m
+  PUMP : BUS=12.796V  SHUNT=0.492mV  CURRENT=5.180mA  POWER=66.279mW (smoothed)
+  LOGIC: BUS=12.787V  SHUNT=2.510mV  CURRENT=28.764mA  POWER=367.817mW (smoothed)
+[0;32mI (26693) SYSTEM: PUMP  0x40 raw shunt=0x00C5 raw bus=0x27FD[0m
+[0;32mI (26693) SYSTEM: LOGIC 0x41 raw shunt=0x03EC raw bus=0x27F6[0m
+[0;32mI (26703) SYSTEM: Auto mode: Temp 31.99°F -> Pump 10%[0m
+[0;33mW (28703) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (28703) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.387mV  CURRENT=4.919mA  POWER=62.940mW (smoothed)
+[0;32mI (28703) SYSTEM: PUMP  0x40 raw shunt=0x009B raw bus=0x27FD[0m
+[0;32mI (28713) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.810mV  CURRENT=28.631mA  POWER=366.113mW (smoothed)
+[0;32mI (28723) SYSTEM: LOGIC 0x41 raw shunt=0x0464 raw bus=0x27F5[0m
+[0;33mW (30723) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (30723) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.425mV  CURRENT=4.785mA  POWER=61.228mW (smoothed)
+[0;32mI (30723) SYSTEM: PUMP  0x40 raw shunt=0x00AA raw bus=0x27FC[0m
+[0;32mI (30733) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.585mV  CURRENT=30.075mA  POWER=384.559mW (smoothed)
+[0;32mI (30743) SYSTEM: LOGIC 0x41 raw shunt=0x059A raw bus=0x27F4[0m
+[0;33mW (32743) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (32743) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.240mV  CURRENT=4.308mA  POWER=55.125mW (smoothed)
+[0;32mI (32743) SYSTEM: PUMP  0x40 raw shunt=0x0060 raw bus=0x27FD[0m
+[0;32mI (32753) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.657mV  CURRENT=29.375mA  POWER=375.612mW (smoothed)
+[0;32mI (32763) SYSTEM: LOGIC 0x41 raw shunt=0x0427 raw bus=0x27F6[0m
+[0;33mW (34763) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (34763) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.430mV  CURRENT=4.306mA  POWER=55.104mW (smoothed)
+[0;32mI (34763) SYSTEM: PUMP  0x40 raw shunt=0x00AC raw bus=0x27FD[0m
+[0;32mI (34773) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.205mV  CURRENT=29.910mA  POWER=382.458mW (smoothed)
+[0;32mI (34783) SYSTEM: LOGIC 0x41 raw shunt=0x0502 raw bus=0x27F6[0m
+[0;33mW (36783) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (36783) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.320mV  CURRENT=4.085mA  POWER=52.273mW (smoothed)
+[0;32mI (36783) SYSTEM: PUMP  0x40 raw shunt=0x0080 raw bus=0x27FD[0m
+[0;32mI (36793) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.475mV  CURRENT=28.878mA  POWER=369.271mW (smoothed)
+[0;32mI (36803) SYSTEM: LOGIC 0x41 raw shunt=0x03DE raw bus=0x27F7[0m
+[0;33mW (38803) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (38803) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.312mV  CURRENT=3.893mA  POWER=49.815mW (smoothed)
+[0;32mI (38803) SYSTEM: PUMP  0x40 raw shunt=0x007D raw bus=0x27FC[0m
+[0;32mI (38813) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.860mV  CURRENT=28.822mA  POWER=368.568mW (smoothed)
+[0;32mI (38823) SYSTEM: LOGIC 0x41 raw shunt=0x0478 raw bus=0x27F7[0m
+[0;32mI (40823) SYSTEM: Pump PWM: 10% | TMP117: -0.01°C / 31.99°F[0m
+  PUMP : BUS=12.796V  SHUNT=0.437mV  CURRENT=3.989mA  POWER=51.049mW (smoothed)
+  LOGIC: BUS=12.785V  SHUNT=3.595mV  CURRENT=30.248mA  POWER=386.779mW (smoothed)
+[0;32mI (40833) SYSTEM: PUMP  0x40 raw shunt=0x00AF raw bus=0x27FD[0m
+[0;32mI (40833) SYSTEM: LOGIC 0x41 raw shunt=0x059E raw bus=0x27F4[0m
+[0;33mW (42843) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (42843) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.233mV  CURRENT=3.657mA  POWER=46.790mW (smoothed)
+[0;32mI (42843) SYSTEM: PUMP  0x40 raw shunt=0x005D raw bus=0x27FD[0m
+[0;32mI (42853) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.648mV  CURRENT=29.493mA  POWER=377.139mW (smoothed)
+[0;32mI (42863) SYSTEM: LOGIC 0x41 raw shunt=0x0423 raw bus=0x27F7[0m
+[0;33mW (44863) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (44863) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.422mV  CURRENT=3.770mA  POWER=48.244mW (smoothed)
+[0;32mI (44863) SYSTEM: PUMP  0x40 raw shunt=0x00A9 raw bus=0x27FD[0m
+[0;32mI (44873) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.210mV  CURRENT=30.015mA  POWER=383.799mW (smoothed)
+[0;32mI (44883) SYSTEM: LOGIC 0x41 raw shunt=0x0504 raw bus=0x27F5[0m
+[0;32mI (46883) SYSTEM: Pump PWM: 10% | TMP117: -0.01°C / 31.99°F[0m
+  PUMP : BUS=12.797V  SHUNT=0.320mV  CURRENT=3.656mA  POWER=46.786mW (smoothed)
+  LOGIC: BUS=12.789V  SHUNT=2.470mV  CURRENT=28.952mA  POWER=370.216mW (smoothed)
+[0;32mI (46893) SYSTEM: PUMP  0x40 raw shunt=0x0080 raw bus=0x27FE[0m
+[0;32mI (46893) SYSTEM: LOGIC 0x41 raw shunt=0x03DC raw bus=0x27F7[0m
+[0;33mW (48903) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (48903) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.250mV  CURRENT=3.425mA  POWER=43.827mW (smoothed)
+[0;32mI (48903) SYSTEM: PUMP  0x40 raw shunt=0x0064 raw bus=0x27FD[0m
+[0;32mI (48913) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.855mV  CURRENT=28.871mA  POWER=369.189mW (smoothed)
+[0;32mI (48923) SYSTEM: LOGIC 0x41 raw shunt=0x0476 raw bus=0x27F6[0m
+[0;33mW (50923) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (50923) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.487mV  CURRENT=3.715mA  POWER=47.538mW (smoothed)
+[0;32mI (50923) SYSTEM: PUMP  0x40 raw shunt=0x00C3 raw bus=0x27FD[0m
+[0;32mI (50933) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.540mV  CURRENT=30.177mA  POWER=385.878mW (smoothed)
+[0;32mI (50943) SYSTEM: LOGIC 0x41 raw shunt=0x0588 raw bus=0x27F5[0m
+[0;33mW (52943) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (52943) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.230mV  CURRENT=3.432mA  POWER=43.917mW (smoothed)
+[0;32mI (52943) SYSTEM: PUMP  0x40 raw shunt=0x005C raw bus=0x27FE[0m
+[0;32mI (52953) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.645mV  CURRENT=29.432mA  POWER=376.355mW (smoothed)
+[0;32mI (52963) SYSTEM: LOGIC 0x41 raw shunt=0x0422 raw bus=0x27F7[0m
+[0;33mW (54963) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (54963) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.333mV  CURRENT=3.411mA  POWER=43.642mW (smoothed)
+[0;32mI (54963) SYSTEM: PUMP  0x40 raw shunt=0x0085 raw bus=0x27FB[0m
+[0;32mI (54973) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=3.202mV  CURRENT=29.950mA  POWER=382.996mW (smoothed)
+[0;32mI (54983) SYSTEM: LOGIC 0x41 raw shunt=0x0501 raw bus=0x27F7[0m
+[0;33mW (56983) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (56983) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.485mV  CURRENT=3.698mA  POWER=47.324mW (smoothed)
+[0;32mI (56983) SYSTEM: PUMP  0x40 raw shunt=0x00C2 raw bus=0x27FC[0m
+[0;32mI (56993) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.510mV  CURRENT=28.980mA  POWER=370.603mW (smoothed)
+[0;32mI (57003) SYSTEM: LOGIC 0x41 raw shunt=0x03EC raw bus=0x27F8[0m
+[0;33mW (59003) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (59003) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.228mV  CURRENT=3.414mA  POWER=43.682mW (smoothed)
+[0;32mI (59003) SYSTEM: PUMP  0x40 raw shunt=0x005B raw bus=0x27FD[0m
+[0;32mI (59013) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.817mV  CURRENT=28.819mA  POWER=368.540mW (smoothed)
+[0;32mI (59023) SYSTEM: LOGIC 0x41 raw shunt=0x0467 raw bus=0x27F6[0m
+[0;33mW (61023) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (61023) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.352mV  CURRENT=3.436mA  POWER=43.966mW (smoothed)
+[0;32mI (61023) SYSTEM: PUMP  0x40 raw shunt=0x008D raw bus=0x27FC[0m
+[0;32mI (61033) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.585mV  CURRENT=30.225mA  POWER=386.518mW (smoothed)
+[0;32mI (61043) SYSTEM: LOGIC 0x41 raw shunt=0x059A raw bus=0x27F6[0m
+[0;33mW (63043) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (63043) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.402mV  CURRENT=3.554mA  POWER=45.475mW (smoothed)
+[0;32mI (63043) SYSTEM: PUMP  0x40 raw shunt=0x00A1 raw bus=0x27FE[0m
+[0;32mI (63053) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.642mV  CURRENT=29.465mA  POWER=376.803mW (smoothed)
+[0;32mI (63063) SYSTEM: LOGIC 0x41 raw shunt=0x0421 raw bus=0x27F7[0m
+[0;33mW (65063) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (65063) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.250mV  CURRENT=3.343mA  POWER=42.778mW (smoothed)
+[0;32mI (65063) SYSTEM: PUMP  0x40 raw shunt=0x0064 raw bus=0x27FD[0m
+[0;32mI (65073) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.227mV  CURRENT=30.027mA  POWER=383.978mW (smoothed)
+[0;32mI (65083) SYSTEM: LOGIC 0x41 raw shunt=0x050B raw bus=0x27F5[0m
+[0;33mW (67083) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (67083) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.485mV  CURRENT=3.644mA  POWER=46.636mW (smoothed)
+[0;32mI (67083) SYSTEM: PUMP  0x40 raw shunt=0x00C2 raw bus=0x27FE[0m
+[0;32mI (67093) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.480mV  CURRENT=28.982mA  POWER=370.614mW (smoothed)
+[0;32mI (67103) SYSTEM: LOGIC 0x41 raw shunt=0x03E0 raw bus=0x27F7[0m
+[0;33mW (69103) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (69103) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.303mV  CURRENT=3.521mA  POWER=45.050mW (smoothed)
+[0;32mI (69103) SYSTEM: PUMP  0x40 raw shunt=0x0079 raw bus=0x27FC[0m
+[0;32mI (69113) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.855mV  CURRENT=28.895mA  POWER=369.501mW (smoothed)
+[0;32mI (69123) SYSTEM: LOGIC 0x41 raw shunt=0x0476 raw bus=0x27F5[0m
+[0;33mW (71123) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (71123) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.333mV  CURRENT=3.481mA  POWER=44.548mW (smoothed)
+[0;32mI (71123) SYSTEM: PUMP  0x40 raw shunt=0x0085 raw bus=0x27FC[0m
+[0;32mI (71133) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.545mV  CURRENT=30.206mA  POWER=386.255mW (smoothed)
+[0;32mI (71143) SYSTEM: LOGIC 0x41 raw shunt=0x058A raw bus=0x27F5[0m
+[0;33mW (73143) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (73143) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.422mV  CURRENT=3.630mA  POWER=46.452mW (smoothed)
+[0;32mI (73143) SYSTEM: PUMP  0x40 raw shunt=0x00A9 raw bus=0x27FD[0m
+[0;32mI (73153) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.657mV  CURRENT=29.480mA  POWER=376.970mW (smoothed)
+[0;32mI (73163) SYSTEM: LOGIC 0x41 raw shunt=0x0427 raw bus=0x27F6[0m
+[0;33mW (75163) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (75163) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.233mV  CURRENT=3.369mA  POWER=43.111mW (smoothed)
+[0;32mI (75163) SYSTEM: PUMP  0x40 raw shunt=0x005D raw bus=0x27FC[0m
+[0;32mI (75173) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.223mV  CURRENT=30.029mA  POWER=383.983mW (smoothed)
+[0;32mI (75183) SYSTEM: LOGIC 0x41 raw shunt=0x0509 raw bus=0x27F5[0m
+[0;33mW (77183) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (77183) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.425mV  CURRENT=3.545mA  POWER=45.367mW (smoothed)
+[0;32mI (77183) SYSTEM: PUMP  0x40 raw shunt=0x00AA raw bus=0x27FE[0m
+[0;32mI (77193) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.490mV  CURRENT=29.003mA  POWER=370.868mW (smoothed)
+[0;32mI (77203) SYSTEM: LOGIC 0x41 raw shunt=0x03E4 raw bus=0x27F6[0m
+[0;33mW (79203) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (79203) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.333mV  CURRENT=3.501mA  POWER=44.803mW (smoothed)
+[0;32mI (79203) SYSTEM: PUMP  0x40 raw shunt=0x0085 raw bus=0x27FD[0m
+[0;32mI (79213) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.812mV  CURRENT=28.828mA  POWER=368.617mW (smoothed)
+[0;32mI (79223) SYSTEM: LOGIC 0x41 raw shunt=0x0465 raw bus=0x27F5[0m
+[0;33mW (81223) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (81223) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.252mV  CURRENT=3.306mA  POWER=42.304mW (smoothed)
+[0;32mI (81223) SYSTEM: PUMP  0x40 raw shunt=0x0065 raw bus=0x27FC[0m
+[0;32mI (81233) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.553mV  CURRENT=30.167mA  POWER=385.740mW (smoothed)
+[0;32mI (81243) SYSTEM: LOGIC 0x41 raw shunt=0x058D raw bus=0x27F5[0m
+[0;33mW (83243) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (83243) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.452mV  CURRENT=3.550mA  POWER=45.424mW (smoothed)
+[0;32mI (83243) SYSTEM: PUMP  0x40 raw shunt=0x00B5 raw bus=0x27FD[0m
+[0;32mI (83253) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.648mV  CURRENT=29.429mA  POWER=376.302mW (smoothed)
+[0;32mI (83263) SYSTEM: LOGIC 0x41 raw shunt=0x0423 raw bus=0x27F6[0m
+[0;33mW (85263) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (85263) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.295mV  CURRENT=3.430mA  POWER=43.888mW (smoothed)
+[0;32mI (85263) SYSTEM: PUMP  0x40 raw shunt=0x0076 raw bus=0x27FC[0m
+[0;32mI (85273) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.195mV  CURRENT=29.933mA  POWER=382.746mW (smoothed)
+[0;32mI (85283) SYSTEM: LOGIC 0x41 raw shunt=0x04FE raw bus=0x27F5[0m
+[0;33mW (87283) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (87283) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.327mV  CURRENT=3.399mA  POWER=43.492mW (smoothed)
+[0;32mI (87283) SYSTEM: PUMP  0x40 raw shunt=0x0083 raw bus=0x27FD[0m
+[0;32mI (87293) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.482mV  CURRENT=28.911mA  POWER=369.699mW (smoothed)
+[0;32mI (87303) SYSTEM: LOGIC 0x41 raw shunt=0x03E1 raw bus=0x27F8[0m
+[0;33mW (89303) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (89303) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.799V  SHUNT=0.482mV  CURRENT=3.684mA  POWER=47.144mW (smoothed)
+[0;32mI (89303) SYSTEM: PUMP  0x40 raw shunt=0x00C1 raw bus=0x27FF[0m
+[0;32mI (89313) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.817mV  CURRENT=28.764mA  POWER=367.817mW (smoothed)
+[0;32mI (89323) SYSTEM: LOGIC 0x41 raw shunt=0x0467 raw bus=0x27F6[0m
+[0;33mW (91323) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (91323) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.233mV  CURRENT=3.412mA  POWER=43.665mW (smoothed)
+[0;32mI (91323) SYSTEM: PUMP  0x40 raw shunt=0x005D raw bus=0x27FC[0m
+[0;32mI (91333) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.575mV  CURRENT=30.161mA  POWER=385.684mW (smoothed)
+[0;32mI (91343) SYSTEM: LOGIC 0x41 raw shunt=0x0596 raw bus=0x27F6[0m
+[0;33mW (93343) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (93343) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.372mV  CURRENT=3.475mA  POWER=44.465mW (smoothed)
+[0;32mI (93343) SYSTEM: PUMP  0x40 raw shunt=0x0095 raw bus=0x27FD[0m
+[0;32mI (93353) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.638mV  CURRENT=29.404mA  POWER=376.008mW (smoothed)
+[0;32mI (93363) SYSTEM: LOGIC 0x41 raw shunt=0x041F raw bus=0x27F7[0m
+[0;33mW (95363) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (95363) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.352mV  CURRENT=3.485mA  POWER=44.593mW (smoothed)
+[0;32mI (95363) SYSTEM: PUMP  0x40 raw shunt=0x008D raw bus=0x27FC[0m
+[0;32mI (95373) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.240mV  CURRENT=30.003mA  POWER=383.669mW (smoothed)
+[0;32mI (95383) SYSTEM: LOGIC 0x41 raw shunt=0x0510 raw bus=0x27F6[0m
+[0;33mW (97383) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (97383) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.295mV  CURRENT=3.378mA  POWER=43.224mW (smoothed)
+[0;32mI (97383) SYSTEM: PUMP  0x40 raw shunt=0x0076 raw bus=0x27FD[0m
+[0;32mI (97393) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.475mV  CURRENT=28.953mA  POWER=370.234mW (smoothed)
+[0;32mI (97403) SYSTEM: LOGIC 0x41 raw shunt=0x03DE raw bus=0x27F6[0m
+[0;33mW (99403) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (99403) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.460mV  CURRENT=3.622mA  POWER=46.352mW (smoothed)
+[0;32mI (99403) SYSTEM: PUMP  0x40 raw shunt=0x00B8 raw bus=0x27FD[0m
+[0;32mI (99413) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.840mV  CURRENT=28.842mA  POWER=368.820mW (smoothed)
+[0;32mI (99423) SYSTEM: LOGIC 0x41 raw shunt=0x0470 raw bus=0x27F6[0m
+[0;33mW (101423) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (101423) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.230mV  CURRENT=3.358mA  POWER=42.967mW (smoothed)
+[0;32mI (101423) SYSTEM: PUMP  0x40 raw shunt=0x005C raw bus=0x27FC[0m
+[0;32mI (101433) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.565mV  CURRENT=30.204mA  POWER=386.213mW (smoothed)
+[0;32mI (101443) SYSTEM: LOGIC 0x41 raw shunt=0x0592 raw bus=0x27F4[0m
+[0;33mW (103443) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (103443) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.430mV  CURRENT=3.546mA  POWER=45.378mW (smoothed)
+[0;32mI (103443) SYSTEM: PUMP  0x40 raw shunt=0x00AC raw bus=0x27FD[0m
+[0;32mI (103453) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.668mV  CURRENT=29.498mA  POWER=377.185mW (smoothed)
+[0;32mI (103463) SYSTEM: LOGIC 0x41 raw shunt=0x042B raw bus=0x27F5[0m
+[0;33mW (105463) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (105463) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.792V  SHUNT=0.303mV  CURRENT=3.442mA  POWER=44.042mW (smoothed)
+[0;32mI (105463) SYSTEM: PUMP  0x40 raw shunt=0x0079 raw bus=0x27FA[0m
+[0;32mI (105473) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.200mV  CURRENT=29.998mA  POWER=383.580mW (smoothed)
+[0;32mI (105483) SYSTEM: LOGIC 0x41 raw shunt=0x0500 raw bus=0x27F5[0m
+[0;33mW (107483) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (107483) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.270mV  CURRENT=3.294mA  POWER=42.144mW (smoothed)
+[0;32mI (107483) SYSTEM: PUMP  0x40 raw shunt=0x006C raw bus=0x27FD[0m
+[0;32mI (107493) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.463mV  CURRENT=28.924mA  POWER=369.849mW (smoothed)
+[0;32mI (107503) SYSTEM: LOGIC 0x41 raw shunt=0x03D9 raw bus=0x27F7[0m
+[0;33mW (109503) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (109503) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.477mV  CURRENT=3.590mA  POWER=45.935mW (smoothed)
+[0;32mI (109503) SYSTEM: PUMP  0x40 raw shunt=0x00BF raw bus=0x27FD[0m
+[0;32mI (109513) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.820mV  CURRENT=28.779mA  POWER=368.000mW (smoothed)
+[0;32mI (109523) SYSTEM: LOGIC 0x41 raw shunt=0x0468 raw bus=0x27F6[0m
+[0;33mW (111523) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (111523) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.237mV  CURRENT=3.347mA  POWER=42.826mW (smoothed)
+[0;32mI (111523) SYSTEM: PUMP  0x40 raw shunt=0x005F raw bus=0x27FC[0m
+[0;32mI (111533) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.582mV  CURRENT=30.188mA  POWER=386.005mW (smoothed)
+[0;32mI (111543) SYSTEM: LOGIC 0x41 raw shunt=0x0599 raw bus=0x27F4[0m
+[0;33mW (113543) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (113543) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.330mV  CURRENT=3.338mA  POWER=42.707mW (smoothed)
+[0;32mI (113543) SYSTEM: PUMP  0x40 raw shunt=0x0084 raw bus=0x27FE[0m
+[0;32mI (113553) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.665mV  CURRENT=29.481mA  POWER=376.968mW (smoothed)
+[0;32mI (113563) SYSTEM: LOGIC 0x41 raw shunt=0x042A raw bus=0x27F7[0m
+[0;33mW (115563) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (115563) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.400mV  CURRENT=3.470mA  POWER=44.404mW (smoothed)
+[0;32mI (115563) SYSTEM: PUMP  0x40 raw shunt=0x00A0 raw bus=0x27FE[0m
+[0;32mI (115573) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.232mV  CURRENT=30.049mA  POWER=384.245mW (smoothed)
+[0;32mI (115583) SYSTEM: LOGIC 0x41 raw shunt=0x050D raw bus=0x27F6[0m
+[0;33mW (117583) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (117583) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.250mV  CURRENT=3.276mA  POWER=41.921mW (smoothed)
+[0;32mI (117583) SYSTEM: PUMP  0x40 raw shunt=0x0064 raw bus=0x27FD[0m
+[0;32mI (117593) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.482mV  CURRENT=29.005mA  POWER=370.886mW (smoothed)
+[0;32mI (117603) SYSTEM: LOGIC 0x41 raw shunt=0x03E1 raw bus=0x27F6[0m
+[0;33mW (119603) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (119603) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.465mV  CURRENT=3.551mA  POWER=45.437mW (smoothed)
+[0;32mI (119603) SYSTEM: PUMP  0x40 raw shunt=0x00BA raw bus=0x27FD[0m
+[0;32mI (119613) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.828mV  CURRENT=28.859mA  POWER=369.022mW (smoothed)
+[0;32mI (119623) SYSTEM: LOGIC 0x41 raw shunt=0x046B raw bus=0x27F6[0m
+[0;33mW (121623) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (121623) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.280mV  CURRENT=3.401mA  POWER=43.515mW (smoothed)
+[0;32mI (121623) SYSTEM: PUMP  0x40 raw shunt=0x0070 raw bus=0x27FC[0m
+[0;32mI (121633) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.570mV  CURRENT=30.227mA  POWER=386.512mW (smoothed)
+[0;32mI (121643) SYSTEM: LOGIC 0x41 raw shunt=0x0594 raw bus=0x27F5[0m
+[0;33mW (123643) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (123643) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.360mV  CURRENT=3.441mA  POWER=44.025mW (smoothed)
+[0;32mI (123643) SYSTEM: PUMP  0x40 raw shunt=0x0090 raw bus=0x27FD[0m
+[0;32mI (123653) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.660mV  CURRENT=29.502mA  POWER=377.232mW (smoothed)
+[0;32mI (123663) SYSTEM: LOGIC 0x41 raw shunt=0x0428 raw bus=0x27F5[0m
+[0;33mW (125663) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (125663) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.425mV  CURRENT=3.602mA  POWER=46.095mW (smoothed)
+[0;32mI (125663) SYSTEM: PUMP  0x40 raw shunt=0x00AA raw bus=0x27FB[0m
+[0;32mI (125673) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.217mV  CURRENT=30.036mA  POWER=384.057mW (smoothed)
+[0;32mI (125683) SYSTEM: LOGIC 0x41 raw shunt=0x0507 raw bus=0x27F4[0m
+[0;33mW (127683) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (127683) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.240mV  CURRENT=3.362mA  POWER=43.018mW (smoothed)
+[0;32mI (127683) SYSTEM: PUMP  0x40 raw shunt=0x0060 raw bus=0x27FC[0m
+[0;32mI (127693) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.467mV  CURRENT=28.964mA  POWER=370.358mW (smoothed)
+[0;32mI (127703) SYSTEM: LOGIC 0x41 raw shunt=0x03DB raw bus=0x27F7[0m
+[0;33mW (129703) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (129703) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.492mV  CURRENT=3.675mA  POWER=47.018mW (smoothed)
+[0;32mI (129703) SYSTEM: PUMP  0x40 raw shunt=0x00C5 raw bus=0x27FD[0m
+[0;32mI (129713) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.862mV  CURRENT=28.896mA  POWER=369.502mW (smoothed)
+[0;32mI (129723) SYSTEM: LOGIC 0x41 raw shunt=0x0479 raw bus=0x27F7[0m
+[0;33mW (131723) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (131723) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.300mV  CURRENT=3.540mA  POWER=45.292mW (smoothed)
+[0;32mI (131723) SYSTEM: PUMP  0x40 raw shunt=0x0078 raw bus=0x27FC[0m
+[0;32mI (131733) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.570mV  CURRENT=30.257mA  POWER=386.887mW (smoothed)
+[0;32mI (131743) SYSTEM: LOGIC 0x41 raw shunt=0x0594 raw bus=0x27F4[0m
+[0;33mW (133743) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (133743) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.322mV  CURRENT=3.477mA  POWER=44.487mW (smoothed)
+[0;32mI (133743) SYSTEM: PUMP  0x40 raw shunt=0x0081 raw bus=0x27FD[0m
+[0;32mI (133753) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.642mV  CURRENT=29.491mA  POWER=377.091mW (smoothed)
+[0;32mI (133763) SYSTEM: LOGIC 0x41 raw shunt=0x0421 raw bus=0x27F6[0m
+[0;33mW (135763) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (135763) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.402mV  CURRENT=3.586mA  POWER=45.892mW (smoothed)
+[0;32mI (135763) SYSTEM: PUMP  0x40 raw shunt=0x00A1 raw bus=0x27FE[0m
+[0;32mI (135773) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.210mV  CURRENT=30.012mA  POWER=383.753mW (smoothed)
+[0;32mI (135783) SYSTEM: LOGIC 0x41 raw shunt=0x0504 raw bus=0x27F4[0m
+[0;33mW (137783) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (137783) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.233mV  CURRENT=3.334mA  POWER=42.663mW (smoothed)
+[0;32mI (137783) SYSTEM: PUMP  0x40 raw shunt=0x005D raw bus=0x27FD[0m
+[0;32mI (137793) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.517mV  CURRENT=29.045mA  POWER=371.381mW (smoothed)
+[0;32mI (137803) SYSTEM: LOGIC 0x41 raw shunt=0x03EF raw bus=0x27F5[0m
+[0;33mW (139803) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (139803) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.457mV  CURRENT=3.582mA  POWER=45.839mW (smoothed)
+[0;32mI (139803) SYSTEM: PUMP  0x40 raw shunt=0x00B7 raw bus=0x27FD[0m
+[0;32mI (139813) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.845mV  CURRENT=28.926mA  POWER=369.873mW (smoothed)
+[0;32mI (139823) SYSTEM: LOGIC 0x41 raw shunt=0x0472 raw bus=0x27F7[0m
+[0;33mW (141823) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (141823) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.280mV  CURRENT=3.426mA  POWER=43.837mW (smoothed)
+[0;32mI (141823) SYSTEM: PUMP  0x40 raw shunt=0x0070 raw bus=0x27FC[0m
+[0;32mI (141833) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.535mV  CURRENT=30.211mA  POWER=386.297mW (smoothed)
+[0;32mI (141843) SYSTEM: LOGIC 0x41 raw shunt=0x0586 raw bus=0x27F5[0m
+[0;33mW (143843) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (143843) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.303mV  CURRENT=3.346mA  POWER=42.812mW (smoothed)
+[0;32mI (143843) SYSTEM: PUMP  0x40 raw shunt=0x0079 raw bus=0x27FE[0m
+[0;32mI (143853) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.632mV  CURRENT=29.434mA  POWER=376.364mW (smoothed)
+[0;32mI (143863) SYSTEM: LOGIC 0x41 raw shunt=0x041D raw bus=0x27F6[0m
+[0;33mW (145863) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (145863) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.450mV  CURRENT=3.577mA  POWER=45.764mW (smoothed)
+[0;32mI (145863) SYSTEM: PUMP  0x40 raw shunt=0x00B4 raw bus=0x27FB[0m
+[0;32mI (145873) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.232mV  CURRENT=30.012mA  POWER=383.754mW (smoothed)
+[0;32mI (145883) SYSTEM: LOGIC 0x41 raw shunt=0x050D raw bus=0x27F5[0m
+[0;33mW (147883) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (147883) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.237mV  CURRENT=3.336mA  POWER=42.689mW (smoothed)
+[0;32mI (147883) SYSTEM: PUMP  0x40 raw shunt=0x005F raw bus=0x27FC[0m
+[0;32mI (147893) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.490mV  CURRENT=28.990mA  POWER=370.679mW (smoothed)
+[0;32mI (147903) SYSTEM: LOGIC 0x41 raw shunt=0x03E4 raw bus=0x27F5[0m
+[0;33mW (149903) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (149903) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.345mV  CURRENT=3.359mA  POWER=42.980mW (smoothed)
+[0;32mI (149903) SYSTEM: PUMP  0x40 raw shunt=0x008A raw bus=0x27FD[0m
+[0;32mI (149913) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.847mV  CURRENT=28.887mA  POWER=369.368mW (smoothed)
+[0;32mI (149923) SYSTEM: LOGIC 0x41 raw shunt=0x0473 raw bus=0x27F6[0m
+[0;33mW (151923) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (151923) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.377mV  CURRENT=3.442mA  POWER=44.045mW (smoothed)
+[0;32mI (151923) SYSTEM: PUMP  0x40 raw shunt=0x0097 raw bus=0x27FC[0m
+[0;32mI (151933) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.577mV  CURRENT=30.264mA  POWER=386.971mW (smoothed)
+[0;32mI (151943) SYSTEM: LOGIC 0x41 raw shunt=0x0597 raw bus=0x27F4[0m
+[0;33mW (153943) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (153943) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.265mV  CURRENT=3.284mA  POWER=42.018mW (smoothed)
+[0;32mI (153943) SYSTEM: PUMP  0x40 raw shunt=0x006A raw bus=0x27FD[0m
+[0;32mI (153953) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.642mV  CURRENT=29.496mA  POWER=377.165mW (smoothed)
+[0;32mI (153963) SYSTEM: LOGIC 0x41 raw shunt=0x0421 raw bus=0x27F7[0m
+[0;33mW (155963) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (155963) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.482mV  CURRENT=3.592mA  POWER=45.961mW (smoothed)
+[0;32mI (155963) SYSTEM: PUMP  0x40 raw shunt=0x00C1 raw bus=0x27FC[0m
+[0;32mI (155973) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.215mV  CURRENT=30.027mA  POWER=383.948mW (smoothed)
+[0;32mI (155983) SYSTEM: LOGIC 0x41 raw shunt=0x0506 raw bus=0x27F5[0m
+[0;33mW (157983) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (157983) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.265mV  CURRENT=3.404mA  POWER=43.552mW (smoothed)
+[0;32mI (157983) SYSTEM: PUMP  0x40 raw shunt=0x006A raw bus=0x27FE[0m
+[0;32mI (157993) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.463mV  CURRENT=28.947mA  POWER=370.143mW (smoothed)
+[0;32mI (158003) SYSTEM: LOGIC 0x41 raw shunt=0x03D9 raw bus=0x27F7[0m
+[0;33mW (160003) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (160003) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.387mV  CURRENT=3.498mA  POWER=44.758mW (smoothed)
+[0;32mI (160003) SYSTEM: PUMP  0x40 raw shunt=0x009B raw bus=0x27FD[0m
+[0;32mI (160013) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.862mV  CURRENT=28.882mA  POWER=369.323mW (smoothed)
+[0;32mI (160023) SYSTEM: LOGIC 0x41 raw shunt=0x0479 raw bus=0x27F6[0m
+[0;33mW (162023) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (162023) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.402mV  CURRENT=3.603mA  POWER=46.107mW (smoothed)
+[0;32mI (162023) SYSTEM: PUMP  0x40 raw shunt=0x00A1 raw bus=0x27FC[0m
+[0;32mI (162033) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.590mV  CURRENT=30.286mA  POWER=387.263mW (smoothed)
+[0;32mI (162043) SYSTEM: LOGIC 0x41 raw shunt=0x059C raw bus=0x27F5[0m
+[0;33mW (164043) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (164043) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.242mV  CURRENT=3.368mA  POWER=43.092mW (smoothed)
+[0;32mI (164043) SYSTEM: PUMP  0x40 raw shunt=0x0061 raw bus=0x27FE[0m
+[0;32mI (164053) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.632mV  CURRENT=29.494mA  POWER=377.137mW (smoothed)
+[0;32mI (164063) SYSTEM: LOGIC 0x41 raw shunt=0x041D raw bus=0x27F6[0m
+[0;33mW (166063) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (166063) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.485mV  CURRENT=3.664mA  POWER=46.885mW (smoothed)
+[0;32mI (166063) SYSTEM: PUMP  0x40 raw shunt=0x00C2 raw bus=0x27FC[0m
+[0;32mI (166073) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.223mV  CURRENT=30.040mA  POWER=384.125mW (smoothed)
+[0;32mI (166083) SYSTEM: LOGIC 0x41 raw shunt=0x0509 raw bus=0x27F6[0m
+[0;33mW (168083) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (168083) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.287mV  CURRENT=3.506mA  POWER=44.866mW (smoothed)
+[0;32mI (168083) SYSTEM: PUMP  0x40 raw shunt=0x0073 raw bus=0x27FD[0m
+[0;32mI (168093) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.470mV  CURRENT=28.972mA  POWER=370.483mW (smoothed)
+[0;32mI (168103) SYSTEM: LOGIC 0x41 raw shunt=0x03DC raw bus=0x27F8[0m
+[0;33mW (170103) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (170103) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.352mV  CURRENT=3.510mA  POWER=44.915mW (smoothed)
+[0;32mI (170103) SYSTEM: PUMP  0x40 raw shunt=0x008D raw bus=0x27FE[0m
+[0;32mI (170113) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.847mV  CURRENT=28.873mA  POWER=369.211mW (smoothed)
+[0;32mI (170123) SYSTEM: LOGIC 0x41 raw shunt=0x0473 raw bus=0x27F6[0m
+[0;33mW (172123) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (172123) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.377mV  CURRENT=3.563mA  POWER=45.593mW (smoothed)
+[0;32mI (172123) SYSTEM: PUMP  0x40 raw shunt=0x0097 raw bus=0x27FD[0m
+[0;32mI (172133) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.597mV  CURRENT=30.293mA  POWER=387.366mW (smoothed)
+[0;32mI (172143) SYSTEM: LOGIC 0x41 raw shunt=0x059F raw bus=0x27F5[0m
+[0;33mW (174143) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (174143) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.237mV  CURRENT=3.325mA  POWER=42.553mW (smoothed)
+[0;32mI (174143) SYSTEM: PUMP  0x40 raw shunt=0x005F raw bus=0x27FD[0m
+[0;32mI (174153) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.668mV  CURRENT=29.569mA  POWER=378.121mW (smoothed)
+[0;32mI (174163) SYSTEM: LOGIC 0x41 raw shunt=0x042B raw bus=0x27F7[0m
+[0;33mW (176163) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (176163) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.490mV  CURRENT=3.640mA  POWER=46.582mW (smoothed)
+[0;32mI (176163) SYSTEM: PUMP  0x40 raw shunt=0x00C4 raw bus=0x27FD[0m
+[0;32mI (176173) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.175mV  CURRENT=30.006mA  POWER=383.681mW (smoothed)
+[0;32mI (176183) SYSTEM: LOGIC 0x41 raw shunt=0x04F6 raw bus=0x27F4[0m
+[0;33mW (178183) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (178183) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.317mV  CURRENT=3.547mA  POWER=45.392mW (smoothed)
+[0;32mI (178183) SYSTEM: PUMP  0x40 raw shunt=0x007F raw bus=0x27FD[0m
+[0;32mI (178193) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.493mV  CURRENT=28.989mA  POWER=370.697mW (smoothed)
+[0;32mI (178203) SYSTEM: LOGIC 0x41 raw shunt=0x03E5 raw bus=0x27F7[0m
+[0;33mW (180203) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (180203) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.252mV  CURRENT=3.343mA  POWER=42.775mW (smoothed)
+[0;32mI (180203) SYSTEM: PUMP  0x40 raw shunt=0x0065 raw bus=0x27FD[0m
+[0;32mI (180213) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.832mV  CURRENT=28.857mA  POWER=368.999mW (smoothed)
+[0;32mI (180223) SYSTEM: LOGIC 0x41 raw shunt=0x046D raw bus=0x27F6[0m
+[0;33mW (182223) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (182223) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.482mV  CURRENT=3.639mA  POWER=46.569mW (smoothed)
+[0;32mI (182223) SYSTEM: PUMP  0x40 raw shunt=0x00C1 raw bus=0x27FD[0m
+[0;32mI (182233) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.600mV  CURRENT=30.285mA  POWER=387.260mW (smoothed)
+[0;32mI (182243) SYSTEM: LOGIC 0x41 raw shunt=0x05A0 raw bus=0x27F5[0m
+[0;33mW (184243) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (184243) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.233mV  CURRENT=3.376mA  POWER=43.205mW (smoothed)
+[0;32mI (184243) SYSTEM: PUMP  0x40 raw shunt=0x005D raw bus=0x27FD[0m
+[0;32mI (184253) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.610mV  CURRENT=29.448mA  POWER=376.565mW (smoothed)
+[0;32mI (184263) SYSTEM: LOGIC 0x41 raw shunt=0x0414 raw bus=0x27F7[0m
+[0;33mW (186263) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (186263) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.387mV  CURRENT=3.476mA  POWER=44.479mW (smoothed)
+[0;32mI (186263) SYSTEM: PUMP  0x40 raw shunt=0x009B raw bus=0x27FB[0m
+[0;32mI (186273) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.223mV  CURRENT=30.004mA  POWER=383.652mW (smoothed)
+[0;32mI (186283) SYSTEM: LOGIC 0x41 raw shunt=0x0509 raw bus=0x27F4[0m
+[0;33mW (188283) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (188283) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.340mV  CURRENT=3.461mA  POWER=44.286mW (smoothed)
+[0;32mI (188283) SYSTEM: PUMP  0x40 raw shunt=0x0088 raw bus=0x27FE[0m
+[0;32mI (188293) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.502mV  CURRENT=29.008mA  POWER=370.923mW (smoothed)
+[0;32mI (188303) SYSTEM: LOGIC 0x41 raw shunt=0x03E9 raw bus=0x27F6[0m
+[0;33mW (190303) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (190303) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.310mV  CURRENT=3.389mA  POWER=43.362mW (smoothed)
+[0;32mI (190303) SYSTEM: PUMP  0x40 raw shunt=0x007C raw bus=0x27FC[0m
+[0;32mI (190313) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.837mV  CURRENT=28.881mA  POWER=369.300mW (smoothed)
+[0;32mI (190323) SYSTEM: LOGIC 0x41 raw shunt=0x046F raw bus=0x27F5[0m
+[0;33mW (192323) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (192323) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.490mV  CURRENT=3.691mA  POWER=47.228mW (smoothed)
+[0;32mI (192323) SYSTEM: PUMP  0x40 raw shunt=0x00C4 raw bus=0x27FC[0m
+[0;32mI (192333) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.570mV  CURRENT=30.245mA  POWER=386.734mW (smoothed)
+[0;32mI (192343) SYSTEM: LOGIC 0x41 raw shunt=0x0594 raw bus=0x27F5[0m
+[0;33mW (194343) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (194343) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.230mV  CURRENT=3.413mA  POWER=43.669mW (smoothed)
+[0;32mI (194343) SYSTEM: PUMP  0x40 raw shunt=0x005C raw bus=0x27FD[0m
+[0;32mI (194353) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.610mV  CURRENT=29.416mA  POWER=376.138mW (smoothed)
+[0;32mI (194363) SYSTEM: LOGIC 0x41 raw shunt=0x0414 raw bus=0x27F6[0m
+[0;33mW (196363) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (196363) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.428mV  CURRENT=3.585mA  POWER=45.875mW (smoothed)
+[0;32mI (196363) SYSTEM: PUMP  0x40 raw shunt=0x00AB raw bus=0x27FC[0m
+[0;32mI (196373) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.220mV  CURRENT=29.973mA  POWER=383.254mW (smoothed)
+[0;32mI (196383) SYSTEM: LOGIC 0x41 raw shunt=0x0508 raw bus=0x27F5[0m
+[0;33mW (198383) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (198383) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.382mV  CURRENT=3.633mA  POWER=46.490mW (smoothed)
+[0;32mI (198383) SYSTEM: PUMP  0x40 raw shunt=0x0099 raw bus=0x27FE[0m
+[0;32mI (198393) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.457mV  CURRENT=28.893mA  POWER=369.460mW (smoothed)
+[0;32mI (198403) SYSTEM: LOGIC 0x41 raw shunt=0x03D7 raw bus=0x27F7[0m
+[0;33mW (200403) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (200403) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.268mV  CURRENT=3.442mA  POWER=44.038mW (smoothed)
+[0;32mI (200403) SYSTEM: PUMP  0x40 raw shunt=0x006B raw bus=0x27FD[0m
+[0;32mI (200413) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.830mV  CURRENT=28.775mA  POWER=367.952mW (smoothed)
+[0;32mI (200423) SYSTEM: LOGIC 0x41 raw shunt=0x046C raw bus=0x27F7[0m
+[0;33mW (202423) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (202423) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.467mV  CURRENT=3.688mA  POWER=47.193mW (smoothed)
+[0;32mI (202423) SYSTEM: PUMP  0x40 raw shunt=0x00BB raw bus=0x27FB[0m
+[0;32mI (202433) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.572mV  CURRENT=30.165mA  POWER=385.719mW (smoothed)
+[0;32mI (202443) SYSTEM: LOGIC 0x41 raw shunt=0x0595 raw bus=0x27F5[0m
+[0;33mW (204443) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (204443) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.252mV  CURRENT=3.456mA  POWER=44.216mW (smoothed)
+[0;32mI (204443) SYSTEM: PUMP  0x40 raw shunt=0x0065 raw bus=0x27FD[0m
+[0;32mI (204453) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.662mV  CURRENT=29.457mA  POWER=376.676mW (smoothed)
+[0;32mI (204463) SYSTEM: LOGIC 0x41 raw shunt=0x0429 raw bus=0x27F7[0m
+[0;33mW (206463) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (206463) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.398mV  CURRENT=3.559mA  POWER=45.545mW (smoothed)
+[0;32mI (206463) SYSTEM: PUMP  0x40 raw shunt=0x009F raw bus=0x27FC[0m
+[0;32mI (206473) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.202mV  CURRENT=29.970mA  POWER=383.244mW (smoothed)
+[0;32mI (206483) SYSTEM: LOGIC 0x41 raw shunt=0x0501 raw bus=0x27F6[0m
+[0;33mW (208483) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (208483) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.407mV  CURRENT=3.663mA  POWER=46.864mW (smoothed)
+[0;32mI (208483) SYSTEM: PUMP  0x40 raw shunt=0x00A3 raw bus=0x27FC[0m
+[0;32mI (208493) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.493mV  CURRENT=28.961mA  POWER=370.335mW (smoothed)
+[0;32mI (208503) SYSTEM: LOGIC 0x41 raw shunt=0x03E5 raw bus=0x27F5[0m
+[0;33mW (210503) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (210503) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.242mV  CURRENT=3.415mA  POWER=43.697mW (smoothed)
+[0;32mI (210503) SYSTEM: PUMP  0x40 raw shunt=0x0061 raw bus=0x27FC[0m
+[0;32mI (210513) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.830mV  CURRENT=28.829mA  POWER=368.652mW (smoothed)
+[0;32mI (210523) SYSTEM: LOGIC 0x41 raw shunt=0x046C raw bus=0x27F7[0m
+[0;33mW (212523) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (212523) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.455mV  CURRENT=3.642mA  POWER=46.602mW (smoothed)
+[0;32mI (212523) SYSTEM: PUMP  0x40 raw shunt=0x00B6 raw bus=0x27FD[0m
+[0;32mI (212533) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.587mV  CURRENT=30.238mA  POWER=386.663mW (smoothed)
+[0;32mI (212543) SYSTEM: LOGIC 0x41 raw shunt=0x059B raw bus=0x27F5[0m
+[0;33mW (214543) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (214543) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.295mV  CURRENT=3.504mA  POWER=44.831mW (smoothed)
+[0;32mI (214543) SYSTEM: PUMP  0x40 raw shunt=0x0076 raw bus=0x27FC[0m
+[0;32mI (214553) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.645mV  CURRENT=29.481mA  POWER=376.983mW (smoothed)
+[0;32mI (214563) SYSTEM: LOGIC 0x41 raw shunt=0x0422 raw bus=0x27F7[0m
+[0;33mW (216563) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (216563) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.347mV  CURRENT=3.498mA  POWER=44.759mW (smoothed)
+[0;32mI (216563) SYSTEM: PUMP  0x40 raw shunt=0x008B raw bus=0x27FE[0m
+[0;32mI (216573) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.215mV  CURRENT=30.014mA  POWER=383.810mW (smoothed)
+[0;32mI (216583) SYSTEM: LOGIC 0x41 raw shunt=0x0506 raw bus=0x27F6[0m
+[0;33mW (218583) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (218583) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.457mV  CURRENT=3.713mA  POWER=47.516mW (smoothed)
+[0;32mI (218583) SYSTEM: PUMP  0x40 raw shunt=0x00B7 raw bus=0x27FD[0m
+[0;32mI (218593) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.507mV  CURRENT=29.027mA  POWER=371.184mW (smoothed)
+[0;32mI (218603) SYSTEM: LOGIC 0x41 raw shunt=0x03EB raw bus=0x27F7[0m
+[0;33mW (220603) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (220603) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.233mV  CURRENT=3.436mA  POWER=43.962mW (smoothed)
+[0;32mI (220603) SYSTEM: PUMP  0x40 raw shunt=0x005D raw bus=0x27FC[0m
+[0;32mI (220613) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.805mV  CURRENT=28.831mA  POWER=368.692mW (smoothed)
+[0;32mI (220623) SYSTEM: LOGIC 0x41 raw shunt=0x0462 raw bus=0x27F7[0m
+[0;33mW (222623) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (222623) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.465mV  CURRENT=3.679mA  POWER=47.070mW (smoothed)
+[0;32mI (222623) SYSTEM: PUMP  0x40 raw shunt=0x00BA raw bus=0x27FD[0m
+[0;32mI (222633) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.560mV  CURRENT=30.185mA  POWER=385.983mW (smoothed)
+[0;32mI (222643) SYSTEM: LOGIC 0x41 raw shunt=0x0590 raw bus=0x27F4[0m
+[0;33mW (224643) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (224643) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.347mV  CURRENT=3.638mA  POWER=46.550mW (smoothed)
+[0;32mI (224643) SYSTEM: PUMP  0x40 raw shunt=0x008B raw bus=0x27FD[0m
+[0;32mI (224653) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.625mV  CURRENT=29.398mA  POWER=375.927mW (smoothed)
+[0;32mI (224663) SYSTEM: LOGIC 0x41 raw shunt=0x041A raw bus=0x27F7[0m
+[0;33mW (226663) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (226663) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.792V  SHUNT=0.305mV  CURRENT=3.520mA  POWER=45.043mW (smoothed)
+[0;32mI (226663) SYSTEM: PUMP  0x40 raw shunt=0x007A raw bus=0x27FA[0m
+[0;32mI (226673) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.223mV  CURRENT=29.963mA  POWER=383.149mW (smoothed)
+[0;32mI (226683) SYSTEM: LOGIC 0x41 raw shunt=0x0509 raw bus=0x27F5[0m
+[0;33mW (228683) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (228683) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.445mV  CURRENT=3.706mA  POWER=47.423mW (smoothed)
+[0;32mI (228683) SYSTEM: PUMP  0x40 raw shunt=0x00B2 raw bus=0x27FD[0m
+[0;32mI (228693) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.493mV  CURRENT=28.956mA  POWER=370.265mW (smoothed)
+[0;32mI (228703) SYSTEM: LOGIC 0x41 raw shunt=0x03E5 raw bus=0x27F6[0m
+[0;33mW (230703) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (230703) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.230mV  CURRENT=3.425mA  POWER=43.824mW (smoothed)
+[0;32mI (230703) SYSTEM: PUMP  0x40 raw shunt=0x005C raw bus=0x27FC[0m
+[0;32mI (230713) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.842mV  CURRENT=28.850mA  POWER=368.909mW (smoothed)
+[0;32mI (230723) SYSTEM: LOGIC 0x41 raw shunt=0x0471 raw bus=0x27F6[0m
+[0;33mW (232723) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (232723) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.425mV  CURRENT=3.590mA  POWER=45.935mW (smoothed)
+[0;32mI (232723) SYSTEM: PUMP  0x40 raw shunt=0x00AA raw bus=0x27FC[0m
+[0;32mI (232733) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.567mV  CURRENT=30.215mA  POWER=386.357mW (smoothed)
+[0;32mI (232743) SYSTEM: LOGIC 0x41 raw shunt=0x0593 raw bus=0x27F5[0m
+[0;33mW (234743) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (234743) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.315mV  CURRENT=3.502mA  POWER=44.810mW (smoothed)
+[0;32mI (234743) SYSTEM: PUMP  0x40 raw shunt=0x007E raw bus=0x27FD[0m
+[0;32mI (234753) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.660mV  CURRENT=29.492mA  POWER=377.108mW (smoothed)
+[0;32mI (234763) SYSTEM: LOGIC 0x41 raw shunt=0x0428 raw bus=0x27F5[0m
+[0;33mW (236763) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (236763) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.265mV  CURRENT=3.332mA  POWER=42.629mW (smoothed)
+[0;32mI (236763) SYSTEM: PUMP  0x40 raw shunt=0x006A raw bus=0x27FC[0m
+[0;32mI (236773) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.212mV  CURRENT=30.018mA  POWER=383.838mW (smoothed)
+[0;32mI (236783) SYSTEM: LOGIC 0x41 raw shunt=0x0505 raw bus=0x27F5[0m
+[0;33mW (238783) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (238783) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.482mV  CURRENT=3.630mA  POWER=46.452mW (smoothed)
+[0;32mI (238783) SYSTEM: PUMP  0x40 raw shunt=0x00C1 raw bus=0x27FD[0m
+[0;32mI (238793) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.520mV  CURRENT=29.055mA  POWER=371.526mW (smoothed)
+[0;32mI (238803) SYSTEM: LOGIC 0x41 raw shunt=0x03F0 raw bus=0x27F7[0m
+[0;33mW (240803) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (240803) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.233mV  CURRENT=3.369mA  POWER=43.112mW (smoothed)
+[0;32mI (240803) SYSTEM: PUMP  0x40 raw shunt=0x005D raw bus=0x27FE[0m
+[0;32mI (240813) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.825mV  CURRENT=28.894mA  POWER=369.470mW (smoothed)
+[0;32mI (240823) SYSTEM: LOGIC 0x41 raw shunt=0x046A raw bus=0x27F6[0m
+[0;33mW (242823) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (242823) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.310mV  CURRENT=3.315mA  POWER=42.422mW (smoothed)
+[0;32mI (242823) SYSTEM: PUMP  0x40 raw shunt=0x007C raw bus=0x27FB[0m
+[0;32mI (242833) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.557mV  CURRENT=30.230mA  POWER=386.550mW (smoothed)
+[0;32mI (242843) SYSTEM: LOGIC 0x41 raw shunt=0x058F raw bus=0x27F5[0m
+[0;33mW (244843) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (244843) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.432mV  CURRENT=3.517mA  POWER=45.006mW (smoothed)
+[0;32mI (244843) SYSTEM: PUMP  0x40 raw shunt=0x00AD raw bus=0x27FD[0m
+[0;32mI (244853) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.650mV  CURRENT=29.484mA  POWER=377.014mW (smoothed)
+[0;32mI (244863) SYSTEM: LOGIC 0x41 raw shunt=0x0424 raw bus=0x27F6[0m
+[0;33mW (246863) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (246863) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.240mV  CURRENT=3.294mA  POWER=42.147mW (smoothed)
+[0;32mI (246863) SYSTEM: PUMP  0x40 raw shunt=0x0060 raw bus=0x27FC[0m
+[0;32mI (246873) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.225mV  CURRENT=30.037mA  POWER=384.083mW (smoothed)
+[0;32mI (246883) SYSTEM: LOGIC 0x41 raw shunt=0x050A raw bus=0x27F5[0m
+[0;33mW (248883) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (248883) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.440mV  CURRENT=3.515mA  POWER=44.978mW (smoothed)
+[0;32mI (248883) SYSTEM: PUMP  0x40 raw shunt=0x00B0 raw bus=0x27FD[0m
+[0;32mI (248893) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.500mV  CURRENT=29.030mA  POWER=371.210mW (smoothed)
+[0;32mI (248903) SYSTEM: LOGIC 0x41 raw shunt=0x03E8 raw bus=0x27F7[0m
+[0;33mW (250903) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (250903) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.300mV  CURRENT=3.412mA  POWER=43.659mW (smoothed)
+[0;32mI (250903) SYSTEM: PUMP  0x40 raw shunt=0x0078 raw bus=0x27FC[0m
+[0;32mI (250913) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.830mV  CURRENT=28.884mA  POWER=369.345mW (smoothed)
+[0;32mI (250923) SYSTEM: LOGIC 0x41 raw shunt=0x046C raw bus=0x27F6[0m
+[0;33mW (252923) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (252923) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.330mV  CURRENT=3.390mA  POWER=43.373mW (smoothed)
+[0;32mI (252923) SYSTEM: PUMP  0x40 raw shunt=0x0084 raw bus=0x27FD[0m
+[0;32mI (252933) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.582mV  CURRENT=30.272mA  POWER=387.090mW (smoothed)
+[0;32mI (252943) SYSTEM: LOGIC 0x41 raw shunt=0x0599 raw bus=0x27F5[0m
+[0;33mW (254943) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (254943) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.465mV  CURRENT=3.642mA  POWER=46.600mW (smoothed)
+[0;32mI (254943) SYSTEM: PUMP  0x40 raw shunt=0x00BA raw bus=0x27FE[0m
+[0;32mI (254953) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.607mV  CURRENT=29.433mA  POWER=376.365mW (smoothed)
+[0;32mI (254963) SYSTEM: LOGIC 0x41 raw shunt=0x0413 raw bus=0x27F7[0m
+[0;33mW (256963) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (256963) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.237mV  CURRENT=3.388mA  POWER=43.358mW (smoothed)
+[0;32mI (256963) SYSTEM: PUMP  0x40 raw shunt=0x005F raw bus=0x27FC[0m
+[0;32mI (256973) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.223mV  CURRENT=29.991mA  POWER=383.499mW (smoothed)
+[0;32mI (256983) SYSTEM: LOGIC 0x41 raw shunt=0x0509 raw bus=0x27F5[0m
+[0;33mW (258983) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (258983) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.482mV  CURRENT=3.676mA  POWER=47.033mW (smoothed)
+[0;32mI (258983) SYSTEM: PUMP  0x40 raw shunt=0x00C1 raw bus=0x27FC[0m
+[0;32mI (258993) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.487mV  CURRENT=28.968mA  POWER=370.417mW (smoothed)
+[0;32mI (259003) SYSTEM: LOGIC 0x41 raw shunt=0x03E3 raw bus=0x27F6[0m
+[0;33mW (261003) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (261003) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.327mV  CURRENT=3.596mA  POWER=46.007mW (smoothed)
+[0;32mI (261003) SYSTEM: PUMP  0x40 raw shunt=0x0083 raw bus=0x27FC[0m
+[0;32mI (261013) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.870mV  CURRENT=28.914mA  POWER=369.741mW (smoothed)
+[0;32mI (261023) SYSTEM: LOGIC 0x41 raw shunt=0x047C raw bus=0x27F7[0m
+[0;33mW (263023) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (263023) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.307mV  CURRENT=3.491mA  POWER=44.676mW (smoothed)
+[0;32mI (263023) SYSTEM: PUMP  0x40 raw shunt=0x007B raw bus=0x27FD[0m
+[0;32mI (263033) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.545mV  CURRENT=30.221mA  POWER=386.439mW (smoothed)
+[0;32mI (263043) SYSTEM: LOGIC 0x41 raw shunt=0x058A raw bus=0x27F4[0m
+[0;33mW (265043) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (265043) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.435mV  CURRENT=3.663mA  POWER=46.873mW (smoothed)
+[0;32mI (265043) SYSTEM: PUMP  0x40 raw shunt=0x00AE raw bus=0x27FD[0m
+[0;32mI (265053) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.662mV  CURRENT=29.502mA  POWER=377.251mW (smoothed)
+[0;32mI (265063) SYSTEM: LOGIC 0x41 raw shunt=0x0429 raw bus=0x27F7[0m
+[0;33mW (267063) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (267063) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.230mV  CURRENT=3.391mA  POWER=43.384mW (smoothed)
+[0;32mI (267063) SYSTEM: PUMP  0x40 raw shunt=0x005C raw bus=0x27FC[0m
+[0;32mI (267073) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.158mV  CURRENT=29.917mA  POWER=382.546mW (smoothed)
+[0;32mI (267083) SYSTEM: LOGIC 0x41 raw shunt=0x04EF raw bus=0x27F5[0m
+[0;33mW (269083) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (269083) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.428mV  CURRENT=3.567mA  POWER=45.648mW (smoothed)
+[0;32mI (269083) SYSTEM: PUMP  0x40 raw shunt=0x00AB raw bus=0x27FD[0m
+[0;32mI (269093) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.477mV  CURRENT=28.888mA  POWER=369.399mW (smoothed)
+[0;32mI (269103) SYSTEM: LOGIC 0x41 raw shunt=0x03DF raw bus=0x27F6[0m
+[0;33mW (271103) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (271103) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.375mV  CURRENT=3.604mA  POWER=46.116mW (smoothed)
+[0;32mI (271103) SYSTEM: PUMP  0x40 raw shunt=0x0096 raw bus=0x27FD[0m
+[0;32mI (271113) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.817mV  CURRENT=28.746mA  POWER=367.577mW (smoothed)
+[0;32mI (271123) SYSTEM: LOGIC 0x41 raw shunt=0x0467 raw bus=0x27F6[0m
+[0;33mW (273123) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (273123) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.282mV  CURRENT=3.448mA  POWER=44.122mW (smoothed)
+[0;32mI (273123) SYSTEM: PUMP  0x40 raw shunt=0x0071 raw bus=0x27FC[0m
+[0;32mI (273133) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=3.562mV  CURRENT=30.122mA  POWER=385.163mW (smoothed)
+[0;32mI (273143) SYSTEM: LOGIC 0x41 raw shunt=0x0591 raw bus=0x27F5[0m
+[0;33mW (275143) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (275143) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.492mV  CURRENT=3.744mA  POWER=47.902mW (smoothed)
+[0;32mI (275143) SYSTEM: PUMP  0x40 raw shunt=0x00C5 raw bus=0x27FD[0m
+[0;32mI (275153) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.660mV  CURRENT=29.417mA  POWER=376.160mW (smoothed)
+[0;32mI (275163) SYSTEM: LOGIC 0x41 raw shunt=0x0428 raw bus=0x27F6[0m
+[0;33mW (277163) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (277163) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.257mV  CURRENT=3.510mA  POWER=44.910mW (smoothed)
+[0;32mI (277163) SYSTEM: PUMP  0x40 raw shunt=0x0067 raw bus=0x27FB[0m
+[0;32mI (277173) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.175mV  CURRENT=29.884mA  POWER=382.113mW (smoothed)
+[0;32mI (277183) SYSTEM: LOGIC 0x41 raw shunt=0x04F6 raw bus=0x27F4[0m
+[0;33mW (279183) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (279183) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.382mV  CURRENT=3.573mA  POWER=45.718mW (smoothed)
+[0;32mI (279183) SYSTEM: PUMP  0x40 raw shunt=0x0099 raw bus=0x27FE[0m
+[0;32mI (279193) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.450mV  CURRENT=28.807mA  POWER=368.361mW (smoothed)
+[0;32mI (279203) SYSTEM: LOGIC 0x41 raw shunt=0x03D4 raw bus=0x27F8[0m
+[0;33mW (281203) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (281203) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.352mV  CURRENT=3.563mA  POWER=45.595mW (smoothed)
+[0;32mI (281203) SYSTEM: PUMP  0x40 raw shunt=0x008D raw bus=0x27FC[0m
+[0;32mI (281213) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.786V  SHUNT=2.815mV  CURRENT=28.676mA  POWER=366.676mW (smoothed)
+[0;32mI (281223) SYSTEM: LOGIC 0x41 raw shunt=0x0466 raw bus=0x27F5[0m
+[0;33mW (283223) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (283223) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.240mV  CURRENT=3.331mA  POWER=42.618mW (smoothed)
+[0;32mI (283223) SYSTEM: PUMP  0x40 raw shunt=0x0060 raw bus=0x27FC[0m
+[0;32mI (283233) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=3.592mV  CURRENT=30.126mA  POWER=385.201mW (smoothed)
+[0;32mI (283243) SYSTEM: LOGIC 0x41 raw shunt=0x059D raw bus=0x27F4[0m
+[0;33mW (285243) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (285243) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.490mV  CURRENT=3.645mA  POWER=46.634mW (smoothed)
+[0;32mI (285243) SYSTEM: PUMP  0x40 raw shunt=0x00C4 raw bus=0x27FD[0m
+[0;32mI (285253) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.640mV  CURRENT=29.380mA  POWER=375.679mW (smoothed)
+[0;32mI (285263) SYSTEM: LOGIC 0x41 raw shunt=0x0420 raw bus=0x27F6[0m
+[0;33mW (287263) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (287263) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.235mV  CURRENT=3.386mA  POWER=43.322mW (smoothed)
+[0;32mI (287263) SYSTEM: PUMP  0x40 raw shunt=0x005E raw bus=0x27FE[0m
+[0;32mI (287273) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=3.215mV  CURRENT=29.934mA  POWER=382.767mW (smoothed)
+[0;32mI (287283) SYSTEM: LOGIC 0x41 raw shunt=0x0506 raw bus=0x27F6[0m
+[0;33mW (289283) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (289283) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  PUMP : BUS=12.795V  SHUNT=0.340mV  CURRENT=3.388mA  POWER=43.359mW (smoothed)
+[0;32mI (289283) SYSTEM: PUMP  0x40 raw shunt=0x0088 raw bus=0x27FC[0m
+[0;32mI (289293) SYSTEM: Pump PWM: 10% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.789V  SHUNT=2.460mV  CURRENT=28.867mA  POWER=369.134mW (smoothed)
+[0;32mI (289303) SYSTEM: LOGIC 0x41 raw shunt=0x03D8 raw bus=0x27F7[0m

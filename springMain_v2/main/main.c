@@ -64,7 +64,7 @@ static const char *TAG = "SYSTEM";
 // I2C Sensor Addresses
 #define INA226_1_ADDR 0x40    // INA1 current/power monitor
 #define INA226_2_ADDR 0x41    // INA2 current/power monitor
-#define TMP117_ADDR 0x48      // Temperature sensor
+#define TMP117_ADDR TMP117_I2C_ADDR_DEFAULT // TMP117 at GND address 1001000x (0x48)
 
 // INA226 hardware configuration
 #define INA226_PUMP_SHUNT_RESISTANCE_OHM 0.1f    // 100 mOhm shunt (PUMP / INA1)
@@ -510,11 +510,13 @@ void app_main(void)
     // Initialize buttons and LED
     init_buttons_and_led();
 
-    err = tmp117_init(TMP117_ADDR);
-    if (err != ESP_OK) {
-        ESP_LOGW(TAG, "TMP117 at 0x%02X not found: %s", TMP117_ADDR, esp_err_to_name(err));
+
+    // Check TMP117 only at 7-bit I2C address 0x48 (8-bit form: 1001000x)
+    esp_err_t terr = tmp117_init(TMP117_ADDR);
+    if (terr == ESP_OK) {
+        ESP_LOGI(TAG, "TMP117 found and initialized at 0x%02X", TMP117_ADDR);
     } else {
-        ESP_LOGI(TAG, "TMP117 (0x%02X) initialized", TMP117_ADDR);
+        ESP_LOGE(TAG, "TMP117 not found at 0x%02X: %s", TMP117_ADDR, esp_err_to_name(terr));
     }
 
     err = ina226_init(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);

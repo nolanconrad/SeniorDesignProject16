@@ -1,0 +1,67 @@
+Command: ninja flash
+[1/12] Building C object esp-idf/tmp117/CMakeFiles/__idf_tmp117.dir/tmp117.c.obj
+[2/12] Linking C static library esp-idf\tmp117\libtmp117.a
+[3/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+C:/Senior Design/SeniorDesignProject16/springMain_v2/main/main.c: In function 'update_animation_leds':
+C:/Senior Design/SeniorDesignProject16/springMain_v2/main/main.c:253:52: warning: comparison is always true due to limited range of data type [-Wtype-limits]
+  253 |         gpio_set_level(LED_ANIM_D5, anim_led_index >= 0 && anim_led_index < 5 ? 1 : 0); // Always on in animation
+      |                                                    ^~
+[4/12] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\esp-idf\esptool_py" && C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:/esp/v5.5.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/bootloader.bin""
+Bootloader binary size 0x5240 bytes. 0x2dc0 bytes (36%) free.
+[5/12] No install step for 'bootloader'
+[6/12] Linking C static library esp-idf\main\libmain.a
+[7/12] Completed 'bootloader'
+[8/12] Generating esp-idf/esp_system/ld/sections.ld
+[9/12] Linking CXX executable springMain_v2.elf
+[10/12] Generating binary image from built executable
+esptool.py v4.12.dev1
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated C:/Senior Design/SeniorDesignProject16/springMain_v2/build/springMain_v2.bin
+[11/12] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Senior Design\SeniorDesignProject16\springMain_v2\build\esp-idf\esptool_py" && C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:/esp/v5.5.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Senior Design/SeniorDesignProject16/springMain_v2/build/partition_table/partition-table.bin" "C:/Senior Design/SeniorDesignProject16/springMain_v2/build/springMain_v2.bin""
+springMain_v2.bin binary size 0x3d090 bytes. Smallest app partition is 0x100000 bytes. 0xc2f70 bytes (76%) free.
+[11/12] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\esp\v5.5.1\esp-idf\components\esptool_py && C:\Users\nolan\.espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/esp/v5.5.1/esp-idf -D SERIAL_TOOL=C:/Users/nolan/.espressif/python_env/idf5.5_py3.14_env/Scripts/python.exe;;C:/esp/v5.5.1/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=C:/Senior Design/SeniorDesignProject16/springMain_v2/build" -P C:/esp/v5.5.1/esp-idf/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM13 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 springMain_v2.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.12.dev1
+Serial port COM13
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: 20:6e:f1:32:6b:9c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x0004dfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21056 bytes to 13392...
+Writing at 0x00000000... (100 %)
+Wrote 21056 bytes (13392 compressed) at 0x00000000 in 0.3 seconds (effective 531.3 kbit/s)...
+Hash of data verified.
+Compressed 250000 bytes to 132126...
+Writing at 0x00010000... (11 %)
+Writing at 0x0001c52a... (22 %)
+Writing at 0x00024a10... (33 %)
+Writing at 0x0002b63b... (44 %)
+Writing at 0x000319fe... (55 %)
+Writing at 0x0003938f... (66 %)
+Writing at 0x0003fe35... (77 %)
+Writing at 0x00045e38... (88 %)
+Writing at 0x0004cabc... (100 %)
+Wrote 250000 bytes (132126 compressed) at 0x00010000 in 1.8 seconds (effective 1096.1 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.0 seconds (effective 592.0 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

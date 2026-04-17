@@ -1,0 +1,690 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037814e
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 13 2026 14:08:35[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0cf24h ( 53028) map[0m
+[0;32mI (96) esp_image: segment 1: paddr=0001cf4c vaddr=3fc93f00 size=02bb0h ( 11184) load[0m
+[0;32mI (98) esp_image: segment 2: paddr=0001fb04 vaddr=40374000 size=00514h (  1300) load[0m
+[0;32mI (101) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1d6b4h (120500) map[0m
+[0;32mI (130) esp_image: segment 4: paddr=0003d6dc vaddr=40374514 size=0f95ch ( 63836) load[0m
+[0;32mI (144) esp_image: segment 5: paddr=0004d040 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (151) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (151) boot: Disabling RNG early entropy source...[0m
+[0;32mI (162) cpu_start: Multicore app[0m
+[0;32mI (171) cpu_start: Pro cpu start user code[0m
+[0;32mI (171) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (171) app_init: Project name:     springMain_v2[0m
+[0;32mI (175) app_init: App version:      0c290fb-dirty[0m
+[0;32mI (180) app_init: Compile time:     Apr 13 2026 14:55:55[0m
+[0;32mI (185) app_init: ELF file SHA256:  c7f32cd81...[0m
+[0;32mI (189) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (193) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (197) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (201) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (205) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (211) heap_init: At 3FC97458 len 000522B8 (328 KiB): RAM[0m
+[0;32mI (216) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (221) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (226) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (233) spi_flash: detected chip: gd[0m
+[0;32mI (235) spi_flash: flash io: dio[0m
+[0;33mW (238) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (250) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (260) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (266) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (273) main_task: Started on CPU0[0m
+[0;32mI (283) main_task: Calling app_main()[0m
+[0;32mI (283) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 100000 Hz)[0m
+[0;32mI (283) SYSTEM: I2C bus initialized[0m
+[0;32mI (293) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (303) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (313) SYSTEM: Pump PWM initialized at 500 Hz[0m
+[0;32mI (313) SYSTEM: PWM sync timer started: 2000 us period (500.0 Hz)[0m
+[0;32mI (313) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (323) SYSTEM: All LEDs and buttons initialized[0m
+[1;31mE (323) tmp117: TMP117 not responding at 0x48: ESP_FAIL[0m
+[1;31mE (333) SYSTEM: TMP117 not found at 0x48: ESP_FAIL[0m
+[0;32mI (333) ina226: INA226 detected at 0x40[0m
+[0;32mI (333) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (343) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[1;31mE (343) ina226: INA226 not responding at 0x41: ESP_FAIL[0m
+[0;33mW (353) SYSTEM: LOGIC (INA2, 0x41) not found: ESP_FAIL[0m
+[0;32mI (353) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (363) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (363) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (373) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (373) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (383) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (383) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (393) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;33mW (2403) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (2403) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.796V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (2403) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FD[0m
+[0;33mW (2413) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (4413) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (4413) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (4413) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (4423) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (6423) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (6423) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (6423) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (6433) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (8433) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (8433) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (8433) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FE[0m
+[0;33mW (8443) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (10443) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (10443) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.005mA  POWER=0.064mW (smoothed)
+[0;32mI (10443) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (10453) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (12453) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (12453) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.004mA  POWER=0.051mW (smoothed)
+[0;32mI (12453) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (12463) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (14463) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (14463) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.003mA  POWER=0.041mW (smoothed)
+[0;32mI (14463) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (14473) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (16473) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (16473) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.003mA  POWER=0.033mW (smoothed)
+[0;32mI (16473) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (16483) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (18483) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (18483) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.801V  SHUNT=-0.002mV  CURRENT=-0.003mA  POWER=-0.038mW (smoothed)
+[0;32mI (18483) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2801[0m
+[0;33mW (18493) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (20493) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (20493) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.002mV  CURRENT=0.003mA  POWER=0.034mW (smoothed)
+[0;32mI (20493) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FE[0m
+[0;33mW (20503) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (22503) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (22503) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.007mA  POWER=0.091mW (smoothed)
+[0;32mI (22503) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (22513) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (24513) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (24513) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.011mA  POWER=0.137mW (smoothed)
+[0;32mI (24513) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (24523) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (26523) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (26523) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.014mA  POWER=0.173mW (smoothed)
+[0;32mI (26523) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (26533) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (28533) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (28533) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.011mA  POWER=0.139mW (smoothed)
+[0;32mI (28533) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (28543) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (30543) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (30543) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.009mA  POWER=0.111mW (smoothed)
+[0;32mI (30543) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (30553) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;33mW (32553) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (32553) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.797V  SHUNT=0.000mV  CURRENT=0.007mA  POWER=0.089mW (smoothed)
+[0;32mI (32553) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FE[0m
+[0;33mW (32563) SYSTEM: LOGIC read failed: ESP_FAIL[0m
+[0;32mI (34563) SYSTEM: Pump PWM: 50% | TMP117: 28.95°C / 84.12°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.011mA  POWER=0.135mW (smoothed)
+[0;32mI (34563) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (34563) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (34573) SYSTEM: Auto mode: Temp 84.12°F -> Pump 10%[0m
+[0;32mI (36573) SYSTEM: Pump PWM: 10% | TMP117: 28.69°C / 83.64°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.108mW (smoothed)
+[0;32mI (36573) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (36573) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (38583) SYSTEM: Pump PWM: 10% | TMP117: 28.75°C / 83.75°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.007mA  POWER=0.086mW (smoothed)
+[0;32mI (38583) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (38583) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (40593) SYSTEM: Pump PWM: 10% | TMP117: 30.82°C / 87.48°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.133mW (smoothed)
+[0;32mI (40593) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (40593) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (42603) SYSTEM: Pump PWM: 10% | TMP117: 31.64°C / 88.95°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.013mA  POWER=0.171mW (smoothed)
+[0;32mI (42603) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (42603) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (44613) SYSTEM: Pump PWM: 10% | TMP117: 31.92°C / 89.46°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.011mA  POWER=0.136mW (smoothed)
+[0;32mI (44613) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (44613) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (46623) SYSTEM: Pump PWM: 10% | TMP117: 31.47°C / 88.64°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.009mA  POWER=0.109mW (smoothed)
+[0;32mI (46623) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (46623) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (48633) SYSTEM: Pump PWM: 10% | TMP117: 30.89°C / 87.60°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.007mA  POWER=0.087mW (smoothed)
+[0;32mI (48633) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (48633) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (50643) SYSTEM: Pump PWM: 10% | TMP117: 30.60°C / 87.08°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.005mA  POWER=0.070mW (smoothed)
+[0;32mI (50643) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (50643) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (52653) SYSTEM: Pump PWM: 10% | TMP117: 30.38°C / 86.68°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.004mA  POWER=0.056mW (smoothed)
+[0;32mI (52653) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (52653) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (54663) SYSTEM: Pump PWM: 10% | TMP117: 30.22°C / 86.39°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.003mA  POWER=0.045mW (smoothed)
+[0;32mI (54663) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (54663) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (56673) SYSTEM: Pump PWM: 10% | TMP117: 30.10°C / 86.18°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.008mA  POWER=0.100mW (smoothed)
+[0;32mI (56673) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (56673) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (58683) SYSTEM: Pump PWM: 10% | TMP117: 29.97°C / 85.94°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.011mA  POWER=0.144mW (smoothed)
+[0;32mI (58683) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (58683) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (60693) SYSTEM: Pump PWM: 10% | TMP117: 29.87°C / 85.76°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.009mA  POWER=0.115mW (smoothed)
+[0;32mI (60693) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (60693) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (62703) SYSTEM: Pump PWM: 10% | TMP117: 29.78°C / 85.61°F[0m
+  PUMP : BUS=12.801V  SHUNT=-0.002mV  CURRENT=0.002mA  POWER=0.028mW (smoothed)
+[0;32mI (62703) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2801[0m
+[0;33mW (62703) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (64713) SYSTEM: Pump PWM: 10% | TMP117: 29.69°C / 85.44°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.002mA  POWER=0.022mW (smoothed)
+[0;32mI (64713) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (64713) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (66723) SYSTEM: Pump PWM: 10% | TMP117: 29.66°C / 85.38°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.001mA  POWER=0.018mW (smoothed)
+[0;32mI (66723) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (66723) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (68733) SYSTEM: Pump PWM: 10% | TMP117: 29.58°C / 85.24°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.001mA  POWER=0.014mW (smoothed)
+[0;32mI (68733) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (68733) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (70743) SYSTEM: Pump PWM: 10% | TMP117: 29.51°C / 85.11°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.001mA  POWER=0.011mW (smoothed)
+[0;32mI (70743) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (70743) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (72753) SYSTEM: Pump PWM: 10% | TMP117: 29.44°C / 84.99°F[0m
+  PUMP : BUS=12.797V  SHUNT=0.002mV  CURRENT=0.006mA  POWER=0.073mW (smoothed)
+[0;32mI (72753) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FE[0m
+[0;33mW (72753) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (74763) SYSTEM: Pump PWM: 10% | TMP117: 29.36°C / 84.85°F[0m
+  PUMP : BUS=12.797V  SHUNT=0.000mV  CURRENT=0.005mA  POWER=0.059mW (smoothed)
+[0;32mI (74763) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FE[0m
+[0;33mW (74763) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (76773) SYSTEM: Pump PWM: 10% | TMP117: 29.30°C / 84.75°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.009mA  POWER=0.111mW (smoothed)
+[0;32mI (76773) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (76773) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (78783) SYSTEM: Pump PWM: 10% | TMP117: 29.24°C / 84.64°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.012mA  POWER=0.153mW (smoothed)
+[0;32mI (78783) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (78783) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (80293) SYSTEM: Control mode: MANUAL - Use A2/A3 buttons to adjust pump[0m
+[0;32mI (80293) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (80293) SYSTEM: Pump increased to 20%[0m
+[0;32mI (80293) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (80293) SYSTEM: Pump decreased to 10%[0m
+[0;32mI (80793) SYSTEM: Pump PWM: 10% | TMP117: 29.18°C / 84.52°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.010mA  POWER=0.122mW (smoothed)
+[0;32mI (80793) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (80793) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (82053) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (82053) SYSTEM: Pump increased to 20%[0m
+[0;32mI (82803) SYSTEM: Pump PWM: 20% | TMP117: 29.12°C / 84.41°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.098mW (smoothed)
+[0;32mI (82803) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (82803) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (83163) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (83163) SYSTEM: Pump increased to 30%[0m
+[0;32mI (83713) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (83713) SYSTEM: Pump increased to 40%[0m
+[0;32mI (84113) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (84113) SYSTEM: Pump increased to 50%[0m
+[0;32mI (84563) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (84563) SYSTEM: Pump increased to 60%[0m
+[0;32mI (84813) SYSTEM: Pump PWM: 60% | TMP117: 29.05°C / 84.30°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.078mW (smoothed)
+[0;32mI (84813) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (84813) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (84973) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (84973) SYSTEM: Pump increased to 70%[0m
+[0;32mI (85473) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (85473) SYSTEM: Pump increased to 80%[0m
+[0;32mI (86023) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (86023) SYSTEM: Pump increased to 90%[0m
+[0;32mI (86573) SYSTEM: Indicator LEDs: FLASHING MODE[0m
+[0;32mI (86573) SYSTEM: Pump increased to 100%[0m
+[0;32mI (86823) SYSTEM: Pump PWM: 100% | TMP117: 28.99°C / 84.19°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.127mW (smoothed)
+[0;32mI (86823) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (86823) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (88833) SYSTEM: Pump PWM: 100% | TMP117: 28.94°C / 84.09°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.013mA  POWER=0.165mW (smoothed)
+[0;32mI (88833) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (88833) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (90643) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (90643) SYSTEM: Pump decreased to 90%[0m
+[0;32mI (90843) SYSTEM: Pump PWM: 90% | TMP117: 28.88°C / 83.99°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.015mA  POWER=0.196mW (smoothed)
+[0;32mI (90843) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (90843) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (91953) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (91953) SYSTEM: Pump decreased to 80%[0m
+[0;32mI (92253) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (92253) SYSTEM: Pump decreased to 70%[0m
+[0;32mI (92853) SYSTEM: Pump PWM: 70% | TMP117: 28.84°C / 83.90°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.017mA  POWER=0.221mW (smoothed)
+[0;32mI (92853) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (92853) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (94513) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (94513) SYSTEM: Pump decreased to 60%[0m
+[0;32mI (94863) SYSTEM: Pump PWM: 60% | TMP117: 28.76°C / 83.76°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.014mA  POWER=0.177mW (smoothed)
+[0;32mI (94863) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (94863) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (94873) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (94873) SYSTEM: Pump decreased to 50%[0m
+[0;32mI (95573) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (95573) SYSTEM: Pump decreased to 40%[0m
+[0;32mI (96073) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (96073) SYSTEM: Pump decreased to 30%[0m
+[0;32mI (96473) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (96473) SYSTEM: Pump decreased to 20%[0m
+[0;32mI (96823) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (96823) SYSTEM: Pump decreased to 10%[0m
+[0;32mI (96873) SYSTEM: Pump PWM: 10% | TMP117: 28.74°C / 83.74°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.011mA  POWER=0.141mW (smoothed)
+[0;32mI (96873) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (96873) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (97133) SYSTEM: Indicator LEDs: OFF[0m
+[0;32mI (97133) SYSTEM: Pump decreased to 0%[0m
+[0;32mI (98833) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (98833) SYSTEM: Pump increased to 10%[0m
+[0;32mI (98883) SYSTEM: Pump PWM: 10% | TMP117: 28.67°C / 83.61°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.009mA  POWER=0.113mW (smoothed)
+[0;32mI (98883) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (98883) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (99143) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (99143) SYSTEM: Pump increased to 20%[0m
+[0;32mI (99493) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (99493) SYSTEM: Pump increased to 30%[0m
+[0;32mI (99793) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (99793) SYSTEM: Pump increased to 40%[0m
+[0;32mI (100193) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (100193) SYSTEM: Pump increased to 50%[0m
+[0;32mI (100493) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (100493) SYSTEM: Pump increased to 60%[0m
+[0;32mI (100843) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (100843) SYSTEM: Pump increased to 70%[0m
+[0;32mI (100893) SYSTEM: Pump PWM: 70% | TMP117: 28.62°C / 83.51°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.007mA  POWER=0.090mW (smoothed)
+[0;32mI (100893) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (100893) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (101203) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (101203) SYSTEM: Pump increased to 80%[0m
+[0;32mI (101553) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (101553) SYSTEM: Pump increased to 90%[0m
+[0;32mI (102603) SYSTEM: Indicator LEDs: FLASHING MODE[0m
+[0;32mI (102603) SYSTEM: Pump increased to 100%[0m
+[0;32mI (102903) SYSTEM: Pump PWM: 100% | TMP117: 28.56°C / 83.41°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.072mW (smoothed)
+[0;32mI (102903) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (102903) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (103813) SYSTEM: Indicator LEDs: FLASHING MODE[0m
+[0;32mI (103813) SYSTEM: Pump increased to 100%[0m
+[0;32mI (104913) SYSTEM: Pump PWM: 100% | TMP117: 28.52°C / 83.33°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.122mW (smoothed)
+[0;32mI (104913) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (104913) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (106923) SYSTEM: Pump PWM: 100% | TMP117: 28.48°C / 83.26°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.098mW (smoothed)
+[0;32mI (106923) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (106923) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (108933) SYSTEM: Pump PWM: 100% | TMP117: 28.40°C / 83.12°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.078mW (smoothed)
+[0;32mI (108933) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (108933) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (110943) SYSTEM: Pump PWM: 100% | TMP117: 28.36°C / 83.05°F[0m
+  PUMP : BUS=12.801V  SHUNT=-0.002mV  CURRENT=-0.000mA  POWER=-0.002mW (smoothed)
+[0;32mI (110943) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2801[0m
+[0;33mW (110943) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (112953) SYSTEM: Pump PWM: 100% | TMP117: 28.31°C / 82.96°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=-0.000mA  POWER=-0.001mW (smoothed)
+[0;32mI (112953) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (112953) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (114963) SYSTEM: Pump PWM: 100% | TMP117: 28.28°C / 82.91°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.005mA  POWER=0.063mW (smoothed)
+[0;32mI (114963) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (114963) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (116973) SYSTEM: Pump PWM: 100% | TMP117: 28.21°C / 82.78°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.004mA  POWER=0.050mW (smoothed)
+[0;32mI (116973) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (116973) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (118983) SYSTEM: Pump PWM: 100% | TMP117: 28.18°C / 82.72°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.003mA  POWER=0.040mW (smoothed)
+[0;32mI (118983) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (118983) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (120993) SYSTEM: Pump PWM: 100% | TMP117: 28.12°C / 82.62°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.003mA  POWER=0.032mW (smoothed)
+[0;32mI (120993) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (120993) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (123003) SYSTEM: Pump PWM: 100% | TMP117: 28.06°C / 82.51°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.002mA  POWER=0.026mW (smoothed)
+[0;32mI (123003) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (123003) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (125013) SYSTEM: Pump PWM: 100% | TMP117: 28.02°C / 82.44°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.002mA  POWER=0.021mW (smoothed)
+[0;32mI (125013) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (125013) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (127023) SYSTEM: Pump PWM: 100% | TMP117: 27.98°C / 82.36°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.001mA  POWER=0.017mW (smoothed)
+[0;32mI (127023) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (127023) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (129033) SYSTEM: Pump PWM: 100% | TMP117: 27.94°C / 82.29°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.001mA  POWER=0.013mW (smoothed)
+[0;32mI (129033) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (129033) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (131043) SYSTEM: Pump PWM: 100% | TMP117: 27.90°C / 82.22°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.001mA  POWER=0.011mW (smoothed)
+[0;32mI (131043) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (131043) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (133053) SYSTEM: Pump PWM: 100% | TMP117: 27.86°C / 82.15°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.006mA  POWER=0.072mW (smoothed)
+[0;32mI (133053) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (133053) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (135063) SYSTEM: Pump PWM: 100% | TMP117: 27.81°C / 82.06°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.122mW (smoothed)
+[0;32mI (135063) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (135063) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (137073) SYSTEM: Pump PWM: 100% | TMP117: 27.77°C / 81.99°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.098mW (smoothed)
+[0;32mI (137073) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (137073) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (139083) SYSTEM: Pump PWM: 100% | TMP117: 27.73°C / 81.91°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.078mW (smoothed)
+[0;32mI (139083) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (139083) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (141093) SYSTEM: Pump PWM: 100% | TMP117: 27.70°C / 81.87°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.126mW (smoothed)
+[0;32mI (141093) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (141093) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (143103) SYSTEM: Pump PWM: 100% | TMP117: 27.65°C / 81.77°F[0m
+  PUMP : BUS=12.799V  SHUNT=-0.002mV  CURRENT=0.003mA  POWER=0.037mW (smoothed)
+[0;32mI (143103) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x27FF[0m
+[0;33mW (143103) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (145113) SYSTEM: Pump PWM: 100% | TMP117: 27.63°C / 81.74°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.007mA  POWER=0.094mW (smoothed)
+[0;32mI (145113) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (145113) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (147123) SYSTEM: Pump PWM: 100% | TMP117: 27.59°C / 81.65°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.075mW (smoothed)
+[0;32mI (147123) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (147123) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (149133) SYSTEM: Pump PWM: 100% | TMP117: 27.55°C / 81.60°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.124mW (smoothed)
+[0;32mI (149133) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (149133) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (151143) SYSTEM: Pump PWM: 100% | TMP117: 27.50°C / 81.50°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.099mW (smoothed)
+[0;32mI (151143) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (151143) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (153153) SYSTEM: Pump PWM: 100% | TMP117: 27.45°C / 81.40°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.079mW (smoothed)
+[0;32mI (153153) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (153153) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (155163) SYSTEM: Pump PWM: 100% | TMP117: 27.40°C / 81.32°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.005mA  POWER=0.063mW (smoothed)
+[0;32mI (155163) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (155163) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (157173) SYSTEM: Pump PWM: 100% | TMP117: 27.36°C / 81.25°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.009mA  POWER=0.115mW (smoothed)
+[0;32mI (157173) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (157173) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (159183) SYSTEM: Pump PWM: 100% | TMP117: 27.35°C / 81.23°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.012mA  POWER=0.156mW (smoothed)
+[0;32mI (159183) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (159183) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (161193) SYSTEM: Pump PWM: 100% | TMP117: 27.29°C / 81.12°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.010mA  POWER=0.125mW (smoothed)
+[0;32mI (161193) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (161193) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (163203) SYSTEM: Pump PWM: 100% | TMP117: 27.26°C / 81.06°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.100mW (smoothed)
+[0;32mI (163203) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (163203) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (165213) SYSTEM: Pump PWM: 100% | TMP117: 27.23°C / 81.02°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.011mA  POWER=0.144mW (smoothed)
+[0;32mI (165213) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (165213) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (167223) SYSTEM: Pump PWM: 100% | TMP117: 27.20°C / 80.97°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.009mA  POWER=0.115mW (smoothed)
+[0;32mI (167223) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (167223) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (169233) SYSTEM: Pump PWM: 100% | TMP117: 27.17°C / 80.91°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.007mA  POWER=0.092mW (smoothed)
+[0;32mI (169233) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (169233) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (171243) SYSTEM: Pump PWM: 100% | TMP117: 27.12°C / 80.82°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.074mW (smoothed)
+[0;32mI (171243) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (171243) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (173253) SYSTEM: Pump PWM: 100% | TMP117: 27.13°C / 80.84°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.123mW (smoothed)
+[0;32mI (173253) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (173253) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (175263) SYSTEM: Pump PWM: 100% | TMP117: 27.08°C / 80.74°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.098mW (smoothed)
+[0;32mI (175263) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (175263) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (177273) SYSTEM: Pump PWM: 100% | TMP117: 27.05°C / 80.70°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.079mW (smoothed)
+[0;32mI (177273) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (177273) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (177683) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (177683) SYSTEM: Pump decreased to 90%[0m
+[0;32mI (179283) SYSTEM: Pump PWM: 90% | TMP117: 27.04°C / 80.67°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.127mW (smoothed)
+[0;32mI (179283) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (179283) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (181293) SYSTEM: Pump PWM: 90% | TMP117: 27.02°C / 80.64°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.102mW (smoothed)
+[0;32mI (181293) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (181293) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (183303) SYSTEM: Pump PWM: 90% | TMP117: 26.98°C / 80.56°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.081mW (smoothed)
+[0;32mI (183303) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (183303) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (185313) SYSTEM: Pump PWM: 90% | TMP117: 26.95°C / 80.50°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.002mV  CURRENT=0.010mA  POWER=0.129mW (smoothed)
+[0;32mI (185313) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x27FF[0m
+[0;33mW (185313) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (187323) SYSTEM: Pump PWM: 90% | TMP117: 26.93°C / 80.47°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.103mW (smoothed)
+[0;32mI (187323) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (187323) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (189333) SYSTEM: Pump PWM: 90% | TMP117: 26.91°C / 80.43°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.006mA  POWER=0.083mW (smoothed)
+[0;32mI (189333) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (189333) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (191343) SYSTEM: Pump PWM: 90% | TMP117: 26.88°C / 80.38°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.005mA  POWER=0.066mW (smoothed)
+[0;32mI (191343) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (191343) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (193353) SYSTEM: Pump PWM: 90% | TMP117: 26.85°C / 80.33°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.004mA  POWER=0.053mW (smoothed)
+[0;32mI (193353) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (193353) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (195363) SYSTEM: Pump PWM: 90% | TMP117: 26.82°C / 80.28°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.003mA  POWER=0.042mW (smoothed)
+[0;32mI (195363) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (195363) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (197373) SYSTEM: Pump PWM: 90% | TMP117: 26.80°C / 80.25°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.003mA  POWER=0.034mW (smoothed)
+[0;32mI (197373) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (197373) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (199383) SYSTEM: Pump PWM: 90% | TMP117: 26.77°C / 80.19°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=0.002mA  POWER=0.027mW (smoothed)
+[0;32mI (199383) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (199383) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (201393) SYSTEM: Pump PWM: 90% | TMP117: 26.72°C / 80.09°F[0m
+  PUMP : BUS=12.799V  SHUNT=-0.002mV  CURRENT=-0.003mA  POWER=-0.042mW (smoothed)
+[0;32mI (201393) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x27FF[0m
+[0;33mW (201393) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (203403) SYSTEM: Pump PWM: 90% | TMP117: 26.70°C / 80.07°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=-0.003mA  POWER=-0.034mW (smoothed)
+[0;32mI (203403) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (203403) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (205413) SYSTEM: Pump PWM: 90% | TMP117: 26.68°C / 80.02°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=-0.027mW (smoothed)
+[0;32mI (205413) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (205413) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (207423) SYSTEM: Pump PWM: 90% | TMP117: 26.67°C / 80.01°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=-0.022mW (smoothed)
+[0;32mI (207423) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (207423) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (209433) SYSTEM: Pump PWM: 90% | TMP117: 26.65°C / 79.97°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=-0.001mA  POWER=-0.017mW (smoothed)
+[0;32mI (209433) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (209433) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (211443) SYSTEM: Pump PWM: 90% | TMP117: 26.62°C / 79.91°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=-0.001mA  POWER=-0.014mW (smoothed)
+[0;32mI (211443) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (211443) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (213453) SYSTEM: Pump PWM: 90% | TMP117: 26.60°C / 79.88°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=-0.001mA  POWER=-0.011mW (smoothed)
+[0;32mI (213453) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (213453) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (215463) SYSTEM: Pump PWM: 90% | TMP117: 26.58°C / 79.84°F[0m
+  PUMP : BUS=12.799V  SHUNT=0.000mV  CURRENT=-0.001mA  POWER=-0.009mW (smoothed)
+[0;32mI (215463) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x27FF[0m
+[0;33mW (215463) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (215573) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (215573) SYSTEM: Pump decreased to 80%[0m
+[0;32mI (216123) SYSTEM: Indicator LEDs: D2 D3 D4 ON[0m
+[0;32mI (216123) SYSTEM: Pump decreased to 70%[0m
+[0;32mI (216573) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (216573) SYSTEM: Pump decreased to 60%[0m
+[0;32mI (216973) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (216973) SYSTEM: Pump decreased to 50%[0m
+[0;32mI (217373) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (217373) SYSTEM: Pump decreased to 40%[0m
+[0;32mI (217473) SYSTEM: Pump PWM: 40% | TMP117: 26.57°C / 79.83°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.004mA  POWER=0.057mW (smoothed)
+[0;32mI (217473) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (217473) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (217633) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (217633) SYSTEM: Pump decreased to 30%[0m
+[0;32mI (217833) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (217833) SYSTEM: Pump decreased to 20%[0m
+[0;32mI (217983) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (217983) SYSTEM: Pump decreased to 10%[0m
+[0;32mI (219483) SYSTEM: Pump PWM: 10% | TMP117: 26.55°C / 79.80°F[0m
+  PUMP : BUS=12.802V  SHUNT=0.002mV  CURRENT=0.009mA  POWER=0.110mW (smoothed)
+[0;32mI (219483) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2802[0m
+[0;33mW (219483) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (221493) SYSTEM: Pump PWM: 10% | TMP117: 26.55°C / 79.80°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.012mA  POWER=0.152mW (smoothed)
+[0;32mI (221493) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (221493) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (223503) SYSTEM: Pump PWM: 10% | TMP117: 26.52°C / 79.73°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.014mA  POWER=0.185mW (smoothed)
+[0;32mI (223503) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (223503) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (225513) SYSTEM: Pump PWM: 10% | TMP117: 26.49°C / 79.69°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.012mA  POWER=0.148mW (smoothed)
+[0;32mI (225513) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (225513) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (227523) SYSTEM: Pump PWM: 10% | TMP117: 26.48°C / 79.66°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.009mA  POWER=0.119mW (smoothed)
+[0;32mI (227523) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (227523) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (229533) SYSTEM: Pump PWM: 10% | TMP117: 26.48°C / 79.66°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.012mA  POWER=0.159mW (smoothed)
+[0;32mI (229533) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (229533) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (231543) SYSTEM: Pump PWM: 10% | TMP117: 26.44°C / 79.59°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.010mA  POWER=0.127mW (smoothed)
+[0;32mI (231543) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (231543) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (233553) SYSTEM: Pump PWM: 10% | TMP117: 26.42°C / 79.56°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.008mA  POWER=0.102mW (smoothed)
+[0;32mI (233553) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (233553) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (235563) SYSTEM: Pump PWM: 10% | TMP117: 26.40°C / 79.52°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.011mA  POWER=0.145mW (smoothed)
+[0;32mI (235563) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (235563) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (237573) SYSTEM: Pump PWM: 10% | TMP117: 26.38°C / 79.49°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.000mV  CURRENT=0.009mA  POWER=0.116mW (smoothed)
+[0;32mI (237573) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2801[0m
+[0;33mW (237573) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (239583) SYSTEM: Pump PWM: 10% | TMP117: 26.37°C / 79.46°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.012mA  POWER=0.157mW (smoothed)
+[0;32mI (239583) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (239583) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (241593) SYSTEM: Pump PWM: 10% | TMP117: 26.34°C / 79.40°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.015mA  POWER=0.190mW (smoothed)
+[0;32mI (241593) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (241593) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (243603) SYSTEM: Pump PWM: 10% | TMP117: 26.33°C / 79.39°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.017mA  POWER=0.216mW (smoothed)
+[0;32mI (243603) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (243603) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (245613) SYSTEM: Pump PWM: 10% | TMP117: 26.31°C / 79.36°F[0m
+  PUMP : BUS=12.802V  SHUNT=0.000mV  CURRENT=0.013mA  POWER=0.173mW (smoothed)
+[0;32mI (245613) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2802[0m
+[0;33mW (245613) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (247623) SYSTEM: Pump PWM: 10% | TMP117: 26.29°C / 79.32°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.016mA  POWER=0.202mW (smoothed)
+[0;32mI (247623) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (247623) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (249633) SYSTEM: Pump PWM: 10% | TMP117: 26.27°C / 79.29°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.013mA  POWER=0.162mW (smoothed)
+[0;32mI (249633) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (249633) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (251643) SYSTEM: Pump PWM: 10% | TMP117: 26.25°C / 79.25°F[0m
+  PUMP : BUS=12.801V  SHUNT=0.002mV  CURRENT=0.015mA  POWER=0.193mW (smoothed)
+[0;32mI (251643) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2801[0m
+[0;33mW (251643) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (253653) SYSTEM: Pump PWM: 10% | TMP117: 26.24°C / 79.24°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.000mV  CURRENT=0.012mA  POWER=0.155mW (smoothed)
+[0;32mI (253653) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2800[0m
+[0;33mW (253653) SYSTEM: INA2 read failed: ESP_FAIL[0m
+[0;32mI (255663) SYSTEM: Pump PWM: 10% | TMP117: 26.23°C / 79.21°F[0m
+  PUMP : BUS=12.800V  SHUNT=0.002mV  CURRENT=0.015mA  POWER=0.188mW (smoothed)
+[0;32mI (255663) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2800[0m
+[0;33mW (255663) SYSTEM: INA2 read failed: ESP_FAIL[0m

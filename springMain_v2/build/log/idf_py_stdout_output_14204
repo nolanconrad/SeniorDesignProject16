@@ -1,0 +1,171 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM11 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM11'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037814e
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 13 2026 14:08:35[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0cf74h ( 53108) map[0m
+[0;32mI (96) esp_image: segment 1: paddr=0001cf9c vaddr=3fc93f00 size=02bb0h ( 11184) load[0m
+[0;32mI (98) esp_image: segment 2: paddr=0001fb54 vaddr=40374000 size=004c4h (  1220) load[0m
+[0;32mI (101) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1d6fch (120572) map[0m
+[0;32mI (130) esp_image: segment 4: paddr=0003d724 vaddr=403744c4 size=0f9ach ( 63916) load[0m
+[0;32mI (144) esp_image: segment 5: paddr=0004d0d8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (151) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (151) boot: Disabling RNG early entropy source...[0m
+[0;32mI (162) cpu_start: Multicore app[0m
+[0;32mI (171) cpu_start: Pro cpu start user code[0m
+[0;32mI (171) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (171) app_init: Project name:     springMain_v2[0m
+[0;32mI (175) app_init: App version:      0c290fb-dirty[0m
+[0;32mI (180) app_init: Compile time:     Apr 13 2026 14:55:55[0m
+[0;32mI (185) app_init: ELF file SHA256:  bc0a2fb33...[0m
+[0;32mI (189) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (193) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (197) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (201) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (205) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (211) heap_init: At 3FC97458 len 000522B8 (328 KiB): RAM[0m
+[0;32mI (216) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (221) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (226) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (233) spi_flash: detected chip: gd[0m
+[0;32mI (235) spi_flash: flash io: dio[0m
+[0;33mW (238) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (250) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (260) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (266) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (273) main_task: Started on CPU0[0m
+[0;32mI (283) main_task: Calling app_main()[0m
+[0;32mI (283) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 100000 Hz)[0m
+[0;32mI (283) SYSTEM: I2C bus initialized[0m
+[0;32mI (293) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (303) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (303) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (313) SYSTEM: Pump PWM initialized at 500 Hz[0m
+[0;32mI (313) SYSTEM: PWM sync timer started: 2000 us period (500.0 Hz)[0m
+[0;32mI (313) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (323) SYSTEM: All LEDs and buttons initialized[0m
+[1;31mE (323) tmp117: TMP117 not responding at 0x48: ESP_FAIL[0m
+[0;33mW (333) SYSTEM: TMP117 not found at 0x48: ESP_FAIL[0m
+[1;31mE (333) tmp117: TMP117 not responding at 0x49: ESP_FAIL[0m
+[0;33mW (333) SYSTEM: TMP117 not found at 0x49: ESP_FAIL[0m
+[1;31mE (343) tmp117: TMP117 not responding at 0x4A: ESP_FAIL[0m
+[0;33mW (343) SYSTEM: TMP117 not found at 0x4A: ESP_FAIL[0m
+[1;31mE (353) tmp117: TMP117 not responding at 0x4B: ESP_FAIL[0m
+[0;33mW (353) SYSTEM: TMP117 not found at 0x4B: ESP_FAIL[0m
+[1;31mE (363) SYSTEM: No TMP117 sensors found at any likely address (0x48-0x4B)[0m
+[0;32mI (373) ina226: INA226 detected at 0x40[0m
+[0;32mI (373) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (373) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (383) ina226: INA226 detected at 0x41[0m
+[0;32mI (383) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (393) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (393) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (403) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (403) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (403) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (413) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (423) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (423) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (433) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;33mW (2443) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (2443) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.780V  SHUNT=11.742mV  CURRENT=117.425mA  POWER=1500.691mW (smoothed)
+[0;32mI (2443) SYSTEM: PUMP  0x40 raw shunt=0x1259 raw bus=0x27F0[0m
+[0;32mI (2453) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.785V  SHUNT=2.690mV  CURRENT=26.900mA  POWER=343.916mW (smoothed)
+[0;32mI (2463) SYSTEM: LOGIC 0x41 raw shunt=0x0434 raw bus=0x27F4[0m
+[0;33mW (4463) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (4463) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.738V  SHUNT=2.730mV  CURRENT=99.400mA  POWER=1270.100mW (smoothed)
+[0;32mI (4463) SYSTEM: PUMP  0x40 raw shunt=0x0444 raw bus=0x27CE[0m
+[0;32mI (4473) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.762V  SHUNT=3.212mV  CURRENT=27.945mA  POWER=357.132mW (smoothed)
+[0;32mI (4483) SYSTEM: LOGIC 0x41 raw shunt=0x0505 raw bus=0x27E2[0m
+[0;33mW (6483) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (6483) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.780V  SHUNT=7.802mV  CURRENT=95.125mA  POWER=1215.512mW (smoothed)
+[0;32mI (6483) SYSTEM: PUMP  0x40 raw shunt=0x0C31 raw bus=0x27F0[0m
+[0;32mI (6493) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.782V  SHUNT=2.507mV  CURRENT=27.371mA  POWER=349.810mW (smoothed)
+[0;32mI (6503) SYSTEM: LOGIC 0x41 raw shunt=0x03EB raw bus=0x27F2[0m
+[0;32mI (7103) SYSTEM: Control mode: MANUAL - Use A2/A3 buttons to adjust pump[0m
+[0;32mI (7103) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (7103) SYSTEM: Pump increased to 60%[0m
+[0;32mI (7103) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (7103) SYSTEM: Pump decreased to 50%[0m
+[0;32mI (8103) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (8103) SYSTEM: Pump decreased to 40%[0m
+[0;32mI (8253) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (8253) SYSTEM: Pump decreased to 30%[0m
+[0;32mI (8403) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (8403) SYSTEM: Pump decreased to 20%[0m
+[0;33mW (8503) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (8503) SYSTEM: Pump PWM: 20% | TMP117: (read failed)[0m
+  PUMP : BUS=12.776V  SHUNT=-0.272mV  CURRENT=75.555mA  POWER=965.446mW (smoothed)
+[0;32mI (8503) SYSTEM: PUMP  0x40 raw shunt=0xFF93 raw bus=0x27ED[0m
+[0;32mI (8513) SYSTEM: Pump PWM: 20% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.787V  SHUNT=2.627mV  CURRENT=27.152mA  POWER=347.046mW (smoothed)
+[0;32mI (8523) SYSTEM: LOGIC 0x41 raw shunt=0x041B raw bus=0x27F6[0m
+[0;32mI (8623) SYSTEM: Indicator LEDs: D2 ON[0m
+[0;32mI (8623) SYSTEM: Pump decreased to 10%[0m
+[0;32mI (8773) SYSTEM: Indicator LEDs: OFF[0m
+[0;32mI (8773) SYSTEM: Pump decreased to 0%[0m
+[0;32mI (9073) SYSTEM: Indicator LEDs: OFF[0m
+[0;32mI (9073) SYSTEM: Pump decreased to 0%[0m
+[0;33mW (10523) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (10523) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  PUMP : BUS=12.792V  SHUNT=0.115mV  CURRENT=60.674mA  POWER=775.299mW (smoothed)
+[0;32mI (10523) SYSTEM: PUMP  0x40 raw shunt=0x002E raw bus=0x27FA[0m
+[0;32mI (10533) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.275mV  CURRENT=26.271mA  POWER=335.832mW (smoothed)
+[0;32mI (10543) SYSTEM: LOGIC 0x41 raw shunt=0x038E raw bus=0x27F8[0m
+[0;33mW (12543) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (12543) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  PUMP : BUS=12.792V  SHUNT=0.117mV  CURRENT=48.774mA  POWER=623.246mW (smoothed)
+[0;32mI (12543) SYSTEM: PUMP  0x40 raw shunt=0x002F raw bus=0x27FA[0m
+[0;32mI (12553) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.791V  SHUNT=2.310mV  CURRENT=25.637mA  POWER=327.761mW (smoothed)
+[0;32mI (12563) SYSTEM: LOGIC 0x41 raw shunt=0x039C raw bus=0x27F9[0m
+[0;33mW (14563) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (14563) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  PUMP : BUS=12.794V  SHUNT=0.112mV  CURRENT=39.244mA  POWER=501.475mW (smoothed)
+[0;32mI (14563) SYSTEM: PUMP  0x40 raw shunt=0x002D raw bus=0x27FB[0m
+[0;32mI (14573) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.300mV  CURRENT=25.110mA  POWER=321.043mW (smoothed)
+[0;32mI (14583) SYSTEM: LOGIC 0x41 raw shunt=0x0398 raw bus=0x27F8[0m
+[0;33mW (16583) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (16583) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  PUMP : BUS=12.792V  SHUNT=0.117mV  CURRENT=31.630mA  POWER=404.186mW (smoothed)
+[0;32mI (16583) SYSTEM: PUMP  0x40 raw shunt=0x002F raw bus=0x27FA[0m
+[0;32mI (16593) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.790V  SHUNT=2.300mV  CURRENT=24.688mA  POWER=315.668mW (smoothed)
+[0;32mI (16603) SYSTEM: LOGIC 0x41 raw shunt=0x0398 raw bus=0x27F8[0m
+[0;33mW (18603) SYSTEM: TMP117 read failed: ESP_FAIL[0m
+[0;32mI (18603) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  PUMP : BUS=12.792V  SHUNT=0.117mV  CURRENT=25.539mA  POWER=326.355mW (smoothed)
+[0;32mI (18603) SYSTEM: PUMP  0x40 raw shunt=0x002F raw bus=0x27FA[0m
+[0;32mI (18613) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.791V  SHUNT=2.287mV  CURRENT=24.325mA  POWER=311.054mW (smoothed)
+[0;32mI (18623) SYSTEM: LOGIC 0x41 raw shunt=0x0393 raw bus=0x27F9[0m
