@@ -38,6 +38,7 @@ $<TARGET_FILE:__idf_esp_app_format>
 $<TARGET_FILE:__idf_esp_bootloader_format>
 $<TARGET_FILE:idf::esp_mm>
 $<TARGET_FILE:__idf_esp_gdbstub>
+$<TARGET_FILE:__idf_esp_coex>
 $<TARGET_FILE:__idf_driver>
 $<TARGET_FILE:__idf_esp_driver_pcnt>
 $<TARGET_FILE:__idf_esp_driver_gptimer>
@@ -66,7 +67,6 @@ $<TARGET_FILE:__idf_esp_wifi>
 $<TARGET_FILE:__idf_esp_phy>
 $<TARGET_FILE:__idf_esp_netif>
 $<TARGET_FILE:__idf_wpa_supplicant>
-$<TARGET_FILE:__idf_esp_coex>
 $<TARGET_FILE:__idf_esp_https_ota>
 $<TARGET_FILE:__idf_esp_security>
 $<TARGET_FILE:__idf_pthread>
@@ -108,6 +108,7 @@ $<TARGET_FILE:idf::esp_coex>
 $<TARGET_FILE:idf::esp_wifi>
 $<TARGET_FILE:idf::esp_driver_spi>
 $<TARGET_FILE:idf::esp_gdbstub>
+$<TARGET_FILE:idf::bt>
 $<TARGET_FILE:idf::unity>
 $<TARGET_FILE:idf::cmock>
 $<TARGET_FILE:__idf_unity>
@@ -132,6 +133,7 @@ $<TARGET_FILE:idf::esp_driver_cam>
 $<TARGET_FILE:idf::esp_driver_touch_sens>
 $<TARGET_FILE:idf::esp_eth>
 $<TARGET_FILE:idf::esp_hid>
+$<TARGET_FILE:__idf_bt>
 $<TARGET_FILE:idf::tcp_transport>
 $<TARGET_FILE:idf::esp_http_client>
 $<TARGET_FILE:idf::esp_http_server>
@@ -160,16 +162,19 @@ $<TARGET_FILE:idf::usb>
 $<TARGET_FILE:idf::wifi_provisioning>
 $<TARGET_FILE:__idf_json>
 $<TARGET_FILE:idf::i2c_with_tmp117>
+$<TARGET_FILE:idf::pump_Operation>
 $<TARGET_FILE:idf::system_startUp>
 $<TARGET_FILE:__idf_i2c_with_tmp117>
+$<TARGET_FILE:__idf_pump_Operation>
 $<TARGET_FILE:idf::INA226>
 $<TARGET_FILE:idf::system_monitor>
 $<TARGET_FILE:idf::startup_diagnostic>
 $<TARGET_FILE:idf::error_handler>
+$<TARGET_FILE:idf::ble>
 $<TARGET_FILE:idf::main>
 $<TARGET_FILE:__idf_system_startUp>
 $<TARGET_FILE:__idf_INA226>
 $<TARGET_FILE:__idf_system_monitor>
 $<TARGET_FILE:__idf_startup_diagnostic>
 $<TARGET_FILE:__idf_error_handler>
-$<TARGET_FILE:idf::pump_Operation>
+$<TARGET_FILE:__idf_ble>

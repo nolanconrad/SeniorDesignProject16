@@ -6,6 +6,7 @@
 #include "freertos/task.h"
 #include "driver/i2c_master.h"
 #include "esp_log.h"
+#include "i2c_with_tmp117.h"
 
 static const char *TAG = "INA226";
 
@@ -194,16 +195,7 @@ int ina226_init(void)
 {
     ESP_LOGI(TAG, "Initializing INA226 power monitors (0x40, 0x41)");
 
-    // Configure I2C bus if not already done
-    i2c_master_bus_config_t i2c_bus_config = {
-        .i2c_port = I2C_NUM_0,
-        .scl_io_num = 6,
-        .sda_io_num = 5,
-        .clk_source = I2C_CLK_SRC_DEFAULT,
-        .glitch_ignore_cnt = 7,
-        .intr_priority = 0,
-        .flags.enable_internal_pullup = true,
-    };
+    i2c_master_bus_handle_t bus_handle = get_i2c_bus_handle();
 
     if (ina226_bus_handle == NULL) {
         ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_bus_config, &ina226_bus_handle));

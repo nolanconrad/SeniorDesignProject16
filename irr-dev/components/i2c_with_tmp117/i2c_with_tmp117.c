@@ -64,16 +64,22 @@ void tmp117_init(void)
         .scl_speed_hz = 100000, //100KHz is standard mode
     };
 
-    //initializing the master bus
-    ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_master_bus_config, &bus_handle));
-
-    //add device to the bus
-    ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config, &dev_handle));
-
-    // Add second device
-    ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config2, &dev_handle2));
     
-    ESP_LOGI(TAG, "I2C initialization complete");
+    if (bus_handle == NULL) 
+    {
+        ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_master_bus_config, &bus_handle));
+    }
+
+    if (dev_handle == NULL) 
+    {
+        ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config, &dev_handle));
+    }
+
+    if (dev_handle2 == NULL) 
+    {
+        ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &i2c_device_config2, &dev_handle2));
+    }
+
 }
 
 float tmp117_read_temperature(void)
@@ -154,3 +160,7 @@ float tmp117_read_temperature_device2(void)
     return temperature;
 }
 
+i2c_master_bus_handle_t get_i2c_bus_handle(void)
+{
+    return bus_handle;
+}
