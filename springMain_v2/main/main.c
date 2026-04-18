@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#include "esp_err.h"
 #include "esp_log.h"
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
@@ -29,6 +30,8 @@ static ina226_measurement_t synchronized_ina1_measurement = {0};
 static ina226_measurement_t synchronized_ina2_measurement = {0};
 static esp_err_t synchronized_ina1_error = ESP_OK;
 static esp_err_t synchronized_ina2_error = ESP_OK;
+static uint8_t s_tmp117_addr = TMP117_I2C_ADDR_DEFAULT;
+static bool s_tmp117_found = false;
 
 static const char *TAG = "SYSTEM";
 
@@ -69,12 +72,15 @@ static const char *TAG = "SYSTEM";
 #define BUTTON_POLL_INTERVAL_MS 50
 #define SENSOR_READ_INTERVAL_MS 2000
 
-// PWM-synchronized INA reading configuration
-#define PUMP_PWM_FREQ_HZ 500
-#define PWM_PERIOD_MS (1000 / PUMP_PWM_FREQ_HZ)
+// INA synchronized reading configuration
+#define INA_SYNC_PERIOD_MS 20
 #define INA_READ_OFFSET_MS 3
 #define INA_READING_TASK_PRIORITY (tskIDLE_PRIORITY + 2)
 #define INA_READING_TASK_STACK_SIZE 4096
+
+// Temporary deep diagnostics for I2C bring-up.
+#define I2C_DIAG_START_ADDR 0x03
+#define I2C_DIAG_END_ADDR 0x77
 
 typedef enum {
     CONTROL_MANUAL = 0,
@@ -111,13 +117,26 @@ static void update_status_leds(uint32_t current_ms);
 static void update_animation_leds(uint32_t current_ms);
 static void refresh_pump_output_state(void);
 
+static void log_i2c_probe_diagnostics(TickType_t timeout_ticks)
+{
+    ESP_LOGI(TAG, "I2C diagnostics: probing 0x%02X..0x%02X", I2C_DIAG_START_ADDR, I2C_DIAG_END_ADDR);
+
+    for (uint8_t addr = I2C_DIAG_START_ADDR; addr <= I2C_DIAG_END_ADDR; ++addr) {
+        esp_err_t perr = i2c_bus_probe(addr, timeout_ticks);
+        if (perr == ESP_OK) {
+            ESP_LOGI(TAG, "I2C probe 0x%02X: ACK", addr);
+        } else {
+            ESP_LOGW(TAG, "I2C probe 0x%02X: %s", addr, esp_err_to_name(perr));
+        }
+    }
+}
+
 // PWM-synchronized INA reading callback
 static void pwm_sync_timer_callback(void *arg)
 {
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    xSemaphoreGiveFromISR(ina_read_semaphore, &xHigherPriorityTaskWoken);
-    if (xHigherPriorityTaskWoken == pdTRUE) {
-        portYIELD_FROM_ISR();
+    // Timer uses ESP_TIMER_TASK dispatch, so this callback is not in ISR context.
+    if (ina_read_semaphore != NULL) {
+        xSemaphoreGive(ina_read_semaphore);
     }
 }
 
@@ -301,7 +320,7 @@ static void init_ina_sync_reading(void)
         return;
     }
 
-    uint64_t timer_period_us = (PWM_PERIOD_MS * 1000);
+    uint64_t timer_period_us = (INA_SYNC_PERIOD_MS * 1000);
     err = esp_timer_start_periodic(pwm_sync_timer, timer_period_us);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to start PWM sync timer: %s", esp_err_to_name(err));
@@ -425,14 +444,20 @@ void app_main(void)
         return;
     }
 
-    init_ina_sync_reading();
     init_buttons_and_led();
 
-    esp_err_t terr = tmp117_init(TMP117_ADDR);
-    if (terr == ESP_OK) {
-        ESP_LOGI(TAG, "TMP117 found and initialized at 0x%02X", TMP117_ADDR);
-    } else {
-        ESP_LOGE(TAG, "TMP117 not found at 0x%02X: %s", TMP117_ADDR, esp_err_to_name(terr));
+    const uint8_t tmp117_candidates[] = {0x48, 0x49, 0x4A, 0x4B};
+    for (size_t i = 0; i < sizeof(tmp117_candidates) / sizeof(tmp117_candidates[0]); ++i) {
+        esp_err_t terr = tmp117_init(tmp117_candidates[i]);
+        if (terr == ESP_OK) {
+            s_tmp117_addr = tmp117_candidates[i];
+            s_tmp117_found = true;
+            ESP_LOGI(TAG, "TMP117 found and initialized at 0x%02X", s_tmp117_addr);
+            break;
+        }
+    }
+    if (!s_tmp117_found) {
+        ESP_LOGE(TAG, "TMP117 not found at any expected address (0x48-0x4B)");
     }
 
     err = ina226_init(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);
@@ -448,6 +473,11 @@ void app_main(void)
     } else {
         ESP_LOGI(TAG, "LOGIC (INA2, 0x%02X) initialized", INA226_2_ADDR);
     }
+
+    // Run full-address diagnostic sweep before enabling periodic INA sync traffic.
+    log_i2c_probe_diagnostics(pdMS_TO_TICKS(50));
+
+    init_ina_sync_reading();
 
     ble_init();
     ESP_LOGI(TAG, "BLE initialized");
@@ -525,7 +555,11 @@ void app_main(void)
         esp_err_t ina1_err = synchronized_ina1_error;
         esp_err_t ina2_err = synchronized_ina2_error;
 
-        err = tmp117_read_temperature_c(TMP117_ADDR, &temp_c);
+        if (s_tmp117_found) {
+            err = tmp117_read_temperature_c(s_tmp117_addr, &temp_c);
+        } else {
+            err = ESP_ERR_NOT_FOUND;
+        }
         float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
 
         const float alpha = 0.2f;

@@ -1,0 +1,910 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM20 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM20'
+[0;32mI (111) esp_image: segment 1: paddr=00031cd4 vaddr=3fc99e00 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x42008043
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21cach (138412) map[0m
+[0;32mI (111) esp_image: segment 1: paddr=00031cd4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b34 vaddr=40374000 size=0a4e4h ( 42212) load[0m
+[0;32mI (124) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b648h (505416) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb670 vaddr=4037e4e4 size=0b820h ( 47136) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c6e98 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (233) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (252) app_init: Application information:[0m
+[0;32mI (253) app_init: Project name:     springMain_v2[0m
+[0;32mI (257) app_init: App version:      3a438937-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 17 2026 16:31:29[0m
+[0;32mI (266) app_init: ELF file SHA256:  ae79bbcf2...[0m
+[0;32mI (271) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (274) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (292) heap_init: At 3FCA1A30 len 00047CE0 (287 KiB): RAM[0m
+[0;32mI (298) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (303) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (308) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (316) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (332) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (342) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (348) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (354) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (359) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (413) pump_operation: Pump PWM ready on A0(GPIO1) at 500 Hz[0m
+[0;32mI (413) SYSTEM: All LEDs and buttons initialized[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x48: ESP_FAIL[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x49: ESP_FAIL[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x4A: ESP_FAIL[0m
+[1;31mE (433) tmp117: TMP117 not responding at 0x4B: ESP_FAIL[0m
+[1;31mE (433) SYSTEM: TMP117 not found at any expected address (0x48-0x4B)[0m
+[0;32mI (443) ina226: INA226 detected at 0x40[0m
+[0;32mI (443) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (453) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (463) ina226: INA226 detected at 0x41[0m
+[0;32mI (463) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (463) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (473) SYSTEM: I2C diagnostics: probing 0x03..0x77[0m
+[0;33mW (473) SYSTEM: I2C probe 0x03: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x04: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x05: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x06: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x07: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x08: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x09: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0A: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0B: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0C: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0D: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0E: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0F: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x10: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x11: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x12: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x13: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x14: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x15: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x16: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x17: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x18: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x19: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1A: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1B: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1C: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1D: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1E: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1F: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x20: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x21: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x22: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x23: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x24: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x25: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x26: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x27: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x28: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x29: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x2A: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2B: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2C: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2D: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2E: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2F: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x30: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x31: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x32: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x33: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x34: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x35: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x36: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x37: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x38: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x39: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x3A: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3B: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3C: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3D: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3E: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3F: ESP_FAIL[0m
+[0;32mI (693) SYSTEM: I2C probe 0x40: ACK[0m
+[0;32mI (703) SYSTEM: I2C probe 0x41: ACK[0m
+[0;33mW (703) SYSTEM: I2C probe 0x42: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x43: ESP_FAIL[0m
+[0;33mW (713) SYSTEM: I2C probe 0x44: ESP_FAIL[0m
+[0;33mW (713) SYSTEM: I2C probe 0x45: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x46: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x47: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x48: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x49: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x4A: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x4B: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4C: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4D: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4E: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4F: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x50: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x51: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x52: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x53: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x54: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x55: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x56: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x57: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x58: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x59: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x5A: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x5B: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5C: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5D: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5E: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x5F: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x60: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x61: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x62: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x63: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x64: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x65: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x66: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x67: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x68: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x69: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6A: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6B: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6C: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6D: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6E: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6F: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x70: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x71: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x72: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x73: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x74: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x75: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x76: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x77: ESP_FAIL[0m
+[0;32mI (903) SYSTEM: PWM sync timer started: 20000 us period (50.0 Hz)[0m
+[0;32mI (903) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (913) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (923) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (923) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (933) BLE_INIT: Bluetooth MAC: 20:6e:f1:31:e3:16[0m
+[0;32mI (933) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (973) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1013) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (1013) SYSTEM: BLE initialized[0m
+[0;32mI (1013) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (1013) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (1023) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (1023) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (1033) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (1043) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (1043) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (1053) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;33mW (3053) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (3053) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.527mV  CURRENT=5.275mA  POWER=66.966mW (smoothed)
+[0;32mI (3053) SYSTEM: PUMP  0x40 raw shunt=0x00D3 raw bus=0x27AC[0m
+[0;32mI (3063) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.320mV  CURRENT=33.200mA  POWER=421.142mW (smoothed)
+[0;32mI (3073) SYSTEM: LOGIC 0x41 raw shunt=0x0530 raw bus=0x27A4[0m
+[0;33mW (5073) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (5073) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.520mV  CURRENT=5.260mA  POWER=66.776mW (smoothed)
+[0;32mI (5073) SYSTEM: PUMP  0x40 raw shunt=0x00D0 raw bus=0x27AC[0m
+[0;32mI (5083) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=3.977mV  CURRENT=34.515mA  POWER=437.813mW (smoothed)
+[0;32mI (5093) SYSTEM: LOGIC 0x41 raw shunt=0x0637 raw bus=0x27A3[0m
+[0;33mW (7093) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (7093) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.693V  SHUNT=0.487mV  CURRENT=5.183mA  POWER=65.796mW (smoothed)
+[0;32mI (7093) SYSTEM: PUMP  0x40 raw shunt=0x00C3 raw bus=0x27AA[0m
+[0;32mI (7103) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=3.202mV  CURRENT=34.017mA  POWER=431.490mW (smoothed)
+[0;32mI (7113) SYSTEM: LOGIC 0x41 raw shunt=0x0501 raw bus=0x27A3[0m
+[0;33mW (9113) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (9113) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.696V  SHUNT=0.535mV  CURRENT=5.216mA  POWER=66.222mW (smoothed)
+[0;32mI (9113) SYSTEM: PUMP  0x40 raw shunt=0x00D6 raw bus=0x27AD[0m
+[0;32mI (9123) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.682V  SHUNT=3.625mV  CURRENT=34.464mA  POWER=437.140mW (smoothed)
+[0;32mI (9133) SYSTEM: LOGIC 0x41 raw shunt=0x05AA raw bus=0x27A2[0m
+[0;33mW (11133) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (11133) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.517mV  CURRENT=5.208mA  POWER=66.117mW (smoothed)
+[0;32mI (11133) SYSTEM: PUMP  0x40 raw shunt=0x00CF raw bus=0x27AC[0m
+[0;32mI (11143) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.681V  SHUNT=4.377mV  CURRENT=36.326mA  POWER=460.736mW (smoothed)
+[0;32mI (11153) SYSTEM: LOGIC 0x41 raw shunt=0x06D7 raw bus=0x27A1[0m
+[0;33mW (13153) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (13153) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.487mV  CURRENT=5.141mA  POWER=65.271mW (smoothed)
+[0;32mI (13153) SYSTEM: PUMP  0x40 raw shunt=0x00C3 raw bus=0x27AC[0m
+[0;32mI (13163) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.412mV  CURRENT=35.886mA  POWER=455.164mW (smoothed)
+[0;32mI (13173) SYSTEM: LOGIC 0x41 raw shunt=0x0555 raw bus=0x27A4[0m
+[0;33mW (15173) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (15173) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.694V  SHUNT=0.552mV  CURRENT=5.218mA  POWER=66.243mW (smoothed)
+[0;32mI (15173) SYSTEM: PUMP  0x40 raw shunt=0x00DD raw bus=0x27AB[0m
+[0;32mI (15183) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=4.010mV  CURRENT=36.729mA  POWER=465.855mW (smoothed)
+[0;32mI (15193) SYSTEM: LOGIC 0x41 raw shunt=0x0644 raw bus=0x27A3[0m
+[0;33mW (17193) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (17193) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.505mV  CURRENT=5.185mA  POWER=65.817mW (smoothed)
+[0;32mI (17193) SYSTEM: PUMP  0x40 raw shunt=0x00CA raw bus=0x27AC[0m
+[0;32mI (17203) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.680V  SHUNT=3.320mV  CURRENT=36.023mA  POWER=456.879mW (smoothed)
+[0;32mI (17213) SYSTEM: LOGIC 0x41 raw shunt=0x0530 raw bus=0x27A0[0m
+[0;33mW (19213) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (19213) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.696V  SHUNT=0.498mV  CURRENT=5.143mA  POWER=65.286mW (smoothed)
+[0;32mI (19213) SYSTEM: PUMP  0x40 raw shunt=0x00C7 raw bus=0x27AD[0m
+[0;32mI (19223) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.680mV  CURRENT=36.178mA  POWER=458.865mW (smoothed)
+[0;32mI (19233) SYSTEM: LOGIC 0x41 raw shunt=0x05C0 raw bus=0x27A4[0m
+[0;33mW (21233) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (21233) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.694V  SHUNT=0.552mV  CURRENT=5.219mA  POWER=66.255mW (smoothed)
+[0;32mI (21233) SYSTEM: PUMP  0x40 raw shunt=0x00DD raw bus=0x27AB[0m
+[0;32mI (21243) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.682V  SHUNT=4.383mV  CURRENT=37.708mA  POWER=478.254mW (smoothed)
+[0;32mI (21253) SYSTEM: LOGIC 0x41 raw shunt=0x06D9 raw bus=0x27A2[0m
+[0;33mW (23253) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (23253) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.693V  SHUNT=0.500mV  CURRENT=5.175mA  POWER=65.697mW (smoothed)
+[0;32mI (23253) SYSTEM: PUMP  0x40 raw shunt=0x00C8 raw bus=0x27AA[0m
+[0;32mI (23263) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.677V  SHUNT=5.545mV  CURRENT=41.256mA  POWER=523.197mW (smoothed)
+[0;32mI (23273) SYSTEM: LOGIC 0x41 raw shunt=0x08AA raw bus=0x279E[0m
+[0;33mW (25273) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (25273) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.693V  SHUNT=0.517mV  CURRENT=5.175mA  POWER=65.694mW (smoothed)
+[0;32mI (25273) SYSTEM: PUMP  0x40 raw shunt=0x00CF raw bus=0x27AA[0m
+[0;32mI (25283) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.682V  SHUNT=3.982mV  CURRENT=40.970mA  POWER=519.573mW (smoothed)
+[0;32mI (25293) SYSTEM: LOGIC 0x41 raw shunt=0x0639 raw bus=0x27A2[0m
+[0;33mW (27293) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (27293) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.535mV  CURRENT=5.210mA  POWER=66.139mW (smoothed)
+[0;32mI (27293) SYSTEM: PUMP  0x40 raw shunt=0x00D6 raw bus=0x27AC[0m
+[0;32mI (27303) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.272mV  CURRENT=39.321mA  POWER=498.682mW (smoothed)
+[0;32mI (27313) SYSTEM: LOGIC 0x41 raw shunt=0x051D raw bus=0x27A4[0m
+[0;33mW (29313) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (29313) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.696V  SHUNT=0.485mV  CURRENT=5.138mA  POWER=65.227mW (smoothed)
+[0;32mI (29313) SYSTEM: PUMP  0x40 raw shunt=0x00C2 raw bus=0x27AD[0m
+[0;32mI (29323) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.560mV  CURRENT=38.577mA  POWER=489.263mW (smoothed)
+[0;32mI (29333) SYSTEM: LOGIC 0x41 raw shunt=0x0590 raw bus=0x27A4[0m
+[0;33mW (31333) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (31333) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.694V  SHUNT=0.532mV  CURRENT=5.176mA  POWER=65.700mW (smoothed)
+[0;32mI (31333) SYSTEM: PUMP  0x40 raw shunt=0x00D5 raw bus=0x27AB[0m
+[0;32mI (31343) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.681V  SHUNT=4.360mV  CURRENT=39.581mA  POWER=501.991mW (smoothed)
+[0;32mI (31353) SYSTEM: LOGIC 0x41 raw shunt=0x06D0 raw bus=0x27A1[0m
+[0;33mW (33353) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (33353) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.694V  SHUNT=0.522mV  CURRENT=5.185mA  POWER=65.825mW (smoothed)
+[0;32mI (33353) SYSTEM: PUMP  0x40 raw shunt=0x00D1 raw bus=0x27AB[0m
+[0;32mI (33363) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=3.440mV  CURRENT=38.545mA  POWER=488.857mW (smoothed)
+[0;32mI (33373) SYSTEM: LOGIC 0x41 raw shunt=0x0560 raw bus=0x27A3[0m
+[0;33mW (35373) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (35373) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.490mV  CURRENT=5.128mA  POWER=65.101mW (smoothed)
+[0;32mI (35373) SYSTEM: PUMP  0x40 raw shunt=0x00C4 raw bus=0x27AC[0m
+[0;32mI (35383) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=4.015mV  CURRENT=38.866mA  POWER=492.936mW (smoothed)
+[0;32mI (35393) SYSTEM: LOGIC 0x41 raw shunt=0x0646 raw bus=0x27A3[0m
+[0;33mW (37393) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (37393) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.547mV  CURRENT=5.198mA  POWER=65.982mW (smoothed)
+[0;32mI (37393) SYSTEM: PUMP  0x40 raw shunt=0x00DB raw bus=0x27AC[0m
+[0;32mI (37403) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.285mV  CURRENT=37.663mA  POWER=477.689mW (smoothed)
+[0;32mI (37413) SYSTEM: LOGIC 0x41 raw shunt=0x0522 raw bus=0x27A4[0m
+[0;33mW (39413) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (39413) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.515mV  CURRENT=5.188mA  POWER=65.861mW (smoothed)
+[0;32mI (39413) SYSTEM: PUMP  0x40 raw shunt=0x00CE raw bus=0x27AC[0m
+[0;32mI (39423) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.627mV  CURRENT=37.385mA  POWER=474.181mW (smoothed)
+[0;32mI (39433) SYSTEM: LOGIC 0x41 raw shunt=0x05AB raw bus=0x27A4[0m
+[0;33mW (41433) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (41433) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.694V  SHUNT=0.500mV  CURRENT=5.151mA  POWER=65.383mW (smoothed)
+[0;32mI (41433) SYSTEM: PUMP  0x40 raw shunt=0x00C8 raw bus=0x27AB[0m
+[0;32mI (41443) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=4.368mV  CURRENT=38.643mA  POWER=490.137mW (smoothed)
+[0;32mI (41453) SYSTEM: LOGIC 0x41 raw shunt=0x06D3 raw bus=0x27A3[0m
+[0;33mW (43453) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (43453) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.552mV  CURRENT=5.225mA  POWER=66.334mW (smoothed)
+[0;32mI (43453) SYSTEM: PUMP  0x40 raw shunt=0x00DD raw bus=0x27AC[0m
+[0;32mI (43463) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.422mV  CURRENT=37.760mA  POWER=478.939mW (smoothed)
+[0;32mI (43473) SYSTEM: LOGIC 0x41 raw shunt=0x0559 raw bus=0x27A4[0m
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x4037a696  PS      : 0x00050934  A0      : 0x4037bc92  A1      : 0x3fc9b450  
+A2      : 0x00000000  A3      : 0x00000012  A4      : 0x3fc9a2e8  A5      : 0x3fc9b410  
+A6      : 0x3fce9a50  A7      : 0x00000005  A8      : 0x82053dca  A9      : 0x403810c6  
+A10     : 0x00000008  A11     : 0x00000000  A12     : 0x00000000  A13     : 0x60013000  
+A14     : 0x00000000  A15     : 0x3fca5f0c  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+Core  0 was running in ISR context:
+EPC1    : 0x420776eb  EPC2    : 0x00000000  EPC3    : 0x4037baa4  EPC4    : 0x4037a696
+
+
+Backtrace: 0x4037a693:0x3fc9b450 0x4037bc8f:0x3fca5d40 0x4207a666:0x3fca5d60 0x40381c1d:0x3fca5d80 0x40380cdd:0x3fca5da0
+
+
+Core  1 register dump:
+PC      : 0x4037d3f2  PS      : 0x00060134  A0      : 0x8207a669  A1      : 0x3fca64a0  
+A2      : 0x00000000  A3      : 0x00000001  A4      : 0x80381041  A5      : 0x3fcea8f0  
+A6      : 0x00060023  A7      : 0x00000003  A8      : 0x82053dca  A9      : 0x3fca6460  
+A10     : 0x00000000  A11     : 0x00000001  A12     : 0x00000001  A13     : 0x3fceabd0  
+A14     : 0x00000002  A15     : 0x3fca666c  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x4037d3ef:0x3fca64a0 0x4207a666:0x3fca64c0 0x40381c1d:0x3fca64e0 0x40380cdd:0x3fca6500
+
+
+
+
+ELF file SHA256: ae79bbcf2
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403801e0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (34) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21cach (138412) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=00031cd4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b34 vaddr=40374000 size=0a4e4h ( 42212) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b648h (505416) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb670 vaddr=4037e4e4 size=0b820h ( 47136) load[0m
+[0;32mI (223) esp_image: segment 5: paddr=000c6e98 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (252) app_init: Application information:[0m
+[0;32mI (252) app_init: Project name:     springMain_v2[0m
+[0;32mI (256) app_init: App version:      3a438937-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 17 2026 16:31:29[0m
+[0;32mI (266) app_init: ELF file SHA256:  ae79bbcf2...[0m
+[0;32mI (270) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (274) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (292) heap_init: At 3FCA1A30 len 00047CE0 (287 KiB): RAM[0m
+[0;32mI (297) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (302) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (307) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (316) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (331) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (341) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (347) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (354) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (358) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (413) pump_operation: Pump PWM ready on A0(GPIO1) at 500 Hz[0m
+[0;32mI (413) SYSTEM: All LEDs and buttons initialized[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x48: ESP_FAIL[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x49: ESP_FAIL[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x4A: ESP_FAIL[0m
+[1;31mE (433) tmp117: TMP117 not responding at 0x4B: ESP_FAIL[0m
+[1;31mE (433) SYSTEM: TMP117 not found at any expected address (0x48-0x4B)[0m
+[0;32mI (443) ina226: INA226 detected at 0x40[0m
+[0;32mI (443) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (453) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (463) ina226: INA226 detected at 0x41[0m
+[0;32mI (463) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (463) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (473) SYSTEM: I2C diagnostics: probing 0x03..0x77[0m
+[0;33mW (473) SYSTEM: I2C probe 0x03: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x04: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x05: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x06: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x07: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x08: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x09: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0A: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0B: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0C: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0D: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0E: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0F: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x10: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x11: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x12: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x13: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x14: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x15: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x16: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x17: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x18: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x19: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1A: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1B: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1C: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1D: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1E: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1F: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x20: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x21: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x22: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x23: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x24: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x25: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x26: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x27: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x28: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x29: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x2A: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2B: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2C: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2D: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2E: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2F: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x30: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x31: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x32: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x33: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x34: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x35: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x36: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x37: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x38: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x39: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x3A: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3B: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3C: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3D: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3E: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3F: ESP_FAIL[0m
+[0;32mI (693) SYSTEM: I2C probe 0x40: ACK[0m
+[0;32mI (703) SYSTEM: I2C probe 0x41: ACK[0m
+[0;33mW (703) SYSTEM: I2C probe 0x42: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x43: ESP_FAIL[0m
+[0;33mW (713) SYSTEM: I2C probe 0x44: ESP_FAIL[0m
+[0;33mW (713) SYSTEM: I2C probe 0x45: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x46: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x47: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x48: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x49: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x4A: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x4B: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4C: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4D: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4E: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4F: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x50: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x51: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x52: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x53: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x54: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x55: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x56: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x57: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x58: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x59: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x5A: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x5B: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5C: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5D: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5E: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x5F: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x60: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x61: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x62: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x63: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x64: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x65: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x66: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x67: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x68: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x69: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6A: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6B: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6C: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6D: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6E: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6F: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x70: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x71: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x72: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x73: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x74: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x75: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x76: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x77: ESP_FAIL[0m
+[0;32mI (903) SYSTEM: PWM sync timer started: 20000 us period (50.0 Hz)[0m
+[0;32mI (903) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (913) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (923) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (923) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (933) BLE_INIT: Bluetooth MAC: 20:6e:f1:31:e3:16[0m
+[0;32mI (933) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1003) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (1003) SYSTEM: BLE initialized[0m
+[0;32mI (1003) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (1003) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (1003) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (1013) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (1023) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (1023) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (1033) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (1043) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;33mW (3043) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (3043) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.550mV  CURRENT=5.500mA  POWER=69.822mW (smoothed)
+[0;32mI (3043) SYSTEM: PUMP  0x40 raw shunt=0x00DC raw bus=0x27AC[0m
+[0;32mI (3053) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.432mV  CURRENT=34.325mA  POWER=435.413mW (smoothed)
+[0;32mI (3063) SYSTEM: LOGIC 0x41 raw shunt=0x055D raw bus=0x27A4[0m
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x4037ba9f  PS      : 0x00050934  A0      : 0x4037a6a4  A1      : 0x3fc9b410  
+A2      : 0x3fce9a50  A3      : 0x00000005  A4      : 0x82053dca  A5      : 0x403810c6  
+A6      : 0x00000008  A7      : 0x00000000  A8      : 0x3fc9a83c  A9      : 0x60013000  
+A10     : 0x00000000  A11     : 0x3fca5f0c  A12     : 0x82053dc0  A13     : 0x3fca5ce0  
+A14     : 0x3fc9a7b4  A15     : 0x3fca5d10  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+Core  0 was running in ISR context:
+EPC1    : 0x420776eb  EPC2    : 0x00000000  EPC3    : 0x4037bab2  EPC4    : 0x4037ba9f
+
+
+Backtrace: 0x4037ba9c:0x3fc9b410 0x4037a6a1:0x3fc9b450 0x4037bc8f:0x3fca5d40 0x4207a666:0x3fca5d60 0x40381c1d:0x3fca5d80 0x40380cdd:0x3fca5da0
+
+
+Core  1 register dump:
+PC      : 0x4037d3f2  PS      : 0x00060134  A0      : 0x8207a669  A1      : 0x3fca64a0  
+A2      : 0x00000000  A3      : 0x00000001  A4      : 0x80381041  A5      : 0x3fcea8f0  
+A6      : 0x00060023  A7      : 0x00000003  A8      : 0x82053dca  A9      : 0x3fca6460  
+A10     : 0x00000000  A11     : 0x00000001  A12     : 0x80381041  A13     : 0x3fcea8f0  
+A14     : 0x00060023  A15     : 0x3fca666c  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x4037d3ef:0x3fca64a0 0x4207a666:0x3fca64c0 0x40381c1d:0x3fca64e0 0x40380cdd:0x3fca6500
+
+
+
+
+ELF file SHA256: ae79bbcf2
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403801e0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (34) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21cach (138412) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=00031cd4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b34 vaddr=40374000 size=0a4e4h ( 42212) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b648h (505416) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb670 vaddr=4037e4e4 size=0b820h ( 47136) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c6e98 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (252) app_init: Application information:[0m
+[0;32mI (252) app_init: Project name:     springMain_v2[0m
+[0;32mI (256) app_init: App version:      3a438937-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 17 2026 16:31:29[0m
+[0;32mI (266) app_init: ELF file SHA256:  ae79bbcf2...[0m
+[0;32mI (270) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (274) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (292) heap_init: At 3FCA1A30 len 00047CE0 (287 KiB): RAM[0m
+[0;32mI (297) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (302) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (307) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (316) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (331) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (341) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (347) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (354) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (358) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (413) pump_operation: Pump PWM ready on A0(GPIO1) at 500 Hz[0m
+[0;32mI (413) SYSTEM: All LEDs and buttons initialized[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x48: ESP_FAIL[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x49: ESP_FAIL[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x4A: ESP_FAIL[0m
+[1;31mE (433) tmp117: TMP117 not responding at 0x4B: ESP_FAIL[0m
+[1;31mE (433) SYSTEM: TMP117 not found at any expected address (0x48-0x4B)[0m
+[0;32mI (443) ina226: INA226 detected at 0x40[0m
+[0;32mI (443) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (453) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (463) ina226: INA226 detected at 0x41[0m
+[0;32mI (463) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (463) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (473) SYSTEM: I2C diagnostics: probing 0x03..0x77[0m
+[0;33mW (473) SYSTEM: I2C probe 0x03: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x04: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x05: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x06: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x07: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x08: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x09: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0A: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0B: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x0C: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0D: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0E: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0F: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x10: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x11: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x12: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x13: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x14: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x15: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x16: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x17: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x18: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x19: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1A: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1B: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1C: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1D: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1E: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1F: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x20: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x21: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x22: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x23: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x24: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x25: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x26: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x27: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x28: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x29: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x2A: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2B: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2C: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2D: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2E: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2F: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x30: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x31: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x32: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x33: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x34: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x35: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x36: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x37: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x38: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x39: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x3A: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3B: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3C: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3D: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3E: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3F: ESP_FAIL[0m
+[0;32mI (693) SYSTEM: I2C probe 0x40: ACK[0m
+[0;32mI (703) SYSTEM: I2C probe 0x41: ACK[0m
+[0;33mW (703) SYSTEM: I2C probe 0x42: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x43: ESP_FAIL[0m
+[0;33mW (713) SYSTEM: I2C probe 0x44: ESP_FAIL[0m
+[0;33mW (713) SYSTEM: I2C probe 0x45: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x46: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x47: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x48: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x49: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x4A: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x4B: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4C: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4D: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4E: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4F: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x50: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x51: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x52: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x53: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x54: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x55: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x56: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x57: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x58: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x59: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x5A: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x5B: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5C: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5D: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5E: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x5F: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x60: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x61: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x62: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x63: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x64: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x65: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x66: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x67: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x68: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x69: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6A: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6B: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x6C: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6D: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6E: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6F: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x70: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x71: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x72: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x73: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x74: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x75: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x76: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x77: ESP_FAIL[0m
+[0;32mI (903) SYSTEM: PWM sync timer started: 20000 us period (50.0 Hz)[0m
+[0;32mI (903) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (913) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (923) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (923) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (933) BLE_INIT: Bluetooth MAC: 20:6e:f1:31:e3:16[0m
+[0;32mI (933) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1003) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (1003) SYSTEM: BLE initialized[0m
+[0;32mI (1003) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (1003) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (1013) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (1013) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (1023) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (1023) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (1033) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (1043) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;33mW (3043) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (3043) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.696V  SHUNT=0.550mV  CURRENT=5.500mA  POWER=69.829mW (smoothed)
+[0;32mI (3043) SYSTEM: PUMP  0x40 raw shunt=0x00DC raw bus=0x27AD[0m
+[0;32mI (3053) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.682V  SHUNT=3.435mV  CURRENT=34.350mA  POWER=435.644mW (smoothed)
+[0;32mI (3063) SYSTEM: LOGIC 0x41 raw shunt=0x055E raw bus=0x27A2[0m
+[0;33mW (5063) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (5063) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.694V  SHUNT=0.498mV  CURRENT=5.395mA  POWER=68.494mW (smoothed)
+[0;32mI (5063) SYSTEM: PUMP  0x40 raw shunt=0x00C7 raw bus=0x27AB[0m
+[0;32mI (5073) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=6.922mV  CURRENT=41.325mA  POWER=524.122mW (smoothed)
+[0;32mI (5083) SYSTEM: LOGIC 0x41 raw shunt=0x0AD1 raw bus=0x27A3[0m
+[0;33mW (7083) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (7083) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.696V  SHUNT=0.515mV  CURRENT=5.346mA  POWER=67.872mW (smoothed)
+[0;32mI (7083) SYSTEM: PUMP  0x40 raw shunt=0x00CE raw bus=0x27AD[0m
+[0;32mI (7093) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.684V  SHUNT=3.330mV  CURRENT=39.720mA  POWER=503.771mW (smoothed)
+[0;32mI (7103) SYSTEM: LOGIC 0x41 raw shunt=0x0534 raw bus=0x27A3[0m
+[0;33mW (9103) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (9103) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.550mV  CURRENT=5.377mA  POWER=68.262mW (smoothed)
+[0;32mI (9103) SYSTEM: PUMP  0x40 raw shunt=0x00DC raw bus=0x27AC[0m
+[0;32mI (9113) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=3.655mV  CURRENT=39.086mA  POWER=495.744mW (smoothed)
+[0;32mI (9123) SYSTEM: LOGIC 0x41 raw shunt=0x05B6 raw bus=0x27A4[0m
+[0;33mW (11123) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (11123) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.694V  SHUNT=0.482mV  CURRENT=5.266mA  POWER=66.859mW (smoothed)
+[0;32mI (11123) SYSTEM: PUMP  0x40 raw shunt=0x00C1 raw bus=0x27AB[0m
+[0;32mI (11133) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.681V  SHUNT=4.395mV  CURRENT=40.059mA  POWER=508.064mW (smoothed)
+[0;32mI (11143) SYSTEM: LOGIC 0x41 raw shunt=0x06DE raw bus=0x27A1[0m
+[0;33mW (13143) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (13143) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.522mV  CURRENT=5.258mA  POWER=66.754mW (smoothed)
+[0;32mI (13143) SYSTEM: PUMP  0x40 raw shunt=0x00D1 raw bus=0x27AC[0m
+[0;32mI (13153) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.679V  SHUNT=3.505mV  CURRENT=39.057mA  POWER=495.329mW (smoothed)
+[0;32mI (13163) SYSTEM: LOGIC 0x41 raw shunt=0x057A raw bus=0x279F[0m
+[0;33mW (15163) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (15163) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=12.695V  SHUNT=0.520mV  CURRENT=5.247mA  POWER=66.606mW (smoothed)
+[0;32mI (15163) SYSTEM: PUMP  0x40 raw shunt=0x00D0 raw bus=0x27AC[0m
+[0;32mI (15173) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  LOGIC: BUS=12.685V  SHUNT=4.015mV  CURRENT=39.276mA  POWER=498.124mW (smoothed)
+[0;32mI (15183) SYSTEM: LOGIC 0x41 raw shunt=0x0646 raw bus=0x27A4[0m

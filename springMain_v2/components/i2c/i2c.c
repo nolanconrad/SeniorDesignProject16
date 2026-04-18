@@ -5,15 +5,17 @@
 #include "driver/gpio.h"
 #include "driver/i2c.h"
 #include "esp_log.h"
+#include "freertos/semphr.h"
 
 #define I2C_MASTER_NUM I2C_NUM_0
 // Arduino Nano ESP32 (ESP32-S3) wiring used here: A5=SCL, A4=SDA.
 #define I2C_MASTER_SDA_IO GPIO_NUM_11 // A4
 #define I2C_MASTER_SCL_IO GPIO_NUM_12 // A5
-#define I2C_MASTER_FREQ_HZ 100000
+#define I2C_MASTER_FREQ_HZ 50000
 
 static const char *TAG = "i2c_bus";
 static bool s_initialized = false;
+static SemaphoreHandle_t s_i2c_mutex = NULL;
 
 esp_err_t i2c_bus_init(void)
 {
@@ -43,6 +45,12 @@ esp_err_t i2c_bus_init(void)
 		return err;
 	}
 
+	s_i2c_mutex = xSemaphoreCreateMutex();
+	if (s_i2c_mutex == NULL) {
+		ESP_LOGE(TAG, "Failed to create I2C bus mutex");
+		return ESP_ERR_NO_MEM;
+	}
+
 	s_initialized = true;
 	ESP_LOGI(TAG, "I2C master ready on port %d (SDA=%d, SCL=%d, %d Hz)",
 			 I2C_MASTER_NUM, I2C_MASTER_SDA_IO, I2C_MASTER_SCL_IO, I2C_MASTER_FREQ_HZ);
@@ -52,8 +60,17 @@ esp_err_t i2c_bus_init(void)
 
 esp_err_t i2c_bus_probe(uint8_t device_address, TickType_t timeout_ticks)
 {
+	if (s_i2c_mutex == NULL) {
+		return ESP_ERR_INVALID_STATE;
+	}
+
+	if (xSemaphoreTake(s_i2c_mutex, portMAX_DELAY) != pdTRUE) {
+		return ESP_ERR_TIMEOUT;
+	}
+
 	i2c_cmd_handle_t cmd = i2c_cmd_link_create();
 	if (cmd == NULL) {
+		xSemaphoreGive(s_i2c_mutex);
 		return ESP_ERR_NO_MEM;
 	}
 
@@ -63,6 +80,7 @@ esp_err_t i2c_bus_probe(uint8_t device_address, TickType_t timeout_ticks)
 
 	esp_err_t err = i2c_master_cmd_begin(I2C_MASTER_NUM, cmd, timeout_ticks);
 	i2c_cmd_link_delete(cmd);
+	xSemaphoreGive(s_i2c_mutex);
 	return err;
 }
 
@@ -72,7 +90,17 @@ esp_err_t i2c_bus_write(uint8_t device_address, const uint8_t *data, size_t data
 		return ESP_ERR_INVALID_ARG;
 	}
 
-	return i2c_master_write_to_device(I2C_MASTER_NUM, device_address, data, data_len, timeout_ticks);
+	if (s_i2c_mutex == NULL) {
+		return ESP_ERR_INVALID_STATE;
+	}
+
+	if (xSemaphoreTake(s_i2c_mutex, portMAX_DELAY) != pdTRUE) {
+		return ESP_ERR_TIMEOUT;
+	}
+
+	esp_err_t err = i2c_master_write_to_device(I2C_MASTER_NUM, device_address, data, data_len, timeout_ticks);
+	xSemaphoreGive(s_i2c_mutex);
+	return err;
 }
 
 esp_err_t i2c_bus_write_read(
@@ -87,7 +115,15 @@ esp_err_t i2c_bus_write_read(
 		return ESP_ERR_INVALID_ARG;
 	}
 
-	return i2c_master_write_read_device(
+	if (s_i2c_mutex == NULL) {
+		return ESP_ERR_INVALID_STATE;
+	}
+
+	if (xSemaphoreTake(s_i2c_mutex, portMAX_DELAY) != pdTRUE) {
+		return ESP_ERR_TIMEOUT;
+	}
+
+	esp_err_t err = i2c_master_write_read_device(
 		I2C_MASTER_NUM,
 		device_address,
 		write_data,
@@ -95,6 +131,8 @@ esp_err_t i2c_bus_write_read(
 		read_data,
 		read_len,
 		timeout_ticks);
+	xSemaphoreGive(s_i2c_mutex);
+	return err;
 }
 
 void i2c_bus_scan(TickType_t timeout_ticks)
