@@ -19,6 +19,9 @@
 #define INA226_BUS_VOLTAGE_LSB_V 0.00125f
 #define INA226_MAX_EXPECTED_CURRENT_A 1.0f
 #define INA226_CURRENT_LSB_A (INA226_MAX_EXPECTED_CURRENT_A / 32768.0f)
+#define INA226_SHUNT_RAW_POS_FULL_SCALE 0x7FFF
+#define INA226_SHUNT_RAW_NEG_FULL_SCALE 0x8000
+#define INA226_SHUNT_NOISE_RAW_DEADBAND 2
 
 static const char *TAG = "ina226";
 
@@ -129,11 +132,22 @@ esp_err_t ina226_read_measurement(uint8_t i2c_address, float shunt_resistance_oh
         return err;
     }
 
+    if (shunt_raw_u16 == INA226_SHUNT_RAW_NEG_FULL_SCALE || shunt_raw_u16 == INA226_SHUNT_RAW_POS_FULL_SCALE) {
+        ESP_LOGW(
+            TAG,
+            "INA226 shunt reading saturated at 0x%02X (raw=0x%04X); check shunt polarity/wiring/range",
+            i2c_address,
+            shunt_raw_u16);
+        return ESP_ERR_INVALID_RESPONSE;
+    }
+
     int16_t shunt_raw = (int16_t)shunt_raw_u16;
-    int16_t bus_raw = (int16_t)bus_raw_u16;
+    if (shunt_raw >= -INA226_SHUNT_NOISE_RAW_DEADBAND && shunt_raw <= INA226_SHUNT_NOISE_RAW_DEADBAND) {
+        shunt_raw = 0;
+    }
 
     measurement->shunt_voltage_v = (float)shunt_raw * INA226_SHUNT_VOLTAGE_LSB_V;
-    measurement->bus_voltage_v = (float)bus_raw * INA226_BUS_VOLTAGE_LSB_V;
+    measurement->bus_voltage_v = (float)bus_raw_u16 * INA226_BUS_VOLTAGE_LSB_V;
     measurement->current_a = measurement->shunt_voltage_v / shunt_resistance_ohm;
     measurement->power_w = measurement->bus_voltage_v * measurement->current_a;
     measurement->raw_shunt_u16 = shunt_raw_u16;

@@ -1,0 +1,940 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4200805b
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21e0ch (138764) map[0m
+[0;32mI (111) esp_image: segment 1: paddr=00031e34 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035c94 vaddr=40374000 size=0a384h ( 41860) load[0m
+[0;32mI (124) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b9d4h (506324) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb9fc vaddr=4037e384 size=0b980h ( 47488) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c7384 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (233) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (253) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (253) app_init: Application information:[0m
+[0;32mI (253) app_init: Project name:     springMain_v2[0m
+[0;32mI (257) app_init: App version:      138f756d-dirty[0m
+[0;32mI (262) app_init: Compile time:     Apr 18 2026 11:56:56[0m
+[0;32mI (267) app_init: ELF file SHA256:  a4b9909f7...[0m
+[0;32mI (271) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (275) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (279) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (283) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (293) heap_init: At 3FCA1A30 len 00047CE0 (287 KiB): RAM[0m
+[0;32mI (298) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (303) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (308) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (317) spi_flash: flash io: dio[0m
+[0;33mW (320) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (332) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (342) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (348) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (355) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (359) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (413) pump_operation: Pump PWM ready on A0(GPIO1) at 500 Hz[0m
+[0;32mI (413) SYSTEM: All LEDs and buttons initialized[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x48: ESP_FAIL[0m
+[0;33mW (423) SYSTEM: TMP117 PRIMARY (0x48): NOT FOUND[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x49: ESP_FAIL[0m
+[0;33mW (433) SYSTEM: TMP117 SECONDARY (0x49): NOT FOUND[0m
+[1;31mE (433) tmp117: TMP117 not responding at 0x50: ESP_FAIL[0m
+[0;33mW (443) SYSTEM: TMP117 TERTIARY (0x50): NOT FOUND[0m
+[1;31mE (443) SYSTEM: TMP117 not found at expected addresses (0x48, 0x49, 0x50)[0m
+[0;32mI (453) ina226: INA226 detected at 0x40[0m
+[0;32mI (453) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (463) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (463) ina226: INA226 detected at 0x41[0m
+[0;32mI (473) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (473) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (483) SYSTEM: I2C diagnostics: probing 0x03..0x77[0m
+[0;33mW (483) SYSTEM: I2C probe 0x03: ESP_FAIL[0m
+[0;33mW (483) SYSTEM: I2C probe 0x04: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x05: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x06: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x07: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x08: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x09: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0A: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0B: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0C: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0D: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0E: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0F: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x10: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x11: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x12: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x13: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x14: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x15: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x16: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x17: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x18: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x19: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x1A: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1B: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1C: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x1D: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x1E: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x1F: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x20: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x21: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x22: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x23: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x24: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x25: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x26: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x27: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x28: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x29: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x2A: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2B: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2C: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2D: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x2E: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x2F: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x30: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x31: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x32: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x33: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x34: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x35: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x36: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x37: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x38: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x39: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3A: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x3B: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3C: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3D: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x3E: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x3F: ESP_FAIL[0m
+[0;32mI (703) SYSTEM: I2C probe 0x40: ACK[0m
+[0;32mI (713) SYSTEM: I2C probe 0x41: ACK[0m
+[0;33mW (713) SYSTEM: I2C probe 0x42: ESP_FAIL[0m
+[0;33mW (713) SYSTEM: I2C probe 0x43: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x44: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x45: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x46: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x47: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x48: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x49: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4A: ESP_FAIL[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4B: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4C: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4D: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4E: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x4F: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x50: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x51: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x52: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x53: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x54: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x55: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x56: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x57: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x58: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x59: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5A: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5B: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5C: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x5D: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x5E: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x5F: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x60: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x61: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x62: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x63: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x64: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x65: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x66: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x67: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x68: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x69: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6A: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6B: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6C: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x6D: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x6E: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x6F: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x70: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x71: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x72: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x73: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x74: ESP_FAIL[0m
+[0;33mW (903) SYSTEM: I2C probe 0x75: ESP_FAIL[0m
+[0;33mW (903) SYSTEM: I2C probe 0x76: ESP_FAIL[0m
+[0;33mW (903) SYSTEM: I2C probe 0x77: ESP_FAIL[0m
+[0;32mI (913) SYSTEM: PWM sync timer started: 20000 us period (50.0 Hz)[0m
+[0;32mI (913) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (923) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (923) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (933) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;33mW (933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (943) BLE_INIT: Bluetooth MAC: 20:6e:f1:32:6b:9e[0m
+[0;32mI (953) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;33mW (953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (1023) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (1023) SYSTEM: BLE initialized[0m
+[0;32mI (1023) SYSTEM: Indicator LEDs: D2 D3 ON[0m
+[0;32mI (1023) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (1023) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (1033) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;33mW (1033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (1043) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;33mW (1053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (1053) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (1073) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;33mW (1073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (1073) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;33mW (1093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (1993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (2993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (3093) SYSTEM: TMP117 PRIMARY (0x48): N/A | SECONDARY (0x49): N/A | TERTIARY (0x50): N/A[0m
+[0;33mW (3093) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (3093) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=13.240V  SHUNT=-0.002mV  CURRENT=-0.025mA  POWER=-0.331mW (smoothed)
+[0;33mW (3093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (3103) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2960[0m
+[0;33mW (3113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3113) SYSTEM: LOGIC read failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;33mW (3133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (3993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (4993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (5133) SYSTEM: TMP117 PRIMARY (0x48): N/A | SECONDARY (0x49): N/A | TERTIARY (0x50): N/A[0m
+[0;33mW (5133) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (5133) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=13.234V  SHUNT=-0.002mV  CURRENT=-0.025mA  POWER=-0.331mW (smoothed)
+[0;33mW (5133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (5143) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x295B[0m
+[0;33mW (5153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5153) SYSTEM: LOGIC read failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;33mW (5173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (5993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (6993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (7173) SYSTEM: TMP117 PRIMARY (0x48): N/A | SECONDARY (0x49): N/A | TERTIARY (0x50): N/A[0m
+[0;33mW (7173) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (7173) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=13.241V  SHUNT=0.000mV  CURRENT=-0.020mA  POWER=-0.265mW (smoothed)
+[0;33mW (7173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (7183) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2961[0m
+[0;33mW (7193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7193) SYSTEM: LOGIC read failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;33mW (7213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (7993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (9213) SYSTEM: TMP117 PRIMARY (0x48): N/A | SECONDARY (0x49): N/A | TERTIARY (0x50): N/A[0m
+[0;33mW (9213) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (9213) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=13.251V  SHUNT=0.000mV  CURRENT=-0.016mA  POWER=-0.212mW (smoothed)
+[0;33mW (9213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (9223) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2969[0m
+[0;33mW (9233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9233) SYSTEM: LOGIC read failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;33mW (9253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (9993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (10993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (11253) SYSTEM: TMP117 PRIMARY (0x48): N/A | SECONDARY (0x49): N/A | TERTIARY (0x50): N/A[0m
+[0;33mW (11253) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (11253) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=13.249V  SHUNT=0.002mV  CURRENT=-0.008mA  POWER=-0.103mW (smoothed)
+[0;33mW (11253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (11263) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2967[0m
+[0;33mW (11273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11273) SYSTEM: LOGIC read failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;33mW (11293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (11993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (12993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (13293) SYSTEM: TMP117 PRIMARY (0x48): N/A | SECONDARY (0x49): N/A | TERTIARY (0x50): N/A[0m
+[0;33mW (13293) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (13293) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=13.245V  SHUNT=-0.002mV  CURRENT=-0.011mA  POWER=-0.149mW (smoothed)
+[0;33mW (13293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (13303) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2964[0m
+[0;33mW (13313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13313) SYSTEM: LOGIC read failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;33mW (13333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13693) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13773) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13793) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13873) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13893) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13973) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13993) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14073) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14093) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14173) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14193) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14273) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14293) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14373) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14393) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14473) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14493) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14573) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14593) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (14673) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m

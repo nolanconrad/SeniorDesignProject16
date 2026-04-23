@@ -1,0 +1,69 @@
+Command: ninja flash
+[1/5] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Senior Design\SeniorDesignProject16\springMain_v2\build\esp-idf\esptool_py" && C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:/esp/v5.5.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Senior Design/SeniorDesignProject16/springMain_v2/build/partition_table/partition-table.bin" "C:/Senior Design/SeniorDesignProject16/springMain_v2/build/springMain_v2.bin""
+springMain_v2.bin binary size 0xb6ee0 bytes. Smallest app partition is 0x100000 bytes. 0x49120 bytes (29%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\esp-idf\esptool_py" && C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:/esp/v5.5.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "C:/Senior Design/SeniorDesignProject16/springMain_v2/build/bootloader/bootloader.bin""
+Bootloader binary size 0x5240 bytes. 0x2dc0 bytes (36%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\esp\v5.5.1\esp-idf\components\esptool_py && C:\Users\nolan\.espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/esp/v5.5.1/esp-idf -D SERIAL_TOOL=C:/Users/nolan/.espressif/python_env/idf5.5_py3.14_env/Scripts/python.exe;;C:/esp/v5.5.1/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=C:/Senior Design/SeniorDesignProject16/springMain_v2/build" -P C:/esp/v5.5.1/esp-idf/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM13 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 springMain_v2.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.12.dev1
+Serial port COM13
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: 20:6e:f1:32:6b:9c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000c6fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21056 bytes to 13393...
+Writing at 0x00000000... (100 %)
+Wrote 21056 bytes (13393 compressed) at 0x00000000 in 0.4 seconds (effective 476.1 kbit/s)...
+Hash of data verified.
+Compressed 749280 bytes to 429975...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001d6ec... (7 %)
+Writing at 0x0002a04f... (11 %)
+Writing at 0x00035aec... (14 %)
+Writing at 0x0003b330... (18 %)
+Writing at 0x00041318... (22 %)
+Writing at 0x000478e7... (25 %)
+Writing at 0x0004df6a... (29 %)
+Writing at 0x00054251... (33 %)
+Writing at 0x00059e95... (37 %)
+Writing at 0x0005facc... (40 %)
+Writing at 0x00065936... (44 %)
+Writing at 0x0006c274... (48 %)
+Writing at 0x000726bd... (51 %)
+Writing at 0x0007879c... (55 %)
+Writing at 0x0007e72e... (59 %)
+Writing at 0x0008486f... (62 %)
+Writing at 0x0008a2e5... (66 %)
+Writing at 0x00090067... (70 %)
+Writing at 0x000961bc... (74 %)
+Writing at 0x0009c512... (77 %)
+Writing at 0x000a1cfb... (81 %)
+Writing at 0x000a84f5... (85 %)
+Writing at 0x000b1892... (88 %)
+Writing at 0x000b8ab3... (92 %)
+Writing at 0x000bead6... (96 %)
+Writing at 0x000c50f9... (100 %)
+Wrote 749280 bytes (429975 compressed) at 0x00010000 in 4.8 seconds (effective 1246.0 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.0 seconds (effective 544.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

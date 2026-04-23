@@ -13,8 +13,9 @@
 #define PWM_TIMER LEDC_TIMER_0
 #define PWM_MODE LEDC_LOW_SPEED_MODE
 #define PWM_CHANNEL LEDC_CHANNEL_0
+// Use high-enough PWM frequency for motor drive while preserving duty resolution.
 #define PWM_RESOLUTION LEDC_TIMER_10_BIT
-#define PWM_FREQ_HZ 500
+#define PWM_FREQ_HZ 20000
 
 static const char *TAG = "pump_operation";
 static bool s_initialized = false;

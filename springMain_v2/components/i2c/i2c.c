@@ -5,6 +5,7 @@
 #include "driver/gpio.h"
 #include "driver/i2c.h"
 #include "esp_log.h"
+#include "freertos/task.h"
 #include "freertos/semphr.h"
 
 #define I2C_MASTER_NUM I2C_NUM_0
@@ -12,6 +13,7 @@
 #define I2C_MASTER_SDA_IO GPIO_NUM_11 // A4
 #define I2C_MASTER_SCL_IO GPIO_NUM_12 // A5
 #define I2C_MASTER_FREQ_HZ 50000
+#define I2C_SCAN_YIELD_EVERY 8
 
 static const char *TAG = "i2c_bus";
 static bool s_initialized = false;
@@ -138,12 +140,19 @@ esp_err_t i2c_bus_write_read(
 void i2c_bus_scan(TickType_t timeout_ticks)
 {
 	bool found_any = false;
+	uint8_t probe_count = 0;
 
 	for (uint8_t addr = 1; addr < 0x7F; ++addr) {
 		esp_err_t err = i2c_bus_probe(addr, timeout_ticks);
 		if (err == ESP_OK) {
 			found_any = true;
 			ESP_LOGI(TAG, "I2C device found at 0x%02X", addr);
+		}
+
+		probe_count++;
+		if ((probe_count % I2C_SCAN_YIELD_EVERY) == 0) {
+			// Yield periodically so long scans do not starve watchdog-serviced tasks.
+			vTaskDelay(pdMS_TO_TICKS(1));
 		}
 	}
 

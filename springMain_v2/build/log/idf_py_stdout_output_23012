@@ -1,0 +1,385 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+[0;32mI (111) esp_image: segment 1: paddr=00031d74 vaddr=3fc99e00 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4200804b
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21d4ch (138572) map[0m
+[0;32mI (111) esp_image: segment 1: paddr=00031d74 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035bd4 vaddr=40374000 size=0a444h ( 42052) load[0m
+[0;32mI (124) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7bb08h (506632) map[0m
+[0;32mI (214) esp_image: segment 4: paddr=000bbb30 vaddr=4037e444 size=0b8c0h ( 47296) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c73f8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (233) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (253) cpu_start: Pro cpu start user code[0m
+[0;32mI (253) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (253) app_init: Application information:[0m
+[0;32mI (253) app_init: Project name:     springMain_v2[0m
+[0;32mI (257) app_init: App version:      138f756d-dirty[0m
+[0;32mI (262) app_init: Compile time:     Apr 18 2026 11:56:56[0m
+[0;32mI (267) app_init: ELF file SHA256:  b6a9a54ce...[0m
+[0;32mI (271) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (275) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (279) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (283) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (293) heap_init: At 3FCA1A48 len 00047CC8 (287 KiB): RAM[0m
+[0;32mI (298) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (303) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (308) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (315) spi_flash: detected chip: gd[0m
+[0;32mI (317) spi_flash: flash io: dio[0m
+[0;33mW (320) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (332) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (342) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (348) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (355) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (359) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (413) SYSTEM: INA address map verified: PUMP=0x40, LOGIC=0x41[0m
+[0;32mI (413) pump_operation: Pump PWM ready on A0(GPIO1) at 20000000 Hz[0m
+[0;32mI (423) SYSTEM: All LEDs and buttons initialized[0m
+[0;32mI (423) SYSTEM: Battery timer: 3 minutes countdown started[0m
+[1;31mE (423) tmp117: TMP117 not responding at 0x48: ESP_FAIL[0m
+[0;33mW (433) SYSTEM: TMP117 BODY (0x48) (0x48): NOT FOUND[0m
+[1;31mE (433) tmp117: TMP117 not responding at 0x49: ESP_FAIL[0m
+[0;33mW (443) SYSTEM: TMP117 BODY (0x49) (0x49): NOT FOUND[0m
+[1;31mE (443) tmp117: TMP117 not responding at 0x50: ESP_FAIL[0m
+[0;33mW (453) SYSTEM: TMP117 ENVIRONMENT (0x50) (0x50): NOT FOUND[0m
+[1;31mE (453) SYSTEM: TMP117 not found at expected addresses (0x48, 0x49, 0x50)[0m
+[0;32mI (463) ina226: INA226 detected at 0x40[0m
+[0;32mI (473) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (473) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (483) ina226: INA226 detected at 0x41[0m
+[0;32mI (483) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (483) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (493) SYSTEM: PWM sync timer started: 17000 us period (58.8 Hz)[0m
+[0;32mI (493) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (513) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (513) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (513) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (523) BLE_INIT: Bluetooth MAC: 20:6e:f1:32:6b:9e[0m
+[0;32mI (523) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (593) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (593) SYSTEM: BLE initialized[0m
+[0;32mI (593) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (593) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (603) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (603) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (613) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (623) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (623) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;32mI (1133) SYSTEM: Battery: 2 minutes remaining[0m
+[0;32mI (2633) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (2633) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (2633) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.014V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (2643) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x000B[0m
+[0;32mI (2643) SYSTEM:   LOGIC: BUS=0.011V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)[0m
+[0;32mI (2653) SYSTEM: LOGIC 0x41 raw shunt=0x0001 raw bus=0x0009[0m
+[0;32mI (4663) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (4663) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (4663) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.016V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (4673) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x000D[0m
+[0;32mI (4673) SYSTEM:   LOGIC: BUS=0.014V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)[0m
+[0;32mI (4683) SYSTEM: LOGIC 0x41 raw shunt=0x0001 raw bus=0x000B[0m
+[0;32mI (6693) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (6693) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (6693) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.014V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (6703) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x000B[0m
+[0;32mI (6703) SYSTEM:   LOGIC: BUS=0.014V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)[0m
+[0;32mI (6713) SYSTEM: LOGIC 0x41 raw shunt=0x0002 raw bus=0x000B[0m
+[0;32mI (8723) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (8723) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (8723) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.015V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (8733) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x000C[0m
+[0;32mI (8733) SYSTEM:   LOGIC: BUS=0.015V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)[0m
+[0;32mI (8743) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x000C[0m
+[0;32mI (10453) SYSTEM: Control mode: MANUAL - Use A2/A3 buttons to adjust pump[0m
+[0;32mI (10453) SYSTEM: Pump increased to 75%[0m
+[0;32mI (10453) SYSTEM: Pump decreased to 50%[0m
+[0;32mI (10753) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (10753) SYSTEM: Pump PWM >= 50% but INA1 current remains near zero; check shunt path/wiring polarity (INA1 0x40)[0m
+[0;33mW (10753) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (10763) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=0.020V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (10773) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0010[0m
+[0;32mI (10773) SYSTEM:   LOGIC: BUS=0.015V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)[0m
+[0;32mI (10783) SYSTEM: LOGIC 0x41 raw shunt=0x0002 raw bus=0x000C[0m
+[0;32mI (12193) SYSTEM: Pump increased to 75%[0m
+[0;32mI (12593) SYSTEM: Pump increased to 100%[0m
+[0;32mI (12793) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (12793) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (12793) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=0.012V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (12803) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x000A[0m
+[0;32mI (12803) SYSTEM:   LOGIC: BUS=0.011V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)[0m
+[0;32mI (12813) SYSTEM: LOGIC 0x41 raw shunt=0x0001 raw bus=0x0009[0m
+[0;32mI (13073) SYSTEM: Pump increased to 100%[0m
+[0;32mI (13773) SYSTEM: Pump increased to 100%[0m
+[0;32mI (14823) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (14823) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (14823) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=0.006V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (14833) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0005[0m
+[0;32mI (14833) SYSTEM:   LOGIC: BUS=0.005V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)[0m
+[0;32mI (14843) SYSTEM: LOGIC 0x41 raw shunt=0x0001 raw bus=0x0004[0m
+[0;33mW (15083) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (15103) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (15113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (15133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (15153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (15153) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (16853) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (16853) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (16853) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.227V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (16863) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2956[0m
+[0;33mW (16863) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (17673) SYSTEM: Pump decreased to 75%[0m
+[0;32mI (18473) SYSTEM: Pump decreased to 50%[0m
+[0;32mI (18873) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (18873) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (18873) SYSTEM: Pump PWM: 50% | TMP117: (read failed)[0m
+  PUMP : BUS=13.225V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (18883) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2954[0m
+[0;33mW (18883) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (19543) SYSTEM: Pump decreased to 25%[0m
+[0;32mI (20153) ina226: INA226 detected at 0x41[0m
+[0;32mI (20153) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (20153) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (20163) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (20183) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (20203) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (20213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (20233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (20233) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (20443) SYSTEM: Pump decreased to 0%[0m
+[0;32mI (20893) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (20893) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (20893) SYSTEM: Pump PWM: 0% | TMP117: (read failed)[0m
+  PUMP : BUS=13.246V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (20903) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2965[0m
+[0;33mW (20903) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (22363) SYSTEM: Pump increased to 25%[0m
+[0;32mI (22913) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (22913) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (22913) SYSTEM: Pump PWM: 25% | TMP117: (read failed)[0m
+  PUMP : BUS=13.222V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (22923) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2952[0m
+[0;33mW (22923) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (22983) SYSTEM: Pump increased to 50%[0m
+[0;32mI (23433) SYSTEM: Pump increased to 75%[0m
+[0;32mI (23733) SYSTEM: Pump increased to 100%[0m
+[0;32mI (24933) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (24933) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (24933) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.224V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (24943) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2953[0m
+[0;33mW (24943) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (25253) ina226: INA226 detected at 0x41[0m
+[0;32mI (25253) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (25253) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (25263) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (25283) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (25303) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (25313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (25333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (25333) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (26953) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (26953) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (26953) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.225V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (26963) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2954[0m
+[0;33mW (26963) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (28973) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (28973) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (28973) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.217V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (28983) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x294E[0m
+[0;33mW (28983) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (30353) ina226: INA226 detected at 0x41[0m
+[0;32mI (30353) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (30353) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (30363) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (30383) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (30403) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (30413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (30433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (30433) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (30993) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (30993) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (30993) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.219V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (31003) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x294F[0m
+[0;33mW (31003) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (33013) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (33013) SYSTEM: Pump PWM >= 50% but INA1 current remains near zero; check shunt path/wiring polarity (INA1 0x40)[0m
+[0;33mW (33013) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (33023) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.217V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (33033) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x294E[0m
+[0;33mW (33033) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (35043) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (35043) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (35043) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.220V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (35053) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2950[0m
+[0;33mW (35053) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (35453) ina226: INA226 detected at 0x41[0m
+[0;32mI (35453) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (35453) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (35463) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (35483) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (35503) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (35513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (35533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (35533) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (37063) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (37063) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (37063) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.217V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (37073) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x294E[0m
+[0;33mW (37073) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (39083) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (39083) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (39083) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.214V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (39093) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x294B[0m
+[0;33mW (39093) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (40553) ina226: INA226 detected at 0x41[0m
+[0;32mI (40553) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (40553) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (40563) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (40583) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (40603) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (40613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (40633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (40633) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (41103) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (41103) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (41103) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.216V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (41113) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x294D[0m
+[0;33mW (41113) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (43123) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (43123) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (43123) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.212V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (43133) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x294A[0m
+[0;33mW (43133) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (45143) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (45143) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (45143) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.215V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (45153) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x294C[0m
+[0;33mW (45153) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (45653) ina226: INA226 detected at 0x41[0m
+[0;32mI (45653) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (45653) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (45663) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (45683) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (45703) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (45713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (45733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (45733) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (47163) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (47163) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (47163) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.212V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (47173) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x294A[0m
+[0;33mW (47173) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (49183) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (49183) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (49183) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.215V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (49193) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x294C[0m
+[0;33mW (49193) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (50753) ina226: INA226 detected at 0x41[0m
+[0;32mI (50753) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (50753) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (50763) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (50783) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (50803) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (50813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (50833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (50833) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (51203) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (51203) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (51203) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.211V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (51213) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2949[0m
+[0;33mW (51213) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (53223) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (53223) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (53223) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.211V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (53233) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2949[0m
+[0;33mW (53233) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (55243) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (55243) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (55243) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.211V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (55253) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2949[0m
+[0;33mW (55253) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (55853) ina226: INA226 detected at 0x41[0m
+[0;32mI (55853) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (55853) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (55863) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (55883) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (55903) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (55913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (55933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (55933) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (57263) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (57263) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (57263) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.207V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (57273) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2946[0m
+[0;33mW (57273) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (59283) SYSTEM: TMP117 BODY (0x48): N/A | BODY (0x49): N/A | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (59283) SYSTEM: TMP117 read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (59283) SYSTEM: Pump PWM: 100% | TMP117: (read failed)[0m
+  PUMP : BUS=13.207V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (59293) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2946[0m
+[0;33mW (59293) SYSTEM: LOGIC read failed: ESP_ERR_NOT_FOUND[0m
+[0;32mI (60953) ina226: INA226 detected at 0x41[0m
+[0;32mI (60953) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (60953) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (60963) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (60983) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (61003) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (61013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (61033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (61033) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m

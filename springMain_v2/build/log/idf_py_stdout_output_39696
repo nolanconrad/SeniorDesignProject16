@@ -1,0 +1,1336 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+[0;32mI (111) esp_image: segment 1: paddr=00031ca4 vaddr=3fc99e00 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037d3f2
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21c7ch (138364) map[0m
+[0;32mI (111) esp_image: segment 1: paddr=00031ca4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b04 vaddr=40374000 size=0a514h ( 42260) load[0m
+[0;32mI (124) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b7e0h (505824) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb808 vaddr=4037e514 size=0b7f0h ( 47088) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c7000 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (233) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (253) app_init: Application information:[0m
+[0;32mI (253) app_init: Project name:     springMain_v2[0m
+[0;32mI (257) app_init: App version:      138f756d-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 18 2026 11:56:56[0m
+[0;32mI (266) app_init: ELF file SHA256:  eaddc0c57...[0m
+[0;32mI (271) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (275) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (293) heap_init: At 3FCA1A48 len 00047CC8 (287 KiB): RAM[0m
+[0;32mI (298) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (303) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (308) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (317) spi_flash: flash io: dio[0m
+[0;33mW (320) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (332) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (342) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (348) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (355) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (359) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x49[0m
+[0;32mI (423) pump_operation: Pump PWM ready on A0(GPIO1) at 500 Hz[0m
+[0;32mI (423) SYSTEM: All LEDs and buttons initialized[0m
+[0;32mI (423) SYSTEM: Battery timer: 3 minutes countdown started[0m
+[0;32mI (423) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (423) SYSTEM: TMP117 BODY (0x48) (0x48): FOUND[0m
+[0;32mI (433) tmp117: TMP117 detected at 0x49 (device id 0x0117)[0m
+[0;32mI (433) SYSTEM: TMP117 BODY (0x49) (0x49): FOUND[0m
+[1;31mE (443) tmp117: TMP117 not responding at 0x50: ESP_FAIL[0m
+[0;33mW (443) SYSTEM: TMP117 ENVIRONMENT (0x50) (0x50): NOT FOUND[0m
+[0;32mI (453) SYSTEM: TMP117 selected address: 0x48[0m
+[0;32mI (463) ina226: INA226 detected at 0x40[0m
+[0;32mI (463) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (463) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (473) ina226: INA226 detected at 0x41[0m
+[0;32mI (473) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (483) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (483) SYSTEM: I2C diagnostics: probing 0x03..0x77[0m
+[0;33mW (493) SYSTEM: I2C probe 0x03: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x04: ESP_FAIL[0m
+[0;33mW (493) SYSTEM: I2C probe 0x05: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x06: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x07: ESP_FAIL[0m
+[0;33mW (503) SYSTEM: I2C probe 0x08: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x09: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0A: ESP_FAIL[0m
+[0;33mW (513) SYSTEM: I2C probe 0x0B: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0C: ESP_FAIL[0m
+[0;33mW (523) SYSTEM: I2C probe 0x0D: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x0E: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x0F: ESP_FAIL[0m
+[0;33mW (533) SYSTEM: I2C probe 0x10: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x11: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x12: ESP_FAIL[0m
+[0;33mW (543) SYSTEM: I2C probe 0x13: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x14: ESP_FAIL[0m
+[0;33mW (553) SYSTEM: I2C probe 0x15: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x16: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x17: ESP_FAIL[0m
+[0;33mW (563) SYSTEM: I2C probe 0x18: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x19: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1A: ESP_FAIL[0m
+[0;33mW (573) SYSTEM: I2C probe 0x1B: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x1C: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x1D: ESP_FAIL[0m
+[0;33mW (583) SYSTEM: I2C probe 0x1E: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x1F: ESP_FAIL[0m
+[0;33mW (593) SYSTEM: I2C probe 0x20: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x21: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x22: ESP_FAIL[0m
+[0;33mW (603) SYSTEM: I2C probe 0x23: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x24: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x25: ESP_FAIL[0m
+[0;33mW (613) SYSTEM: I2C probe 0x26: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x27: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x28: ESP_FAIL[0m
+[0;33mW (623) SYSTEM: I2C probe 0x29: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2A: ESP_FAIL[0m
+[0;33mW (633) SYSTEM: I2C probe 0x2B: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x2C: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x2D: ESP_FAIL[0m
+[0;33mW (643) SYSTEM: I2C probe 0x2E: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x2F: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x30: ESP_FAIL[0m
+[0;33mW (653) SYSTEM: I2C probe 0x31: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x32: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x33: ESP_FAIL[0m
+[0;33mW (663) SYSTEM: I2C probe 0x34: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x35: ESP_FAIL[0m
+[0;33mW (673) SYSTEM: I2C probe 0x36: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x37: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x38: ESP_FAIL[0m
+[0;33mW (683) SYSTEM: I2C probe 0x39: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3A: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3B: ESP_FAIL[0m
+[0;33mW (693) SYSTEM: I2C probe 0x3C: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x3D: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x3E: ESP_FAIL[0m
+[0;33mW (703) SYSTEM: I2C probe 0x3F: ESP_FAIL[0m
+[0;32mI (713) SYSTEM: I2C probe 0x40: ACK[0m
+[0;32mI (713) SYSTEM: I2C probe 0x41: ACK[0m
+[0;33mW (713) SYSTEM: I2C probe 0x42: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x43: ESP_FAIL[0m
+[0;33mW (723) SYSTEM: I2C probe 0x44: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x45: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x46: ESP_FAIL[0m
+[0;33mW (733) SYSTEM: I2C probe 0x47: ESP_FAIL[0m
+[0;32mI (743) SYSTEM: I2C probe 0x48: ACK[0m
+[0;32mI (743) SYSTEM: I2C probe 0x49: ACK[0m
+[0;33mW (743) SYSTEM: I2C probe 0x4A: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4B: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4C: ESP_FAIL[0m
+[0;33mW (753) SYSTEM: I2C probe 0x4D: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x4E: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x4F: ESP_FAIL[0m
+[0;33mW (763) SYSTEM: I2C probe 0x50: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x51: ESP_FAIL[0m
+[0;33mW (773) SYSTEM: I2C probe 0x52: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x53: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x54: ESP_FAIL[0m
+[0;33mW (783) SYSTEM: I2C probe 0x55: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x56: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x57: ESP_FAIL[0m
+[0;33mW (793) SYSTEM: I2C probe 0x58: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x59: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5A: ESP_FAIL[0m
+[0;33mW (803) SYSTEM: I2C probe 0x5B: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x5C: ESP_FAIL[0m
+[0;33mW (813) SYSTEM: I2C probe 0x5D: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x5E: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x5F: ESP_FAIL[0m
+[0;33mW (823) SYSTEM: I2C probe 0x60: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x61: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x62: ESP_FAIL[0m
+[0;33mW (833) SYSTEM: I2C probe 0x63: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x64: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x65: ESP_FAIL[0m
+[0;33mW (843) SYSTEM: I2C probe 0x66: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x67: ESP_FAIL[0m
+[0;33mW (853) SYSTEM: I2C probe 0x68: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x69: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6A: ESP_FAIL[0m
+[0;33mW (863) SYSTEM: I2C probe 0x6B: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x6C: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x6D: ESP_FAIL[0m
+[0;33mW (873) SYSTEM: I2C probe 0x6E: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x6F: ESP_FAIL[0m
+[0;33mW (883) SYSTEM: I2C probe 0x70: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x71: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x72: ESP_FAIL[0m
+[0;33mW (893) SYSTEM: I2C probe 0x73: ESP_FAIL[0m
+[0;33mW (903) SYSTEM: I2C probe 0x74: ESP_FAIL[0m
+[0;33mW (903) SYSTEM: I2C probe 0x75: ESP_FAIL[0m
+[0;33mW (903) SYSTEM: I2C probe 0x76: ESP_FAIL[0m
+[0;33mW (913) SYSTEM: I2C probe 0x77: ESP_FAIL[0m
+[0;32mI (913) SYSTEM: PWM sync timer started: 17000 us period (58.8 Hz)[0m
+[0;32mI (923) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (933) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (933) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (933) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (943) BLE_INIT: Bluetooth MAC: 20:6e:f1:32:6b:9e[0m
+[0;32mI (943) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (993) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1033) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (1033) SYSTEM: BLE initialized[0m
+[0;32mI (1043) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (1043) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (1043) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (1053) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (1053) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (1063) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (1073) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;32mI (1123) SYSTEM: Battery: 2 minutes remaining[0m
+[0;32mI (3073) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.45C/77.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (3073) SYSTEM: Pump PWM: 50% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (3083) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (3083) SYSTEM: Auto mode: Temp 76.66°F -> Pump 0%[0m
+[0;32mI (5093) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.62C/78.11F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (5093) SYSTEM: Pump PWM: 0% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (5103) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (7103) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.62C/78.11F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (7103) SYSTEM: Pump PWM: 0% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (7113) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;33mW (8433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8463) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8483) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8503) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (8503) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (9113) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.20C/77.37F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (9113) SYSTEM: Pump PWM: 0% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.365V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (9123) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x29C4[0m
+[0;32mI (11133) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.21C/77.38F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (11133) SYSTEM: Pump PWM: 0% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.359V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (11143) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29BF[0m
+[0;32mI (13153) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.21C/77.38F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (13153) SYSTEM: Pump PWM: 0% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.361V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (13163) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29C1[0m
+[0;32mI (13493) ina226: INA226 detected at 0x41[0m
+[0;32mI (13503) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (13503) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (13513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13563) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13583) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (13583) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (13713) SYSTEM: Control mode: MANUAL - Use A2/A3 buttons to adjust pump[0m
+[0;32mI (13713) SYSTEM: Pump increased to 10%[0m
+[0;32mI (13713) SYSTEM: Pump decreased to 0%[0m
+[0;32mI (15163) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.21C/77.38F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (15163) SYSTEM: Pump PWM: 0% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.365V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (15173) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29C4[0m
+[0;32mI (17183) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (17183) SYSTEM: Pump PWM: 0% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.364V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (17193) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29C3[0m
+[0;32mI (18593) ina226: INA226 detected at 0x41[0m
+[0;32mI (18603) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (18603) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (18613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (18633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (18653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (18663) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (18683) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (18683) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (19193) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.23C/77.41F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (19193) SYSTEM: Pump PWM: 0% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.364V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (19203) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29C3[0m
+[0;32mI (19263) SYSTEM: Pump increased to 10%[0m
+[0;32mI (20063) SYSTEM: Pump increased to 20%[0m
+[0;32mI (21213) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.23C/77.41F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (21213) SYSTEM: Pump PWM: 20% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.351V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (21223) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x29B9[0m
+[0;32mI (21983) SYSTEM: Pump increased to 30%[0m
+[0;32mI (22433) SYSTEM: Pump increased to 40%[0m
+[0;32mI (22733) SYSTEM: Pump increased to 50%[0m
+[0;32mI (22983) SYSTEM: Pump increased to 60%[0m
+[0;32mI (23183) SYSTEM: Pump increased to 70%[0m
+[0;32mI (23233) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.23C/77.42F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (23233) SYSTEM: Pump PWM: 70% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.339V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (23243) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29AF[0m
+[0;32mI (23353) SYSTEM: Pump increased to 80%[0m
+[0;32mI (23553) SYSTEM: Pump increased to 90%[0m
+[0;32mI (23693) ina226: INA226 detected at 0x41[0m
+[0;32mI (23703) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (23703) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (23713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (23733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (23753) SYSTEM: Pump increased to 100%[0m
+[0;33mW (23753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (23763) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (23783) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (23783) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (23903) SYSTEM: Pump increased to 100%[0m
+[0;32mI (24103) SYSTEM: Pump increased to 100%[0m
+[0;32mI (24253) SYSTEM: Pump increased to 100%[0m
+[0;32mI (24453) SYSTEM: Pump increased to 100%[0m
+[0;32mI (24603) SYSTEM: Pump increased to 100%[0m
+[0;32mI (25003) SYSTEM: Pump increased to 100%[0m
+[0;32mI (25253) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.23C/77.42F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (25253) SYSTEM: Pump PWM: 100% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.334V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (25263) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29AB[0m
+[0;32mI (27273) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.24C/77.44F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (27273) SYSTEM: Pump PWM: 100% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.331V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (27283) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29A9[0m
+[0;32mI (28793) ina226: INA226 detected at 0x41[0m
+[0;32mI (28803) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (28803) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (28813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (28833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (28853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (28863) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (28883) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (28883) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (29293) SYSTEM: TMP117 BODY (0x48): 24.82C/76.68F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (29293) SYSTEM: Pump PWM: 100% | TMP117: 24.82°C / 76.68°F[0m
+  PUMP : BUS=13.331V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (29303) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x29A9[0m
+[0;32mI (29713) SYSTEM: Pump decreased to 90%[0m
+[0;32mI (29963) SYSTEM: Pump decreased to 80%[0m
+[0;32mI (30413) SYSTEM: Pump decreased to 70%[0m
+[0;32mI (31313) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.24C/77.44F | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (31313) SYSTEM: Pump PWM >= 50% but INA1 current remains near zero; check shunt path/wiring polarity (INA1 0x40)[0m
+[0;32mI (31323) SYSTEM: Pump PWM: 70% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.321V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (31333) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29A1[0m
+[0;32mI (33343) SYSTEM: TMP117 BODY (0x48): 24.82C/76.68F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (33343) SYSTEM: Pump PWM: 70% | TMP117: 24.82°C / 76.68°F[0m
+  PUMP : BUS=13.331V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (33353) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29A9[0m
+[0;32mI (33893) ina226: INA226 detected at 0x41[0m
+[0;32mI (33903) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (33903) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (33913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (33933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (33953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (33963) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (33983) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (33983) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (34463) SYSTEM: Pump decreased to 60%[0m
+[0;32mI (34863) SYSTEM: Pump decreased to 50%[0m
+[0;32mI (35363) SYSTEM: TMP117 BODY (0x48): 24.82C/76.68F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (35363) SYSTEM: Pump PWM: 50% | TMP117: 24.82°C / 76.68°F[0m
+  PUMP : BUS=13.332V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (35373) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29AA[0m
+[0;32mI (35783) SYSTEM: Pump decreased to 40%[0m
+[0;32mI (36533) SYSTEM: Pump decreased to 30%[0m
+[0;32mI (37383) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (37383) SYSTEM: Pump PWM: 30% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.344V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (37393) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29B3[0m
+[0;32mI (37503) SYSTEM: Pump decreased to 20%[0m
+[0;32mI (38993) ina226: INA226 detected at 0x41[0m
+[0;32mI (39003) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (39003) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (39013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (39033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (39053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (39063) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (39083) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (39083) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (39403) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (39403) SYSTEM: Pump PWM: 20% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.345V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (39413) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29B4[0m
+[0;32mI (41423) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (41423) SYSTEM: Pump PWM: 20% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.337V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (41433) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29AE[0m
+[0;32mI (43443) SYSTEM: TMP117 BODY (0x48): 24.81C/76.66F | BODY (0x49): 25.27C/77.49F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (43443) SYSTEM: Pump PWM: 20% | TMP117: 24.81°C / 76.66°F[0m
+  PUMP : BUS=13.337V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (43453) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29AE[0m
+[0;32mI (43863) SYSTEM: Pump increased to 30%[0m
+[0;32mI (44093) ina226: INA226 detected at 0x41[0m
+[0;32mI (44103) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (44103) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (44113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (44133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (44153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (44163) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (44183) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (44183) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (44213) SYSTEM: Pump increased to 40%[0m
+[0;32mI (44613) SYSTEM: Pump increased to 50%[0m
+[0;32mI (45013) SYSTEM: Pump increased to 60%[0m
+[0;32mI (45313) SYSTEM: Pump increased to 70%[0m
+[0;32mI (45463) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.27C/77.49F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (45463) SYSTEM: Pump PWM: 70% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.332V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (45473) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x29AA[0m
+[0;32mI (46383) SYSTEM: Pump increased to 80%[0m
+[0;32mI (47483) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (47483) SYSTEM: Pump PWM: 80% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.325V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (47493) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x29A4[0m
+[0;32mI (47853) SYSTEM: Pump increased to 90%[0m
+[0;32mI (48053) SYSTEM: Pump increased to 100%[0m
+[0;32mI (48203) SYSTEM: Pump increased to 100%[0m
+[0;32mI (49003) SYSTEM: Pump increased to 100%[0m
+[0;32mI (49193) ina226: INA226 detected at 0x41[0m
+[0;32mI (49203) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (49203) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (49213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (49233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (49253) SYSTEM: Pump increased to 100%[0m
+[0;33mW (49253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (49263) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (49283) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (49283) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (49403) SYSTEM: Pump increased to 100%[0m
+[0;32mI (49503) SYSTEM: TMP117 BODY (0x48): 24.80C/76.65F | BODY (0x49): 25.29C/77.52F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (49503) SYSTEM: Pump PWM: 100% | TMP117: 24.80°C / 76.65°F[0m
+  PUMP : BUS=13.320V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (49513) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x29A0[0m
+[0;32mI (49573) SYSTEM: Pump increased to 100%[0m
+[0;32mI (49723) SYSTEM: Pump increased to 100%[0m
+[0;32mI (49923) SYSTEM: Pump increased to 100%[0m
+[0;32mI (51523) SYSTEM: TMP117 BODY (0x48): 24.80C/76.63F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (51523) SYSTEM: Pump PWM: 100% | TMP117: 24.80°C / 76.63°F[0m
+  PUMP : BUS=13.321V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (51533) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x29A1[0m
+[0;32mI (53543) SYSTEM: TMP117 BODY (0x48): 24.80C/76.63F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (53543) SYSTEM: Pump PWM >= 50% but INA1 current remains near zero; check shunt path/wiring polarity (INA1 0x40)[0m
+[0;32mI (53553) SYSTEM: Pump PWM: 100% | TMP117: 24.80°C / 76.63°F[0m
+  PUMP : BUS=13.318V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (53563) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x299E[0m
+[0;32mI (54293) ina226: INA226 detected at 0x41[0m
+[0;32mI (54303) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (54303) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (54313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (54333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (54353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (54363) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (54383) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (54383) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (55573) SYSTEM: TMP117 BODY (0x48): 24.79C/76.62F | BODY (0x49): 25.29C/77.52F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (55573) SYSTEM: Pump PWM: 100% | TMP117: 24.79°C / 76.62°F[0m
+  PUMP : BUS=13.316V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (55583) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x299D[0m
+[0;32mI (57593) SYSTEM: TMP117 BODY (0x48): 24.78C/76.61F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (57593) SYSTEM: Pump PWM: 100% | TMP117: 24.78°C / 76.61°F[0m
+  PUMP : BUS=13.314V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (57603) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x299B[0m
+[0;32mI (59393) ina226: INA226 detected at 0x41[0m
+[0;32mI (59403) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (59403) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (59413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (59433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (59453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (59463) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (59483) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (59483) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (59613) SYSTEM: TMP117 BODY (0x48): 24.78C/76.61F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (59613) SYSTEM: Pump PWM: 100% | TMP117: 24.78°C / 76.61°F[0m
+  PUMP : BUS=13.310V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (59623) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2998[0m
+[0;32mI (61633) SYSTEM: TMP117 BODY (0x48): 24.77C/76.59F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (61633) SYSTEM: Pump PWM: 100% | TMP117: 24.77°C / 76.59°F[0m
+  PUMP : BUS=13.311V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (61643) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2999[0m
+[0;32mI (63653) SYSTEM: TMP117 BODY (0x48): 24.77C/76.58F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (63653) SYSTEM: Pump PWM: 100% | TMP117: 24.77°C / 76.58°F[0m
+  PUMP : BUS=13.305V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (63663) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2994[0m
+[0;32mI (64493) ina226: INA226 detected at 0x41[0m
+[0;32mI (64503) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (64503) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (64513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (64533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (64553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (64563) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (64583) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (64583) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (65673) SYSTEM: TMP117 BODY (0x48): 24.77C/76.58F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (65673) SYSTEM: Pump PWM: 100% | TMP117: 24.77°C / 76.58°F[0m
+  PUMP : BUS=13.309V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (65683) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2997[0m
+[0;32mI (67693) SYSTEM: TMP117 BODY (0x48): 24.76C/76.56F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (67693) SYSTEM: Pump PWM: 100% | TMP117: 24.76°C / 76.56°F[0m
+  PUMP : BUS=13.309V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (67703) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2997[0m
+[0;32mI (69593) ina226: INA226 detected at 0x41[0m
+[0;32mI (69603) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (69603) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (69613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (69633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (69653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (69663) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (69683) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (69683) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (69713) SYSTEM: TMP117 BODY (0x48): 24.76C/76.56F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (69713) SYSTEM: Pump PWM: 100% | TMP117: 24.76°C / 76.56°F[0m
+  PUMP : BUS=13.307V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (69723) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2996[0m
+[0;32mI (71733) SYSTEM: TMP117 BODY (0x48): 24.76C/76.56F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (71733) SYSTEM: Pump PWM: 100% | TMP117: 24.76°C / 76.56°F[0m
+  PUMP : BUS=13.306V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (71743) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2995[0m
+[0;32mI (73753) SYSTEM: TMP117 BODY (0x48): 24.75C/76.55F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (73753) SYSTEM: Pump PWM: 100% | TMP117: 24.75°C / 76.55°F[0m
+  PUMP : BUS=13.305V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (73763) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2994[0m
+[0;32mI (74693) ina226: INA226 detected at 0x41[0m
+[0;32mI (74703) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (74703) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (74713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (74733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (74753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (74763) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (74783) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (74783) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (75773) SYSTEM: TMP117 BODY (0x48): 24.75C/76.55F | BODY (0x49): 25.27C/77.49F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (75773) SYSTEM: Pump PWM: 100% | TMP117: 24.75°C / 76.55°F[0m
+  PUMP : BUS=13.305V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (75783) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2994[0m
+[0;32mI (77793) SYSTEM: TMP117 BODY (0x48): 24.74C/76.54F | BODY (0x49): 25.27C/77.49F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (77793) SYSTEM: Pump PWM: 100% | TMP117: 24.74°C / 76.54°F[0m
+  PUMP : BUS=13.304V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (77803) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2993[0m
+[0;32mI (79793) ina226: INA226 detected at 0x41[0m
+[0;32mI (79803) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (79803) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;32mI (79813) SYSTEM: TMP117 BODY (0x48): 24.74C/76.54F | BODY (0x49): 25.28C/77.51F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (79813) SYSTEM: Pump PWM: 100% | TMP117: 24.74°C / 76.54°F[0m
+  PUMP : BUS=13.302V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;33mW (79813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (79823) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2992[0m
+[0;33mW (79833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (79853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (79863) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (79883) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (79883) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (81843) SYSTEM: TMP117 BODY (0x48): 24.73C/76.52F | BODY (0x49): 25.27C/77.49F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (81843) SYSTEM: Pump PWM: 100% | TMP117: 24.73°C / 76.52°F[0m
+  PUMP : BUS=13.302V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (81853) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2992[0m
+[0;32mI (83863) SYSTEM: TMP117 BODY (0x48): 24.73C/76.51F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (83863) SYSTEM: Pump PWM: 100% | TMP117: 24.73°C / 76.51°F[0m
+  PUMP : BUS=13.301V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (83873) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2991[0m
+[0;32mI (84893) ina226: INA226 detected at 0x41[0m
+[0;32mI (84903) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (84903) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (84913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (84933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (84953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (84963) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (84983) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (84983) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (85883) SYSTEM: TMP117 BODY (0x48): 24.73C/76.51F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (85883) SYSTEM: Pump PWM: 100% | TMP117: 24.73°C / 76.51°F[0m
+  PUMP : BUS=13.299V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (85893) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x298F[0m
+[0;32mI (87903) SYSTEM: TMP117 BODY (0x48): 24.72C/76.49F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (87903) SYSTEM: Pump PWM: 100% | TMP117: 24.72°C / 76.49°F[0m
+  PUMP : BUS=13.299V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (87913) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x298F[0m
+[0;32mI (89923) SYSTEM: TMP117 BODY (0x48): 24.71C/76.48F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (89923) SYSTEM: Pump PWM: 100% | TMP117: 24.71°C / 76.48°F[0m
+  PUMP : BUS=13.299V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (89933) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x298F[0m
+[0;32mI (89993) ina226: INA226 detected at 0x41[0m
+[0;32mI (90003) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (90003) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (90013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (90033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (90053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (90063) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (90083) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (90083) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (91943) SYSTEM: TMP117 BODY (0x48): 24.71C/76.48F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (91943) SYSTEM: Pump PWM: 100% | TMP117: 24.71°C / 76.48°F[0m
+  PUMP : BUS=13.296V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (91953) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x298D[0m
+[0;32mI (93963) SYSTEM: TMP117 BODY (0x48): 24.70C/76.47F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (93963) SYSTEM: Pump PWM: 100% | TMP117: 24.70°C / 76.47°F[0m
+  PUMP : BUS=13.296V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (93973) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x298D[0m
+[0;32mI (95093) ina226: INA226 detected at 0x41[0m
+[0;32mI (95103) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (95103) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (95113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (95133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (95153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (95163) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (95183) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (95183) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (95983) SYSTEM: TMP117 BODY (0x48): 24.70C/76.47F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (95983) SYSTEM: Pump PWM: 100% | TMP117: 24.70°C / 76.47°F[0m
+  PUMP : BUS=13.295V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (95993) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x298C[0m
+[0;32mI (98003) SYSTEM: TMP117 BODY (0x48): 24.70C/76.45F | BODY (0x49): 25.27C/77.48F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (98003) SYSTEM: Pump PWM: 100% | TMP117: 24.70°C / 76.45°F[0m
+  PUMP : BUS=13.294V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (98013) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x298B[0m
+[0;32mI (100023) SYSTEM: TMP117 BODY (0x48): 24.70C/76.45F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (100023) SYSTEM: Pump PWM: 100% | TMP117: 24.70°C / 76.45°F[0m
+  PUMP : BUS=13.292V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (100033) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x298A[0m
+[0;32mI (100193) ina226: INA226 detected at 0x41[0m
+[0;32mI (100203) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (100203) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (100213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (100233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (100253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (100263) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (100283) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (100283) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (102043) SYSTEM: TMP117 BODY (0x48): 24.69C/76.44F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (102043) SYSTEM: Pump PWM: 100% | TMP117: 24.69°C / 76.44°F[0m
+  PUMP : BUS=13.294V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (102053) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x298B[0m
+[0;32mI (104063) SYSTEM: TMP117 BODY (0x48): 24.69C/76.44F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (104063) SYSTEM: Pump PWM: 100% | TMP117: 24.69°C / 76.44°F[0m
+  PUMP : BUS=13.291V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (104073) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2989[0m
+[0;32mI (105293) ina226: INA226 detected at 0x41[0m
+[0;32mI (105303) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (105303) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (105313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (105333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (105353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (105363) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (105383) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (105383) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (106083) SYSTEM: TMP117 BODY (0x48): 24.68C/76.42F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (106083) SYSTEM: Pump PWM: 100% | TMP117: 24.68°C / 76.42°F[0m
+  PUMP : BUS=13.292V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (106093) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x298A[0m
+[0;32mI (108103) SYSTEM: TMP117 BODY (0x48): 24.68C/76.42F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (108103) SYSTEM: Pump PWM: 100% | TMP117: 24.68°C / 76.42°F[0m
+  PUMP : BUS=13.290V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (108113) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2988[0m
+[0;32mI (110123) SYSTEM: TMP117 BODY (0x48): 24.67C/76.41F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (110123) SYSTEM: Pump PWM: 100% | TMP117: 24.67°C / 76.41°F[0m
+  PUMP : BUS=13.290V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (110133) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2988[0m
+[0;32mI (110393) ina226: INA226 detected at 0x41[0m
+[0;32mI (110403) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (110403) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (110413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (110433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (110453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (110463) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (110483) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (110483) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (112143) SYSTEM: TMP117 BODY (0x48): 24.68C/76.42F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (112143) SYSTEM: Pump PWM: 100% | TMP117: 24.68°C / 76.42°F[0m
+  PUMP : BUS=13.289V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (112153) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2987[0m
+[0;32mI (114163) SYSTEM: TMP117 BODY (0x48): 24.67C/76.41F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (114163) SYSTEM: Pump PWM: 100% | TMP117: 24.67°C / 76.41°F[0m
+  PUMP : BUS=13.287V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (114173) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2986[0m
+[0;32mI (115493) ina226: INA226 detected at 0x41[0m
+[0;32mI (115503) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (115503) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (115513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (115533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (115553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (115563) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (115583) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (115583) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (116183) SYSTEM: TMP117 BODY (0x48): 24.66C/76.40F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (116183) SYSTEM: Pump PWM: 100% | TMP117: 24.66°C / 76.40°F[0m
+  PUMP : BUS=13.289V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (116193) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2987[0m
+[0;32mI (118203) SYSTEM: TMP117 BODY (0x48): 24.66C/76.40F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (118203) SYSTEM: Pump PWM: 100% | TMP117: 24.66°C / 76.40°F[0m
+  PUMP : BUS=13.287V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (118213) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2986[0m
+[0;32mI (120223) SYSTEM: TMP117 BODY (0x48): 24.66C/76.38F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (120223) SYSTEM: Pump PWM: 100% | TMP117: 24.66°C / 76.38°F[0m
+  PUMP : BUS=13.286V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (120233) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2985[0m
+[0;32mI (120593) ina226: INA226 detected at 0x41[0m
+[0;32mI (120603) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (120603) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (120613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (120633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (120653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (120663) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (120683) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (120683) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (122243) SYSTEM: TMP117 BODY (0x48): 24.66C/76.38F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (122243) SYSTEM: Pump PWM: 100% | TMP117: 24.66°C / 76.38°F[0m
+  PUMP : BUS=13.285V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (122253) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2984[0m
+[0;32mI (124263) SYSTEM: TMP117 BODY (0x48): 24.66C/76.40F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (124263) SYSTEM: Pump PWM: 100% | TMP117: 24.66°C / 76.40°F[0m
+  PUMP : BUS=13.284V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (124273) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2983[0m
+[0;32mI (125693) ina226: INA226 detected at 0x41[0m
+[0;32mI (125703) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (125703) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (125713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (125733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (125753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (125763) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (125783) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (125783) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (126283) SYSTEM: TMP117 BODY (0x48): 24.65C/76.37F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (126283) SYSTEM: Pump PWM: 100% | TMP117: 24.65°C / 76.37°F[0m
+  PUMP : BUS=13.284V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (126293) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2983[0m
+[0;32mI (128303) SYSTEM: TMP117 BODY (0x48): 24.66C/76.38F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (128303) SYSTEM: Pump PWM: 100% | TMP117: 24.66°C / 76.38°F[0m
+  PUMP : BUS=13.281V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (128313) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2981[0m
+[0;32mI (130323) SYSTEM: TMP117 BODY (0x48): 24.65C/76.37F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (130323) SYSTEM: Pump PWM: 100% | TMP117: 24.65°C / 76.37°F[0m
+  PUMP : BUS=13.281V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (130333) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2981[0m
+[0;32mI (130793) ina226: INA226 detected at 0x41[0m
+[0;32mI (130803) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (130803) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (130813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (130833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (130853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (130863) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (130883) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (130883) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (132343) SYSTEM: TMP117 BODY (0x48): 24.65C/76.37F | BODY (0x49): 25.26C/77.46F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (132343) SYSTEM: Pump PWM: 100% | TMP117: 24.65°C / 76.37°F[0m
+  PUMP : BUS=13.280V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (132353) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2980[0m
+[0;32mI (134363) SYSTEM: TMP117 BODY (0x48): 24.65C/76.37F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (134363) SYSTEM: Pump PWM: 100% | TMP117: 24.65°C / 76.37°F[0m
+  PUMP : BUS=13.281V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (134373) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2981[0m
+[0;32mI (135893) ina226: INA226 detected at 0x41[0m
+[0;32mI (135903) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (135903) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (135913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (135933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (135953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (135963) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (135983) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (135983) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (136383) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (136383) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.280V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (136393) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2980[0m
+[0;32mI (138403) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (138403) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.279V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (138413) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297F[0m
+[0;32mI (140423) SYSTEM: TMP117 BODY (0x48): 24.65C/76.37F | BODY (0x49): 25.24C/77.44F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (140423) SYSTEM: Pump PWM: 100% | TMP117: 24.65°C / 76.37°F[0m
+  PUMP : BUS=13.280V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (140433) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2980[0m
+[0;32mI (140993) ina226: INA226 detected at 0x41[0m
+[0;32mI (141003) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (141003) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (141013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (141033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (141053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (141063) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (141083) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (141083) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (142443) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.25C/77.45F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (142443) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.279V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (142453) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297F[0m
+[0;32mI (144463) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.24C/77.44F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (144463) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.278V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (144473) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297E[0m
+[0;32mI (146093) ina226: INA226 detected at 0x41[0m
+[0;32mI (146103) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (146103) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (146113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (146133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (146153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (146163) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (146183) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (146183) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (146483) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.24C/77.44F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (146483) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.278V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (146493) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297E[0m
+[0;32mI (148503) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.24C/77.44F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (148503) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.276V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (148513) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297D[0m
+[0;32mI (150523) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.24C/77.44F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (150523) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.274V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (150533) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x297B[0m
+[0;32mI (151193) ina226: INA226 detected at 0x41[0m
+[0;32mI (151203) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (151203) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (151213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (151233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (151253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (151263) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (151283) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (151283) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (152543) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.23C/77.42F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (152543) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.275V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (152553) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297C[0m
+[0;32mI (154563) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.23C/77.42F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (154563) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.274V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (154573) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297B[0m
+[0;32mI (156293) ina226: INA226 detected at 0x41[0m
+[0;32mI (156303) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (156303) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (156313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (156333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (156353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (156363) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (156383) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (156383) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (156583) SYSTEM: TMP117 BODY (0x48): 24.64C/76.35F | BODY (0x49): 25.23C/77.41F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (156583) SYSTEM: Pump PWM: 100% | TMP117: 24.64°C / 76.35°F[0m
+  PUMP : BUS=13.274V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (156593) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x297B[0m
+[0;32mI (158603) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.23C/77.41F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (158603) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.269V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (158613) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x2977[0m
+[0;32mI (160623) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.23C/77.41F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (160623) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.274V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (160633) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x297B[0m
+[0;32mI (161393) ina226: INA226 detected at 0x41[0m
+[0;32mI (161403) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (161403) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (161413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (161433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (161453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (161463) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (161483) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (161483) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (162643) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.23C/77.41F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (162643) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.269V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (162653) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2977[0m
+[0;32mI (164663) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (164663) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.269V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (164673) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2977[0m
+[0;32mI (166493) ina226: INA226 detected at 0x41[0m
+[0;32mI (166503) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (166503) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (166513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (166533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (166553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (166563) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (166583) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (166583) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (166683) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (166683) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.270V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (166693) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2978[0m
+[0;32mI (168703) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (168703) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.270V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (168713) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2978[0m
+[0;32mI (170723) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (170723) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.270V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (170733) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2978[0m
+[0;32mI (171593) ina226: INA226 detected at 0x41[0m
+[0;32mI (171603) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (171603) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (171613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (171633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (171653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (171663) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (171683) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (171683) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (172743) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (172743) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.269V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (172753) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2977[0m
+[0;32mI (174763) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.21C/77.38F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (174763) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.269V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (174773) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2977[0m
+[0;32mI (176693) ina226: INA226 detected at 0x41[0m
+[0;32mI (176703) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (176703) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (176713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (176733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (176753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (176763) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (176783) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (176783) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (176783) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.21C/77.38F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (176803) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.269V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (176813) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2977[0m
+[0;32mI (178813) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.20C/77.37F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (178813) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.269V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (178823) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2977[0m
+[0;32mI (180833) SYSTEM: TMP117 BODY (0x48): 24.63C/76.34F | BODY (0x49): 25.20C/77.37F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (180833) SYSTEM: Pump PWM: 100% | TMP117: 24.63°C / 76.34°F[0m
+  PUMP : BUS=13.266V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (180843) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2975[0m
+[0;32mI (181793) ina226: INA226 detected at 0x41[0m
+[0;32mI (181803) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (181803) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (181813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (181833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (181853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (181863) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (181883) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (181883) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (182853) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.20C/77.35F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (182853) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.266V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (182863) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2975[0m
+[0;32mI (184873) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.20C/77.35F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (184873) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.266V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (184883) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2975[0m
+[0;32mI (186893) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.20C/77.35F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (186893) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.267V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (186903) ina226: INA226 detected at 0x41[0m
+[0;32mI (186903) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2976[0m
+[0;32mI (186913) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (186923) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (186933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (186933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (186953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (186963) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (186983) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (186983) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (188913) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.20C/77.35F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (188913) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.264V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (188923) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2973[0m
+[0;32mI (190933) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.20C/77.35F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (190933) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.264V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (190943) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2973[0m
+[0;32mI (191993) ina226: INA226 detected at 0x41[0m
+[0;32mI (192003) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (192003) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (192013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (192033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (192053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (192063) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (192083) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (192083) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (192953) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (192953) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.259V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (192963) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x296F[0m
+[0;32mI (194973) SYSTEM: TMP117 BODY (0x48): 24.62C/76.31F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (194973) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.31°F[0m
+  PUMP : BUS=13.264V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (194983) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2973[0m
+[0;32mI (196993) SYSTEM: TMP117 BODY (0x48): 24.62C/76.32F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (196993) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.32°F[0m
+  PUMP : BUS=13.261V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (197003) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2971[0m
+[0;32mI (197093) ina226: INA226 detected at 0x41[0m
+[0;32mI (197103) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (197103) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (197113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (197133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (197153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (197163) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (197183) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (197183) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (199013) SYSTEM: TMP117 BODY (0x48): 24.62C/76.31F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (199013) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.31°F[0m
+  PUMP : BUS=13.264V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (199023) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2973[0m
+[0;32mI (201033) SYSTEM: TMP117 BODY (0x48): 24.62C/76.31F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (201033) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.31°F[0m
+  PUMP : BUS=13.262V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (201043) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2972[0m
+[0;32mI (202193) ina226: INA226 detected at 0x41[0m
+[0;32mI (202203) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (202203) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (202213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (202233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (202253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (202263) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (202283) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (202283) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (203053) SYSTEM: TMP117 BODY (0x48): 24.62C/76.31F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (203053) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.31°F[0m
+  PUMP : BUS=13.259V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (203063) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296F[0m
+[0;32mI (205073) SYSTEM: TMP117 BODY (0x48): 24.62C/76.31F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (205073) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.31°F[0m
+  PUMP : BUS=13.262V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (205083) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2972[0m
+[0;32mI (207093) SYSTEM: TMP117 BODY (0x48): 24.62C/76.31F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (207093) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.31°F[0m
+  PUMP : BUS=13.261V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (207103) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2971[0m
+[0;32mI (207293) ina226: INA226 detected at 0x41[0m
+[0;32mI (207303) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (207303) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (207313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (207333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (207353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (207363) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (207383) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (207383) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (209113) SYSTEM: TMP117 BODY (0x48): 24.62C/76.31F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (209113) SYSTEM: Pump PWM: 100% | TMP117: 24.62°C / 76.31°F[0m
+  PUMP : BUS=13.261V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (209123) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2971[0m
+[0;32mI (211133) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (211133) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.260V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (211143) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2970[0m
+[0;32mI (212393) ina226: INA226 detected at 0x41[0m
+[0;32mI (212403) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (212403) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (212413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (212433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (212453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (212463) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (212483) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (212483) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (213153) SYSTEM: TMP117 BODY (0x48): 24.61C/76.30F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (213153) SYSTEM: Pump PWM: 100% | TMP117: 24.61°C / 76.30°F[0m
+  PUMP : BUS=13.262V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (213163) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2972[0m
+[0;32mI (215173) SYSTEM: TMP117 BODY (0x48): 24.61C/76.30F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (215173) SYSTEM: Pump PWM: 100% | TMP117: 24.61°C / 76.30°F[0m
+  PUMP : BUS=13.262V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (215183) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2972[0m
+[0;32mI (217193) SYSTEM: TMP117 BODY (0x48): 24.61C/76.30F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (217193) SYSTEM: Pump PWM: 100% | TMP117: 24.61°C / 76.30°F[0m
+  PUMP : BUS=13.259V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (217203) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x296F[0m
+[0;32mI (217493) ina226: INA226 detected at 0x41[0m
+[0;32mI (217503) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (217503) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (217513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (217533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (217553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (217563) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (217583) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (217583) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (219213) SYSTEM: TMP117 BODY (0x48): 24.61C/76.30F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (219213) SYSTEM: Pump PWM: 100% | TMP117: 24.61°C / 76.30°F[0m
+  PUMP : BUS=13.259V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (219223) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296F[0m
+[0;32mI (221233) SYSTEM: TMP117 BODY (0x48): 24.61C/76.30F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (221233) SYSTEM: Pump PWM: 100% | TMP117: 24.61°C / 76.30°F[0m
+  PUMP : BUS=13.257V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (221243) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296E[0m
+[0;32mI (222593) ina226: INA226 detected at 0x41[0m
+[0;32mI (222603) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (222603) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (222613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (222633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (222653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (222663) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (222683) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (222683) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (223253) SYSTEM: TMP117 BODY (0x48): 24.61C/76.30F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (223253) SYSTEM: Pump PWM: 100% | TMP117: 24.61°C / 76.30°F[0m
+  PUMP : BUS=13.259V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (223263) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x296F[0m
+[0;32mI (225273) SYSTEM: TMP117 BODY (0x48): 24.61C/76.30F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (225273) SYSTEM: Pump PWM: 100% | TMP117: 24.61°C / 76.30°F[0m
+  PUMP : BUS=13.260V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (225283) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2970[0m
+[0;32mI (227293) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (227293) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.257V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (227303) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x296E[0m
+[0;32mI (227693) ina226: INA226 detected at 0x41[0m
+[0;32mI (227703) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (227703) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (227713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (227733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (227753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (227763) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (227783) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (227783) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (229313) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (229313) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.256V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (229323) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296D[0m
+[0;32mI (231333) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.19C/77.34F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (231333) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.256V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (231343) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296D[0m
+[0;32mI (232793) ina226: INA226 detected at 0x41[0m
+[0;32mI (232803) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (232803) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (232813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (232833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (232853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (232863) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (232883) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (232883) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (233353) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (233353) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.255V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (233363) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x296C[0m
+[0;32mI (235373) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (235373) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.257V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (235383) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x296E[0m
+[0;32mI (237393) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (237393) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.255V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (237403) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296C[0m
+[0;32mI (237893) ina226: INA226 detected at 0x41[0m
+[0;32mI (237903) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (237903) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (237913) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (237933) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (237953) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (237963) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (237983) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (237983) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (239413) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (239413) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.255V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (239423) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296C[0m
+[0;32mI (241433) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (241433) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.255V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (241443) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296C[0m
+[0;32mI (242993) ina226: INA226 detected at 0x41[0m
+[0;32mI (243003) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (243003) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (243013) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (243033) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (243053) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (243063) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (243083) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (243083) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (243453) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (243453) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.254V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (243463) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x296B[0m
+[0;32mI (245473) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (245473) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.254V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (245483) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296B[0m
+[0;32mI (247493) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (247493) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.256V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (247503) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296D[0m
+[0;32mI (248093) ina226: INA226 detected at 0x41[0m
+[0;32mI (248103) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (248103) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (248113) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (248133) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (248153) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (248163) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (248183) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (248183) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (249513) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (249513) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.254V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (249523) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296B[0m
+[0;32mI (251533) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (251533) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.247V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (251543) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2966[0m
+[0;32mI (253193) ina226: INA226 detected at 0x41[0m
+[0;32mI (253203) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (253203) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (253213) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (253233) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (253253) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (253263) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (253283) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (253283) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (253553) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (253553) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.252V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (253563) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296A[0m
+[0;32mI (255573) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (255573) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.252V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (255583) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x296A[0m
+[0;32mI (257593) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (257593) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.252V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (257603) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x296A[0m
+[0;32mI (258293) ina226: INA226 detected at 0x41[0m
+[0;32mI (258303) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (258303) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (258313) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (258333) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (258353) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (258363) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (258383) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (258383) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (259613) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (259613) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.251V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (259623) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2969[0m
+[0;32mI (261633) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (261633) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.250V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (261643) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2968[0m
+[0;32mI (263393) ina226: INA226 detected at 0x41[0m
+[0;32mI (263403) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (263403) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (263413) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (263433) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (263453) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (263463) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (263483) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (263483) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (263653) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (263653) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.250V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (263663) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2968[0m
+[0;32mI (265673) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (265673) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.251V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (265683) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2969[0m
+[0;32mI (267693) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.18C/77.32F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (267693) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.251V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (267703) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2969[0m
+[0;32mI (268493) ina226: INA226 detected at 0x41[0m
+[0;32mI (268503) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (268503) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (268513) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (268533) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (268553) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (268563) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (268583) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (268583) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (269713) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (269713) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.249V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (269723) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2967[0m
+[0;32mI (271733) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (271733) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.251V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (271743) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2969[0m
+[0;32mI (273593) ina226: INA226 detected at 0x41[0m
+[0;32mI (273603) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (273603) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (273613) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (273633) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (273653) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (273663) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (273683) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (273683) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (273753) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (273753) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.247V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (273763) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2966[0m
+[0;32mI (275773) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (275773) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.250V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (275783) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2968[0m
+[0;32mI (277793) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (277793) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.246V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (277803) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2965[0m
+[0;32mI (278693) ina226: INA226 detected at 0x41[0m
+[0;32mI (278703) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (278703) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (278713) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (278733) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (278753) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (278763) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (278783) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (278783) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (279813) SYSTEM: TMP117 BODY (0x48): 24.60C/76.28F | BODY (0x49): 25.16C/77.30F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (279813) SYSTEM: Pump PWM: 100% | TMP117: 24.60°C / 76.28°F[0m
+  PUMP : BUS=13.249V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (279823) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x2967[0m
+[0;32mI (281833) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (281833) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.249V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (281843) SYSTEM: PUMP  0x40 raw shunt=0x0001 raw bus=0x2967[0m
+[0;32mI (283793) ina226: INA226 detected at 0x41[0m
+[0;32mI (283803) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (283803) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;33mW (283813) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (283833) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (283853) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (283853) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (283853) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=13.247V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;33mW (283863) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;32mI (283873) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x2966[0m
+[0;33mW (283883) ina226: INA226 shunt reading saturated at 0x41 (raw=0x8000); check shunt polarity/wiring/range[0m
+[0;33mW (283893) SYSTEM: INA2 (0x41) marked offline after 5 read failures; retry in 5000 ms[0m
+[0;32mI (285883) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (285883) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=2.710V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (285893) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0878[0m
+[0;32mI (287903) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.17C/77.31F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (287903) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=0.950V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (287913) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x02F8[0m
+[0;32mI (288893) ina226: INA226 detected at 0x41[0m
+[0;32mI (288903) ina226: INA226 calibration set to 1677 (max 1.0A, R_shunt=0.1Ω)[0m
+[0;32mI (288903) SYSTEM: INA2 (0x41) recovered and re-enabled[0m
+[0;32mI (289923) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.23C/77.42F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (289923) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=0.716V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (289933) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x023D[0m
+[0;32mI (291943) SYSTEM: TMP117 BODY (0x48): 24.59C/76.27F | BODY (0x49): 25.22C/77.39F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (291943) SYSTEM: Pump PWM: 100% | TMP117: 24.59°C / 76.27°F[0m
+  PUMP : BUS=0.601V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW (smoothed)
+[0;32mI (291953) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x01E1[0m
