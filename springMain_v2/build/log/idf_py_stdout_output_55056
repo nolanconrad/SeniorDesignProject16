@@ -1,0 +1,385 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+[0;32mI (110) esp_image: segment 1: paddr=000313cc vaddr=3fc99b00 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037d1a6
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 27 2026 16:24:37[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=213a4h (136100) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=000313cc vaddr=3fc99b00 size=03e28h ( 15912) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=000351fc vaddr=40374000 size=0ae1ch ( 44572) load[0m
+[0;32mI (124) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7a450h (500816) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000ba478 vaddr=4037ee1c size=0ac78h ( 44152) load[0m
+[0;32mI (223) esp_image: segment 5: paddr=000c50f8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (231) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (232) boot: Disabling RNG early entropy source...[0m
+[0;32mI (242) cpu_start: Multicore app[0m
+[0;32mI (251) cpu_start: Pro cpu start user code[0m
+[0;32mI (251) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (251) app_init: Application information:[0m
+[0;32mI (251) app_init: Project name:     springMain_v2[0m
+[0;32mI (255) app_init: App version:      cfac3859-dirty[0m
+[0;32mI (260) app_init: Compile time:     Apr 27 2026 16:25:08[0m
+[0;32mI (265) app_init: ELF file SHA256:  9a99f1f02...[0m
+[0;32mI (269) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (273) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (277) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (281) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (285) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (291) heap_init: At 3FCA16B0 len 00048060 (288 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (301) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (313) spi_flash: detected chip: gd[0m
+[0;32mI (315) spi_flash: flash io: dio[0m
+[0;33mW (318) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (330) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (340) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (346) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (353) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (357) coexist: coexist rom version e7ae62f[0m
+[0;32mI (362) main_task: Started on CPU0[0m
+[0;32mI (372) main_task: Calling app_main()[0m
+TMP117 0x48: 29.12C/84.41F | Pump: 50%
+TMP117 0x48: 29.02C/84.23F | Pump: 0%
+TMP117 0x48: 28.98C/84.16F | Pump: 0%
+TMP117 0x48: 28.94C/84.09F | Pump: 0%
+TMP117 0x48: 29.73C/85.51F | Pump: 0%
+TMP117 0x48: 30.09C/86.15F | Pump: 0%
+TMP117 0x48: 30.27C/86.49F | Pump: 0%
+TMP117 0x48: 30.37C/86.66F | Pump: 0%
+TMP117 0x48: 30.62C/87.12F | Pump: 0%
+TMP117 0x48: 30.92C/87.66F | Pump: 0%
+TMP117 0x48: 31.09C/87.95F | Pump: 0%
+TMP117 0x48: 31.30C/88.33F | Pump: 0%
+TMP117 0x48: 31.56C/88.81F | Pump: 0%
+TMP117 0x48: 31.84C/89.32F | Pump: 0%
+TMP117 0x48: 32.01C/89.61F | Pump: 0%
+TMP117 0x48: 32.18C/89.92F | Pump: 0%
+TMP117 0x48: 32.30C/90.15F | Pump: 0%
+TMP117 0x48: 32.59C/90.65F | Pump: 0%
+TMP117 0x48: 32.66C/90.80F | Pump: 0%
+TMP117 0x48: 32.88C/91.19F | Pump: 0%
+TMP117 0x48: 33.07C/91.53F | Pump: 0%
+TMP117 0x48: 33.22C/91.79F | Pump: 0%
+TMP117 0x48: 33.29C/91.92F | Pump: 0%
+TMP117 0x48: 33.36C/92.05F | Pump: 0%
+TMP117 0x48: 33.45C/92.22F | Pump: 0%
+TMP117 0x48: 33.59C/92.45F | Pump: 0%
+TMP117 0x48: 33.77C/92.78F | Pump: 0%
+TMP117 0x48: 33.84C/92.92F | Pump: 0%
+TMP117 0x48: 33.96C/93.13F | Pump: 0%
+TMP117 0x48: 34.10C/93.38F | Pump: 0%
+TMP117 0x48: 34.15C/93.47F | Pump: 0%
+TMP117 0x48: 34.26C/93.66F | Pump: 0%
+TMP117 0x48: 35.06C/95.11F | Pump: 0%
+TMP117 0x48: 34.91C/94.85F | Pump: 0%
+TMP117 0x48: 36.97C/98.54F | Pump: 0%
+TMP117 0x48: 36.45C/97.62F | Pump: 25%
+TMP117 0x48: 36.66C/97.98F | Pump: 0%
+TMP117 0x48: 36.52C/97.74F | Pump: 0%
+TMP117 0x48: 37.12C/98.82F | Pump: 0%
+TMP117 0x48: 37.52C/99.54F | Pump: 25%
+TMP117 0x48: 37.33C/99.19F | Pump: 50%
+TMP117 0x48: 37.26C/99.06F | Pump: 50%
+TMP117 0x48: 37.70C/99.85F | Pump: 50%
+TMP117 0x48: 37.94C/100.29F | Pump: 50%
+TMP117 0x48: 38.67C/101.61F | Pump: 75%
+TMP117 0x48: 38.51C/101.31F | Pump: 100%
+TMP117 0x48: 38.41C/101.15F | Pump: 100%
+TMP117 0x48: 38.29C/100.92F | Pump: 100%
+TMP117 0x48: 37.37C/99.26F | Pump: 75%
+TMP117 0x48: 36.85C/98.33F | Pump: 50%
+TMP117 0x48: 36.37C/97.46F | Pump: 25%
+TMP117 0x48: 35.87C/96.56F | Pump: 0%
+TMP117 0x48: 35.55C/95.98F | Pump: 0%
+TMP117 0x48: 35.21C/95.38F | Pump: 0%
+TMP117 0x48: 34.81C/94.66F | Pump: 0%
+TMP117 0x48: 34.55C/94.18F | Pump: 0%
+TMP117 0x48: 34.22C/93.59F | Pump: 0%
+TMP117 0x48: 33.91C/93.03F | Pump: 0%
+TMP117 0x48: 33.52C/92.33F | Pump: 0%
+TMP117 0x48: 33.29C/91.92F | Pump: 0%
+TMP117 0x48: 33.10C/91.58F | Pump: 0%
+TMP117 0x48: 32.88C/91.19F | Pump: 0%
+TMP117 0x48: 32.67C/90.81F | Pump: 0%
+TMP117 0x48: 32.46C/90.43F | Pump: 0%
+TMP117 0x48: 32.26C/90.06F | Pump: 0%
+TMP117 0x48: 32.02C/89.64F | Pump: 0%
+TMP117 0x48: 31.80C/89.25F | Pump: 0%
+TMP117 0x48: 31.70C/89.05F | Pump: 0%
+TMP117 0x48: 31.55C/88.78F | Pump: 0%
+TMP117 0x48: 31.38C/88.49F | Pump: 0%
+TMP117 0x48: 31.20C/88.15F | Pump: 0%
+TMP117 0x48: 31.05C/87.90F | Pump: 0%
+TMP117 0x48: 30.91C/87.65F | Pump: 0%
+TMP117 0x48: 30.73C/87.32F | Pump: 0%
+TMP117 0x48: 30.55C/86.98F | Pump: 0%
+TMP117 0x48: 30.41C/86.73F | Pump: 0%
+TMP117 0x48: 30.27C/86.49F | Pump: 0%
+TMP117 0x48: 30.15C/86.27F | Pump: 0%
+TMP117 0x48: 29.96C/85.93F | Pump: 0%
+TMP117 0x48: 29.86C/85.75F | Pump: 0%
+TMP117 0x48: 29.76C/85.56F | Pump: 0%
+TMP117 0x48: 29.65C/85.37F | Pump: 0%
+TMP117 0x48: 29.54C/85.17F | Pump: 0%
+TMP117 0x48: 29.42C/84.96F | Pump: 0%
+TMP117 0x48: 29.33C/84.79F | Pump: 0%
+TMP117 0x48: 29.23C/84.62F | Pump: 0%
+TMP117 0x48: 29.13C/84.44F | Pump: 0%
+TMP117 0x48: 29.02C/84.23F | Pump: 0%
+TMP117 0x48: 28.90C/84.02F | Pump: 0%
+TMP117 0x48: 28.77C/83.78F | Pump: 0%
+TMP117 0x48: 28.64C/83.55F | Pump: 0%
+TMP117 0x48: 28.59C/83.47F | Pump: 0%
+TMP117 0x48: 28.52C/83.33F | Pump: 0%
+TMP117 0x48: 28.41C/83.15F | Pump: 0%
+TMP117 0x48: 28.33C/82.99F | Pump: 0%
+TMP117 0x48: 28.27C/82.89F | Pump: 0%
+TMP117 0x48: 28.20C/82.77F | Pump: 0%
+TMP117 0x48: 28.12C/82.61F | Pump: 0%
+TMP117 0x48: 28.00C/82.40F | Pump: 0%
+TMP117 0x48: 27.91C/82.25F | Pump: 0%
+TMP117 0x48: 27.84C/82.10F | Pump: 0%
+TMP117 0x48: 27.75C/81.95F | Pump: 0%
+TMP117 0x48: 27.68C/81.82F | Pump: 0%
+TMP117 0x48: 27.62C/81.71F | Pump: 0%
+TMP117 0x48: 27.57C/81.63F | Pump: 0%
+TMP117 0x48: 27.52C/81.53F | Pump: 0%
+TMP117 0x48: 27.44C/81.39F | Pump: 0%
+TMP117 0x48: 27.37C/81.26F | Pump: 0%
+TMP117 0x48: 27.28C/81.11F | Pump: 0%
+TMP117 0x48: 27.24C/81.04F | Pump: 0%
+TMP117 0x48: 27.18C/80.92F | Pump: 0%
+TMP117 0x48: 27.13C/80.84F | Pump: 0%
+TMP117 0x48: 27.09C/80.77F | Pump: 0%
+TMP117 0x48: 27.06C/80.71F | Pump: 0%
+TMP117 0x48: 27.01C/80.61F | Pump: 0%
+TMP117 0x48: 26.96C/80.53F | Pump: 0%
+TMP117 0x48: 26.89C/80.40F | Pump: 0%
+TMP117 0x48: 26.85C/80.33F | Pump: 0%
+TMP117 0x48: 26.80C/80.25F | Pump: 0%
+TMP117 0x48: 26.75C/80.15F | Pump: 0%
+TMP117 0x48: 26.71C/80.08F | Pump: 0%
+TMP117 0x48: 26.64C/79.95F | Pump: 0%
+TMP117 0x48: 26.60C/79.88F | Pump: 0%
+TMP117 0x48: 26.56C/79.81F | Pump: 0%
+TMP117 0x48: 26.52C/79.73F | Pump: 0%
+TMP117 0x48: 26.47C/79.64F | Pump: 0%
+TMP117 0x48: 26.42C/79.56F | Pump: 0%
+TMP117 0x48: 26.40C/79.52F | Pump: 0%
+TMP117 0x48: 26.36C/79.45F | Pump: 0%
+TMP117 0x48: 26.32C/79.38F | Pump: 0%
+TMP117 0x48: 26.27C/79.29F | Pump: 0%
+TMP117 0x48: 26.23C/79.22F | Pump: 0%
+TMP117 0x48: 26.20C/79.17F | Pump: 0%
+TMP117 0x48: 26.16C/79.10F | Pump: 0%
+TMP117 0x48: 26.12C/79.03F | Pump: 0%
+TMP117 0x48: 26.09C/78.95F | Pump: 0%
+TMP117 0x48: 26.05C/78.90F | Pump: 0%
+TMP117 0x48: 26.02C/78.84F | Pump: 0%
+TMP117 0x48: 25.99C/78.79F | Pump: 0%
+TMP117 0x48: 25.96C/78.73F | Pump: 0%
+TMP117 0x48: 25.93C/78.67F | Pump: 0%
+TMP117 0x48: 25.91C/78.63F | Pump: 0%
+TMP117 0x48: 25.88C/78.59F | Pump: 0%
+TMP117 0x48: 25.85C/78.53F | Pump: 0%
+TMP117 0x48: 25.83C/78.49F | Pump: 0%
+TMP117 0x48: 25.80C/78.45F | Pump: 0%
+TMP117 0x48: 25.78C/78.41F | Pump: 0%
+TMP117 0x48: 25.75C/78.35F | Pump: 0%
+TMP117 0x48: 25.73C/78.31F | Pump: 0%
+TMP117 0x48: 25.70C/78.27F | Pump: 0%
+TMP117 0x48: 25.69C/78.24F | Pump: 0%
+TMP117 0x48: 25.66C/78.20F | Pump: 0%
+TMP117 0x48: 25.64C/78.15F | Pump: 0%
+TMP117 0x48: 25.62C/78.12F | Pump: 0%
+TMP117 0x48: 25.59C/78.05F | Pump: 0%
+TMP117 0x48: 25.57C/78.03F | Pump: 0%
+TMP117 0x48: 25.56C/78.01F | Pump: 0%
+TMP117 0x48: 25.54C/77.97F | Pump: 0%
+TMP117 0x48: 25.52C/77.93F | Pump: 0%
+TMP117 0x48: 25.49C/77.89F | Pump: 0%
+TMP117 0x48: 25.46C/77.83F | Pump: 0%
+TMP117 0x48: 25.44C/77.79F | Pump: 0%
+TMP117 0x48: 25.42C/77.76F | Pump: 0%
+TMP117 0x48: 25.39C/77.70F | Pump: 0%
+TMP117 0x48: 25.38C/77.68F | Pump: 0%
+TMP117 0x48: 25.36C/77.65F | Pump: 0%
+TMP117 0x48: 25.34C/77.62F | Pump: 0%
+TMP117 0x48: 25.32C/77.58F | Pump: 0%
+TMP117 0x48: 25.30C/77.55F | Pump: 0%
+TMP117 0x48: 25.29C/77.52F | Pump: 0%
+TMP117 0x48: 25.28C/77.51F | Pump: 0%
+TMP117 0x48: 25.26C/77.46F | Pump: 0%
+TMP117 0x48: 25.25C/77.45F | Pump: 0%
+TMP117 0x48: 25.23C/77.42F | Pump: 0%
+TMP117 0x48: 25.23C/77.41F | Pump: 0%
+TMP117 0x48: 25.21C/77.38F | Pump: 0%
+TMP117 0x48: 25.20C/77.35F | Pump: 0%
+TMP117 0x48: 25.18C/77.32F | Pump: 0%
+TMP117 0x48: 25.17C/77.31F | Pump: 0%
+TMP117 0x48: 25.16C/77.30F | Pump: 0%
+TMP117 0x48: 25.14C/77.25F | Pump: 0%
+TMP117 0x48: 25.13C/77.24F | Pump: 0%
+TMP117 0x48: 25.12C/77.21F | Pump: 0%
+TMP117 0x48: 25.11C/77.20F | Pump: 0%
+TMP117 0x48: 25.09C/77.17F | Pump: 0%
+TMP117 0x48: 25.08C/77.14F | Pump: 0%
+TMP117 0x48: 25.06C/77.11F | Pump: 0%
+TMP117 0x48: 25.06C/77.11F | Pump: 0%
+TMP117 0x48: 25.05C/77.10F | Pump: 0%
+TMP117 0x48: 25.04C/77.07F | Pump: 0%
+TMP117 0x48: 25.04C/77.07F | Pump: 0%
+TMP117 0x48: 25.02C/77.04F | Pump: 0%
+TMP117 0x48: 25.00C/77.00F | Pump: 0%
+TMP117 0x48: 25.00C/77.00F | Pump: 0%
+TMP117 0x48: 24.99C/76.99F | Pump: 0%
+TMP117 0x48: 24.98C/76.96F | Pump: 0%
+TMP117 0x48: 24.98C/76.97F | Pump: 0%
+TMP117 0x48: 24.97C/76.94F | Pump: 0%
+TMP117 0x48: 24.96C/76.93F | Pump: 0%
+TMP117 0x48: 24.95C/76.92F | Pump: 0%
+TMP117 0x48: 24.95C/76.90F | Pump: 0%
+TMP117 0x48: 24.94C/76.89F | Pump: 0%
+TMP117 0x48: 24.93C/76.87F | Pump: 0%
+TMP117 0x48: 24.91C/76.85F | Pump: 0%
+TMP117 0x48: 24.91C/76.85F | Pump: 0%
+TMP117 0x48: 24.91C/76.83F | Pump: 0%
+TMP117 0x48: 24.90C/76.82F | Pump: 0%
+TMP117 0x48: 24.88C/76.79F | Pump: 0%
+TMP117 0x48: 24.88C/76.78F | Pump: 0%
+TMP117 0x48: 24.87C/76.76F | Pump: 0%
+TMP117 0x48: 24.87C/76.76F | Pump: 0%
+TMP117 0x48: 24.85C/76.73F | Pump: 0%
+TMP117 0x48: 24.84C/76.72F | Pump: 0%
+TMP117 0x48: 24.84C/76.70F | Pump: 0%
+TMP117 0x48: 24.84C/76.70F | Pump: 0%
+TMP117 0x48: 24.82C/76.68F | Pump: 0%
+TMP117 0x48: 24.81C/76.66F | Pump: 0%
+TMP117 0x48: 24.79C/76.62F | Pump: 0%
+TMP117 0x48: 24.78C/76.61F | Pump: 0%
+TMP117 0x48: 24.77C/76.58F | Pump: 0%
+TMP117 0x48: 24.76C/76.56F | Pump: 0%
+TMP117 0x48: 24.75C/76.55F | Pump: 0%
+TMP117 0x48: 24.74C/76.54F | Pump: 0%
+TMP117 0x48: 24.74C/76.54F | Pump: 0%
+TMP117 0x48: 24.73C/76.52F | Pump: 0%
+TMP117 0x48: 24.73C/76.52F | Pump: 0%
+TMP117 0x48: 24.72C/76.49F | Pump: 0%
+TMP117 0x48: 24.71C/76.48F | Pump: 0%
+TMP117 0x48: 24.71C/76.48F | Pump: 0%
+TMP117 0x48: 24.70C/76.45F | Pump: 0%
+TMP117 0x48: 24.68C/76.42F | Pump: 0%
+TMP117 0x48: 24.68C/76.42F | Pump: 0%
+TMP117 0x48: 24.67C/76.41F | Pump: 0%
+TMP117 0x48: 24.66C/76.40F | Pump: 0%
+TMP117 0x48: 24.66C/76.40F | Pump: 0%
+TMP117 0x48: 24.66C/76.40F | Pump: 0%
+TMP117 0x48: 24.66C/76.38F | Pump: 0%
+TMP117 0x48: 24.65C/76.37F | Pump: 0%
+TMP117 0x48: 24.66C/76.38F | Pump: 0%
+TMP117 0x48: 24.67C/76.41F | Pump: 0%
+TMP117 0x48: 42.94C/109.29F | Pump: 25%
+TMP117 0x48: 42.46C/108.43F | Pump: 25%
+TMP117 0x48: 42.07C/107.73F | Pump: 25%
+TMP117 0x48: 41.66C/107.00F | Pump: 25%
+TMP117 0x48: 41.29C/106.32F | Pump: 25%
+TMP117 0x48: 39.11C/102.40F | Pump: 25%
+TMP117 0x48: 38.34C/101.00F | Pump: 25%
+TMP117 0x48: 38.09C/100.55F | Pump: 25%
+TMP117 0x48: 37.61C/99.70F | Pump: 25%
+TMP117 0x48: 37.79C/100.02F | Pump: 25%
+TMP117 0x48: 37.76C/99.96F | Pump: 25%
+TMP117 0x48: 37.49C/99.49F | Pump: 25%
+TMP117 0x48: 37.26C/99.06F | Pump: 25%
+TMP117 0x48: 37.04C/98.67F | Pump: 25%
+TMP117 0x48: 36.78C/98.21F | Pump: 25%
+TMP117 0x48: 36.55C/97.80F | Pump: 25%
+TMP117 0x48: 36.30C/97.33F | Pump: 25%
+TMP117 0x48: 36.00C/96.80F | Pump: 25%
+TMP117 0x48: 35.66C/96.20F | Pump: 25%
+TMP117 0x48: 35.41C/95.75F | Pump: 25%
+TMP117 0x48: 35.16C/95.30F | Pump: 25%
+TMP117 0x48: 34.95C/94.92F | Pump: 25%
+TMP117 0x48: 34.77C/94.58F | Pump: 25%
+TMP117 0x48: 34.58C/94.24F | Pump: 25%
+TMP117 0x48: 34.40C/93.92F | Pump: 25%
+TMP117 0x48: 34.19C/93.54F | Pump: 25%
+TMP117 0x48: 33.99C/93.19F | Pump: 25%
+TMP117 0x48: 33.77C/92.79F | Pump: 25%
+TMP117 0x48: 33.59C/92.45F | Pump: 25%
+TMP117 0x48: 33.41C/92.15F | Pump: 25%
+TMP117 0x48: 33.15C/91.67F | Pump: 0%
+TMP117 0x48: 32.99C/91.39F | Pump: 0%
+TMP117 0x48: 32.81C/91.06F | Pump: 0%
+TMP117 0x48: 32.64C/90.75F | Pump: 0%
+TMP117 0x48: 32.48C/90.46F | Pump: 0%
+TMP117 0x48: 32.30C/90.15F | Pump: 0%
+TMP117 0x48: 32.13C/89.84F | Pump: 0%
+TMP117 0x48: 31.98C/89.56F | Pump: 0%
+TMP117 0x48: 31.83C/89.29F | Pump: 0%
+TMP117 0x48: 31.66C/89.00F | Pump: 0%
+TMP117 0x48: 31.55C/88.78F | Pump: 0%
+TMP117 0x48: 31.41C/88.53F | Pump: 0%
+TMP117 0x48: 31.24C/88.24F | Pump: 0%
+TMP117 0x48: 31.12C/88.01F | Pump: 0%
+TMP117 0x48: 31.00C/87.80F | Pump: 0%
+TMP117 0x48: 30.87C/87.56F | Pump: 0%
+TMP117 0x48: 30.73C/87.32F | Pump: 0%
+TMP117 0x48: 30.61C/87.10F | Pump: 0%
+TMP117 0x48: 30.48C/86.86F | Pump: 0%
+TMP117 0x48: 30.23C/86.41F | Pump: 0%
+TMP117 0x48: 30.12C/86.21F | Pump: 0%
+TMP117 0x48: 44.45C/112.02F | Pump: 0%
+TMP117 0x48: 45.11C/113.20F | Pump: 100%
+TMP117 0x48: 50.49C/122.89F | Pump: 100%
+TMP117 0x48: 47.40C/117.32F | Pump: 100%
+TMP117 0x48: 46.21C/115.18F | Pump: 100%
+TMP117 0x48: 45.38C/113.69F | Pump: 100%
+TMP117 0x48: 44.70C/112.47F | Pump: 100%
+TMP117 0x48: 44.09C/111.37F | Pump: 100%
+TMP117 0x48: 43.53C/110.36F | Pump: 100%
+TMP117 0x48: 43.05C/109.50F | Pump: 100%
+TMP117 0x48: 42.61C/108.70F | Pump: 100%
+TMP117 0x48: 42.18C/107.92F | Pump: 100%
+TMP117 0x48: 41.79C/107.22F | Pump: 100%
+TMP117 0x48: 41.37C/106.46F | Pump: 100%
+TMP117 0x48: 40.97C/105.74F | Pump: 100%
+TMP117 0x48: 40.65C/105.17F | Pump: 100%
+TMP117 0x48: 40.23C/104.41F | Pump: 100%
+TMP117 0x48: 39.77C/103.58F | Pump: 100%
+TMP117 0x48: 39.52C/103.14F | Pump: 100%
+TMP117 0x48: 39.26C/102.66F | Pump: 100%
+TMP117 0x48: 38.95C/102.12F | Pump: 100%
+TMP117 0x48: 38.66C/101.58F | Pump: 100%
+TMP117 0x48: 38.36C/101.05F | Pump: 100%
+TMP117 0x48: 38.09C/100.57F | Pump: 100%
+TMP117 0x48: 37.83C/100.09F | Pump: 75%
+TMP117 0x48: 37.55C/99.60F | Pump: 75%
+TMP117 0x48: 37.30C/99.13F | Pump: 50%
+TMP117 0x48: 37.05C/98.68F | Pump: 50%
+TMP117 0x48: 36.79C/98.22F | Pump: 25%
+TMP117 0x48: 36.54C/97.77F | Pump: 25%
+TMP117 0x48: 36.29C/97.32F | Pump: 0%
+TMP117 0x48: 36.04C/96.87F | Pump: 0%
+TMP117 0x48: 35.82C/96.48F | Pump: 0%

@@ -14,16 +14,6 @@
 #include "pumpOperation.h"
 #include "ble_handler.h"
 
-// --- Smoothing filter initialization flags ---
-static bool filter_ina1_initialized = false;
-static bool filter_ina2_initialized = false;
-
-// --- Smoothing filter globals ---
-static float filtered_ina1_current_ma = 0.0f;
-static float filtered_ina2_current_ma = 0.0f;
-static float filtered_ina1_power_mw = 0.0f;
-static float filtered_ina2_power_mw = 0.0f;
-
 // --- Synchronized INA reading globals ---
 static SemaphoreHandle_t ina_read_semaphore = NULL;
 static ina226_measurement_t synchronized_ina1_measurement = {0};
@@ -38,9 +28,6 @@ static uint32_t s_ina1_next_retry_ms = 0;
 static uint32_t s_ina2_next_retry_ms = 0;
 static uint8_t s_tmp117_addr = 0x48;
 static bool s_tmp117_found = false;
-static bool s_tmp117_primary_found = false;
-static bool s_tmp117_secondary_found = false;
-static bool s_tmp117_tertiary_found = false;
 
 static const char *TAG = "SYSTEM";
 
@@ -82,12 +69,14 @@ static const char *TAG = "SYSTEM";
 #endif
 
 // INA226 hardware configuration
-#define INA226_PUMP_SHUNT_RESISTANCE_OHM 0.1f
-#define INA226_LOGIC_SHUNT_RESISTANCE_OHM 0.1f
+#define INA226_PUMP_SHUNT_RESISTANCE_OHM 1.3f
+#define INA226_LOGIC_SHUNT_RESISTANCE_OHM 1.3f
 
 // Timing configuration
 #define BUTTON_POLL_INTERVAL_MS 50
 #define SENSOR_READ_INTERVAL_MS 2000
+#define STARTUP_RETRY_DELAY_MS 1000
+#define ENABLE_INA_MONITORING 0
 
 // INA synchronized reading configuration
 #define INA_SYNC_PERIOD_MS 17
@@ -112,11 +101,9 @@ typedef enum {
 // Temperature thresholds for automatic control (Fahrenheit)
 #define TEMP_STEP_98F 98.0f
 #define TEMP_STEP_99F 99.0f
-#define TEMP_STEP_99_5F 99.5f
 #define TEMP_STEP_100F 100.0f
-#define TEMP_SHUTDOWN_108F 101.0f
+#define TEMP_STEP_101F 101.0f
 
-#define PUMP_10_PERCENT 10
 #define PUMP_25_PERCENT 25
 #define PUMP_50_PERCENT 50
 #define PUMP_75_PERCENT 75
@@ -305,29 +292,17 @@ static void update_pump_auto(float temp_f)
 {
     uint32_t new_pump_percent = current_pump_percent;
 
-    // Emergency shutdown if temperature exceeds 101°F
-    if (temp_f > TEMP_SHUTDOWN_108F) {
-        new_pump_percent = 0;
-        if (current_pump_percent != 0) {
-            current_pump_percent = 0;
-            refresh_pump_output_state();
-            ESP_LOGW(TAG, "EMERGENCY SHUTDOWN: Temperature %.2f°F exceeds 101°F limit - Pump OFF",
-                     temp_f);
-        }
-        return;
-    }
-
-    if (temp_f <= TEMP_STEP_98F) {
+    if (temp_f < TEMP_STEP_98F) {
         new_pump_percent = 0;
     }
     else if (temp_f < TEMP_STEP_99F) {
-        new_pump_percent = 0;
-    }
-    else if (temp_f < TEMP_STEP_99_5F) {
         new_pump_percent = PUMP_25_PERCENT;
     }
     else if (temp_f < TEMP_STEP_100F) {
         new_pump_percent = PUMP_50_PERCENT;
+    }
+    else if (temp_f < TEMP_STEP_101F) {
+        new_pump_percent = PUMP_75_PERCENT;
     }
     else {
         new_pump_percent = PUMP_100_PERCENT;
@@ -585,21 +560,32 @@ static void verify_ina_address_mapping(void)
 
 void app_main(void)
 {
-    esp_err_t err = i2c_bus_init();
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize I2C bus: %s", esp_err_to_name(err));
-        return;
+    // Suppress component logs so only explicit temperature prints appear in console.
+    esp_log_level_set("*", ESP_LOG_NONE);
+
+    esp_err_t err = ESP_OK;
+
+    while ((err = i2c_bus_init()) != ESP_OK) {
+        ESP_LOGE(TAG,
+                 "Failed to initialize I2C bus: %s. Retrying in %u ms",
+                 esp_err_to_name(err),
+                 (unsigned)STARTUP_RETRY_DELAY_MS);
+        vTaskDelay(pdMS_TO_TICKS(STARTUP_RETRY_DELAY_MS));
     }
     ESP_LOGI(TAG, "I2C bus initialized");
 
     ESP_LOGI(TAG, "Scanning I2C bus...");
     i2c_bus_scan(pdMS_TO_TICKS(10));
+#if ENABLE_INA_MONITORING
     verify_ina_address_mapping();
+#endif
 
-    err = pump_operation_init();
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize pump output: %s", esp_err_to_name(err));
-        return;
+    while ((err = pump_operation_init()) != ESP_OK) {
+        ESP_LOGE(TAG,
+                 "Failed to initialize pump output: %s. Retrying in %u ms",
+                 esp_err_to_name(err),
+                 (unsigned)STARTUP_RETRY_DELAY_MS);
+        vTaskDelay(pdMS_TO_TICKS(STARTUP_RETRY_DELAY_MS));
     }
 
     init_buttons_and_led();
@@ -608,40 +594,20 @@ void app_main(void)
     battery_timer_start_ms = esp_timer_get_time() / 1000;
     ESP_LOGI(TAG, "Battery timer: 3 minutes countdown started");
 
-    const uint8_t tmp117_candidates[] = {TMP117_ADDR_PRIMARY, TMP117_ADDR_SECONDARY, TMP117_ADDR_TERTIARY};
-    const char *tmp117_labels[] = {"BODY (0x48)", "BODY (0x49)", "ENVIRONMENT (0x50)"};
-    for (size_t i = 0; i < sizeof(tmp117_candidates) / sizeof(tmp117_candidates[0]); ++i) {
-        esp_err_t terr = tmp117_init(tmp117_candidates[i]);
-        if (terr == ESP_OK) {
-            if (tmp117_candidates[i] == TMP117_ADDR_PRIMARY) {
-                s_tmp117_primary_found = true;
-            }
-            if (tmp117_candidates[i] == TMP117_ADDR_SECONDARY) {
-                s_tmp117_secondary_found = true;
-            }
-            if (tmp117_candidates[i] == TMP117_ADDR_TERTIARY) {
-                s_tmp117_tertiary_found = true;
-            }
-            if (!s_tmp117_found) {
-                s_tmp117_addr = tmp117_candidates[i];
-                s_tmp117_found = true;
-            }
-            ESP_LOGI(TAG, "TMP117 %s (0x%02X): FOUND", tmp117_labels[i], tmp117_candidates[i]);
-        } else {
-            ESP_LOGW(TAG, "TMP117 %s (0x%02X): NOT FOUND", tmp117_labels[i], tmp117_candidates[i]);
-        }
+    s_tmp117_addr = TMP117_ADDR_PRIMARY;
+    if (tmp117_init(s_tmp117_addr) == ESP_OK) {
+        s_tmp117_found = true;
     }
     if (s_tmp117_found) {
         ESP_LOGI(TAG, "TMP117 selected address: 0x%02X", s_tmp117_addr);
     }
     if (!s_tmp117_found) {
         ESP_LOGE(TAG,
-                 "TMP117 not found at expected addresses (0x%02X, 0x%02X, 0x%02X)",
-                 TMP117_ADDR_PRIMARY,
-                 TMP117_ADDR_SECONDARY,
-                 TMP117_ADDR_TERTIARY);
+                 "TMP117 not found at expected address (0x%02X)",
+                 TMP117_ADDR_PRIMARY);
     }
 
+#if ENABLE_INA_MONITORING
     err = ina226_init(INA226_PUMP_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);
     if (err != ESP_OK) {
         s_ina1_present = false;
@@ -667,21 +633,26 @@ void app_main(void)
         synchronized_ina2_error = ESP_OK;
         ESP_LOGI(TAG, "LOGIC (INA2, 0x%02X) initialized", INA226_LOGIC_ADDR);
     }
+#endif
 
     // Full-range diagnostics are expensive; keep disabled in production boot path.
 #if I2C_ENABLE_FULL_DIAGNOSTICS
     log_i2c_probe_diagnostics(pdMS_TO_TICKS(10));
 #endif
 
+#if ENABLE_INA_MONITORING
     init_ina_sync_reading();
+#endif
 
     ble_init();
     ESP_LOGI(TAG, "BLE initialized");
 
-    err = pump_operation_set_duty_percent((uint8_t)PUMP_START_PERCENT);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to set initial pump speed: %s", esp_err_to_name(err));
-        return;
+    while ((err = pump_operation_set_duty_percent((uint8_t)PUMP_START_PERCENT)) != ESP_OK) {
+        ESP_LOGE(TAG,
+                 "Failed to set initial pump speed: %s. Retrying in %u ms",
+                 esp_err_to_name(err),
+                 (unsigned)STARTUP_RETRY_DELAY_MS);
+        vTaskDelay(pdMS_TO_TICKS(STARTUP_RETRY_DELAY_MS));
     }
     current_pump_percent = PUMP_START_PERCENT;
     update_pump_level_leds(current_pump_percent);
@@ -743,11 +714,6 @@ void app_main(void)
         }
 
         float temp_c = 0.0f;
-        ina226_measurement_t ina1_measurement = synchronized_ina1_measurement;
-        ina226_measurement_t ina2_measurement = synchronized_ina2_measurement;
-        esp_err_t ina1_err = synchronized_ina1_error;
-        esp_err_t ina2_err = synchronized_ina2_error;
-
         if (s_tmp117_found) {
             err = tmp117_read_temperature_c(s_tmp117_addr, &temp_c);
         } else {
@@ -755,191 +721,24 @@ void app_main(void)
         }
         float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
 
-        float temp_primary_c = 0.0f;
-        float temp_secondary_c = 0.0f;
-        float temp_tertiary_c = 0.0f;
-        esp_err_t tmp_primary_err = s_tmp117_primary_found
-                                        ? tmp117_read_temperature_c(TMP117_ADDR_PRIMARY, &temp_primary_c)
-                                        : ESP_ERR_NOT_FOUND;
-        esp_err_t tmp_secondary_err = s_tmp117_secondary_found
-                                          ? tmp117_read_temperature_c(TMP117_ADDR_SECONDARY, &temp_secondary_c)
-                                          : ESP_ERR_NOT_FOUND;
-        esp_err_t tmp_tertiary_err = s_tmp117_tertiary_found
-                                         ? tmp117_read_temperature_c(TMP117_ADDR_TERTIARY, &temp_tertiary_c)
-                                         : ESP_ERR_NOT_FOUND;
-        float temp_primary_f = (temp_primary_c * 9.0f / 5.0f) + 32.0f;
-        float temp_secondary_f = (temp_secondary_c * 9.0f / 5.0f) + 32.0f;
-        float temp_tertiary_f = (temp_tertiary_c * 9.0f / 5.0f) + 32.0f;
-
-        char tmp_primary_str[32];
-        char tmp_secondary_str[32];
-        char tmp_tertiary_str[32];
-        if (tmp_primary_err == ESP_OK) {
-            snprintf(tmp_primary_str, sizeof(tmp_primary_str), "%.2fC/%.2fF", temp_primary_c, temp_primary_f);
+        if (err == ESP_OK) {
+            printf("TMP117 0x%02X: %.2fC/%.2fF | Pump: %lu%%\n",
+                   s_tmp117_addr,
+                   temp_c,
+                   temp_f,
+                   (unsigned long)current_pump_percent);
         } else {
-            snprintf(tmp_primary_str, sizeof(tmp_primary_str), "N/A");
-        }
-        if (tmp_secondary_err == ESP_OK) {
-            snprintf(tmp_secondary_str, sizeof(tmp_secondary_str), "%.2fC/%.2fF", temp_secondary_c, temp_secondary_f);
-        } else {
-            snprintf(tmp_secondary_str, sizeof(tmp_secondary_str), "N/A");
-        }
-        if (tmp_tertiary_err == ESP_OK) {
-            snprintf(tmp_tertiary_str, sizeof(tmp_tertiary_str), "%.2fC/%.2fF", temp_tertiary_c, temp_tertiary_f);
-        } else {
-            snprintf(tmp_tertiary_str, sizeof(tmp_tertiary_str), "N/A");
-        }
-        ESP_LOGI(TAG,
-                 "TMP117 BODY (0x%02X): %s | BODY (0x%02X): %s | ENVIRONMENT (0x%02X): %s",
-                 TMP117_ADDR_PRIMARY,
-                 tmp_primary_str,
-                 TMP117_ADDR_SECONDARY,
-                 tmp_secondary_str,
-                 TMP117_ADDR_TERTIARY,
-                 tmp_tertiary_str);
-
-        const float alpha = 0.2f;
-
-        if (ina1_err == ESP_OK) {
-            float curr_ma = ina1_measurement.current_a * 1000.0f;
-            float pow_mw = ina1_measurement.power_w * 1000.0f;
-            if (!filter_ina1_initialized) {
-                filtered_ina1_current_ma = curr_ma;
-                filtered_ina1_power_mw = pow_mw;
-                filter_ina1_initialized = true;
-            } else {
-                filtered_ina1_current_ma = alpha * curr_ma + (1.0f - alpha) * filtered_ina1_current_ma;
-                filtered_ina1_power_mw = alpha * pow_mw + (1.0f - alpha) * filtered_ina1_power_mw;
-            }
-
-            if (current_pump_percent >= 50 && filtered_ina1_current_ma < 2.0f && filtered_ina1_current_ma > -2.0f) {
-                if (pump_no_current_streak < 255) {
-                    pump_no_current_streak++;
-                }
-            } else {
-                pump_no_current_streak = 0;
-            }
-
-            if (pump_no_current_streak == 5) {
-                ESP_LOGW(
-                    TAG,
-                    "Pump PWM >= 50%% but INA1 current remains near zero; check shunt path/wiring polarity (INA1 0x%02X)",
-                    INA226_1_ADDR);
-            }
-        }
-
-        if (ina2_err == ESP_OK) {
-            float curr_ma = ina2_measurement.current_a * 1000.0f;
-            float pow_mw = ina2_measurement.power_w * 1000.0f;
-            if (!filter_ina2_initialized) {
-                filtered_ina2_current_ma = curr_ma;
-                filtered_ina2_power_mw = pow_mw;
-                filter_ina2_initialized = true;
-            } else {
-                filtered_ina2_current_ma = alpha * curr_ma + (1.0f - alpha) * filtered_ina2_current_ma;
-                filtered_ina2_power_mw = alpha * pow_mw + (1.0f - alpha) * filtered_ina2_power_mw;
-            }
+            printf("TMP117 0x%02X: N/A | Pump: %lu%%\n",
+                   s_tmp117_addr,
+                   (unsigned long)current_pump_percent);
         }
 
         if (err == ESP_OK) {
-            if (ina1_err == ESP_OK) {
-                ESP_LOGI(
-                    TAG,
-                    "Pump PWM: %lu%% | TMP117: %.2f°C / %.2f°F\n"
-                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                    (unsigned long)current_pump_percent,
-                    temp_c,
-                    temp_f,
-                    ina1_measurement.bus_voltage_v,
-                    ina1_measurement.shunt_voltage_v * 1000.0f,
-                    filtered_ina1_current_ma,
-                    filtered_ina1_power_mw);
-
-                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X",
-                         INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
-
-                if (ina2_err == ESP_OK) {
-                    ESP_LOGI(
-                        TAG,
-                        "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                        ina2_measurement.bus_voltage_v,
-                        ina2_measurement.shunt_voltage_v * 1000.0f,
-                        filtered_ina2_current_ma,
-                        filtered_ina2_power_mw);
-                    ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X",
-                             INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
-                } else {
-                    ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
-                }
-
-            } else {
-                ESP_LOGI(TAG, "Pump PWM: %lu%% | TMP117: %.2f°C / %.2f°F",
-                         (unsigned long)current_pump_percent, temp_c, temp_f);
-                ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
-                if (ina2_err == ESP_OK) {
-                    ESP_LOGI(
-                        TAG,
-                        "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                        ina2_measurement.bus_voltage_v,
-                        ina2_measurement.shunt_voltage_v * 1000.0f,
-                        filtered_ina2_current_ma,
-                        filtered_ina2_power_mw);
-                    ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X",
-                             INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
-                } else {
-                    ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
-                }
-            }
-
             if (control_mode == CONTROL_AUTOMATIC) {
                 update_pump_auto(temp_f);
             }
-
         } else {
             ESP_LOGW(TAG, "TMP117 read failed: %s", esp_err_to_name(err));
-
-            if (ina1_err == ESP_OK) {
-                ESP_LOGI(
-                    TAG,
-                    "Pump PWM: %lu%% | TMP117: (read failed)\n"
-                    "  PUMP : BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                    (unsigned long)current_pump_percent,
-                    ina1_measurement.bus_voltage_v,
-                    ina1_measurement.shunt_voltage_v * 1000.0f,
-                    filtered_ina1_current_ma,
-                    filtered_ina1_power_mw);
-                ESP_LOGI(TAG, "PUMP  0x%02X raw shunt=0x%04X raw bus=0x%04X",
-                         INA226_1_ADDR, ina1_measurement.raw_shunt_u16, ina1_measurement.raw_bus_u16);
-
-                if (ina2_err == ESP_OK) {
-                    ESP_LOGI(
-                        TAG,
-                        "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                        ina2_measurement.bus_voltage_v,
-                        ina2_measurement.shunt_voltage_v * 1000.0f,
-                        filtered_ina2_current_ma,
-                        filtered_ina2_power_mw);
-                    ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X",
-                             INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
-                } else {
-                    ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
-                }
-            } else {
-                ESP_LOGW(TAG, "PUMP read failed: %s", esp_err_to_name(ina1_err));
-                if (ina2_err == ESP_OK) {
-                    ESP_LOGI(
-                        TAG,
-                        "  LOGIC: BUS=%.3fV  SHUNT=%.3fmV  CURRENT=%.3fmA  POWER=%.3fmW (smoothed)",
-                        ina2_measurement.bus_voltage_v,
-                        ina2_measurement.shunt_voltage_v * 1000.0f,
-                        filtered_ina2_current_ma,
-                        filtered_ina2_power_mw);
-                    ESP_LOGI(TAG, "LOGIC 0x%02X raw shunt=0x%04X raw bus=0x%04X",
-                             INA226_2_ADDR, ina2_measurement.raw_shunt_u16, ina2_measurement.raw_bus_u16);
-                } else {
-                    ESP_LOGW(TAG, "LOGIC read failed: %s", esp_err_to_name(ina2_err));
-                }
-            }
         }
     }
 }

@@ -7,6 +7,8 @@
 #define INA226_REG_CONFIG 0x00
 #define INA226_REG_SHUNT_VOLTAGE 0x01
 #define INA226_REG_BUS_VOLTAGE 0x02
+#define INA226_REG_POWER 0x03
+#define INA226_REG_CURRENT 0x04
 #define INA226_REG_CALIBRATION 0x05
 #define INA226_REG_MANUFACTURER_ID 0xFE
 #define INA226_REG_DIE_ID 0xFF
@@ -17,13 +19,15 @@
 #define INA226_CONFIG_DEFAULT 0x4127
 #define INA226_SHUNT_VOLTAGE_LSB_V 0.0000025f
 #define INA226_BUS_VOLTAGE_LSB_V 0.00125f
-#define INA226_MAX_EXPECTED_CURRENT_A 1.0f
-#define INA226_CURRENT_LSB_A (INA226_MAX_EXPECTED_CURRENT_A / 32768.0f)
+#define INA226_CURRENT_LSB_A 0.00000153f
+#define INA226_POWER_LSB_FACTOR 25.0f
 #define INA226_SHUNT_RAW_POS_FULL_SCALE 0x7FFF
 #define INA226_SHUNT_RAW_NEG_FULL_SCALE 0x8000
 #define INA226_SHUNT_NOISE_RAW_DEADBAND 2
+#define INA226_INTERNAL_LOG_INTERVAL_MS 1000
 
 static const char *TAG = "ina226";
+static uint32_t s_last_internal_log_ms[128] = {0};
 
 static esp_err_t ina226_read_u16(uint8_t i2c_address, uint8_t reg, uint16_t *value)
 {
@@ -98,10 +102,9 @@ esp_err_t ina226_init(uint8_t i2c_address, float shunt_resistance_ohm)
         return err;
     }
 
-    // Calculate calibration for 1.0A max current
-    // Calibration = 0.00512 / (Current_LSB × R_shunt)
-    // With 1.0A max: Current_LSB = 1.0 / 32768 ≈ 0.0000305A (30.5uA)
-    // Calibration = 0.00512 / (0.0000305 × shunt_resistance_ohm)
+    // Set the calibration register so the INA226's internal current and power
+    // registers can be used directly. Current_LSB is sized for a 1.0A full-scale
+    // range, which keeps the register-based readings meaningful for this project.
     uint16_t calibration = (uint16_t)(0.00512f / (INA226_CURRENT_LSB_A * shunt_resistance_ohm));
     err = ina226_write_u16(i2c_address, INA226_REG_CALIBRATION, calibration);
     if (err != ESP_OK) {
@@ -109,7 +112,11 @@ esp_err_t ina226_init(uint8_t i2c_address, float shunt_resistance_ohm)
         return err;
     }
 
-    ESP_LOGI(TAG, "INA226 calibration set to %u (max 1.0A, R_shunt=%.1fΩ)", calibration, shunt_resistance_ohm);
+    ESP_LOGI(TAG,
+             "INA226 calibration set to 0x%04X (Current_LSB=%.9fA, R_shunt=%.1fΩ)",
+             calibration,
+             INA226_CURRENT_LSB_A,
+             shunt_resistance_ohm);
     return ESP_OK;
 }
 
@@ -121,6 +128,8 @@ esp_err_t ina226_read_measurement(uint8_t i2c_address, float shunt_resistance_oh
 
     uint16_t shunt_raw_u16 = 0;
     uint16_t bus_raw_u16 = 0;
+    uint16_t current_raw_u16 = 0;
+    uint16_t power_raw_u16 = 0;
 
     esp_err_t err = ina226_read_u16(i2c_address, INA226_REG_SHUNT_VOLTAGE, &shunt_raw_u16);
     if (err != ESP_OK) {
@@ -128,6 +137,16 @@ esp_err_t ina226_read_measurement(uint8_t i2c_address, float shunt_resistance_oh
     }
 
     err = ina226_read_u16(i2c_address, INA226_REG_BUS_VOLTAGE, &bus_raw_u16);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    err = ina226_read_u16(i2c_address, INA226_REG_CURRENT, &current_raw_u16);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    err = ina226_read_u16(i2c_address, INA226_REG_POWER, &power_raw_u16);
     if (err != ESP_OK) {
         return err;
     }
@@ -148,10 +167,27 @@ esp_err_t ina226_read_measurement(uint8_t i2c_address, float shunt_resistance_oh
 
     measurement->shunt_voltage_v = (float)shunt_raw * INA226_SHUNT_VOLTAGE_LSB_V;
     measurement->bus_voltage_v = (float)bus_raw_u16 * INA226_BUS_VOLTAGE_LSB_V;
-    measurement->current_a = measurement->shunt_voltage_v / shunt_resistance_ohm;
-    measurement->power_w = measurement->bus_voltage_v * measurement->current_a;
+    measurement->raw_current_s16 = (int16_t)current_raw_u16;
+    measurement->raw_power_u16 = power_raw_u16;
+    measurement->current_a = (float)measurement->raw_current_s16 * INA226_CURRENT_LSB_A;
+    measurement->power_w = (float)measurement->raw_power_u16 * (INA226_POWER_LSB_FACTOR * INA226_CURRENT_LSB_A);
     measurement->raw_shunt_u16 = shunt_raw_u16;
     measurement->raw_bus_u16 = bus_raw_u16;
+
+    uint32_t now_ms = esp_log_timestamp();
+    if ((now_ms - s_last_internal_log_ms[i2c_address]) >= INA226_INTERNAL_LOG_INTERVAL_MS) {
+        s_last_internal_log_ms[i2c_address] = now_ms;
+        ESP_LOGI(
+            TAG,
+            "INA226 0x%02X | CAL=0x%04X | CUR_RAW=0x%04X (%d) -> %.6fA | PWR_RAW=0x%04X -> %.6fW",
+            i2c_address,
+            (uint16_t)(0.00512f / (INA226_CURRENT_LSB_A * shunt_resistance_ohm)),
+            current_raw_u16,
+            measurement->raw_current_s16,
+            measurement->current_a,
+            power_raw_u16,
+            measurement->power_w);
+    }
 
     return ESP_OK;
 }

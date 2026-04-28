@@ -1,0 +1,1173 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+[0;32mI (111) esp_image: segment 1: paddr=00031cf4 vaddr=3fc99e00 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037d3f2
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21ccch (138444) map[0m
+[0;32mI (111) esp_image: segment 1: paddr=00031cf4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b54 vaddr=40374000 size=0a4c4h ( 42180) load[0m
+[0;32mI (124) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b790h (505744) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb7b8 vaddr=4037e4c4 size=0b840h ( 47168) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c7000 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (233) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (253) app_init: Application information:[0m
+[0;32mI (253) app_init: Project name:     springMain_v2[0m
+[0;32mI (257) app_init: App version:      cfac3859-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 24 2026 12:43:58[0m
+[0;32mI (266) app_init: ELF file SHA256:  a598d42dc...[0m
+[0;32mI (271) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (275) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (293) heap_init: At 3FCA1C40 len 00047AD0 (286 KiB): RAM[0m
+[0;32mI (298) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (303) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (308) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (317) spi_flash: flash io: dio[0m
+[0;33mW (320) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (332) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (342) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (348) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (355) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (359) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x49[0m
+[0;33mW (423) SYSTEM: INA address map check: expected PUMP=0x40 (ESP_OK), LOGIC=0x41 (ESP_ERR_TIMEOUT)[0m
+[0;32mI (423) pump_operation: Pump PWM ready on A0(GPIO1) at 20000 Hz[0m
+[0;32mI (423) SYSTEM: All LEDs and buttons initialized[0m
+[0;32mI (423) SYSTEM: Battery timer: 3 minutes countdown started[0m
+[0;32mI (433) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (433) SYSTEM: TMP117 BODY (0x48) (0x48): FOUND[0m
+[0;32mI (443) tmp117: TMP117 detected at 0x49 (device id 0x0117)[0m
+[0;32mI (443) SYSTEM: TMP117 BODY (0x49) (0x49): FOUND[0m
+[1;31mE (453) tmp117: TMP117 not responding at 0x50: ESP_FAIL[0m
+[0;33mW (453) SYSTEM: TMP117 ENVIRONMENT (0x50) (0x50): NOT FOUND[0m
+[0;32mI (463) SYSTEM: TMP117 selected address: 0x48[0m
+[0;32mI (463) ina226: INA226 detected at 0x40[0m
+[0;32mI (473) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (473) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (483) ina226: INA226 detected at 0x41[0m
+[0;32mI (483) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (493) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (493) SYSTEM: PWM sync timer started: 17000 us period (58.8 Hz)[0m
+[0;32mI (503) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (513) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (513) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (513) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (523) BLE_INIT: Bluetooth MAC: 20:6e:f1:32:6b:9e[0m
+[0;32mI (533) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (603) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (603) SYSTEM: BLE initialized[0m
+[0;32mI (603) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (603) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (603) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (613) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (623) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (623) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (633) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;32mI (1013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (1013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (1143) SYSTEM: Battery: 2 minutes remaining[0m
+[0;32mI (1643) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (1643) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=-0.007mV  CURRENT=-0.006mA  POWER=0.000mW[0m
+[0;32mI (1653) SYSTEM: PUMP  0x40 raw shunt=0xFFFD raw bus=0x0000[0m
+[0;32mI (1663) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (1663) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (1673) SYSTEM: Auto mode: Temp 75.33°F -> Pump 0%[0m
+[0;32mI (2013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (2013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (2673) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (2673) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (2683) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (2683) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (2693) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (3013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (3023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (3693) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (3693) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (3703) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (3703) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (3713) SYSTEM: LOGIC 0x41 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (4023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (4023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (4713) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (4713) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.005mA  POWER=0.000mW[0m
+[0;32mI (4723) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (4723) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (4733) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (5023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFD (-3) -> -0.000005A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (5023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (5733) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (5733) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (5743) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (5743) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (5753) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (6023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (6033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (6753) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (6753) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (6763) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (6763) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (6773) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (7023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (7033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (7773) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (7773) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.005mA  POWER=0.000mW[0m
+[0;32mI (7783) SYSTEM: PUMP  0x40 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (7783) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (7793) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (8033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (8033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (8793) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (8793) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.005mA  POWER=0.000mW[0m
+[0;32mI (8803) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (8803) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (8813) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (9033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFD (-3) -> -0.000005A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (9043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (9813) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (9813) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (9823) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (9823) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (9833) SYSTEM: LOGIC 0x41 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (10033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (10043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0xFFFD (-3) -> -0.000005A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (10833) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (10833) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.005mA  POWER=0.000mW[0m
+[0;32mI (10843) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (10843) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (10853) SYSTEM: LOGIC 0x41 raw shunt=0x0001 raw bus=0x0000[0m
+[0;32mI (11043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (11043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (11853) SYSTEM: TMP117 BODY (0x48): 24.06C/75.31F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (11853) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (11863) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (11863) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (11873) SYSTEM: LOGIC 0x41 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (12043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (12043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (12873) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (12873) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (12883) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (12883) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (12893) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (13043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (13053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (13093) SYSTEM: Control mode: MANUAL - Use A2/A3 buttons to adjust pump[0m
+[0;32mI (13093) SYSTEM: Pump increased to 25%[0m
+[0;32mI (13093) SYSTEM: Pump decreased to 0%[0m
+[0;32mI (13893) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (13893) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (13903) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (13903) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (13913) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (14053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (14053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (14913) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (14913) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (14923) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (14923) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (14933) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (14933) SYSTEM: Pump increased to 25%[0m
+[0;32mI (15053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (15053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0xFFFF (-1) -> -0.000002A | PWR_RAW=0x0000 -> 0.000000W[0m
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x4037a67a  PS      : 0x00050934  A0      : 0x4037bc92  A1      : 0x3fc9b450  
+A2      : 0x00000200  A3      : 0x3fca5f50  A4      : 0x0000021f  A5      : 0x3fc9b410  
+A6      : 0x3fce9a50  A7      : 0x00000003  A8      : 0x82053f12  A9      : 0x403810c6  
+A10     : 0x00000008  A11     : 0x00000000  A12     : 0x00000000  A13     : 0x60013000  
+A14     : 0x00060723  A15     : 0x3fca611c  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+Core  0 was running in ISR context:
+EPC1    : 0x42077833  EPC2    : 0x00000000  EPC3    : 0x4037ba9f  EPC4    : 0x4037a67a
+
+
+Backtrace: 0x4037a677:0x3fc9b450 0x4037bc8f:0x3fca5f50 0x4207a7ae:0x3fca5f70 0x40381c1d:0x3fca5f90 0x40380cdd:0x3fca5fb0
+
+
+Core  1 register dump:
+PC      : 0x4037d3f2  PS      : 0x00060134  A0      : 0x8207a7b1  A1      : 0x3fca66b0  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x3fca33f0  A5      : 0x3fca33d0  
+A6      : 0x40375a9c  A7      : 0x00000001  A8      : 0x82053f12  A9      : 0x3fca6670  
+A10     : 0x00000000  A11     : 0x00000001  A12     : 0x80381041  A13     : 0x3fcea8b0  
+A14     : 0x00060023  A15     : 0x3fca687c  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x4037d3ef:0x3fca66b0 0x4207a7ae:0x3fca66d0 0x40381c1d:0x3fca66f0 0x40380cdd:0x3fca6710
+
+
+
+
+ELF file SHA256: a598d42dc
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403801e0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (34) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21ccch (138444) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=00031cf4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b54 vaddr=40374000 size=0a4c4h ( 42180) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b790h (505744) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb7b8 vaddr=4037e4c4 size=0b840h ( 47168) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c7000 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (233) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (252) app_init: Application information:[0m
+[0;32mI (252) app_init: Project name:     springMain_v2[0m
+[0;32mI (256) app_init: App version:      cfac3859-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 24 2026 12:43:58[0m
+[0;32mI (266) app_init: ELF file SHA256:  a598d42dc...[0m
+[0;32mI (270) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (274) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (292) heap_init: At 3FCA1C40 len 00047AD0 (286 KiB): RAM[0m
+[0;32mI (297) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (302) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (308) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (316) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (331) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (341) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (348) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (354) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (358) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x49[0m
+[0;33mW (423) SYSTEM: INA address map check: expected PUMP=0x40 (ESP_OK), LOGIC=0x41 (ESP_ERR_TIMEOUT)[0m
+[0;32mI (423) pump_operation: Pump PWM ready on A0(GPIO1) at 20000 Hz[0m
+[0;32mI (423) SYSTEM: All LEDs and buttons initialized[0m
+[0;32mI (423) SYSTEM: Battery timer: 3 minutes countdown started[0m
+[0;32mI (433) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (433) SYSTEM: TMP117 BODY (0x48) (0x48): FOUND[0m
+[0;32mI (443) tmp117: TMP117 detected at 0x49 (device id 0x0117)[0m
+[0;32mI (443) SYSTEM: TMP117 BODY (0x49) (0x49): FOUND[0m
+[1;31mE (453) tmp117: TMP117 not responding at 0x50: ESP_FAIL[0m
+[0;33mW (453) SYSTEM: TMP117 ENVIRONMENT (0x50) (0x50): NOT FOUND[0m
+[0;32mI (463) SYSTEM: TMP117 selected address: 0x48[0m
+[0;32mI (463) ina226: INA226 detected at 0x40[0m
+[0;32mI (473) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (473) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (483) ina226: INA226 detected at 0x41[0m
+[0;32mI (483) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (493) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (493) SYSTEM: PWM sync timer started: 17000 us period (58.8 Hz)[0m
+[0;32mI (503) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (513) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (513) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (513) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (523) BLE_INIT: Bluetooth MAC: 20:6e:f1:32:6b:9e[0m
+[0;32mI (533) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (603) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (603) SYSTEM: BLE initialized[0m
+[0;32mI (603) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (603) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (603) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (613) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (623) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (623) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (633) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;32mI (1013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0xFFFD (-3) -> -0.000005A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (1013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (1143) SYSTEM: Battery: 2 minutes remaining[0m
+[0;32mI (1643) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (1643) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (1653) SYSTEM: PUMP  0x40 raw shunt=0xFFFF raw bus=0x0000[0m
+[0;32mI (1663) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (1663) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (1673) SYSTEM: Auto mode: Temp 75.33°F -> Pump 0%[0m
+[0;32mI (2013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (2013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (2673) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (2673) SYSTEM: PUMP  0x40 | BUS=0.000V  SHUNT=0.000mV  CURRENT=-0.002mA  POWER=0.000mW[0m
+[0;32mI (2683) SYSTEM: PUMP  0x40 raw shunt=0xFFFE raw bus=0x0000[0m
+[0;32mI (2683) SYSTEM: LOGIC 0x41 | BUS=0.000V  SHUNT=0.000mV  CURRENT=0.000mA  POWER=0.000mW[0m
+[0;32mI (2693) SYSTEM: LOGIC 0x41 raw shunt=0x0000 raw bus=0x0000[0m
+[0;32mI (3013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (3023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x0000 (0) -> 0.000000A | PWR_RAW=0x0000 -> 0.000000W[0m
+[0;32mI (3693) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (3693) SYSTEM: PUMP  0x40 | BUS=13.284V  SHUNT=-0.110mV  CURRENT=0.499mA  POWER=6.656mW[0m
+[0;32mI (3703) SYSTEM: PUMP  0x40 raw shunt=0xFFD4 raw bus=0x2983[0m
+[0;32mI (3703) SYSTEM: LOGIC 0x41 | BUS=13.245V  SHUNT=42.753mV  CURRENT=32.884mA  POWER=432.914mW[0m
+[0;32mI (3713) SYSTEM: LOGIC 0x41 raw shunt=0x42CD raw bus=0x2964[0m
+[0;32mI (4023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x005E (94) -> 0.000144A | PWR_RAW=0x0029 -> 0.001568W[0m
+[0;32mI (4023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x591E (22814) -> 0.034905A | PWR_RAW=0x2BF5 -> 0.430427W[0m
+[0;32mI (4713) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (4713) SYSTEM: PUMP  0x40 | BUS=13.289V  SHUNT=0.135mV  CURRENT=0.104mA  POWER=1.377mW[0m
+[0;32mI (4723) SYSTEM: PUMP  0x40 raw shunt=0x0036 raw bus=0x2987[0m
+[0;32mI (4723) SYSTEM: LOGIC 0x41 | BUS=13.246V  SHUNT=42.775mV  CURRENT=32.901mA  POWER=433.793mW[0m
+[0;32mI (4733) SYSTEM: LOGIC 0x41 raw shunt=0x42D6 raw bus=0x2965[0m
+[0;32mI (5023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x004B (75) -> 0.000115A | PWR_RAW=0x0027 -> 0.001492W[0m
+[0;32mI (5023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x58D9 (22745) -> 0.034800A | PWR_RAW=0x2BFA -> 0.430618W[0m
+[0;32mI (5733) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (5733) SYSTEM: PUMP  0x40 | BUS=13.289V  SHUNT=0.145mV  CURRENT=0.112mA  POWER=1.760mW[0m
+[0;32mI (5743) SYSTEM: PUMP  0x40 raw shunt=0x003A raw bus=0x2987[0m
+[0;32mI (5743) SYSTEM: LOGIC 0x41 | BUS=13.244V  SHUNT=42.375mV  CURRENT=32.594mA  POWER=569.351mW[0m
+[0;32mI (5753) SYSTEM: LOGIC 0x41 raw shunt=0x4236 raw bus=0x2963[0m
+[0;32mI (6023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0055 (85) -> 0.000130A | PWR_RAW=0x0029 -> 0.001568W[0m
+[0;32mI (6033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x58FC (22780) -> 0.034853A | PWR_RAW=0x2C4D -> 0.433793W[0m
+[0;32mI (6753) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (6753) SYSTEM: PUMP  0x40 | BUS=13.286V  SHUNT=0.157mV  CURRENT=0.121mA  POWER=1.874mW[0m
+[0;32mI (6763) SYSTEM: PUMP  0x40 raw shunt=0x003F raw bus=0x2985[0m
+[0;32mI (6763) SYSTEM: LOGIC 0x41 | BUS=13.246V  SHUNT=42.455mV  CURRENT=32.583mA  POWER=431.536mW[0m
+[0;32mI (6773) SYSTEM: LOGIC 0x41 raw shunt=0x4256 raw bus=0x2965[0m
+[0;32mI (7023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0049 (73) -> 0.000112A | PWR_RAW=0x0027 -> 0.001492W[0m
+[0;32mI (7033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5935 (22837) -> 0.034941A | PWR_RAW=0x2C43 -> 0.433411W[0m
+[0;32mI (7773) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (7773) SYSTEM: PUMP  0x40 | BUS=13.286V  SHUNT=0.170mV  CURRENT=0.130mA  POWER=1.874mW[0m
+[0;32mI (7783) SYSTEM: PUMP  0x40 raw shunt=0x0044 raw bus=0x2985[0m
+[0;32mI (7783) SYSTEM: LOGIC 0x41 | BUS=13.244V  SHUNT=42.307mV  CURRENT=32.825mA  POWER=434.750mW[0m
+[0;32mI (7793) SYSTEM: LOGIC 0x41 raw shunt=0x421B raw bus=0x2963[0m
+[0;32mI (8033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0059 (89) -> 0.000136A | PWR_RAW=0x0030 -> 0.001836W[0m
+[0;32mI (8033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59FD (23037) -> 0.035247A | PWR_RAW=0x2C6E -> 0.435055W[0m
+[0;32mI (8243) SYSTEM: Control mode: MANUAL - Use A2/A3 buttons to adjust pump[0m
+[0;32mI (8243) SYSTEM: Pump increased to 25%[0m
+[0;32mI (8243) SYSTEM: Pump decreased to 0%[0m
+[0;32mI (8793) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (8793) SYSTEM: PUMP  0x40 | BUS=13.286V  SHUNT=0.175mV  CURRENT=0.135mA  POWER=1.492mW[0m
+[0;32mI (8803) SYSTEM: PUMP  0x40 raw shunt=0x0046 raw bus=0x2985[0m
+[0;32mI (8803) SYSTEM: LOGIC 0x41 | BUS=13.251V  SHUNT=33.737mV  CURRENT=25.950mA  POWER=342.605mW[0m
+[0;32mI (8813) SYSTEM: LOGIC 0x41 raw shunt=0x34B7 raw bus=0x2969[0m
+[0;32mI (9033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0055 (85) -> 0.000130A | PWR_RAW=0x0031 -> 0.001874W[0m
+[0;32mI (9043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x418D (16781) -> 0.025675A | PWR_RAW=0x1F9F -> 0.309634W[0m
+[0;32mI (9463) SYSTEM: Pump increased to 25%[0m
+[0;32mI (9813) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (9813) SYSTEM: PUMP  0x40 | BUS=13.252V  SHUNT=22.695mV  CURRENT=17.407mA  POWER=230.762mW[0m
+[0;32mI (9823) SYSTEM: PUMP  0x40 raw shunt=0x2376 raw bus=0x296A[0m
+[0;32mI (9823) SYSTEM: LOGIC 0x41 | BUS=13.241V  SHUNT=38.303mV  CURRENT=29.462mA  POWER=387.358mW[0m
+[0;32mI (9833) SYSTEM: LOGIC 0x41 raw shunt=0x3BD9 raw bus=0x2961[0m
+[0;32mI (10033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x2A3B (10811) -> 0.016541A | PWR_RAW=0x1665 -> 0.219287W[0m
+[0;32mI (10043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x493F (18751) -> 0.028689A | PWR_RAW=0x2470 -> 0.356796W[0m
+[0;32mI (10083) SYSTEM: Pump increased to 50%[0m
+[0;33mW (10083) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;32mI (10483) SYSTEM: Pump increased to 75%[0m
+[0;33mW (10493) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;33mW (10513) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;32mI (10783) SYSTEM: Pump increased to 100%[0m
+[0;33mW (10783) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;33mW (10803) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;33mW (10823) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;32mI (10833) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;33mW (10833) SYSTEM: PUMP read failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;33mW (10833) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;32mI (10833) SYSTEM: LOGIC 0x41 | BUS=13.212V  SHUNT=46.915mV  CURRENT=36.087mA  POWER=465.885mW[0m
+[0;32mI (10853) SYSTEM: LOGIC 0x41 raw shunt=0x494E raw bus=0x294A[0m
+[0;32mI (11043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4397 -> 0.661840W[0m
+[0;32mI (11043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x56F5 (22261) -> 0.034059A | PWR_RAW=0x2BFF -> 0.430810W[0m
+[0;32mI (11113) SYSTEM: Pump increased to 100%[0m
+[0;32mI (11863) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (11863) SYSTEM: PUMP  0x40 | BUS=13.199V  SHUNT=60.423mV  CURRENT=46.475mA  POWER=661.725mW[0m
+[0;32mI (11873) SYSTEM: PUMP  0x40 raw shunt=0x5E69 raw bus=0x293F[0m
+[0;32mI (11873) SYSTEM: LOGIC 0x41 | BUS=13.216V  SHUNT=45.787mV  CURRENT=35.248mA  POWER=465.962mW[0m
+[0;32mI (11883) SYSTEM: LOGIC 0x41 raw shunt=0x478B raw bus=0x294D[0m
+[0;32mI (12043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4391 -> 0.661610W[0m
+[0;32mI (12043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5699 (22169) -> 0.033919A | PWR_RAW=0x2C07 -> 0.431116W[0m
+[0;32mI (12903) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (12903) SYSTEM: PUMP  0x40 | BUS=13.189V  SHUNT=70.882mV  CURRENT=50.134mA  POWER=660.807mW[0m
+[0;32mI (12903) SYSTEM: PUMP  0x40 raw shunt=0x6EC1 raw bus=0x2937[0m
+[0;32mI (12913) SYSTEM: LOGIC 0x41 | BUS=13.217V  SHUNT=45.782mV  CURRENT=35.214mA  POWER=462.251mW[0m
+[0;32mI (12923) SYSTEM: LOGIC 0x41 raw shunt=0x4789 raw bus=0x294E[0m
+[0;32mI (13043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4393 -> 0.661687W[0m
+[0;32mI (13053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5515 (21781) -> 0.033325A | PWR_RAW=0x2C30 -> 0.432684W[0m
+[0;32mI (13923) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (13923) SYSTEM: PUMP  0x40 | BUS=13.189V  SHUNT=69.250mV  CURRENT=50.134mA  POWER=661.534mW[0m
+[0;32mI (13933) SYSTEM: PUMP  0x40 raw shunt=0x6C34 raw bus=0x2937[0m
+[0;32mI (13933) SYSTEM: LOGIC 0x41 | BUS=13.215V  SHUNT=46.055mV  CURRENT=35.424mA  POWER=465.120mW[0m
+[0;32mI (13943) SYSTEM: LOGIC 0x41 raw shunt=0x47F6 raw bus=0x294C[0m
+[0;32mI (14053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x438C -> 0.661419W[0m
+[0;32mI (14053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53DF (21471) -> 0.032851A | PWR_RAW=0x2C59 -> 0.434252W[0m
+[0;32mI (14943) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (14943) SYSTEM: PUMP  0x40 | BUS=13.189V  SHUNT=70.107mV  CURRENT=50.134mA  POWER=645.392mW[0m
+[0;32mI (14953) SYSTEM: PUMP  0x40 raw shunt=0x6D8B raw bus=0x2937[0m
+[0;32mI (14953) SYSTEM: LOGIC 0x41 | BUS=13.214V  SHUNT=45.505mV  CURRENT=35.270mA  POWER=466.076mW[0m
+[0;32mI (14963) SYSTEM: LOGIC 0x41 raw shunt=0x471A raw bus=0x294B[0m
+[0;32mI (15053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4389 -> 0.661304W[0m
+[0;32mI (15053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x7DA2 (32162) -> 0.049208A | PWR_RAW=0x424B -> 0.649141W[0m
+[0;32mI (15963) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (15963) SYSTEM: PUMP  0x40 | BUS=13.185V  SHUNT=73.405mV  CURRENT=50.134mA  POWER=661.343mW[0m
+[0;32mI (15973) SYSTEM: PUMP  0x40 raw shunt=0x72B2 raw bus=0x2934[0m
+[0;32mI (15973) SYSTEM: LOGIC 0x41 | BUS=13.212V  SHUNT=45.743mV  CURRENT=35.069mA  POWER=463.322mW[0m
+[0;32mI (15983) SYSTEM: LOGIC 0x41 raw shunt=0x4779 raw bus=0x294A[0m
+[0;32mI (16053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4375 -> 0.660539W[0m
+[0;32mI (16063) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53B0 (21424) -> 0.032779A | PWR_RAW=0x2C3E -> 0.433219W[0m
+[0;32mI (16983) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (16983) SYSTEM: PUMP  0x40 | BUS=13.176V  SHUNT=64.472mV  CURRENT=49.592mA  POWER=661.113mW[0m
+[0;32mI (16993) SYSTEM: PUMP  0x40 raw shunt=0x64BD raw bus=0x292D[0m
+[0;32mI (16993) SYSTEM: LOGIC 0x41 | BUS=13.209V  SHUNT=45.583mV  CURRENT=35.240mA  POWER=465.656mW[0m
+[0;32mI (17003) SYSTEM: LOGIC 0x41 raw shunt=0x4739 raw bus=0x2947[0m
+[0;32mI (17053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4249 -> 0.649064W[0m
+[0;32mI (17063) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53B3 (21427) -> 0.032783A | PWR_RAW=0x2C3E -> 0.433219W[0m
+[0;32mI (18003) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (18003) SYSTEM: PUMP  0x40 | BUS=13.188V  SHUNT=65.767mV  CURRENT=50.134mA  POWER=661.113mW[0m
+[0;32mI (18013) SYSTEM: PUMP  0x40 raw shunt=0x66C3 raw bus=0x2936[0m
+[0;32mI (18013) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=45.392mV  CURRENT=34.915mA  POWER=464.508mW[0m
+[0;32mI (18023) SYSTEM: LOGIC 0x41 raw shunt=0x46ED raw bus=0x2946[0m
+[0;32mI (18063) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FEB (32747) -> 0.050103A | PWR_RAW=0x4377 -> 0.660616W[0m
+[0;32mI (18063) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5542 (21826) -> 0.033394A | PWR_RAW=0x2D0F -> 0.441214W[0m
+[0;32mI (19023) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (19023) SYSTEM: PUMP  0x40 | BUS=13.185V  SHUNT=67.225mV  CURRENT=50.134mA  POWER=661.113mW[0m
+[0;32mI (19033) SYSTEM: PUMP  0x40 raw shunt=0x690A raw bus=0x2934[0m
+[0;32mI (19033) SYSTEM: LOGIC 0x41 | BUS=13.209V  SHUNT=45.750mV  CURRENT=35.190mA  POWER=462.328mW[0m
+[0;32mI (19043) SYSTEM: LOGIC 0x41 raw shunt=0x477C raw bus=0x2947[0m
+[0;32mI (19063) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7EC9 (32457) -> 0.049659A | PWR_RAW=0x4335 -> 0.658091W[0m
+[0;32mI (19073) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x56A0 (22176) -> 0.033929A | PWR_RAW=0x2DC8 -> 0.448290W[0m
+[0;32mI (20043) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (20043) SYSTEM: PUMP  0x40 | BUS=13.185V  SHUNT=66.847mV  CURRENT=49.912mA  POWER=657.479mW[0m
+[0;32mI (20053) SYSTEM: PUMP  0x40 raw shunt=0x6873 raw bus=0x2934[0m
+[0;32mI (20053) SYSTEM: LOGIC 0x41 | BUS=13.205V  SHUNT=45.842mV  CURRENT=35.262mA  POWER=466.497mW[0m
+[0;32mI (20063) SYSTEM: LOGIC 0x41 raw shunt=0x47A1 raw bus=0x2944[0m
+[0;32mI (20063) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4380 -> 0.660960W[0m
+[0;32mI (20083) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53E1 (21473) -> 0.032854A | PWR_RAW=0x2C55 -> 0.434099W[0m
+[0;32mI (21063) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (21063) SYSTEM: PUMP  0x40 | BUS=13.184V  SHUNT=65.677mV  CURRENT=50.134mA  POWER=660.960mW[0m
+[0;32mI (21073) SYSTEM: PUMP  0x40 raw shunt=0x669F raw bus=0x2933[0m
+[0;32mI (21073) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4378 -> 0.660654W[0m
+[0;32mI (21073) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=45.607mV  CURRENT=35.080mA  POWER=463.246mW[0m
+[0;32mI (21093) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5E85 (24197) -> 0.037021A | PWR_RAW=0x3360 -> 0.503064W[0m
+[0;32mI (21093) SYSTEM: LOGIC 0x41 raw shunt=0x4743 raw bus=0x2946[0m
+[0;32mI (22073) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4375 -> 0.660539W[0m
+[0;32mI (22093) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59CF (22991) -> 0.035176A | PWR_RAW=0x2F72 -> 0.464584W[0m
+[0;32mI (22103) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (22103) SYSTEM: PUMP  0x40 | BUS=13.184V  SHUNT=62.970mV  CURRENT=50.134mA  POWER=661.113mW[0m
+[0;32mI (22113) SYSTEM: PUMP  0x40 raw shunt=0x6264 raw bus=0x2933[0m
+[0;32mI (22113) SYSTEM: LOGIC 0x41 | BUS=13.206V  SHUNT=45.932mV  CURRENT=35.176mA  POWER=464.585mW[0m
+[0;32mI (22123) SYSTEM: LOGIC 0x41 raw shunt=0x47C5 raw bus=0x2945[0m
+[0;32mI (23073) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x437C -> 0.660807W[0m
+[0;32mI (23093) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5A0C (23052) -> 0.035270A | PWR_RAW=0x2F8F -> 0.465694W[0m
+[0;32mI (23133) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (23133) SYSTEM: PUMP  0x40 | BUS=13.177V  SHUNT=63.925mV  CURRENT=49.170mA  POWER=648.490mW[0m
+[0;32mI (23143) SYSTEM: PUMP  0x40 raw shunt=0x63E2 raw bus=0x292E[0m
+[0;32mI (23143) SYSTEM: LOGIC 0x41 | BUS=13.206V  SHUNT=45.472mV  CURRENT=34.977mA  POWER=465.273mW[0m
+[0;32mI (23153) SYSTEM: LOGIC 0x41 raw shunt=0x470D raw bus=0x2945[0m
+[0;32mI (24083) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x437C -> 0.660807W[0m
+[0;32mI (24103) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59FF (23039) -> 0.035250A | PWR_RAW=0x2F87 -> 0.465388W[0m
+[0;32mI (24163) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (24163) SYSTEM: PUMP  0x40 | BUS=13.182V  SHUNT=68.910mV  CURRENT=50.134mA  POWER=661.113mW[0m
+[0;32mI (24173) SYSTEM: PUMP  0x40 raw shunt=0x6BAC raw bus=0x2932[0m
+[0;32mI (24173) SYSTEM: LOGIC 0x41 | BUS=13.204V  SHUNT=45.905mV  CURRENT=35.309mA  POWER=466.191mW[0m
+[0;32mI (24183) SYSTEM: LOGIC 0x41 raw shunt=0x47BA raw bus=0x2943[0m
+[0;32mI (25083) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7EC1 (32449) -> 0.049647A | PWR_RAW=0x42CE -> 0.654151W[0m
+[0;32mI (25103) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59A5 (22949) -> 0.035112A | PWR_RAW=0x2F59 -> 0.463628W[0m
+[0;32mI (25183) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (25183) SYSTEM: PUMP  0x40 | BUS=13.179V  SHUNT=67.752mV  CURRENT=48.883mA  POWER=643.747mW[0m
+[0;32mI (25193) SYSTEM: PUMP  0x40 raw shunt=0x69DD raw bus=0x292F[0m
+[0;32mI (25193) SYSTEM: LOGIC 0x41 | BUS=13.204V  SHUNT=45.740mV  CURRENT=35.204mA  POWER=464.776mW[0m
+[0;32mI (25203) SYSTEM: LOGIC 0x41 raw shunt=0x4778 raw bus=0x2943[0m
+[0;32mI (26083) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7C59 (31833) -> 0.048704A | PWR_RAW=0x418E -> 0.641912W[0m
+[0;32mI (26103) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5992 (22930) -> 0.035083A | PWR_RAW=0x2F4C -> 0.463131W[0m
+[0;32mI (26203) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (26203) SYSTEM: PUMP  0x40 | BUS=13.176V  SHUNT=72.255mV  CURRENT=50.134mA  POWER=660.922mW[0m
+[0;32mI (26213) SYSTEM: PUMP  0x40 raw shunt=0x70E6 raw bus=0x292D[0m
+[0;32mI (26213) SYSTEM: LOGIC 0x41 | BUS=13.204V  SHUNT=45.803mV  CURRENT=35.026mA  POWER=462.366mW[0m
+[0;32mI (26223) SYSTEM: LOGIC 0x41 raw shunt=0x4791 raw bus=0x2943[0m
+[0;32mI (27083) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7CBF (31935) -> 0.048861A | PWR_RAW=0x436E -> 0.660272W[0m
+[0;32mI (27113) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59EA (23018) -> 0.035218A | PWR_RAW=0x2F7B -> 0.464929W[0m
+[0;32mI (27223) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (27223) SYSTEM: PUMP  0x40 | BUS=13.179V  SHUNT=67.202mV  CURRENT=50.134mA  POWER=660.616mW[0m
+[0;32mI (27233) SYSTEM: PUMP  0x40 raw shunt=0x6901 raw bus=0x292F[0m
+[0;32mI (27233) SYSTEM: LOGIC 0x41 | BUS=13.200V  SHUNT=45.722mV  CURRENT=35.169mA  POWER=462.749mW[0m
+[0;32mI (27243) SYSTEM: LOGIC 0x41 raw shunt=0x4771 raw bus=0x2940[0m
+[0;32mI (28093) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7CA5 (31909) -> 0.048821A | PWR_RAW=0x41A7 -> 0.642868W[0m
+[0;32mI (28113) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59E7 (23015) -> 0.035213A | PWR_RAW=0x2F7A -> 0.464891W[0m
+[0;32mI (28243) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (28243) SYSTEM: PUMP  0x40 | BUS=13.170V  SHUNT=64.715mV  CURRENT=49.777mA  POWER=655.605mW[0m
+[0;32mI (28253) SYSTEM: PUMP  0x40 raw shunt=0x651E raw bus=0x2928[0m
+[0;32mI (28253) SYSTEM: LOGIC 0x41 | BUS=13.200V  SHUNT=45.705mV  CURRENT=35.155mA  POWER=466.459mW[0m
+[0;32mI (28263) SYSTEM: LOGIC 0x41 raw shunt=0x476A raw bus=0x2940[0m
+[0;32mI (29093) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7D4A (32074) -> 0.049073A | PWR_RAW=0x4377 -> 0.660616W[0m
+[0;32mI (29113) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59A7 (22951) -> 0.035115A | PWR_RAW=0x2FBA -> 0.467339W[0m
+[0;32mI (29263) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (29263) SYSTEM: PUMP  0x40 | BUS=13.175V  SHUNT=65.757mV  CURRENT=50.134mA  POWER=660.348mW[0m
+[0;32mI (29273) SYSTEM: PUMP  0x40 raw shunt=0x66BF raw bus=0x292C[0m
+[0;32mI (29273) SYSTEM: LOGIC 0x41 | BUS=13.200V  SHUNT=45.807mV  CURRENT=35.234mA  POWER=469.786mW[0m
+[0;32mI (29283) SYSTEM: LOGIC 0x41 raw shunt=0x4793 raw bus=0x2940[0m
+[0;32mI (30093) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x436D -> 0.660233W[0m
+[0;32mI (30113) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59BB (22971) -> 0.035146A | PWR_RAW=0x2F8F -> 0.465694W[0m
+[0;32mI (30283) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (30283) SYSTEM: PUMP  0x40 | BUS=13.170V  SHUNT=64.912mV  CURRENT=49.930mA  POWER=655.261mW[0m
+[0;32mI (30293) SYSTEM: PUMP  0x40 raw shunt=0x656D raw bus=0x2928[0m
+[0;32mI (30293) SYSTEM: LOGIC 0x41 | BUS=13.200V  SHUNT=45.852mV  CURRENT=35.270mA  POWER=465.579mW[0m
+[0;32mI (30303) SYSTEM: LOGIC 0x41 raw shunt=0x47A5 raw bus=0x2940[0m
+[0;32mI (31103) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4370 -> 0.660348W[0m
+[0;32mI (31123) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5A2B (23083) -> 0.035317A | PWR_RAW=0x2F77 -> 0.464776W[0m
+[0;32mI (31303) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (31303) SYSTEM: PUMP  0x40 | BUS=13.174V  SHUNT=65.967mV  CURRENT=50.134mA  POWER=660.157mW[0m
+[0;32mI (31313) SYSTEM: PUMP  0x40 raw shunt=0x6713 raw bus=0x292B[0m
+[0;32mI (31313) SYSTEM: LOGIC 0x41 | BUS=13.200V  SHUNT=45.872mV  CURRENT=35.060mA  POWER=462.710mW[0m
+[0;32mI (31323) SYSTEM: LOGIC 0x41 raw shunt=0x47AD raw bus=0x2940[0m
+[0;32mI (32103) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4377 -> 0.660616W[0m
+[0;32mI (32123) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59CE (22990) -> 0.035175A | PWR_RAW=0x2F51 -> 0.463322W[0m
+[0;32mI (32323) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (32323) SYSTEM: PUMP  0x40 | BUS=13.167V  SHUNT=63.470mV  CURRENT=48.821mA  POWER=644.551mW[0m
+[0;32mI (32333) SYSTEM: PUMP  0x40 raw shunt=0x632C raw bus=0x2926[0m
+[0;32mI (32333) SYSTEM: LOGIC 0x41 | BUS=13.195V  SHUNT=45.858mV  CURRENT=35.211mA  POWER=464.699mW[0m
+[0;32mI (32343) SYSTEM: LOGIC 0x41 raw shunt=0x47A7 raw bus=0x293C[0m
+[0;32mI (33103) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4363 -> 0.659851W[0m
+[0;32mI (33123) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59D8 (23000) -> 0.035190A | PWR_RAW=0x2F89 -> 0.465464W[0m
+[0;32mI (33343) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (33343) SYSTEM: PUMP  0x40 | BUS=13.171V  SHUNT=70.302mV  CURRENT=50.134mA  POWER=659.851mW[0m
+[0;32mI (33353) SYSTEM: PUMP  0x40 raw shunt=0x6DD9 raw bus=0x2929[0m
+[0;32mI (33353) SYSTEM: LOGIC 0x41 | BUS=13.197V  SHUNT=45.625mV  CURRENT=35.094mA  POWER=467.721mW[0m
+[0;32mI (33363) SYSTEM: LOGIC 0x41 raw shunt=0x474A raw bus=0x293E[0m
+[0;32mI (34113) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4378 -> 0.660654W[0m
+[0;32mI (34133) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5981 (22913) -> 0.035057A | PWR_RAW=0x2F7D -> 0.465005W[0m
+[0;32mI (34363) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (34363) SYSTEM: PUMP  0x40 | BUS=13.165V  SHUNT=64.902mV  CURRENT=50.134mA  POWER=660.348mW[0m
+[0;32mI (34373) SYSTEM: PUMP  0x40 raw shunt=0x6569 raw bus=0x2924[0m
+[0;32mI (34373) SYSTEM: LOGIC 0x41 | BUS=13.195V  SHUNT=45.715mV  CURRENT=35.164mA  POWER=464.011mW[0m
+[0;32mI (34383) SYSTEM: LOGIC 0x41 raw shunt=0x476E raw bus=0x293C[0m
+[0;32mI (35113) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4157 -> 0.639808W[0m
+[0;32mI (35133) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x555B (21851) -> 0.033432A | PWR_RAW=0x2F4E -> 0.463208W[0m
+[0;32mI (35383) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (35383) SYSTEM: PUMP  0x40 | BUS=13.172V  SHUNT=75.715mV  CURRENT=50.134mA  POWER=660.157mW[0m
+[0;32mI (35393) SYSTEM: PUMP  0x40 raw shunt=0x764E raw bus=0x292A[0m
+[0;32mI (35393) SYSTEM: LOGIC 0x41 | BUS=13.195V  SHUNT=45.870mV  CURRENT=35.282mA  POWER=463.743mW[0m
+[0;32mI (35403) SYSTEM: LOGIC 0x41 raw shunt=0x47AC raw bus=0x293C[0m
+[0;32mI (36113) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4373 -> 0.660463W[0m
+[0;32mI (36133) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53C3 (21443) -> 0.032808A | PWR_RAW=0x2C36 -> 0.432914W[0m
+[0;32mI (36403) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (36403) SYSTEM: PUMP  0x40 | BUS=13.171V  SHUNT=72.000mV  CURRENT=50.134mA  POWER=660.348mW[0m
+[0;32mI (36413) SYSTEM: PUMP  0x40 raw shunt=0x7080 raw bus=0x2929[0m
+[0;32mI (36413) SYSTEM: LOGIC 0x41 | BUS=13.194V  SHUNT=45.805mV  CURRENT=35.233mA  POWER=464.891mW[0m
+[0;32mI (36423) SYSTEM: LOGIC 0x41 raw shunt=0x4792 raw bus=0x293B[0m
+[0;32mI (37113) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x436E -> 0.660272W[0m
+[0;32mI (37143) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53A2 (21410) -> 0.032757A | PWR_RAW=0x2C26 -> 0.432301W[0m
+[0;32mI (37423) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (37423) SYSTEM: PUMP  0x40 | BUS=13.172V  SHUNT=68.655mV  CURRENT=50.134mA  POWER=660.616mW[0m
+[0;32mI (37433) SYSTEM: PUMP  0x40 raw shunt=0x6B46 raw bus=0x292A[0m
+[0;32mI (37433) SYSTEM: LOGIC 0x41 | BUS=13.195V  SHUNT=45.817mV  CURRENT=35.213mA  POWER=464.508mW[0m
+[0;32mI (37443) SYSTEM: LOGIC 0x41 raw shunt=0x4797 raw bus=0x293C[0m
+[0;32mI (38123) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7B00 (31488) -> 0.048177A | PWR_RAW=0x40D2 -> 0.634721W[0m
+[0;32mI (38143) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x543E (21566) -> 0.032996A | PWR_RAW=0x2C78 -> 0.435438W[0m
+[0;32mI (38443) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (38443) SYSTEM: PUMP  0x40 | BUS=13.167V  SHUNT=65.368mV  CURRENT=50.134mA  POWER=656.026mW[0m
+[0;32mI (38453) SYSTEM: PUMP  0x40 raw shunt=0x6623 raw bus=0x2926[0m
+[0;32mI (38453) SYSTEM: LOGIC 0x41 | BUS=13.193V  SHUNT=45.710mV  CURRENT=35.265mA  POWER=465.273mW[0m
+[0;32mI (38463) SYSTEM: LOGIC 0x41 raw shunt=0x476C raw bus=0x293A[0m
+[0;32mI (39123) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x436D -> 0.660233W[0m
+[0;32mI (39143) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53B6 (21430) -> 0.032788A | PWR_RAW=0x2C30 -> 0.432684W[0m
+[0;32mI (39463) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (39463) SYSTEM: PUMP  0x40 | BUS=13.169V  SHUNT=72.430mV  CURRENT=50.134mA  POWER=649.026mW[0m
+[0;32mI (39473) SYSTEM: PUMP  0x40 raw shunt=0x712C raw bus=0x2927[0m
+[0;32mI (39473) SYSTEM: LOGIC 0x41 | BUS=13.193V  SHUNT=45.573mV  CURRENT=35.367mA  POWER=466.574mW[0m
+[0;32mI (39483) SYSTEM: LOGIC 0x41 raw shunt=0x4735 raw bus=0x293A[0m
+[0;32mI (40123) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x41F2 -> 0.645737W[0m
+[0;32mI (40143) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x6D25 (27941) -> 0.042750A | PWR_RAW=0x3979 -> 0.562772W[0m
+[0;32mI (40483) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (40483) SYSTEM: PUMP  0x40 | BUS=13.170V  SHUNT=62.160mV  CURRENT=47.812mA  POWER=660.425mW[0m
+[0;32mI (40493) SYSTEM: PUMP  0x40 raw shunt=0x6120 raw bus=0x2928[0m
+[0;32mI (40493) SYSTEM: LOGIC 0x41 | BUS=13.194V  SHUNT=46.010mV  CURRENT=35.390mA  POWER=463.437mW[0m
+[0;32mI (40503) SYSTEM: LOGIC 0x41 raw shunt=0x47E4 raw bus=0x293B[0m
+[0;32mI (41133) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7923 (31011) -> 0.047447A | PWR_RAW=0x3FCF -> 0.624814W[0m
+[0;32mI (41153) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53C2 (21442) -> 0.032806A | PWR_RAW=0x2C33 -> 0.432799W[0m
+[0;32mI (41503) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (41503) SYSTEM: PUMP  0x40 | BUS=13.166V  SHUNT=66.235mV  CURRENT=50.134mA  POWER=660.119mW[0m
+[0;32mI (41513) SYSTEM: PUMP  0x40 raw shunt=0x677E raw bus=0x2925[0m
+[0;32mI (41513) SYSTEM: LOGIC 0x41 | BUS=13.190V  SHUNT=45.923mV  CURRENT=35.323mA  POWER=464.814mW[0m
+[0;32mI (41523) SYSTEM: LOGIC 0x41 raw shunt=0x47C1 raw bus=0x2938[0m
+[0;32mI (42133) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x40E7 -> 0.635524W[0m
+[0;32mI (42153) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x540B (21515) -> 0.032918A | PWR_RAW=0x2C5A -> 0.434290W[0m
+[0;32mI (42523) SYSTEM: TMP117 BODY (0x48): 24.09C/75.37F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (42523) SYSTEM: PUMP  0x40 | BUS=13.154V  SHUNT=64.035mV  CURRENT=47.555mA  POWER=626.191mW[0m
+[0;32mI (42533) SYSTEM: PUMP  0x40 raw shunt=0x640E raw bus=0x291B[0m
+[0;32mI (42533) SYSTEM: LOGIC 0x41 | BUS=13.190V  SHUNT=45.677mV  CURRENT=35.135mA  POWER=465.197mW[0m
+[0;32mI (42543) SYSTEM: LOGIC 0x41 raw shunt=0x475F raw bus=0x2938[0m
+[0;32mI (43133) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4363 -> 0.659851W[0m
+[0;32mI (43153) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5477 (21623) -> 0.033083A | PWR_RAW=0x2C47 -> 0.433564W[0m
+[0;32mI (43543) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (43543) SYSTEM: PUMP  0x40 | BUS=13.166V  SHUNT=67.512mV  CURRENT=50.134mA  POWER=660.233mW[0m
+[0;32mI (43553) SYSTEM: PUMP  0x40 raw shunt=0x697D raw bus=0x2925[0m
+[0;32mI (43553) SYSTEM: LOGIC 0x41 | BUS=13.190V  SHUNT=45.795mV  CURRENT=35.233mA  POWER=464.776mW[0m
+[0;32mI (43563) SYSTEM: LOGIC 0x41 raw shunt=0x478E raw bus=0x2938[0m
+[0;32mI (44143) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x436D -> 0.660233W[0m
+[0;32mI (44163) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5376 (21366) -> 0.032690A | PWR_RAW=0x2C7D -> 0.435629W[0m
+[0;32mI (44563) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (44563) SYSTEM: PUMP  0x40 | BUS=13.160V  SHUNT=65.885mV  CURRENT=50.134mA  POWER=659.774mW[0m
+[0;32mI (44573) SYSTEM: PUMP  0x40 raw shunt=0x66F2 raw bus=0x2920[0m
+[0;32mI (44573) SYSTEM: LOGIC 0x41 | BUS=13.190V  SHUNT=45.592mV  CURRENT=35.309mA  POWER=465.694mW[0m
+[0;32mI (44583) SYSTEM: LOGIC 0x41 raw shunt=0x473D raw bus=0x2938[0m
+[0;32mI (45143) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4366 -> 0.659966W[0m
+[0;32mI (45163) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53F8 (21496) -> 0.032889A | PWR_RAW=0x2C31 -> 0.432722W[0m
+[0;32mI (45583) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (45583) SYSTEM: PUMP  0x40 | BUS=13.157V  SHUNT=65.640mV  CURRENT=50.134mA  POWER=619.382mW[0m
+[0;32mI (45593) SYSTEM: PUMP  0x40 raw shunt=0x6690 raw bus=0x291E[0m
+[0;32mI (45593) SYSTEM: LOGIC 0x41 | BUS=13.189V  SHUNT=45.852mV  CURRENT=35.337mA  POWER=466.076mW[0m
+[0;32mI (45603) SYSTEM: LOGIC 0x41 raw shunt=0x47A5 raw bus=0x2937[0m
+[0;32mI (46143) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4368 -> 0.660042W[0m
+[0;32mI (46163) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5407 (21511) -> 0.032912A | PWR_RAW=0x2C19 -> 0.431804W[0m
+[0;32mI (46603) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (46603) SYSTEM: PUMP  0x40 | BUS=13.161V  SHUNT=64.162mV  CURRENT=49.353mA  POWER=659.774mW[0m
+[0;32mI (46613) SYSTEM: PUMP  0x40 raw shunt=0x6441 raw bus=0x2921[0m
+[0;32mI (46613) SYSTEM: LOGIC 0x41 | BUS=13.185V  SHUNT=46.100mV  CURRENT=35.459mA  POWER=600.946mW[0m
+[0;32mI (46623) SYSTEM: LOGIC 0x41 raw shunt=0x4808 raw bus=0x2934[0m
+[0;32mI (47143) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7EE7 (32487) -> 0.049705A | PWR_RAW=0x4365 -> 0.659927W[0m
+[0;32mI (47173) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53B1 (21425) -> 0.032780A | PWR_RAW=0x2C29 -> 0.432416W[0m
+[0;32mI (47623) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (47623) SYSTEM: PUMP  0x40 | BUS=13.164V  SHUNT=67.030mV  CURRENT=50.134mA  POWER=660.233mW[0m
+[0;32mI (47633) SYSTEM: PUMP  0x40 raw shunt=0x68BC raw bus=0x2923[0m
+[0;32mI (47633) SYSTEM: LOGIC 0x41 | BUS=13.188V  SHUNT=45.833mV  CURRENT=35.254mA  POWER=465.311mW[0m
+[0;32mI (47643) SYSTEM: LOGIC 0x41 raw shunt=0x479D raw bus=0x2936[0m
+[0;32mI (48153) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4368 -> 0.660042W[0m
+[0;32mI (48173) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5339 (21305) -> 0.032597A | PWR_RAW=0x2C5F -> 0.434482W[0m
+[0;32mI (48643) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (48643) SYSTEM: PUMP  0x40 | BUS=13.161V  SHUNT=65.892mV  CURRENT=50.134mA  POWER=659.966mW[0m
+[0;32mI (48653) SYSTEM: PUMP  0x40 raw shunt=0x66F5 raw bus=0x2921[0m
+[0;32mI (48653) SYSTEM: LOGIC 0x41 | BUS=13.186V  SHUNT=45.615mV  CURRENT=35.086mA  POWER=465.656mW[0m
+[0;32mI (48663) SYSTEM: LOGIC 0x41 raw shunt=0x4746 raw bus=0x2935[0m
+[0;32mI (49153) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x4361 -> 0.659774W[0m
+[0;32mI (49173) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5410 (21520) -> 0.032926A | PWR_RAW=0x2C0F -> 0.431422W[0m
+[0;32mI (49663) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (49663) SYSTEM: PUMP  0x40 | BUS=13.153V  SHUNT=63.787mV  CURRENT=49.939mA  POWER=657.326mW[0m
+[0;32mI (49673) SYSTEM: PUMP  0x40 raw shunt=0x63AB raw bus=0x291A[0m
+[0;32mI (49673) SYSTEM: LOGIC 0x41 | BUS=13.185V  SHUNT=45.682mV  CURRENT=35.250mA  POWER=464.814mW[0m
+[0;32mI (49683) SYSTEM: LOGIC 0x41 raw shunt=0x4761 raw bus=0x2934[0m
+[0;32mI (50153) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x427F -> 0.651130W[0m
+[0;32mI (50173) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x598E (22926) -> 0.035077A | PWR_RAW=0x2F3D -> 0.462557W[0m
+[0;32mI (50683) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (50683) SYSTEM: PUMP  0x40 | BUS=13.160V  SHUNT=70.923mV  CURRENT=50.134mA  POWER=660.042mW[0m
+[0;32mI (50693) SYSTEM: PUMP  0x40 raw shunt=0x6ED1 raw bus=0x2920[0m
+[0;32mI (50693) SYSTEM: LOGIC 0x41 | BUS=13.185V  SHUNT=45.577mV  CURRENT=35.314mA  POWER=465.656mW[0m
+[0;32mI (50703) SYSTEM: LOGIC 0x41 raw shunt=0x4737 raw bus=0x2934[0m
+[0;32mI (51163) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7DD0 (32208) -> 0.049278A | PWR_RAW=0x423C -> 0.648567W[0m
+[0;32mI (51183) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5B2B (23339) -> 0.035709A | PWR_RAW=0x3005 -> 0.470207W[0m
+[0;32mI (51703) SYSTEM: TMP117 BODY (0x48): 24.09C/75.35F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (51703) SYSTEM: PUMP  0x40 | BUS=13.165V  SHUNT=69.298mV  CURRENT=49.566mA  POWER=652.086mW[0m
+[0;32mI (51713) SYSTEM: PUMP  0x40 raw shunt=0x6C47 raw bus=0x2924[0m
+[0;32mI (51713) SYSTEM: LOGIC 0x41 | BUS=13.185V  SHUNT=45.955mV  CURRENT=35.322mA  POWER=465.694mW[0m
+[0;32mI (51723) SYSTEM: LOGIC 0x41 raw shunt=0x47CE raw bus=0x2934[0m
+[0;32mI (52163) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FAC (32684) -> 0.050007A | PWR_RAW=0x4078 -> 0.631278W[0m
+[0;32mI (52183) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5A20 (23072) -> 0.035300A | PWR_RAW=0x2F87 -> 0.465388W[0m
+[0;32mI (52723) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (52723) SYSTEM: PUMP  0x40 | BUS=13.156V  SHUNT=69.892mV  CURRENT=50.134mA  POWER=659.583mW[0m
+[0;32mI (52733) SYSTEM: PUMP  0x40 raw shunt=0x6D35 raw bus=0x291D[0m
+[0;32mI (52733) SYSTEM: LOGIC 0x41 | BUS=13.182V  SHUNT=45.805mV  CURRENT=35.233mA  POWER=465.273mW[0m
+[0;32mI (52743) SYSTEM: LOGIC 0x41 raw shunt=0x4792 raw bus=0x2932[0m
+[0;32mI (53163) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x436A -> 0.660119W[0m
+[0;32mI (53183) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x59BB (22971) -> 0.035146A | PWR_RAW=0x2F53 -> 0.463399W[0m
+[0;32mI (53743) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (53743) SYSTEM: PUMP  0x40 | BUS=13.160V  SHUNT=64.318mV  CURRENT=49.473mA  POWER=646.693mW[0m
+[0;32mI (53753) SYSTEM: PUMP  0x40 raw shunt=0x647F raw bus=0x2920[0m
+[0;32mI (53753) SYSTEM: LOGIC 0x41 | BUS=13.185V  SHUNT=45.920mV  CURRENT=35.322mA  POWER=463.820mW[0m
+[0;32mI (53763) SYSTEM: LOGIC 0x41 raw shunt=0x47C0 raw bus=0x2934[0m
+[0;32mI (54173) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x7F59 (32601) -> 0.049880A | PWR_RAW=0x4307 -> 0.656332W[0m
+[0;32mI (54193) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x7FFF (32767) -> 0.050134A | PWR_RAW=0x437F -> 0.660922W[0m
+[0;32mI (54763) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (54763) SYSTEM: PUMP  0x40 | BUS=13.161V  SHUNT=68.382mV  CURRENT=50.134mA  POWER=660.119mW[0m
+[0;32mI (54773) SYSTEM: PUMP  0x40 raw shunt=0x6AD9 raw bus=0x2921[0m
+[0;32mI (54773) SYSTEM: LOGIC 0x41 | BUS=13.185V  SHUNT=45.557mV  CURRENT=35.042mA  POWER=461.945mW[0m
+[0;32mI (54783) SYSTEM: LOGIC 0x41 raw shunt=0x472F raw bus=0x2934[0m
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x4037ba9f  PS      : 0x00050934  A0      : 0x4037a6a4  A1      : 0x3fc9b410  
+A2      : 0x3fce9a50  A3      : 0x3fc9b41c  A4      : 0x82053f12  A5      : 0x403810c6  
+A6      : 0x00000008  A7      : 0x00000000  A8      : 0x3fc9a83c  A9      : 0x60013000  
+A10     : 0x3fce9b64  A11     : 0x3fca611c  A12     : 0x82053f08  A13     : 0x3fca5ef0  
+A14     : 0x3fc9a7b4  A15     : 0x3fca5f20  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+Core  0 was running in ISR context:
+EPC1    : 0x42077833  EPC2    : 0x00000000  EPC3    : 0x4037a68d  EPC4    : 0x4037ba9f
+
+
+Backtrace: 0x4037ba9c:0x3fc9b410 0x4037a6a1:0x3fc9b450 0x40377399:0x3fca5f50 0x4207a7ae:0x3fca5f70 0x40381c1d:0x3fca5f90 0x40380cdd:0x3fca5fb0
+
+
+Core  1 register dump:
+PC      : 0x4037d3f2  PS      : 0x00060134  A0      : 0x8207a7b1  A1      : 0x3fca66b0  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x3fca33f0  A5      : 0x3fca33d0  
+A6      : 0x40375a9c  A7      : 0x00000001  A8      : 0x82053f12  A9      : 0x3fca6670  
+A10     : 0x00000000  A11     : 0x00000001  A12     : 0x80381041  A13     : 0x3fca65c0  
+A14     : 0x00060023  A15     : 0x3fca687c  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x4037d3ef:0x3fca66b0 0x4207a7ae:0x3fca66d0 0x40381c1d:0x3fca66f0 0x40380cdd:0x3fca6710
+
+
+
+
+ELF file SHA256: a598d42dc
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403801e0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (34) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21ccch (138444) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=00031cf4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b54 vaddr=40374000 size=0a4c4h ( 42180) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b790h (505744) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb7b8 vaddr=4037e4c4 size=0b840h ( 47168) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c7000 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (252) app_init: Application information:[0m
+[0;32mI (252) app_init: Project name:     springMain_v2[0m
+[0;32mI (256) app_init: App version:      cfac3859-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 24 2026 12:43:58[0m
+[0;32mI (266) app_init: ELF file SHA256:  a598d42dc...[0m
+[0;32mI (270) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (274) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (292) heap_init: At 3FCA1C40 len 00047AD0 (286 KiB): RAM[0m
+[0;32mI (297) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (302) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (307) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (316) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (331) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (341) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (347) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (354) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (358) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x49[0m
+[0;33mW (423) SYSTEM: INA address map check: expected PUMP=0x40 (ESP_OK), LOGIC=0x41 (ESP_ERR_TIMEOUT)[0m
+[0;32mI (423) pump_operation: Pump PWM ready on A0(GPIO1) at 20000 Hz[0m
+[0;32mI (423) SYSTEM: All LEDs and buttons initialized[0m
+[0;32mI (423) SYSTEM: Battery timer: 3 minutes countdown started[0m
+[0;32mI (433) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (433) SYSTEM: TMP117 BODY (0x48) (0x48): FOUND[0m
+[0;32mI (443) tmp117: TMP117 detected at 0x49 (device id 0x0117)[0m
+[0;32mI (443) SYSTEM: TMP117 BODY (0x49) (0x49): FOUND[0m
+[1;31mE (453) tmp117: TMP117 not responding at 0x50: ESP_FAIL[0m
+[0;33mW (453) SYSTEM: TMP117 ENVIRONMENT (0x50) (0x50): NOT FOUND[0m
+[0;32mI (463) SYSTEM: TMP117 selected address: 0x48[0m
+[0;32mI (463) ina226: INA226 detected at 0x40[0m
+[0;32mI (473) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (473) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (483) ina226: INA226 detected at 0x41[0m
+[0;32mI (483) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (493) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (493) SYSTEM: PWM sync timer started: 17000 us period (58.8 Hz)[0m
+[0;32mI (503) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (513) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (513) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (513) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (523) BLE_INIT: Bluetooth MAC: 20:6e:f1:32:6b:9e[0m
+[0;32mI (533) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (603) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (603) SYSTEM: BLE initialized[0m
+[0;32mI (603) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (603) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (603) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (613) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;32mI (623) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (623) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;32mI (633) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;32mI (1013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x4D21 (19745) -> 0.030210A | PWR_RAW=0x26E6 -> 0.380893W[0m
+[0;32mI (1013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x7439 (29753) -> 0.045522A | PWR_RAW=0x359F -> 0.525058W[0m
+[0;32mI (1143) SYSTEM: Battery: 2 minutes remaining[0m
+[0;32mI (1643) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (1643) SYSTEM: PUMP  0x40 | BUS=13.199V  SHUNT=38.260mV  CURRENT=28.990mA  POWER=382.615mW[0m
+[0;32mI (1653) SYSTEM: PUMP  0x40 raw shunt=0x3BC8 raw bus=0x293F[0m
+[0;32mI (1663) SYSTEM: LOGIC 0x41 | BUS=13.195V  SHUNT=42.685mV  CURRENT=32.832mA  POWER=433.105mW[0m
+[0;32mI (1663) SYSTEM: LOGIC 0x41 raw shunt=0x42B2 raw bus=0x293C[0m
+[0;32mI (1673) SYSTEM: Auto mode: Temp 75.34°F -> Pump 0%[0m
+[0;32mI (2013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x012F (303) -> 0.000464A | PWR_RAW=0x00A1 -> 0.006158W[0m
+[0;32mI (2013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5A5B (23131) -> 0.035390A | PWR_RAW=0x2C4F -> 0.433870W[0m
+[0;32mI (2673) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (2673) SYSTEM: PUMP  0x40 | BUS=13.246V  SHUNT=0.167mV  CURRENT=0.129mA  POWER=1.492mW[0m
+[0;32mI (2683) SYSTEM: PUMP  0x40 raw shunt=0x0043 raw bus=0x2965[0m
+[0;32mI (2683) SYSTEM: LOGIC 0x41 | BUS=13.204V  SHUNT=42.722mV  CURRENT=32.696mA  POWER=431.728mW[0m
+[0;32mI (2693) SYSTEM: LOGIC 0x41 raw shunt=0x42C1 raw bus=0x2943[0m
+[0;32mI (3013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0053 (83) -> 0.000127A | PWR_RAW=0x002C -> 0.001683W[0m
+[0;32mI (3023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5834 (22580) -> 0.034547A | PWR_RAW=0x2E98 -> 0.456246W[0m
+[0;32mI (3693) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (3693) SYSTEM: PUMP  0x40 | BUS=13.246V  SHUNT=0.182mV  CURRENT=0.110mA  POWER=1.454mW[0m
+[0;32mI (3703) SYSTEM: PUMP  0x40 raw shunt=0x0049 raw bus=0x2965[0m
+[0;32mI (3703) SYSTEM: LOGIC 0x41 | BUS=13.206V  SHUNT=42.830mV  CURRENT=32.944mA  POWER=431.498mW[0m
+[0;32mI (3713) SYSTEM: LOGIC 0x41 raw shunt=0x42EC raw bus=0x2945[0m
+[0;32mI (4023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0041 (65) -> 0.000099A | PWR_RAW=0x0022 -> 0.001301W[0m
+[0;32mI (4023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5B8C (23436) -> 0.035857A | PWR_RAW=0x305A -> 0.473458W[0m
+[0;32mI (4713) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (4713) SYSTEM: PUMP  0x40 | BUS=13.244V  SHUNT=-0.447mV  CURRENT=0.277mA  POWER=3.710mW[0m
+[0;32mI (4723) SYSTEM: PUMP  0x40 raw shunt=0xFF4D raw bus=0x2963[0m
+[0;32mI (4723) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.842mV  CURRENT=32.953mA  POWER=432.416mW[0m
+[0;32mI (4733) SYSTEM: LOGIC 0x41 raw shunt=0x42F1 raw bus=0x2946[0m
+[0;32mI (5023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0054 (84) -> 0.000129A | PWR_RAW=0x002B -> 0.001645W[0m
+[0;32mI (5023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x56C7 (22215) -> 0.033989A | PWR_RAW=0x2DD6 -> 0.448826W[0m
+[0;32mI (5733) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (5733) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.162mV  CURRENT=0.098mA  POWER=1.301mW[0m
+[0;32mI (5743) SYSTEM: PUMP  0x40 raw shunt=0x0041 raw bus=0x2967[0m
+[0;32mI (5743) SYSTEM: LOGIC 0x41 | BUS=13.206V  SHUNT=42.643mV  CURRENT=32.875mA  POWER=434.176mW[0m
+[0;32mI (5753) SYSTEM: LOGIC 0x41 raw shunt=0x42A1 raw bus=0x2945[0m
+[0;32mI (6023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0043 (67) -> 0.000103A | PWR_RAW=0x002E -> 0.001760W[0m
+[0;32mI (6033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x55D5 (21973) -> 0.033619A | PWR_RAW=0x2D57 -> 0.443968W[0m
+[0;32mI (6753) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (6753) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.162mV  CURRENT=0.096mA  POWER=1.262mW[0m
+[0;32mI (6763) SYSTEM: PUMP  0x40 raw shunt=0x0041 raw bus=0x2967[0m
+[0;32mI (6763) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.562mV  CURRENT=32.739mA  POWER=434.596mW[0m
+[0;32mI (6773) SYSTEM: LOGIC 0x41 raw shunt=0x4281 raw bus=0x2946[0m
+[0;32mI (7023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0022 (34) -> 0.000052A | PWR_RAW=0x0012 -> 0.000689W[0m
+[0;32mI (7033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5560 (21856) -> 0.033440A | PWR_RAW=0x2D18 -> 0.441558W[0m
+[0;32mI (7773) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (7773) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.155mV  CURRENT=0.119mA  POWER=1.568mW[0m
+[0;32mI (7783) SYSTEM: PUMP  0x40 raw shunt=0x003E raw bus=0x2967[0m
+[0;32mI (7783) SYSTEM: LOGIC 0x41 | BUS=13.175V  SHUNT=43.380mV  CURRENT=33.368mA  POWER=642.562mW[0m
+[0;32mI (7793) SYSTEM: LOGIC 0x41 raw shunt=0x43C8 raw bus=0x292C[0m
+[0;32mI (8033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0052 (82) -> 0.000125A | PWR_RAW=0x0026 -> 0.001454W[0m
+[0;32mI (8033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x550C (21772) -> 0.033311A | PWR_RAW=0x2CEE -> 0.439952W[0m
+[0;32mI (8793) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (8793) SYSTEM: PUMP  0x40 | BUS=13.247V  SHUNT=0.127mV  CURRENT=0.098mA  POWER=1.301mW[0m
+[0;32mI (8803) SYSTEM: PUMP  0x40 raw shunt=0x0033 raw bus=0x2966[0m
+[0;32mI (8803) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.358mV  CURRENT=32.581mA  POWER=430.351mW[0m
+[0;32mI (8813) SYSTEM: LOGIC 0x41 raw shunt=0x422F raw bus=0x2946[0m
+[0;32mI (9033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0041 (65) -> 0.000099A | PWR_RAW=0x0022 -> 0.001301W[0m
+[0;32mI (9043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5461 (21601) -> 0.033050A | PWR_RAW=0x2C94 -> 0.436509W[0m
+[0;32mI (9813) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (9813) SYSTEM: PUMP  0x40 | BUS=13.250V  SHUNT=0.748mV  CURRENT=0.575mA  POWER=1.683mW[0m
+[0;32mI (9823) SYSTEM: PUMP  0x40 raw shunt=0x012B raw bus=0x2968[0m
+[0;32mI (9823) SYSTEM: LOGIC 0x41 | BUS=13.206V  SHUNT=42.930mV  CURRENT=32.906mA  POWER=434.596mW[0m
+[0;32mI (9833) SYSTEM: LOGIC 0x41 raw shunt=0x4314 raw bus=0x2945[0m
+[0;32mI (10033) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0055 (85) -> 0.000130A | PWR_RAW=0x002C -> 0.001683W[0m
+[0;32mI (10043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x541B (21531) -> 0.032942A | PWR_RAW=0x2C70 -> 0.435132W[0m
+[0;32mI (10833) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (10833) SYSTEM: PUMP  0x40 | BUS=13.247V  SHUNT=0.165mV  CURRENT=0.127mA  POWER=1.683mW[0m
+[0;32mI (10843) SYSTEM: PUMP  0x40 raw shunt=0x0042 raw bus=0x2966[0m
+[0;32mI (10843) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.725mV  CURRENT=32.863mA  POWER=433.105mW[0m
+[0;32mI (10853) SYSTEM: LOGIC 0x41 raw shunt=0x42C2 raw bus=0x2946[0m
+[0;32mI (11043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0043 (67) -> 0.000103A | PWR_RAW=0x0024 -> 0.001377W[0m
+[0;32mI (11043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53DC (21468) -> 0.032846A | PWR_RAW=0x2C4D -> 0.433793W[0m
+[0;32mI (11853) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (11853) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.170mV  CURRENT=0.130mA  POWER=1.683mW[0m
+[0;32mI (11863) SYSTEM: PUMP  0x40 raw shunt=0x0044 raw bus=0x2967[0m
+[0;32mI (11863) SYSTEM: LOGIC 0x41 | BUS=13.206V  SHUNT=42.740mV  CURRENT=32.875mA  POWER=431.996mW[0m
+[0;32mI (11873) SYSTEM: LOGIC 0x41 raw shunt=0x42C8 raw bus=0x2945[0m
+[0;32mI (12043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0053 (83) -> 0.000127A | PWR_RAW=0x0073 -> 0.004399W[0m
+[0;32mI (12043) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53EB (21483) -> 0.032869A | PWR_RAW=0x2C55 -> 0.434099W[0m
+[0;32mI (12873) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (12873) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.170mV  CURRENT=0.130mA  POWER=1.683mW[0m
+[0;32mI (12883) SYSTEM: PUMP  0x40 raw shunt=0x0044 raw bus=0x2967[0m
+[0;32mI (12883) SYSTEM: LOGIC 0x41 | BUS=13.209V  SHUNT=42.627mV  CURRENT=32.803mA  POWER=433.372mW[0m
+[0;32mI (12893) SYSTEM: LOGIC 0x41 raw shunt=0x429B raw bus=0x2947[0m
+[0;32mI (13043) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0044 (68) -> 0.000104A | PWR_RAW=0x002C -> 0.001683W[0m
+[0;32mI (13053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x53CC (21452) -> 0.032822A | PWR_RAW=0x2C45 -> 0.433487W[0m
+[0;32mI (13893) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (13893) SYSTEM: PUMP  0x40 | BUS=13.247V  SHUNT=0.162mV  CURRENT=0.125mA  POWER=1.874mW[0m
+[0;32mI (13903) SYSTEM: PUMP  0x40 raw shunt=0x0041 raw bus=0x2966[0m
+[0;32mI (13903) SYSTEM: LOGIC 0x41 | BUS=13.209V  SHUNT=42.750mV  CURRENT=32.783mA  POWER=433.067mW[0m
+[0;32mI (13913) SYSTEM: LOGIC 0x41 raw shunt=0x42CC raw bus=0x2947[0m
+[0;32mI (14053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0050 (80) -> 0.000122A | PWR_RAW=0x002B -> 0.001645W[0m
+[0;32mI (14053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5420 (21536) -> 0.032950A | PWR_RAW=0x2C2C -> 0.432531W[0m
+[0;32mI (14913) SYSTEM: TMP117 BODY (0x48): 24.06C/75.31F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (14913) SYSTEM: PUMP  0x40 | BUS=13.247V  SHUNT=0.170mV  CURRENT=0.141mA  POWER=1.874mW[0m
+[0;32mI (14923) SYSTEM: PUMP  0x40 raw shunt=0x0044 raw bus=0x2966[0m
+[0;32mI (14923) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.775mV  CURRENT=32.901mA  POWER=436.433mW[0m
+[0;32mI (14933) SYSTEM: LOGIC 0x41 raw shunt=0x42D6 raw bus=0x2946[0m
+[0;32mI (15053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0053 (83) -> 0.000127A | PWR_RAW=0x0027 -> 0.001492W[0m
+[0;32mI (15053) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x6DBF (28095) -> 0.042985A | PWR_RAW=0x344C -> 0.512091W[0m
+[0;32mI (15933) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (15933) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.167mV  CURRENT=0.133mA  POWER=1.760mW[0m
+[0;32mI (15943) SYSTEM: PUMP  0x40 raw shunt=0x0043 raw bus=0x2967[0m
+[0;32mI (15943) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.728mV  CURRENT=32.866mA  POWER=434.099mW[0m
+[0;32mI (15953) SYSTEM: LOGIC 0x41 raw shunt=0x42C3 raw bus=0x2946[0m
+[0;32mI (16053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x003A (58) -> 0.000089A | PWR_RAW=0x001F -> 0.001186W[0m
+[0;32mI (16063) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x55F3 (22003) -> 0.033665A | PWR_RAW=0x2C47 -> 0.433564W[0m
+[0;32mI (16953) SYSTEM: TMP117 BODY (0x48): 24.06C/75.31F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (16953) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.165mV  CURRENT=0.119mA  POWER=1.568mW[0m
+[0;32mI (16963) SYSTEM: PUMP  0x40 raw shunt=0x0042 raw bus=0x2967[0m
+[0;32mI (16963) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.720mV  CURRENT=32.854mA  POWER=433.908mW[0m
+[0;32mI (16973) SYSTEM: LOGIC 0x41 raw shunt=0x42C0 raw bus=0x2946[0m
+[0;32mI (17053) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0054 (84) -> 0.000129A | PWR_RAW=0x0031 -> 0.001874W[0m
+[0;32mI (17063) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5709 (22281) -> 0.034090A | PWR_RAW=0x2C17 -> 0.431728W[0m
+[0;32mI (17973) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (17973) SYSTEM: PUMP  0x40 | BUS=13.242V  SHUNT=0.155mV  CURRENT=0.352mA  POWER=4.628mW[0m
+[0;32mI (17983) SYSTEM: PUMP  0x40 raw shunt=0x003E raw bus=0x2962[0m
+[0;32mI (17983) SYSTEM: LOGIC 0x41 | BUS=13.209V  SHUNT=42.537mV  CURRENT=32.719mA  POWER=433.105mW[0m
+[0;32mI (17993) SYSTEM: LOGIC 0x41 raw shunt=0x4277 raw bus=0x2947[0m
+[0;32mI (18063) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0052 (82) -> 0.000125A | PWR_RAW=0x002C -> 0.001683W[0m
+[0;32mI (18063) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x574E (22350) -> 0.034195A | PWR_RAW=0x2C43 -> 0.433411W[0m
+[0;32mI (18993) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (18993) SYSTEM: PUMP  0x40 | BUS=13.250V  SHUNT=0.162mV  CURRENT=0.112mA  POWER=1.492mW[0m
+[0;32mI (19003) SYSTEM: PUMP  0x40 raw shunt=0x0041 raw bus=0x2968[0m
+[0;32mI (19003) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.505mV  CURRENT=32.695mA  POWER=434.099mW[0m
+[0;32mI (19013) SYSTEM: LOGIC 0x41 raw shunt=0x426A raw bus=0x2946[0m
+[0;32mI (19063) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0054 (84) -> 0.000129A | PWR_RAW=0x002C -> 0.001683W[0m
+[0;32mI (19073) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x57B2 (22450) -> 0.034348A | PWR_RAW=0x2C14 -> 0.431613W[0m
+[0;32mI (20013) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (20013) SYSTEM: PUMP  0x40 | BUS=13.247V  SHUNT=0.140mV  CURRENT=0.107mA  POWER=1.454mW[0m
+[0;32mI (20023) SYSTEM: PUMP  0x40 raw shunt=0x0038 raw bus=0x2966[0m
+[0;32mI (20023) SYSTEM: LOGIC 0x41 | BUS=13.209V  SHUNT=42.732mV  CURRENT=32.646mA  POWER=431.154mW[0m
+[0;32mI (20033) SYSTEM: LOGIC 0x41 raw shunt=0x42C5 raw bus=0x2947[0m
+[0;32mI (20063) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0043 (67) -> 0.000103A | PWR_RAW=0x0024 -> 0.001377W[0m
+[0;32mI (20073) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x58C2 (22722) -> 0.034765A | PWR_RAW=0x2C92 -> 0.436433W[0m
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x4037ba9f  PS      : 0x00050934  A0      : 0x4037a6a4  A1      : 0x3fc9b410  
+A2      : 0x3fce9a50  A3      : 0x00000003  A4      : 0x82053f12  A5      : 0x403810c6  
+A6      : 0x00000008  A7      : 0x00000000  A8      : 0x3fc9a83c  A9      : 0x60013000  
+A10     : 0x3fc99f30  A11     : 0x3fca611c  A12     : 0x82053f08  A13     : 0x3fca5ef0  
+A14     : 0x3fc9a7b4  A15     : 0x3fca5f20  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+Core  0 was running in ISR context:
+EPC1    : 0x42077833  EPC2    : 0x00000000  EPC3    : 0x4037bb40  EPC4    : 0x4037ba9f
+
+
+Backtrace: 0x4037ba9c:0x3fc9b410 0x4037a6a1:0x3fc9b450 0x4037bc8f:0x3fca5f50 0x4207a7ae:0x3fca5f70 0x40381c1d:0x3fca5f90 0x40380cdd:0x3fca5fb0
+
+
+Core  1 register dump:
+PC      : 0x4037d3f2  PS      : 0x00060134  A0      : 0x8207a7b1  A1      : 0x3fca66b0  
+A2      : 0x00000000  A3      : 0x00000001  A4      : 0x80381041  A5      : 0x3fcea8b0  
+A6      : 0x00060023  A7      : 0x00000003  A8      : 0x82053f12  A9      : 0x3fca6670  
+A10     : 0x00000000  A11     : 0x00000001  A12     : 0x80381041  A13     : 0x3fca65c0  
+A14     : 0x00060023  A15     : 0x3fca687c  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x4037d3ef:0x3fca66b0 0x4207a7ae:0x3fca66d0 0x40381c1d:0x3fca66f0 0x40380cdd:0x3fca6710
+
+
+
+
+ELF file SHA256: a598d42dc
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403801e0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 17 2026 16:34:53[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (34) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21ccch (138444) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=00031cf4 vaddr=3fc99e00 size=03e58h ( 15960) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=00035b54 vaddr=40374000 size=0a4c4h ( 42180) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7b790h (505744) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bb7b8 vaddr=4037e4c4 size=0b840h ( 47168) load[0m
+[0;32mI (224) esp_image: segment 5: paddr=000c7000 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (233) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (243) cpu_start: Multicore app[0m
+[0;32mI (252) cpu_start: Pro cpu start user code[0m
+[0;32mI (252) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (252) app_init: Application information:[0m
+[0;32mI (252) app_init: Project name:     springMain_v2[0m
+[0;32mI (256) app_init: App version:      cfac3859-dirty[0m
+[0;32mI (261) app_init: Compile time:     Apr 24 2026 12:43:58[0m
+[0;32mI (266) app_init: ELF file SHA256:  a598d42dc...[0m
+[0;32mI (270) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (274) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (278) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (282) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (286) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (292) heap_init: At 3FCA1C40 len 00047AD0 (286 KiB): RAM[0m
+[0;32mI (297) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (302) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (308) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (314) spi_flash: detected chip: gd[0m
+[0;32mI (316) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (331) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (341) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (348) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (354) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (358) coexist: coexist rom version e7ae62f[0m
+[0;32mI (363) main_task: Started on CPU0[0m
+[0;32mI (373) main_task: Calling app_main()[0m
+[0;32mI (373) i2c_bus: I2C master ready on port 0 (SDA=11, SCL=12, 50000 Hz)[0m
+[0;32mI (373) SYSTEM: I2C bus initialized[0m
+[0;32mI (383) SYSTEM: Scanning I2C bus...[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x40[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x41[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x48[0m
+[0;32mI (403) i2c_bus: I2C device found at 0x49[0m
+[0;33mW (423) SYSTEM: INA address map check: expected PUMP=0x40 (ESP_OK), LOGIC=0x41 (ESP_ERR_TIMEOUT)[0m
+[0;32mI (423) pump_operation: Pump PWM ready on A0(GPIO1) at 20000 Hz[0m
+[0;32mI (423) SYSTEM: All LEDs and buttons initialized[0m
+[0;32mI (423) SYSTEM: Battery timer: 3 minutes countdown started[0m
+[0;32mI (433) tmp117: TMP117 detected at 0x48 (device id 0x0117)[0m
+[0;32mI (433) SYSTEM: TMP117 BODY (0x48) (0x48): FOUND[0m
+[0;32mI (443) tmp117: TMP117 detected at 0x49 (device id 0x0117)[0m
+[0;32mI (443) SYSTEM: TMP117 BODY (0x49) (0x49): FOUND[0m
+[1;31mE (453) tmp117: TMP117 not responding at 0x50: ESP_FAIL[0m
+[0;33mW (453) SYSTEM: TMP117 ENVIRONMENT (0x50) (0x50): NOT FOUND[0m
+[0;32mI (463) SYSTEM: TMP117 selected address: 0x48[0m
+[0;32mI (463) ina226: INA226 detected at 0x40[0m
+[0;32mI (473) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (473) SYSTEM: PUMP (INA1, 0x40) initialized[0m
+[0;32mI (483) ina226: INA226 detected at 0x41[0m
+[0;32mI (483) ina226: INA226 calibration set to 0x0A0E (Current_LSB=0.000001530A, R_shunt=1.3Ω)[0m
+[0;32mI (493) SYSTEM: LOGIC (INA2, 0x41) initialized[0m
+[0;32mI (493) SYSTEM: PWM sync timer started: 17000 us period (58.8 Hz)[0m
+[0;32mI (503) SYSTEM: INA synchronized reading system initialized[0m
+[0;32mI (513) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (513) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (513) BLE_INIT: Feature Config, ADV:1, BLE_50:0, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (523) BLE_INIT: Bluetooth MAC: 20:6e:f1:32:6b:9e[0m
+[0;32mI (533) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (603) BLE: BLE ready, waiting for connection...[0m
+[0;32mI (603) SYSTEM: BLE initialized[0m
+[0;32mI (603) SYSTEM: Pump initialized to 50%[0m
+[0;32mI (603) SYSTEM: System ready. Control via buttons:[0m
+[0;32mI (603) SYSTEM:   D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes[0m
+[0;32mI (613) SYSTEM:   A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%)[0m
+[0;33mW (623) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;32mI (623) SYSTEM:   MANUAL mode: Pump level shown on D9/D8/D7 LEDs[0m
+[0;32mI (633) SYSTEM:   AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9[0m
+[0;33mW (633) ina226: INA226 shunt reading saturated at 0x40 (raw=0x7FFF); check shunt polarity/wiring/range[0m
+[0;32mI (643) SYSTEM: Control mode: AUTOMATIC - Pump controlled by temperature[0m
+[0;32mI (1013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x4E1A (19994) -> 0.030591A | PWR_RAW=0x2711 -> 0.382538W[0m
+[0;32mI (1013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x5B30 (23344) -> 0.035716A | PWR_RAW=0x2CAE -> 0.437504W[0m
+[0;32mI (1113) SYSTEM: Battery: 2 minutes remaining[0m
+[0;32mI (1663) SYSTEM: TMP117 BODY (0x48): 24.08C/75.34F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (1663) SYSTEM: PUMP  0x40 | BUS=13.191V  SHUNT=34.865mV  CURRENT=26.818mA  POWER=354.004mW[0m
+[0;32mI (1673) SYSTEM: PUMP  0x40 raw shunt=0x367A raw bus=0x2939[0m
+[0;32mI (1673) SYSTEM: LOGIC 0x41 | BUS=13.197V  SHUNT=42.557mV  CURRENT=32.699mA  POWER=431.536mW[0m
+[0;32mI (1683) SYSTEM: LOGIC 0x41 raw shunt=0x427F raw bus=0x293E[0m
+[0;32mI (1693) SYSTEM: Auto mode: Temp 75.34°F -> Pump 0%[0m
+[0;32mI (2013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0050 (80) -> 0.000122A | PWR_RAW=0x002B -> 0.001645W[0m
+[0;32mI (2013) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x598B (22923) -> 0.035072A | PWR_RAW=0x2C1A -> 0.431843W[0m
+[0;32mI (2703) SYSTEM: TMP117 BODY (0x48): 24.06C/75.31F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (2703) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.132mV  CURRENT=0.103mA  POWER=1.377mW[0m
+[0;32mI (2703) SYSTEM: PUMP  0x40 raw shunt=0x0035 raw bus=0x2967[0m
+[0;32mI (2713) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.680mV  CURRENT=32.829mA  POWER=435.247mW[0m
+[0;32mI (2723) SYSTEM: LOGIC 0x41 raw shunt=0x42B0 raw bus=0x2946[0m
+[0;32mI (3013) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0058 (88) -> 0.000135A | PWR_RAW=0x002C -> 0.001683W[0m
+[0;32mI (3023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x57E3 (22499) -> 0.034423A | PWR_RAW=0x2E6F -> 0.454678W[0m
+[0;32mI (3723) SYSTEM: TMP117 BODY (0x48): 24.07C/75.33F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (3723) SYSTEM: PUMP  0x40 | BUS=13.247V  SHUNT=0.160mV  CURRENT=0.129mA  POWER=1.683mW[0m
+[0;32mI (3733) SYSTEM: PUMP  0x40 raw shunt=0x0040 raw bus=0x2966[0m
+[0;32mI (3733) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.555mV  CURRENT=32.912mA  POWER=434.673mW[0m
+[0;32mI (3743) SYSTEM: LOGIC 0x41 raw shunt=0x427E raw bus=0x2946[0m
+[0;32mI (4023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0040 (64) -> 0.000098A | PWR_RAW=0x0022 -> 0.001301W[0m
+[0;32mI (4023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x56F9 (22265) -> 0.034065A | PWR_RAW=0x2DF2 -> 0.449897W[0m
+[0;32mI (4743) SYSTEM: TMP117 BODY (0x48): 24.06C/75.31F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (4743) SYSTEM: PUMP  0x40 | BUS=13.249V  SHUNT=0.167mV  CURRENT=0.107mA  POWER=1.454mW[0m
+[0;32mI (4753) SYSTEM: PUMP  0x40 raw shunt=0x0043 raw bus=0x2967[0m
+[0;32mI (4753) SYSTEM: LOGIC 0x41 | BUS=13.207V  SHUNT=42.465mV  CURRENT=32.867mA  POWER=434.099mW[0m
+[0;32mI (4763) SYSTEM: LOGIC 0x41 raw shunt=0x425A raw bus=0x2946[0m
+[0;32mI (5023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0068 (104) -> 0.000159A | PWR_RAW=0x0038 -> 0.002142W[0m
+[0;32mI (5023) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x571D (22301) -> 0.034121A | PWR_RAW=0x2E04 -> 0.450585W[0m
+[0;32mI (5763) SYSTEM: TMP117 BODY (0x48): 24.06C/75.31F | BODY (0x49): -256.00C/-428.80F | ENVIRONMENT (0x50): N/A[0m
+[0;32mI (5763) SYSTEM: PUMP  0x40 | BUS=13.244V  SHUNT=0.157mV  CURRENT=0.047mA  POWER=0.612mW[0m
+[0;32mI (5773) SYSTEM: PUMP  0x40 raw shunt=0x003F raw bus=0x2963[0m
+[0;32mI (5773) SYSTEM: LOGIC 0x41 | BUS=13.206V  SHUNT=42.490mV  CURRENT=32.682mA  POWER=433.411mW[0m
+[0;32mI (5783) SYSTEM: LOGIC 0x41 raw shunt=0x4264 raw bus=0x2945[0m
+[0;32mI (6023) ina226: INA226 0x40 | CAL=0x0A0E | CUR_RAW=0x0043 (67) -> 0.000103A | PWR_RAW=0x0031 -> 0.001874W[0m
+[0;32mI (6033) ina226: INA226 0x41 | CAL=0x0A0E | CUR_RAW=0x7039 (28729) -> 0.043955A | PWR_RAW=0x3B2F -> 0.579526W[0m

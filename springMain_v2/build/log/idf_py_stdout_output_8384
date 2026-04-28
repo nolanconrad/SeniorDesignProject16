@@ -1,0 +1,97 @@
+Command: C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM13 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Senior Design\SeniorDesignProject16\springMain_v2\build\springMain_v2.elf C:\Senior Design\SeniorDesignProject16\springMain_v2\build\bootloader\bootloader.elf --force-color -m 'C:\Users\nolan\.espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\esp\v5.5.1\esp-idf\tools\idf.py' '-p' 'COM13'
+[0;32mI (110) esp_image: segment 1: paddr=000313ac vaddr=3fc99b00 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037d1a6
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 27 2026 16:24:37[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=21384h (136068) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=000313ac vaddr=3fc99b00 size=03e28h ( 15912) load[0m
+[0;32mI (114) esp_image: segment 2: paddr=000351dc vaddr=40374000 size=0ae3ch ( 44604) load[0m
+[0;32mI (124) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=7a444h (500804) map[0m
+[0;32mI (213) esp_image: segment 4: paddr=000ba46c vaddr=4037ee3c size=0ac58h ( 44120) load[0m
+[0;32mI (223) esp_image: segment 5: paddr=000c50cc vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (231) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (232) boot: Disabling RNG early entropy source...[0m
+[0;32mI (242) cpu_start: Multicore app[0m
+[0;32mI (251) cpu_start: Pro cpu start user code[0m
+[0;32mI (251) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (251) app_init: Application information:[0m
+[0;32mI (251) app_init: Project name:     springMain_v2[0m
+[0;32mI (255) app_init: App version:      cfac3859-dirty[0m
+[0;32mI (260) app_init: Compile time:     Apr 27 2026 16:25:08[0m
+[0;32mI (265) app_init: ELF file SHA256:  27879d1a6...[0m
+[0;32mI (269) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (273) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (277) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (281) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (285) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (291) heap_init: At 3FCA16B0 len 00048060 (288 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (301) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (312) spi_flash: detected chip: gd[0m
+[0;32mI (315) spi_flash: flash io: dio[0m
+[0;33mW (318) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (330) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (340) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (346) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (353) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (357) coexist: coexist rom version e7ae62f[0m
+[0;32mI (362) main_task: Started on CPU0[0m
+[0;32mI (372) main_task: Calling app_main()[0m
+TMP117 0x48: 27.59C/81.65F
+TMP117 0x48: 27.65C/81.77F
+TMP117 0x48: 27.73C/81.91F
+TMP117 0x48: 27.82C/82.08F
+TMP117 0x48: 27.88C/82.19F
+TMP117 0x48: 27.91C/82.23F
+TMP117 0x48: 27.91C/82.25F
+TMP117 0x48: 27.98C/82.36F
+TMP117 0x48: 28.82C/83.88F
+TMP117 0x48: 29.73C/85.51F
+TMP117 0x48: 30.24C/86.44F
+TMP117 0x48: 32.01C/89.61F
+TMP117 0x48: 33.70C/92.65F
+TMP117 0x48: 35.03C/95.06F
+TMP117 0x48: 35.95C/96.70F
+TMP117 0x48: 37.16C/98.90F
+TMP117 0x48: 38.88C/101.97F
+TMP117 0x48: 39.17C/102.51F
+TMP117 0x48: 38.84C/101.90F
+TMP117 0x48: 36.69C/98.04F
+TMP117 0x48: 35.88C/96.57F
+TMP117 0x48: 35.33C/95.59F
+TMP117 0x48: 34.70C/94.47F
+TMP117 0x48: 34.31C/93.76F
+TMP117 0x48: 33.96C/93.13F
+TMP117 0x48: 33.67C/92.61F
+TMP117 0x48: 33.32C/91.98F
+TMP117 0x48: 33.02C/91.43F
+TMP117 0x48: 32.84C/91.10F
+TMP117 0x48: 32.59C/90.65F
+TMP117 0x48: 32.34C/90.20F
+TMP117 0x48: 32.18C/89.92F
+TMP117 0x48: 31.87C/89.36F
+TMP117 0x48: 31.68C/89.02F
+TMP117 0x48: 31.48C/88.66F
+TMP117 0x48: 31.34C/88.42F

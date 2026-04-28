@@ -11,6 +11,8 @@ typedef struct {
     float bus_voltage_v;
     float current_a;
     float power_w;
+    int16_t raw_current_s16;
+    uint16_t raw_power_u16;
     uint16_t raw_shunt_u16;
     uint16_t raw_bus_u16;
 } ina226_measurement_t;
