@@ -39,7 +39,8 @@ static const char *TAG = "SYSTEM";
 #define PUMP_START_PERCENT 50
 
 // TMP117
-#define TMP117_ADDR_PRIMARY 0x48
+#define TMP117_ADDR_PRIMARY   0x48
+#define TMP117_ADDR_SECONDARY 0x49
 
 // Timing
 #define BUTTON_POLL_INTERVAL_MS 50
@@ -73,8 +74,10 @@ typedef struct {
 } button_state_t;
 
 // Globals
-static uint8_t s_tmp117_addr = TMP117_ADDR_PRIMARY;
-static bool s_tmp117_found = false;
+static uint8_t s_tmp117_addr1 = TMP117_ADDR_PRIMARY;
+static uint8_t s_tmp117_addr2 = TMP117_ADDR_SECONDARY;
+static bool s_tmp117_found1 = false;
+static bool s_tmp117_found2 = false;
 
 static uint32_t current_pump_percent = PUMP_START_PERCENT;
 static control_mode_t control_mode = CONTROL_MANUAL;
@@ -92,7 +95,7 @@ static bool battery_timer_active = true;
 static uint32_t last_battery_blink_ms = 0;
 static bool battery_blink_state = false;
 
-// Latest temp for BLE
+// Latest averaged temp for BLE
 float g_latest_temp_f = 0.0f;
 
 // Forward declarations
@@ -311,9 +314,14 @@ void app_main(void)
 
     battery_timer_start_ms = esp_timer_get_time() / 1000;
 
-    s_tmp117_addr = TMP117_ADDR_PRIMARY;
-    if (tmp117_init(s_tmp117_addr) == ESP_OK) {
-        s_tmp117_found = true;
+    s_tmp117_addr1 = TMP117_ADDR_PRIMARY;
+    if (tmp117_init(s_tmp117_addr1) == ESP_OK) {
+        s_tmp117_found1 = true;
+    }
+
+    s_tmp117_addr2 = TMP117_ADDR_SECONDARY;
+    if (tmp117_init(s_tmp117_addr2) == ESP_OK) {
+        s_tmp117_found2 = true;
     }
 
     ble_init();
@@ -369,30 +377,69 @@ void app_main(void)
             vTaskDelay(pdMS_TO_TICKS(BUTTON_POLL_INTERVAL_MS));
         }
 
-        float temp_c = 0.0f;
-        if (s_tmp117_found) {
-            err = tmp117_read_temperature_c(s_tmp117_addr, &temp_c);
-        } else {
-            err = ESP_ERR_NOT_FOUND;
+        float temp_c1 = 0.0f;
+        float temp_c2 = 0.0f;
+        bool valid1 = false;
+        bool valid2 = false;
+
+        if (s_tmp117_found1 && tmp117_read_temperature_c(s_tmp117_addr1, &temp_c1) == ESP_OK) {
+            valid1 = true;
         }
 
-        float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
+        if (s_tmp117_found2 && tmp117_read_temperature_c(s_tmp117_addr2, &temp_c2) == ESP_OK) {
+            valid2 = true;
+        }
 
-        if (err == ESP_OK) {
-            g_latest_temp_f = temp_f;
+        if (valid1 || valid2) {
+            float avg_temp_c = 0.0f;
 
-            printf("TMP117 0x%02X: %.2fC / %.2fF | Pump: %lu%%\n",
-                   s_tmp117_addr,
-                   temp_c,
-                   temp_f,
-                   (unsigned long)current_pump_percent);
+            if (valid1 && valid2) {
+                avg_temp_c = (temp_c1 + temp_c2) / 2.0f;
+            } else if (valid1) {
+                avg_temp_c = temp_c1;
+            } else {
+                avg_temp_c = temp_c2;
+            }
+
+            float avg_temp_f = (avg_temp_c * 9.0f / 5.0f) + 32.0f;
+            g_latest_temp_f = avg_temp_f;
+
+            if (valid1 && valid2) {
+                printf("TMP1(0x%02X): %.2fC / %.2fF | TMP2(0x%02X): %.2fC / %.2fF | AVG: %.2fC / %.2fF | Pump: %lu%%\n",
+                       s_tmp117_addr1,
+                       temp_c1,
+                       (temp_c1 * 9.0f / 5.0f) + 32.0f,
+                       s_tmp117_addr2,
+                       temp_c2,
+                       (temp_c2 * 9.0f / 5.0f) + 32.0f,
+                       avg_temp_c,
+                       avg_temp_f,
+                       (unsigned long)current_pump_percent);
+            } else if (valid1) {
+                printf("TMP1(0x%02X): %.2fC / %.2fF | TMP2(0x%02X): N/A | AVG: %.2fC / %.2fF | Pump: %lu%%\n",
+                       s_tmp117_addr1,
+                       temp_c1,
+                       (temp_c1 * 9.0f / 5.0f) + 32.0f,
+                       s_tmp117_addr2,
+                       avg_temp_c,
+                       avg_temp_f,
+                       (unsigned long)current_pump_percent);
+            } else {
+                printf("TMP1(0x%02X): N/A | TMP2(0x%02X): %.2fC / %.2fF | AVG: %.2fC / %.2fF | Pump: %lu%%\n",
+                       s_tmp117_addr1,
+                       s_tmp117_addr2,
+                       temp_c2,
+                       (temp_c2 * 9.0f / 5.0f) + 32.0f,
+                       avg_temp_c,
+                       avg_temp_f,
+                       (unsigned long)current_pump_percent);
+            }
 
             if (control_mode == CONTROL_AUTOMATIC) {
-                update_pump_auto(temp_f);
+                update_pump_auto(avg_temp_f);
             }
         } else {
-            printf("TMP117 0x%02X: N/A | Pump: %lu%%\n",
-                   s_tmp117_addr,
+            printf("TMP117 sensors: N/A | Pump: %lu%%\n",
                    (unsigned long)current_pump_percent);
         }
 
