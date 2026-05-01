@@ -1,5 +1,6 @@
 #include "ble_handler.h"
 #include <string.h>
+#include <stdlib.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
@@ -13,8 +14,7 @@
 
 #define TAG "BLE"
 
-// ── Swap these when you have real UUIDs ──────────────────────────
-#define SERVICE_UUID        0xFF01       // 16-bit short UUID for now
+#define SERVICE_UUID        0xFF01
 #define CHARACTERISTIC_UUID 0xFF02
 
 #define PROFILE_NUM         1
@@ -52,9 +52,12 @@ static esp_ble_adv_params_t adv_params = {
     .adv_filter_policy = ADV_FILTER_ALLOW_SCAN_ANY_CON_ANY,
 };
 
-// ── GAP callback (advertising) ───────────────────────────────────
+// ── GAP callback ─────────────────────────────────────────────────
 static void gap_event_handler(esp_gap_ble_cb_event_t event,
-                               esp_ble_gap_cb_param_t* param) {
+                              esp_ble_gap_cb_param_t *param)
+{
+    (void)param;
+
     if (event == ESP_GAP_BLE_ADV_DATA_SET_COMPLETE_EVT) {
         esp_ble_gap_start_advertising(&adv_params);
     }
@@ -62,19 +65,21 @@ static void gap_event_handler(esp_gap_ble_cb_event_t event,
 
 // ── GATT callback ────────────────────────────────────────────────
 static void gatts_event_handler(esp_gatts_cb_event_t event,
-                                 esp_gatt_if_t gatts_if,
-                                 esp_ble_gatts_cb_param_t* param) {
+                                esp_gatt_if_t gatts_if,
+                                esp_ble_gatts_cb_param_t *param)
+{
     switch (event) {
 
     case ESP_GATTS_REG_EVT: {
-        esp_ble_gap_set_device_name("ESP32-Nano");
+        esp_ble_gap_set_device_name("Nano 2");
         esp_ble_gap_config_adv_data(&adv_data);
 
-        esp_gatt_srvc_id_t service_id = {};
+        esp_gatt_srvc_id_t service_id = {0};
         service_id.is_primary = true;
         service_id.id.inst_id = 0;
         service_id.id.uuid.len = ESP_UUID_LEN_16;
         service_id.id.uuid.uuid.uuid16 = SERVICE_UUID;
+
         esp_ble_gatts_create_service(gatts_if, &service_id, GATTS_NUM_HANDLE);
         break;
     }
@@ -86,17 +91,20 @@ static void gatts_event_handler(esp_gatts_cb_event_t event,
             .len = ESP_UUID_LEN_16,
             .uuid = { .uuid16 = CHARACTERISTIC_UUID }
         };
+
         esp_attr_value_t char_val = {
-            .attr_max_len = 20,
+            .attr_max_len = 32,
             .attr_len     = 0,
             .attr_value   = NULL
         };
+
         esp_ble_gatts_add_char(
             param->create.service_handle,
             &char_uuid,
             ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
             ESP_GATT_CHAR_PROP_BIT_READ |
             ESP_GATT_CHAR_PROP_BIT_WRITE |
+            ESP_GATT_CHAR_PROP_BIT_WRITE_NR |
             ESP_GATT_CHAR_PROP_BIT_NOTIFY,
             &char_val,
             NULL
@@ -122,19 +130,48 @@ static void gatts_event_handler(esp_gatts_cb_event_t event,
         break;
 
     case ESP_GATTS_WRITE_EVT: {
-        // This fires when browser sends "ON" or "OFF"
+        if (param->write.is_prep) {
+            break;
+        }
+
         char buf[32] = {0};
-        memcpy(buf, param->write.value, param->write.len);
+        size_t copy_len = param->write.len < sizeof(buf) - 1
+            ? param->write.len
+            : sizeof(buf) - 1;
+
+        memcpy(buf, param->write.value, copy_len);
+        buf[copy_len] = '\0';
+
         ESP_LOGI(TAG, "Received: %s", buf);
 
-        if (strcmp(buf, "ON") == 0) 
-        {
+        if (strcmp(buf, "ON") == 0) {
             pump_operation_set_duty_percent(100);
-        } 
-        else if (strcmp(buf, "OFF") == 0) 
-        {
+        } else if (strcmp(buf, "OFF") == 0) {
             pump_operation_stop();
+        } else if (strncmp(buf, "LVL:", 4) == 0) {
+            int level = atoi(buf + 4);
+
+            switch (level) {
+                case 1:
+                    pump_operation_set_duty_percent(25);
+                    ESP_LOGI(TAG, "Set pump to LOW");
+                    break;
+                case 2:
+                    pump_operation_set_duty_percent(50);
+                    ESP_LOGI(TAG, "Set pump to MEDIUM");
+                    break;
+                case 3:
+                    pump_operation_set_duty_percent(75);
+                    ESP_LOGI(TAG, "Set pump to HIGH");
+                    break;
+                default:
+                    ESP_LOGW(TAG, "Invalid level: %d", level);
+                    break;
+            }
+        } else {
+            ESP_LOGW(TAG, "Unknown command: %s", buf);
         }
+
         break;
     }
 
@@ -144,11 +181,14 @@ static void gatts_event_handler(esp_gatts_cb_event_t event,
 }
 
 // ── Public functions ─────────────────────────────────────────────
-void ble_init(void) {
+void ble_init(void)
+{
     nvs_flash_init();
+
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
     esp_bt_controller_init(&bt_cfg);
     esp_bt_controller_enable(ESP_BT_MODE_BLE);
+
     esp_bluedroid_init();
     esp_bluedroid_enable();
 
@@ -159,18 +199,26 @@ void ble_init(void) {
     ESP_LOGI(TAG, "BLE ready, waiting for connection...");
 }
 
-void ble_notify(const char* message) {
+void ble_notify(const char *message)
+{
     if (!is_connected) return;
+    if (char_handle == 0) return;
+    if (message == NULL) return;
+
+    size_t len = strlen(message);
+    if (len > 31) len = 31;
+
     esp_ble_gatts_send_indicate(
         gatts_if_global,
         conn_id,
         char_handle,
-        strlen(message),
-        (uint8_t*)message,
+        len,
+        (uint8_t *)message,
         false
     );
 }
 
-bool ble_is_connected(void) {
+bool ble_is_connected(void)
+{
     return is_connected;
 }

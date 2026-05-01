@@ -6,92 +6,46 @@
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "freertos/semphr.h"
 #include "esp_timer.h"
-#include "ina226.h"
 #include "tmp117.h"
 #include "i2c_bus.h"
 #include "pumpOperation.h"
 #include "ble_handler.h"
 
-// --- Synchronized INA reading globals ---
-static SemaphoreHandle_t ina_read_semaphore = NULL;
-static ina226_measurement_t synchronized_ina1_measurement = {0};
-static ina226_measurement_t synchronized_ina2_measurement = {0};
-static esp_err_t synchronized_ina1_error = ESP_OK;
-static esp_err_t synchronized_ina2_error = ESP_OK;
-static bool s_ina1_present = false;
-static bool s_ina2_present = false;
-static uint8_t s_ina1_fail_count = 0;
-static uint8_t s_ina2_fail_count = 0;
-static uint32_t s_ina1_next_retry_ms = 0;
-static uint32_t s_ina2_next_retry_ms = 0;
-static uint8_t s_tmp117_addr = 0x48;
-static bool s_tmp117_found = false;
-
 static const char *TAG = "SYSTEM";
 
 // Button and LED Configuration
-#define BUTTON_D2 GPIO_NUM_5        // Mode toggle: Manual/Automatic (pin D2)
-#define BUTTON_A2 GPIO_NUM_3        // Pump increase button (pin A2) - manual mode only
-#define BUTTON_A3 GPIO_NUM_4        // Pump decrease button (pin A3) - manual mode only
+#define BUTTON_D2 GPIO_NUM_5
+#define BUTTON_A2 GPIO_NUM_3
+#define BUTTON_A3 GPIO_NUM_4
 
-// Manual mode indicator LEDs (D9, D8, D7) - show pump level
-#define LED_INDICATOR_D2 GPIO_NUM_18  // Pump level indicator 1 (Arduino D9)
-#define LED_INDICATOR_D3 GPIO_NUM_17  // Pump level indicator 2 (Arduino D8)
-#define LED_INDICATOR_D4 GPIO_NUM_10  // Pump level indicator 3 (Arduino D7)
+// Manual mode indicator LEDs
+#define LED_INDICATOR_D2 GPIO_NUM_18
+#define LED_INDICATOR_D3 GPIO_NUM_17
+#define LED_INDICATOR_D4 GPIO_NUM_10
 
-// Auto mode status LEDs (D3, D4) - stay on during auto
-#define LED_AUTO_STATUS_1 GPIO_NUM_6   // Status LED 1 (Arduino D3) - stays on
-#define LED_AUTO_STATUS_2 GPIO_NUM_7   // Status LED 2 (Arduino D4) - stays on
+// Auto mode status LEDs
+#define LED_AUTO_STATUS_1 GPIO_NUM_6
+#define LED_AUTO_STATUS_2 GPIO_NUM_7
 
-// Auto mode animation LEDs (D5-D9) - progressive animation
-#define LED_ANIM_D5 GPIO_NUM_8   // Animation LED 1 (Arduino D5)
-#define LED_ANIM_D6 GPIO_NUM_9   // Animation LED 2 (Arduino D6)
-#define LED_ANIM_D7 GPIO_NUM_10  // Animation LED 3 (Arduino D7)
-#define LED_ANIM_D8 GPIO_NUM_17  // Animation LED 4 (Arduino D8)
-#define LED_ANIM_D9 GPIO_NUM_18  // Animation LED 5 (Arduino D9)
+// Auto mode animation LEDs
+#define LED_ANIM_D5 GPIO_NUM_8
+#define LED_ANIM_D6 GPIO_NUM_9
+#define LED_ANIM_D7 GPIO_NUM_10
+#define LED_ANIM_D8 GPIO_NUM_17
+#define LED_ANIM_D9 GPIO_NUM_18
 
-#define PUMP_INCREMENT 25           // 25% per button press
-#define PUMP_START_PERCENT 50       // Starting pump intensity
+#define PUMP_INCREMENT 25
+#define PUMP_START_PERCENT 50
 
-// I2C Sensor Addresses
-#define INA226_1_ADDR 0x40
-#define INA226_2_ADDR 0x41
-#define INA226_PUMP_ADDR INA226_1_ADDR
-#define INA226_LOGIC_ADDR INA226_2_ADDR
+// TMP117
 #define TMP117_ADDR_PRIMARY 0x48
-#define TMP117_ADDR_SECONDARY 0x49
-#define TMP117_ADDR_TERTIARY 0x50
 
-#if (INA226_PUMP_ADDR == INA226_LOGIC_ADDR)
-#error "INA226_PUMP_ADDR and INA226_LOGIC_ADDR must be different"
-#endif
-
-// INA226 hardware configuration
-#define INA226_PUMP_SHUNT_RESISTANCE_OHM 1.3f
-#define INA226_LOGIC_SHUNT_RESISTANCE_OHM 1.3f
-
-// Timing configuration
+// Timing
 #define BUTTON_POLL_INTERVAL_MS 50
 #define SENSOR_READ_INTERVAL_MS 2000
 #define STARTUP_RETRY_DELAY_MS 1000
-#define ENABLE_INA_MONITORING 0
-
-// INA synchronized reading configuration
-#define INA_SYNC_PERIOD_MS 17
-#define INA_READ_OFFSET_MS 3
-#define INA_READ_PHASE_DITHER_MS 7
-#define INA_READING_TASK_PRIORITY (tskIDLE_PRIORITY + 2)
-#define INA_READING_TASK_STACK_SIZE 4096
-#define DEVICE_FAILURE_DISABLE_THRESHOLD 5
-#define DEVICE_RETRY_INTERVAL_MS 5000
-
-// Temporary deep diagnostics for I2C bring-up.
-#define I2C_DIAG_START_ADDR 0x03
-#define I2C_DIAG_END_ADDR 0x77
-#define I2C_ENABLE_FULL_DIAGNOSTICS 0
-#define I2C_DIAG_YIELD_EVERY 8
+#define BLE_TEMP_UPDATE_INTERVAL_MS 3000
 
 typedef enum {
     CONTROL_MANUAL = 0,
@@ -109,162 +63,27 @@ typedef enum {
 #define PUMP_75_PERCENT 75
 #define PUMP_100_PERCENT 100
 
-// LED animation for auto mode
-#define LED_ANIM_INTERVAL_MS 1000
+// LED timing
 #define LED_FLASH_INTERVAL_MS 250
 
 typedef struct {
     gpio_num_t pin;
-    bool stable_state;      // true=released, false=pressed
+    bool stable_state;
     bool current_state;
 } button_state_t;
 
-// Forward declarations
-static void update_animation_leds(uint32_t current_ms);
-static void update_pump_level_leds(uint32_t pump_percent);
-static void update_mode_led(uint32_t current_ms);
-static void refresh_pump_output_state(void);
-static void verify_ina_address_mapping(void);
+// Globals
+static uint8_t s_tmp117_addr = TMP117_ADDR_PRIMARY;
+static bool s_tmp117_found = false;
 
-#if I2C_ENABLE_FULL_DIAGNOSTICS
-static void log_i2c_probe_diagnostics(TickType_t timeout_ticks)
-{
-    ESP_LOGI(TAG, "I2C diagnostics: probing 0x%02X..0x%02X", I2C_DIAG_START_ADDR, I2C_DIAG_END_ADDR);
-    uint8_t probe_count = 0;
-
-    for (uint8_t addr = I2C_DIAG_START_ADDR; addr <= I2C_DIAG_END_ADDR; ++addr) {
-        esp_err_t perr = i2c_bus_probe(addr, timeout_ticks);
-        if (perr == ESP_OK) {
-            ESP_LOGI(TAG, "I2C probe 0x%02X: ACK", addr);
-        } else {
-            ESP_LOGW(TAG, "I2C probe 0x%02X: %s", addr, esp_err_to_name(perr));
-        }
-
-        probe_count++;
-        if ((probe_count % I2C_DIAG_YIELD_EVERY) == 0) {
-            // Yield during long probe sweeps to avoid startup watchdog trips.
-            vTaskDelay(pdMS_TO_TICKS(1));
-        }
-    }
-}
-#endif
-
-// PWM-synchronized INA reading callback
-static void pwm_sync_timer_callback(void *arg)
-{
-    // Timer uses ESP_TIMER_TASK dispatch, so this callback is not in ISR context.
-    if (ina_read_semaphore != NULL) {
-        xSemaphoreGive(ina_read_semaphore);
-    }
-}
-
-// Dedicated task for synchronized INA readings
-static void ina_reading_task(void *arg)
-{
-    uint32_t sample_count = 0;
-
-    while (1) {
-        if (xSemaphoreTake(ina_read_semaphore, portMAX_DELAY) == pdTRUE) {
-            uint32_t now_ms = esp_log_timestamp();
-
-            // Dither the read phase so INA samples do not lock to a fixed PWM phase.
-            uint32_t phase_dither_ms = sample_count % INA_READ_PHASE_DITHER_MS;
-            vTaskDelay(pdMS_TO_TICKS(INA_READ_OFFSET_MS + phase_dither_ms));
-            sample_count++;
-
-            if (s_ina1_present) {
-                synchronized_ina1_error = ina226_read_measurement(
-                    INA226_1_ADDR,
-                    INA226_PUMP_SHUNT_RESISTANCE_OHM,
-                    &synchronized_ina1_measurement);
-
-                if (synchronized_ina1_error == ESP_OK) {
-                    s_ina1_fail_count = 0;
-                } else {
-                    if (s_ina1_fail_count < 255) {
-                        s_ina1_fail_count++;
-                    }
-                    if (s_ina1_fail_count >= DEVICE_FAILURE_DISABLE_THRESHOLD) {
-                        s_ina1_present = false;
-                        s_ina1_next_retry_ms = now_ms + DEVICE_RETRY_INTERVAL_MS;
-                        ESP_LOGW(TAG,
-                                 "INA1 (0x%02X) marked offline after %u read failures; retry in %u ms",
-                                 INA226_1_ADDR,
-                                 (unsigned)s_ina1_fail_count,
-                                 (unsigned)DEVICE_RETRY_INTERVAL_MS);
-                    }
-                }
-            } else if (now_ms >= s_ina1_next_retry_ms) {
-                esp_err_t reinit_err = ina226_init(INA226_1_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);
-                if (reinit_err == ESP_OK) {
-                    s_ina1_present = true;
-                    s_ina1_fail_count = 0;
-                    synchronized_ina1_error = ESP_OK;
-                    ESP_LOGI(TAG, "INA1 (0x%02X) recovered and re-enabled", INA226_1_ADDR);
-                } else {
-                    synchronized_ina1_error = reinit_err;
-                    s_ina1_next_retry_ms = now_ms + DEVICE_RETRY_INTERVAL_MS;
-                }
-            } else {
-                synchronized_ina1_error = ESP_ERR_NOT_FOUND;
-            }
-
-            if (s_ina2_present) {
-                synchronized_ina2_error = ina226_read_measurement(
-                    INA226_2_ADDR,
-                    INA226_LOGIC_SHUNT_RESISTANCE_OHM,
-                    &synchronized_ina2_measurement);
-
-                if (synchronized_ina2_error == ESP_OK) {
-                    s_ina2_fail_count = 0;
-                } else {
-                    if (s_ina2_fail_count < 255) {
-                        s_ina2_fail_count++;
-                    }
-                    if (s_ina2_fail_count >= DEVICE_FAILURE_DISABLE_THRESHOLD) {
-                        s_ina2_present = false;
-                        s_ina2_next_retry_ms = now_ms + DEVICE_RETRY_INTERVAL_MS;
-                        ESP_LOGW(TAG,
-                                 "INA2 (0x%02X) marked offline after %u read failures; retry in %u ms",
-                                 INA226_2_ADDR,
-                                 (unsigned)s_ina2_fail_count,
-                                 (unsigned)DEVICE_RETRY_INTERVAL_MS);
-                    }
-                }
-            } else if (now_ms >= s_ina2_next_retry_ms) {
-                esp_err_t reinit_err = ina226_init(INA226_2_ADDR, INA226_LOGIC_SHUNT_RESISTANCE_OHM);
-                if (reinit_err == ESP_OK) {
-                    s_ina2_present = true;
-                    s_ina2_fail_count = 0;
-                    synchronized_ina2_error = ESP_OK;
-                    ESP_LOGI(TAG, "INA2 (0x%02X) recovered and re-enabled", INA226_2_ADDR);
-                } else {
-                    synchronized_ina2_error = reinit_err;
-                    s_ina2_next_retry_ms = now_ms + DEVICE_RETRY_INTERVAL_MS;
-                }
-            } else {
-                synchronized_ina2_error = ESP_ERR_NOT_FOUND;
-            }
-
-            ESP_LOGD(TAG, "INA readings synchronized at PWM cycle + 3ms");
-        }
-    }
-}
-
-// Global state
 static uint32_t current_pump_percent = PUMP_START_PERCENT;
 static control_mode_t control_mode = CONTROL_MANUAL;
 static uint32_t last_flash_toggle_ms = 0;
 static bool flash_state = false;
-static uint32_t last_status_led_toggle_ms = 0;
-static bool status_led_state = false;
-static uint32_t last_anim_update_ms = 0;
-static uint8_t anim_led_index = 0;
-static uint8_t pump_no_current_streak = 0;
+
 static button_state_t button_d2 = {BUTTON_D2, true, true};
 static button_state_t button_a2 = {BUTTON_A2, true, true};
 static button_state_t button_a3 = {BUTTON_A3, true, true};
-static esp_timer_handle_t pwm_sync_timer = NULL;
 
 // Battery countdown timer (3 minutes = 180 seconds)
 #define BATTERY_COUNTDOWN_SECONDS 180
@@ -272,6 +91,15 @@ static uint32_t battery_timer_start_ms = 0;
 static bool battery_timer_active = true;
 static uint32_t last_battery_blink_ms = 0;
 static bool battery_blink_state = false;
+
+// Latest temp for BLE
+float g_latest_temp_f = 0.0f;
+
+// Forward declarations
+static void update_animation_leds(uint32_t current_ms);
+static void update_pump_level_leds(uint32_t pump_percent);
+static void update_mode_led(uint32_t current_ms);
+static void refresh_pump_output_state(void);
 
 static void toggle_led(void)
 {
@@ -281,12 +109,11 @@ static void toggle_led(void)
 
     if (control_mode == CONTROL_MANUAL) {
         update_pump_level_leds(current_pump_percent);
-        ESP_LOGI(TAG, "Control mode: MANUAL - Use A2/A3 buttons to adjust pump");
+        ESP_LOGI(TAG, "Control mode: MANUAL");
     } else {
-        ESP_LOGI(TAG, "Control mode: AUTOMATIC - Pump controlled by temperature");
+        ESP_LOGI(TAG, "Control mode: AUTOMATIC");
     }
 }
-
 
 static void update_pump_auto(float temp_f)
 {
@@ -311,69 +138,48 @@ static void update_pump_auto(float temp_f)
     if (new_pump_percent != current_pump_percent) {
         current_pump_percent = new_pump_percent;
         refresh_pump_output_state();
-        ESP_LOGI(TAG, "Auto mode: Temp %.2f°F -> Pump %lu%%",
+        ESP_LOGI(TAG, "Auto mode: Temp %.2fF -> Pump %lu%%",
                  temp_f, (unsigned long)new_pump_percent);
     }
 }
 
 static void update_animation_leds(uint32_t current_ms)
 {
-    // Battery countdown display (D3, D4, D5)
-    // Counts down 3 minutes: 3min=all on, 2min=2 on, 1min=1 blinking, 0=all off
     if (battery_timer_active) {
         uint32_t elapsed_ms = current_ms - battery_timer_start_ms;
         uint32_t elapsed_s = elapsed_ms / 1000;
-        uint32_t remaining_s = (elapsed_s < BATTERY_COUNTDOWN_SECONDS) 
-                                ? (BATTERY_COUNTDOWN_SECONDS - elapsed_s) 
-                                : 0;
-        
-        // Log battery status every 60 seconds (at transitions)
-        static uint32_t last_battery_log_s = BATTERY_COUNTDOWN_SECONDS;
-        uint32_t current_minute = remaining_s / 60;
-        if (current_minute != last_battery_log_s / 60) {
-            last_battery_log_s = remaining_s;
-            if (remaining_s > 0) {
-                ESP_LOGI(TAG, "Battery: %lu minutes remaining", remaining_s / 60);
-            } else {
-                ESP_LOGI(TAG, "Battery: DEPLETED");
-                battery_timer_active = false;
-            }
-        }
-        
+        uint32_t remaining_s = (elapsed_s < BATTERY_COUNTDOWN_SECONDS)
+            ? (BATTERY_COUNTDOWN_SECONDS - elapsed_s)
+            : 0;
+
         if (remaining_s > 120) {
-            // 3 min range: all 3 LEDs on
-            gpio_set_level(LED_AUTO_STATUS_1, 1);  // D3
-            gpio_set_level(LED_AUTO_STATUS_2, 1);  // D4
-            gpio_set_level(LED_ANIM_D5, 1);        // D5
+            gpio_set_level(LED_AUTO_STATUS_1, 1);
+            gpio_set_level(LED_AUTO_STATUS_2, 1);
+            gpio_set_level(LED_ANIM_D5, 1);
         } else if (remaining_s > 60) {
-            // 2 min range: 2 LEDs on
-            gpio_set_level(LED_AUTO_STATUS_1, 1);  // D3
-            gpio_set_level(LED_AUTO_STATUS_2, 1);  // D4
-            gpio_set_level(LED_ANIM_D5, 0);        // D5
+            gpio_set_level(LED_AUTO_STATUS_1, 1);
+            gpio_set_level(LED_AUTO_STATUS_2, 1);
+            gpio_set_level(LED_ANIM_D5, 0);
         } else if (remaining_s > 0) {
-            // 1 min range: 1 LED blinking
-            gpio_set_level(LED_AUTO_STATUS_2, 0);  // D4
+            gpio_set_level(LED_AUTO_STATUS_2, 0);
+            gpio_set_level(LED_ANIM_D5, 0);
+
             if (current_ms - last_battery_blink_ms >= LED_FLASH_INTERVAL_MS) {
                 battery_blink_state = !battery_blink_state;
                 last_battery_blink_ms = current_ms;
             }
-            gpio_set_level(LED_AUTO_STATUS_1, battery_blink_state ? 1 : 0);  // D3 blinking
+            gpio_set_level(LED_AUTO_STATUS_1, battery_blink_state ? 1 : 0);
         } else {
-            // Time expired: all off
-            gpio_set_level(LED_AUTO_STATUS_1, 0);  // D3
-            gpio_set_level(LED_AUTO_STATUS_2, 0);  // D4
-            gpio_set_level(LED_ANIM_D5, 0);        // D5
+            battery_timer_active = false;
+            gpio_set_level(LED_AUTO_STATUS_1, 0);
+            gpio_set_level(LED_AUTO_STATUS_2, 0);
+            gpio_set_level(LED_ANIM_D5, 0);
         }
     }
 }
 
 static void update_pump_level_leds(uint32_t pump_percent)
 {
-    // Pump level indicator (D6, D7, D8)
-    // 0%   = all off
-    // 1-33%  = D6 only
-    // 34-66% = D6 + D7
-    // 67-100% = D6 + D7 + D8
     if (pump_percent == 0) {
         gpio_set_level(LED_ANIM_D6, 0);
         gpio_set_level(LED_ANIM_D7, 0);
@@ -395,9 +201,6 @@ static void update_pump_level_leds(uint32_t pump_percent)
 
 static void update_mode_led(uint32_t current_ms)
 {
-    // Mode indicator (D9)
-    // Manual mode: flashing
-    // Auto mode: constant on
     if (control_mode == CONTROL_MANUAL) {
         if (current_ms - last_flash_toggle_ms >= LED_FLASH_INTERVAL_MS) {
             flash_state = !flash_state;
@@ -405,57 +208,8 @@ static void update_mode_led(uint32_t current_ms)
         }
         gpio_set_level(LED_ANIM_D9, flash_state ? 1 : 0);
     } else {
-        gpio_set_level(LED_ANIM_D9, 1);  // Constant on in auto mode
+        gpio_set_level(LED_ANIM_D9, 1);
     }
-}
-
-static void init_ina_sync_reading(void)
-{
-    ina_read_semaphore = xSemaphoreCreateBinary();
-    if (ina_read_semaphore == NULL) {
-        ESP_LOGE(TAG, "Failed to create INA read semaphore");
-        return;
-    }
-    ESP_LOGD(TAG, "INA read semaphore created");
-
-    const esp_timer_create_args_t timer_args = {
-        .callback = pwm_sync_timer_callback,
-        .name = "pwm_sync_timer",
-        .arg = NULL,
-        .dispatch_method = ESP_TIMER_TASK,
-    };
-
-    esp_err_t err = esp_timer_create(&timer_args, &pwm_sync_timer);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to create PWM sync timer: %s", esp_err_to_name(err));
-        return;
-    }
-
-    uint64_t timer_period_us = (INA_SYNC_PERIOD_MS * 1000);
-    err = esp_timer_start_periodic(pwm_sync_timer, timer_period_us);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to start PWM sync timer: %s", esp_err_to_name(err));
-        return;
-    }
-
-    ESP_LOGI(TAG, "PWM sync timer started: %llu us period (%.1f Hz)",
-             timer_period_us, 1000000.0f / timer_period_us);
-
-    TaskHandle_t task_handle;
-    BaseType_t task_result = xTaskCreate(
-        ina_reading_task,
-        "ina_reading_task",
-        INA_READING_TASK_STACK_SIZE,
-        NULL,
-        INA_READING_TASK_PRIORITY,
-        &task_handle);
-
-    if (task_result != pdPASS) {
-        ESP_LOGE(TAG, "Failed to create INA reading task");
-        return;
-    }
-
-    ESP_LOGI(TAG, "INA synchronized reading system initialized");
 }
 
 static void init_buttons_and_led(void)
@@ -537,132 +291,42 @@ static void refresh_pump_output_state(void)
     }
 }
 
-static void verify_ina_address_mapping(void)
-{
-    esp_err_t pump_probe = i2c_bus_probe(INA226_PUMP_ADDR, pdMS_TO_TICKS(10));
-    esp_err_t logic_probe = i2c_bus_probe(INA226_LOGIC_ADDR, pdMS_TO_TICKS(10));
-
-    if (pump_probe == ESP_OK && logic_probe == ESP_OK) {
-        ESP_LOGI(TAG,
-                 "INA address map verified: PUMP=0x%02X, LOGIC=0x%02X",
-                 INA226_PUMP_ADDR,
-                 INA226_LOGIC_ADDR);
-        return;
-    }
-
-    ESP_LOGW(TAG,
-             "INA address map check: expected PUMP=0x%02X (%s), LOGIC=0x%02X (%s)",
-             INA226_PUMP_ADDR,
-             esp_err_to_name(pump_probe),
-             INA226_LOGIC_ADDR,
-             esp_err_to_name(logic_probe));
-}
-
 void app_main(void)
 {
-    // Suppress component logs so only explicit temperature prints appear in console.
     esp_log_level_set("*", ESP_LOG_NONE);
 
     esp_err_t err = ESP_OK;
 
     while ((err = i2c_bus_init()) != ESP_OK) {
-        ESP_LOGE(TAG,
-                 "Failed to initialize I2C bus: %s. Retrying in %u ms",
-                 esp_err_to_name(err),
-                 (unsigned)STARTUP_RETRY_DELAY_MS);
+        printf("Failed to initialize I2C bus: %s. Retrying...\n", esp_err_to_name(err));
         vTaskDelay(pdMS_TO_TICKS(STARTUP_RETRY_DELAY_MS));
     }
-    ESP_LOGI(TAG, "I2C bus initialized");
-
-    ESP_LOGI(TAG, "Scanning I2C bus...");
-    i2c_bus_scan(pdMS_TO_TICKS(10));
-#if ENABLE_INA_MONITORING
-    verify_ina_address_mapping();
-#endif
 
     while ((err = pump_operation_init()) != ESP_OK) {
-        ESP_LOGE(TAG,
-                 "Failed to initialize pump output: %s. Retrying in %u ms",
-                 esp_err_to_name(err),
-                 (unsigned)STARTUP_RETRY_DELAY_MS);
+        printf("Failed to initialize pump output: %s. Retrying...\n", esp_err_to_name(err));
         vTaskDelay(pdMS_TO_TICKS(STARTUP_RETRY_DELAY_MS));
     }
 
     init_buttons_and_led();
 
-    // Initialize battery countdown timer (3 minutes)
     battery_timer_start_ms = esp_timer_get_time() / 1000;
-    ESP_LOGI(TAG, "Battery timer: 3 minutes countdown started");
 
     s_tmp117_addr = TMP117_ADDR_PRIMARY;
     if (tmp117_init(s_tmp117_addr) == ESP_OK) {
         s_tmp117_found = true;
     }
-    if (s_tmp117_found) {
-        ESP_LOGI(TAG, "TMP117 selected address: 0x%02X", s_tmp117_addr);
-    }
-    if (!s_tmp117_found) {
-        ESP_LOGE(TAG,
-                 "TMP117 not found at expected address (0x%02X)",
-                 TMP117_ADDR_PRIMARY);
-    }
-
-#if ENABLE_INA_MONITORING
-    err = ina226_init(INA226_PUMP_ADDR, INA226_PUMP_SHUNT_RESISTANCE_OHM);
-    if (err != ESP_OK) {
-        s_ina1_present = false;
-        s_ina1_next_retry_ms = esp_log_timestamp() + DEVICE_RETRY_INTERVAL_MS;
-        synchronized_ina1_error = err;
-        ESP_LOGW(TAG, "PUMP (INA1, 0x%02X) not found: %s", INA226_PUMP_ADDR, esp_err_to_name(err));
-    } else {
-        s_ina1_present = true;
-        s_ina1_fail_count = 0;
-        synchronized_ina1_error = ESP_OK;
-        ESP_LOGI(TAG, "PUMP (INA1, 0x%02X) initialized", INA226_PUMP_ADDR);
-    }
-
-    err = ina226_init(INA226_LOGIC_ADDR, INA226_LOGIC_SHUNT_RESISTANCE_OHM);
-    if (err != ESP_OK) {
-        s_ina2_present = false;
-        s_ina2_next_retry_ms = esp_log_timestamp() + DEVICE_RETRY_INTERVAL_MS;
-        synchronized_ina2_error = err;
-        ESP_LOGW(TAG, "LOGIC (INA2, 0x%02X) not found: %s", INA226_LOGIC_ADDR, esp_err_to_name(err));
-    } else {
-        s_ina2_present = true;
-        s_ina2_fail_count = 0;
-        synchronized_ina2_error = ESP_OK;
-        ESP_LOGI(TAG, "LOGIC (INA2, 0x%02X) initialized", INA226_LOGIC_ADDR);
-    }
-#endif
-
-    // Full-range diagnostics are expensive; keep disabled in production boot path.
-#if I2C_ENABLE_FULL_DIAGNOSTICS
-    log_i2c_probe_diagnostics(pdMS_TO_TICKS(10));
-#endif
-
-#if ENABLE_INA_MONITORING
-    init_ina_sync_reading();
-#endif
 
     ble_init();
-    ESP_LOGI(TAG, "BLE initialized");
 
     while ((err = pump_operation_set_duty_percent((uint8_t)PUMP_START_PERCENT)) != ESP_OK) {
-        ESP_LOGE(TAG,
-                 "Failed to set initial pump speed: %s. Retrying in %u ms",
-                 esp_err_to_name(err),
-                 (unsigned)STARTUP_RETRY_DELAY_MS);
+        printf("Failed to set initial pump speed: %s. Retrying...\n", esp_err_to_name(err));
         vTaskDelay(pdMS_TO_TICKS(STARTUP_RETRY_DELAY_MS));
     }
+
     current_pump_percent = PUMP_START_PERCENT;
     update_pump_level_leds(current_pump_percent);
 
-    ESP_LOGI(TAG, "Pump initialized to %lu%%", (unsigned long)PUMP_START_PERCENT);
-    ESP_LOGI(TAG, "System ready. Control via buttons:");
-    ESP_LOGI(TAG, "  D2 (GPIO5): Toggle between MANUAL and AUTOMATIC modes");
-    ESP_LOGI(TAG, "  A2/A3 (GPIO3/4): Manual mode - Increase/decrease pump (+/- 10%%)");
-    ESP_LOGI(TAG, "  MANUAL mode: Pump level shown on D9/D8/D7 LEDs");
-    ESP_LOGI(TAG, "  AUTOMATIC mode: Pump controlled by temperature, animation on D5-D9");
+    uint32_t last_ble_update_ms = 0;
 
     while (1) {
         const int poll_loops = SENSOR_READ_INTERVAL_MS / BUTTON_POLL_INTERVAL_MS;
@@ -670,22 +334,16 @@ void app_main(void)
         for (int i = 0; i < poll_loops; i++) {
             uint32_t now_ms = esp_log_timestamp();
 
-            // Update mode indicator first (always)
-            update_mode_led(now_ms);              // Mode indicator (D9)
+            update_mode_led(now_ms);
 
-            // Update mode-specific LED indicators
             if (control_mode == CONTROL_MANUAL) {
-                update_pump_level_leds(current_pump_percent);  // Pump level (D6, D7, D8)
+                update_pump_level_leds(current_pump_percent);
             } else {
-                update_animation_leds(now_ms);    // Battery countdown (D3, D4, D5)
+                update_animation_leds(now_ms);
             }
 
             if (button_pressed(&button_d2)) {
                 toggle_led();
-                anim_led_index = 0;
-                last_anim_update_ms = now_ms;
-                status_led_state = false;
-                last_status_led_toggle_ms = now_ms;
             }
 
             if (control_mode == CONTROL_MANUAL) {
@@ -696,7 +354,6 @@ void app_main(void)
                     }
                     current_pump_percent = new_percent;
                     refresh_pump_output_state();
-                    ESP_LOGI(TAG, "Pump increased to %lu%%", (unsigned long)new_percent);
                 }
 
                 if (button_pressed(&button_a3)) {
@@ -706,7 +363,6 @@ void app_main(void)
                     }
                     current_pump_percent = (uint32_t)new_percent;
                     refresh_pump_output_state();
-                    ESP_LOGI(TAG, "Pump decreased to %lu%%", (unsigned long)new_percent);
                 }
             }
 
@@ -719,26 +375,36 @@ void app_main(void)
         } else {
             err = ESP_ERR_NOT_FOUND;
         }
+
         float temp_f = (temp_c * 9.0f / 5.0f) + 32.0f;
 
         if (err == ESP_OK) {
-            printf("TMP117 0x%02X: %.2fC/%.2fF | Pump: %lu%%\n",
+            g_latest_temp_f = temp_f;
+
+            printf("TMP117 0x%02X: %.2fC / %.2fF | Pump: %lu%%\n",
                    s_tmp117_addr,
                    temp_c,
                    temp_f,
                    (unsigned long)current_pump_percent);
+
+            if (control_mode == CONTROL_AUTOMATIC) {
+                update_pump_auto(temp_f);
+            }
         } else {
             printf("TMP117 0x%02X: N/A | Pump: %lu%%\n",
                    s_tmp117_addr,
                    (unsigned long)current_pump_percent);
         }
 
-        if (err == ESP_OK) {
-            if (control_mode == CONTROL_AUTOMATIC) {
-                update_pump_auto(temp_f);
-            }
-        } else {
-            ESP_LOGW(TAG, "TMP117 read failed: %s", esp_err_to_name(err));
+        uint32_t now_ms = esp_log_timestamp();
+        if (ble_is_connected() &&
+            g_latest_temp_f > 0.0f &&
+            (now_ms - last_ble_update_ms >= BLE_TEMP_UPDATE_INTERVAL_MS)) {
+            last_ble_update_ms = now_ms;
+
+            char msg[32];
+            snprintf(msg, sizeof(msg), "TempF=%.1f", g_latest_temp_f);
+            ble_notify(msg);
         }
     }
 }

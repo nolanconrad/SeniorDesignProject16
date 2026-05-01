@@ -1,6 +1,6 @@
 /* Automatically generated file; DO NOT EDIT */
 /* Espressif IoT Development Framework Linker Script */
-/* Generated from: C:\Senior Design\SeniorDesignProject16\springMain_v2\build\esp-idf\esp_system\ld\sections.ld.in */
+/* Generated from: C:\Users\primo\SeniorDesignProject16\springMain_v2\build\esp-idf\esp_system\ld\sections.ld.in */
 
 /*
 
