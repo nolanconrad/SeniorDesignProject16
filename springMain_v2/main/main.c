@@ -12,6 +12,8 @@
 #include "pumpOperation.h"
 #include "ble_handler.h"
 
+#include "ina226.h"
+
 static const char *TAG = "SYSTEM";
 
 // Button and LED Configuration
@@ -39,8 +41,13 @@ static const char *TAG = "SYSTEM";
 #define PUMP_START_PERCENT 50
 
 // TMP117
-#define TMP117_ADDR_PRIMARY   0x48
-#define TMP117_ADDR_SECONDARY 0x49
+#define TMP117_ADDR_48 0x48
+#define TMP117_ADDR_49 TMP117_I2C_ADDR_DEFAULT
+
+// INA226
+#define INA2261_ADDR 0x40
+#define INA2262_ADDR 0x41
+#define INA226_SHUNT_RESISTOR_OHMS 0.1f
 
 // Timing
 #define BUTTON_POLL_INTERVAL_MS 50
@@ -74,8 +81,8 @@ typedef struct {
 } button_state_t;
 
 // Globals
-static uint8_t s_tmp117_addr1 = TMP117_ADDR_PRIMARY;
-static uint8_t s_tmp117_addr2 = TMP117_ADDR_SECONDARY;
+static uint8_t s_tmp117_addr1 = TMP117_ADDR_48;
+static uint8_t s_tmp117_addr2 = TMP117_ADDR_49;
 static bool s_tmp117_found1 = false;
 static bool s_tmp117_found2 = false;
 
@@ -97,6 +104,12 @@ static bool battery_blink_state = false;
 
 // Latest averaged temp for BLE
 float g_latest_temp_f = 0.0f;
+
+// INA226 state
+static bool s_ina2261_found = false;
+static bool s_ina2262_found = false;
+static ina226_measurement_t g_ina2261_meas;
+static ina226_measurement_t g_ina2262_meas;
 
 // Forward declarations
 static void update_animation_leds(uint32_t current_ms);
@@ -314,14 +327,22 @@ void app_main(void)
 
     battery_timer_start_ms = esp_timer_get_time() / 1000;
 
-    s_tmp117_addr1 = TMP117_ADDR_PRIMARY;
+    s_tmp117_addr1 = TMP117_ADDR_48;
     if (tmp117_init(s_tmp117_addr1) == ESP_OK) {
         s_tmp117_found1 = true;
     }
 
-    s_tmp117_addr2 = TMP117_ADDR_SECONDARY;
+    s_tmp117_addr2 = TMP117_ADDR_49;
     if (tmp117_init(s_tmp117_addr2) == ESP_OK) {
         s_tmp117_found2 = true;
+    }
+
+    // INA226 init
+    if (ina226_init(INA2261_ADDR, INA226_SHUNT_RESISTOR_OHMS) == ESP_OK) {
+        s_ina2261_found = true;
+    }
+    if (ina226_init(INA2262_ADDR, INA226_SHUNT_RESISTOR_OHMS) == ESP_OK) {
+        s_ina2262_found = true;
     }
 
     ble_init();
@@ -382,6 +403,16 @@ void app_main(void)
         bool valid1 = false;
         bool valid2 = false;
 
+        // INA226 measurements
+        bool ina2261_valid = false;
+        bool ina2262_valid = false;
+        if (s_ina2261_found && ina226_read_measurement(INA2261_ADDR, INA226_SHUNT_RESISTOR_OHMS, &g_ina2261_meas) == ESP_OK) {
+            ina2261_valid = true;
+        }
+        if (s_ina2262_found && ina226_read_measurement(INA2262_ADDR, INA226_SHUNT_RESISTOR_OHMS, &g_ina2262_meas) == ESP_OK) {
+            ina2262_valid = true;
+        }
+
         if (s_tmp117_found1 && tmp117_read_temperature_c(s_tmp117_addr1, &temp_c1) == ESP_OK) {
             valid1 = true;
         }
@@ -404,8 +435,9 @@ void app_main(void)
             float avg_temp_f = (avg_temp_c * 9.0f / 5.0f) + 32.0f;
             g_latest_temp_f = avg_temp_f;
 
+            // Print TMP and Pump info
             if (valid1 && valid2) {
-                printf("TMP1(0x%02X): %.2fC / %.2fF | TMP2(0x%02X): %.2fC / %.2fF | AVG: %.2fC / %.2fF | Pump: %lu%%\n",
+                printf("TMP1(0x%02X): %.2fC / %.2fF | TMP2(0x%02X): %.2fC / %.2fF | AVG: %.2fC / %.2fF | Pump: %lu%%",
                        s_tmp117_addr1,
                        temp_c1,
                        (temp_c1 * 9.0f / 5.0f) + 32.0f,
@@ -416,7 +448,7 @@ void app_main(void)
                        avg_temp_f,
                        (unsigned long)current_pump_percent);
             } else if (valid1) {
-                printf("TMP1(0x%02X): %.2fC / %.2fF | TMP2(0x%02X): N/A | AVG: %.2fC / %.2fF | Pump: %lu%%\n",
+                printf("TMP1(0x%02X): %.2fC / %.2fF | TMP2(0x%02X): N/A | AVG: %.2fC / %.2fF | Pump: %lu%%",
                        s_tmp117_addr1,
                        temp_c1,
                        (temp_c1 * 9.0f / 5.0f) + 32.0f,
@@ -425,7 +457,7 @@ void app_main(void)
                        avg_temp_f,
                        (unsigned long)current_pump_percent);
             } else {
-                printf("TMP1(0x%02X): N/A | TMP2(0x%02X): %.2fC / %.2fF | AVG: %.2fC / %.2fF | Pump: %lu%%\n",
+                printf("TMP1(0x%02X): N/A | TMP2(0x%02X): %.2fC / %.2fF | AVG: %.2fC / %.2fF | Pump: %lu%%",
                        s_tmp117_addr1,
                        s_tmp117_addr2,
                        temp_c2,
@@ -435,12 +467,52 @@ void app_main(void)
                        (unsigned long)current_pump_percent);
             }
 
+            // Print INA226 readings
+            printf(" | INA1: ");
+            if (ina2261_valid) {
+                printf("V=%.3fV I=%.3fmA P=%.3fmW",
+                    g_ina2261_meas.bus_voltage_v,
+                    g_ina2261_meas.current_a * 1000.0f,
+                    g_ina2261_meas.power_w * 1000.0f);
+            } else {
+                printf("N/A");
+            }
+            printf(" | INA2: ");
+            if (ina2262_valid) {
+                printf("V=%.3fV I=%.3fmA P=%.3fmW",
+                    g_ina2262_meas.bus_voltage_v,
+                    g_ina2262_meas.current_a * 1000.0f,
+                    g_ina2262_meas.power_w * 1000.0f);
+            } else {
+                printf("N/A");
+            }
+            printf("\n");
+
             if (control_mode == CONTROL_AUTOMATIC) {
                 update_pump_auto(avg_temp_f);
             }
         } else {
-            printf("TMP117 sensors: N/A | Pump: %lu%%\n",
+            printf("TMP117 sensors: N/A | Pump: %lu%%",
                    (unsigned long)current_pump_percent);
+            printf(" | INA1: ");
+            if (ina2261_valid) {
+                printf("V=%.3fV I=%.3fmA P=%.3fmW",
+                    g_ina2261_meas.bus_voltage_v,
+                    g_ina2261_meas.current_a * 1000.0f,
+                    g_ina2261_meas.power_w * 1000.0f);
+            } else {
+                printf("N/A");
+            }
+            printf(" | INA2: ");
+            if (ina2262_valid) {
+                printf("V=%.3fV I=%.3fmA P=%.3fmW",
+                    g_ina2262_meas.bus_voltage_v,
+                    g_ina2262_meas.current_a * 1000.0f,
+                    g_ina2262_meas.power_w * 1000.0f);
+            } else {
+                printf("N/A");
+            }
+            printf("\n");
         }
 
         uint32_t now_ms = esp_log_timestamp();
