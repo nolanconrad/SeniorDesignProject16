@@ -19,7 +19,7 @@
 #define INA226_CONFIG_DEFAULT 0x4127
 #define INA226_SHUNT_VOLTAGE_LSB_V 0.0000025f
 #define INA226_BUS_VOLTAGE_LSB_V 0.00125f
-#define INA226_CURRENT_LSB_A 0.00000153f
+#define INA226_CURRENT_LSB_A (1.0f / 32768.0f)  // ~30.52uA/bit for 1A full scale (was 0.00000153f, ~20x too small)
 #define INA226_POWER_LSB_FACTOR 25.0f
 #define INA226_SHUNT_RAW_POS_FULL_SCALE 0x7FFF
 #define INA226_SHUNT_RAW_NEG_FULL_SCALE 0x8000
@@ -105,7 +105,8 @@ esp_err_t ina226_init(uint8_t i2c_address, float shunt_resistance_ohm)
     // Set the calibration register so the INA226's internal current and power
     // registers can be used directly. Current_LSB is sized for a 1.0A full-scale
     // range, which keeps the register-based readings meaningful for this project.
-    uint16_t calibration = (uint16_t)(0.00512f / (INA226_CURRENT_LSB_A * shunt_resistance_ohm));
+    // CAL is masked to 15 bits per datasheet (MSB is always 0).
+    uint16_t calibration = (uint16_t)(0.00512f / (INA226_CURRENT_LSB_A * shunt_resistance_ohm)) & 0x7FFF;
     err = ina226_write_u16(i2c_address, INA226_REG_CALIBRATION, calibration);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to set INA226 calibration at 0x%02X: %s", i2c_address, esp_err_to_name(err));
@@ -181,7 +182,7 @@ esp_err_t ina226_read_measurement(uint8_t i2c_address, float shunt_resistance_oh
             TAG,
             "INA226 0x%02X | CAL=0x%04X | CUR_RAW=0x%04X (%d) -> %.6fA | PWR_RAW=0x%04X -> %.6fW",
             i2c_address,
-            (uint16_t)(0.00512f / (INA226_CURRENT_LSB_A * shunt_resistance_ohm)),
+            (uint16_t)(0.00512f / (INA226_CURRENT_LSB_A * shunt_resistance_ohm)) & 0x7FFF,
             current_raw_u16,
             measurement->raw_current_s16,
             measurement->current_a,
