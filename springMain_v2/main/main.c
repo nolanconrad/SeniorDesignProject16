@@ -51,6 +51,8 @@ static const char *TAG = "SYSTEM";
 #define STARTUP_RETRY_DELAY_MS 1000
 #define BLE_TEMP_UPDATE_INTERVAL_MS 3000
 
+#define PUMP_FAULT_GRACE_PERIOD_MS 5000
+
 typedef enum {
     CONTROL_MANUAL = 0,
     CONTROL_AUTOMATIC = 1
@@ -106,6 +108,8 @@ static uint32_t battery_timer_start_ms = 0;
 static bool battery_timer_active = true;
 static uint32_t last_battery_blink_ms = 0;
 static bool battery_blink_state = false;
+
+static uint32_t system_start_ms = 0;
 
 float g_latest_temp_f = 0.0f;
 
@@ -341,7 +345,8 @@ static bool button_pressed(button_state_t *btn)
 
 static void refresh_pump_output_state(void)
 {
-    if (pump_fault_active && current_pump_percent > 0) {
+    if (pump_fault_active &&
+        ((esp_timer_get_time() / 1000) - system_start_ms > PUMP_FAULT_GRACE_PERIOD_MS)) {
         current_pump_percent = 0;
     }
 
@@ -372,7 +377,8 @@ void app_main(void)
 
     init_buttons_and_led();
 
-    battery_timer_start_ms = esp_timer_get_time() / 1000;
+    system_start_ms = esp_timer_get_time() / 1000;
+    battery_timer_start_ms = system_start_ms;
 
     if (tmp117_init(s_tmp117_addr1) == ESP_OK) {
         s_tmp117_found1 = true;
@@ -429,20 +435,14 @@ void app_main(void)
             if (control_mode == CONTROL_MANUAL) {
                 if (!pump_fault_active && button_pressed(&button_a2)) {
                     uint32_t new_percent = current_pump_percent + PUMP_INCREMENT;
-                    if (new_percent > 100) {
-                        new_percent = 100;
-                    }
-
+                    if (new_percent > 100) new_percent = 100;
                     current_pump_percent = new_percent;
                     refresh_pump_output_state();
                 }
 
                 if (button_pressed(&button_a3)) {
                     int32_t new_percent = (int32_t)current_pump_percent - PUMP_INCREMENT;
-                    if (new_percent < 0) {
-                        new_percent = 0;
-                    }
-
+                    if (new_percent < 0) new_percent = 0;
                     current_pump_percent = (uint32_t)new_percent;
                     refresh_pump_output_state();
                 }
@@ -456,37 +456,21 @@ void app_main(void)
         bool valid1 = false;
         bool valid2 = false;
 
-        if (s_tmp117_found1 && tmp117_read_temperature_c(s_tmp117_addr1, &temp_c1) == ESP_OK) {
+        if (s_tmp117_found1 && tmp117_read_temperature_c(s_tmp117_addr1, &temp_c1) == ESP_OK)
             valid1 = true;
-        }
 
-        if (s_tmp117_found2 && tmp117_read_temperature_c(s_tmp117_addr2, &temp_c2) == ESP_OK) {
+        if (s_tmp117_found2 && tmp117_read_temperature_c(s_tmp117_addr2, &temp_c2) == ESP_OK)
             valid2 = true;
-        }
 
         if (valid1 || valid2) {
-            float avg_temp_c = valid1 && valid2
-                ? (temp_c1 + temp_c2) / 2.0f
-                : valid1 ? temp_c1 : temp_c2;
+            float avg_temp_c = valid1 && valid2 ? (temp_c1 + temp_c2) / 2.0f
+                                                 : valid1 ? temp_c1 : temp_c2;
 
             float avg_temp_f = (avg_temp_c * 9.0f / 5.0f) + 32.0f;
             g_latest_temp_f = avg_temp_f;
 
-            printf("TMP1(0x%02X): %s | TMP2(0x%02X): %s | AVG: %.2fC / %.2fF | Pump: %lu%%\n",
-                   s_tmp117_addr1,
-                   valid1 ? "OK" : "N/A",
-                   s_tmp117_addr2,
-                   valid2 ? "OK" : "N/A",
-                   avg_temp_c,
-                   avg_temp_f,
-                   (unsigned long)current_pump_percent);
-
-            if (control_mode == CONTROL_AUTOMATIC) {
+            if (control_mode == CONTROL_AUTOMATIC)
                 update_pump_auto(avg_temp_f);
-            }
-        } else {
-            printf("TMP117 sensors: N/A | Pump: %lu%%\n",
-                   (unsigned long)current_pump_percent);
         }
 
         if (s_ina226_pump_found) {
@@ -502,18 +486,15 @@ void app_main(void)
                 pump_register_overflow_fault = false;
 
                 latest_pump_current_a = pump_meas.current_a;
-                if (latest_pump_current_a < 0.0f) {
+                if (latest_pump_current_a < 0.0f)
                     latest_pump_current_a = -latest_pump_current_a;
-                }
 
                 float pump_shunt_mV = pump_meas.shunt_voltage_v * 1000.0f;
-                if (pump_shunt_mV < 0.0f) {
+                if (pump_shunt_mV < 0.0f)
                     pump_shunt_mV = -pump_shunt_mV;
-                }
-
-                pump_shunt_voltage_fault = pump_shunt_mV >= INA226_SHUNT_LIMIT_MV;
 
                 bool pump_current_fault =
+                    ((esp_timer_get_time() / 1000) - system_start_ms > PUMP_FAULT_GRACE_PERIOD_MS) &&
                     latest_pump_current_a >= PUMP_OVERCURRENT_LIMIT_A;
 
                 pump_fault_active =
@@ -522,34 +503,8 @@ void app_main(void)
                     pump_shunt_voltage_fault ||
                     battery_low_voltage_fault;
 
-                float pump_current_mA = latest_pump_current_a * 1000.0f;
-                float pump_power_mW = pump_meas.power_w * 1000.0f;
-
-                printf("Pump INA (0x40): %.2fV | Shunt=%.2fmV | %.1fmA | %.2fmW | Fault=%d | OverCurrent=%d | ShuntFault=%d | RegOverflow=%d\n",
-                       pump_meas.bus_voltage_v,
-                       pump_shunt_mV,
-                       pump_current_mA,
-                       pump_power_mW,
-                       pump_fault_active ? 1 : 0,
-                       pump_current_fault ? 1 : 0,
-                       pump_shunt_voltage_fault ? 1 : 0,
-                       pump_register_overflow_fault ? 1 : 0);
-
-                if (pump_fault_active) {
+                if (pump_fault_active)
                     stop_pump_for_fault();
-                    printf("PUMP FAULT: current=%.3fA shunt=%.2fmV lowV=%d. Pump stopped.\n",
-                           latest_pump_current_a,
-                           pump_shunt_mV,
-                           battery_low_voltage_fault ? 1 : 0);
-                }
-            } else if (pump_err == ESP_ERR_INVALID_RESPONSE) {
-                pump_register_overflow_fault = true;
-                pump_fault_active = true;
-                stop_pump_for_fault();
-
-                printf("PUMP FAULT: INA226 shunt register overflow/saturation. Pump stopped.\n");
-            } else {
-                printf("Pump INA (0x40): read failed: %s\n", esp_err_to_name(pump_err));
             }
         }
 
@@ -561,59 +516,33 @@ void app_main(void)
                     INA226_SHUNT_RESISTANCE_OHM,
                     &batt_meas) == ESP_OK) {
 
-                update_battery_from_ina(
-                    batt_meas.bus_voltage_v,
-                    batt_meas.current_a
-                );
+                update_battery_from_ina(batt_meas.bus_voltage_v, batt_meas.current_a);
 
                 battery_low_voltage_fault =
+                    ((esp_timer_get_time() / 1000) - system_start_ms > PUMP_FAULT_GRACE_PERIOD_MS) &&
                     batt_meas.bus_voltage_v <= BATTERY_LOW_VOLTAGE_LIMIT_V;
 
                 if (battery_low_voltage_fault) {
                     pump_fault_active = true;
                     stop_pump_for_fault();
-
-                    printf("BATTERY FAULT: voltage %.2fV <= %.2fV. Pump stopped.\n",
-                           batt_meas.bus_voltage_v,
-                           BATTERY_LOW_VOLTAGE_LIMIT_V);
                 }
-
-                float current_mA = batt_meas.current_a * 1000.0f;
-                float power_mW = batt_meas.power_w * 1000.0f;
-                float voltage_drop_mV =
-                    (batt_meas.bus_voltage_v - filtered_battery_voltage_v) * 1000.0f;
-
-                printf("Battery INA (0x41): %.2fV raw | %.2fV filtered | dV=%.2fmV | %.0f%% | %.1fmA | %.2fmW | LowV=%d\n",
-                       batt_meas.bus_voltage_v,
-                       filtered_battery_voltage_v,
-                       voltage_drop_mV,
-                       latest_battery_percent,
-                       current_mA,
-                       power_mW,
-                       battery_low_voltage_fault ? 1 : 0);
-            } else {
-                printf("Battery INA (0x41): read failed\n");
             }
         }
 
         uint32_t now_ms = esp_log_timestamp();
+
         if (ble_is_connected() &&
             (now_ms - last_ble_update_ms >= BLE_TEMP_UPDATE_INTERVAL_MS)) {
 
             last_ble_update_ms = now_ms;
 
             char msg[128];
-            snprintf(
-                msg,
-                sizeof(msg),
-                "TempF=%.1f,Batt=%.0f,Curr=%.2f,Fault=%d,LowV=%d,RegOverflow=%d,ShuntFault=%d",
+            snprintf(msg, sizeof(msg),
+                "TempF=%.1f,Batt=%.0f,Curr=%.2f,Fault=%d",
                 g_latest_temp_f,
                 latest_battery_percent,
                 latest_pump_current_a,
-                pump_fault_active ? 1 : 0,
-                battery_low_voltage_fault ? 1 : 0,
-                pump_register_overflow_fault ? 1 : 0,
-                pump_shunt_voltage_fault ? 1 : 0
+                pump_fault_active ? 1 : 0
             );
 
             ble_notify(msg);
